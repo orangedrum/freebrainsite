@@ -1,0 +1,46 @@
+# Local development environment for FreeBrain
+# ──────────────────────────────────────────────
+# Usage:
+#   docker compose up          → start dev server with hot-reload
+#   docker compose up --build  → rebuild after dependency changes
+#   docker compose down        → stop
+#
+# The app runs at http://localhost:8080
+# Your local source is mounted as a volume, so edits hot-reload live.
+# node_modules lives in the container only (no host pollution).
+
+services:
+  dev:
+    build:
+      context: .
+      dockerfile_inline: |
+        FROM node:20-alpine
+        WORKDIR /app
+        COPY package.json package-lock.json* bun.lock* ./
+        RUN npm ci --omit=dev || npm install
+        COPY . .
+    working_dir: /app
+    command: npm run dev -- --host 0.0.0.0 --port 5173
+    ports:
+      - "8080:5173"
+    volumes:
+      # Mount source code for hot-reload
+      - .:/app
+      # Keep container node_modules separate from host
+      - /app/node_modules
+    environment:
+      # ─── Supabase (replace with your project values) ───
+      - VITE_SUPABASE_URL=${VITE_SUPABASE_URL}
+      - VITE_SUPABASE_ANON_KEY=${VITE_SUPABASE_ANON_KEY}
+      # Add any other VITE_ vars your app needs here
+    restart: unless-stopped
+
+  # Optional: production preview (build + serve via nginx)
+  prod:
+    build:
+      context: .
+      target: production
+    ports:
+      - "3000:80"
+    profiles:
+      - prod
