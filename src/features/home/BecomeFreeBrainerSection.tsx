@@ -3,7 +3,6 @@ import { ChevronRight, Home, Brain, Rocket, Building2 } from "lucide-react";
 import { VideoPlayer } from "@/components/shared/VideoPlayer";
 import { Pill } from "@/components/shared/Pill";
 import { VIDEO_SOURCES, EXTERNAL_LINKS } from "@/lib/constants";
-import { openExternalLink } from "@/lib/navigation";
 import type { GrowthCard, OpenModalFn } from "@/types";
 
 interface BecomeFreeBrainerSectionProps {
@@ -47,7 +46,15 @@ export const BecomeFreeBrainerSection = ({ onOpenModal }: BecomeFreeBrainerSecti
     const careFacilitiesTitle = t("becomeFreeBrainer.cards.careFacilities.title");
 
     if (card.title === joinCommunityTitle) {
-      openExternalLink(EXTERNAL_LINKS.whatsapp);
+      onOpenModal(
+        t("modal.joinCommunity.title"),
+        t("modal.joinCommunity.description"),
+        card.icon,
+        t("modal.joinCommunity.whatsappCta"),
+        EXTERNAL_LINKS.whatsapp,
+        t("modal.joinCommunity.pilotCta"),
+        EXTERNAL_LINKS.mailingList,
+      );
       return;
     }
 

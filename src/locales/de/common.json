@@ -1,7 +1,8 @@
 {
   "header": {
     "joinCommunity": "Community beitreten",
-    "getInvolved": "Mitmachen"
+    "getInvolved": "Mitmachen",
+    "team": "Team"
   },
   "hero": {
     "presentedBy": "The ProductShift präsentiert",
@@ -71,6 +72,73 @@
       }
     }
   },
+  "advisors": {
+    "pill": "Von Experten begleitet",
+    "title": "Unsere Berater",
+    "description": "Neurologen, Technologen und Bewegungsspezialisten, die unsere klinische und technische Richtung leiten.",
+    "invite": {
+      "title": "Werde Berater",
+      "description": "Für Neurologen, Tech-Experten und Bewegungsspezialisten: Leite unsere klinische und technische Richtung."
+    },
+    "members": {
+      "advisor1": {
+        "name": "Anoop",
+        "role": "Neuroscientist | Brain + Body Intelligence for Elite Sport",
+        "contribution": "Anoop bringt wissenschaftliche Expertise in Neurowissenschaft, Gehirnfunktion, Neuroplastizität und Neurotechnologie ein und unterstützt die Entwicklung und Validierung evidenzbasierter Ansätze, die Forschungsstrategie und die Übersetzung von Neurowissenschaft in praktische Interventionen."
+      },
+      "advisor2": {
+        "name": "Martin",
+        "role": "Technologie • Platzhalter-Titel",
+        "contribution": "Platzhalter: Beitrag zu FreeBrain — z. B. Produkt- und KI-Richtung für gewohnheitsbildende Therapie."
+      }
+    }
+  },
+  "team": {
+    "title": "Unser Team",
+    "subtitle": "Die Menschen, die FreeBrain voranbringen.",
+    "founder": {
+      "name": "Jean Kaluza",
+      "role": "Founder, UX Researcher, Growth Strategist, Gen AI Innovator",
+      "photoAlt": "Jean Kaluza auf der Bühne",
+      "highlights": {
+        "startups": "Produktleitung für wachstumsstarke Startups (einschließlich eines für $36M übernommenen)",
+        "thoughtLeader": "Thought Leadership: Vorträge, Publikationen & Beratung",
+        "director": "Leitet TheProductShift und brachte ProductShifts eigene UserTesting-App auf den Markt",
+        "optimization": "Optimierung digitaler Erlebnisse, Wachstum & Flywheel-Implementierung"
+      },
+      "linkedinCta": "Auf LinkedIn vernetzen",
+      "productShiftCta": "The ProductShift besuchen"
+    },
+    "stats": {
+      "experience": "Jahre Erfahrung",
+      "projects": "Abgeschlossene Projekte",
+      "roi": "Ø ROI-Steigerung",
+      "successRate": "Erfolgsquote"
+    },
+    "clients": {
+      "title": "Zufriedene Projekte",
+      "logos": {
+        "disney": "Disney",
+        "codeschool": "Code School",
+        "pluralsight": "Pluralsight",
+        "stackpath": "StackPath"
+      }
+    }
+  },
+  "websummit": {
+    "pill": "Web Summit · Lissabon",
+    "title": "Triff FreeBrain auf dem Web Summit 2026",
+    "dates": "9.–12. November 2026 · MEO Arena, Lissabon",
+    "description": "Wir bringen positiv süchtig machende Bewegungstherapie für dein Gehirn auf die größte Tech-Bühne der Welt. Komm und bewege dich mit uns in Lissabon!",
+    "cta": "Triff uns auf dem Web Summit",
+    "countdown": {
+      "days": "Tage",
+      "hours": "Stunden",
+      "minutes": "Minuten",
+      "seconds": "Sekunden",
+      "live": "Wir sind live in Lissabon! Komm vorbei."
+    }
+  },
   "getInvolved": {
     "title": "Mitmachen",
     "subtitle": "In dieser frühen Phase von Wachstum & Entdeckung kannst du eine wichtige Rolle in unserer Entwicklung spielen. So geht's:",
@@ -132,12 +200,28 @@
     }
   },
   "footer": {
-    "tagline": "Positiv suchtmachende Bewegungstherapie auf Abruf für dein Gehirn",
+    "tagline": "Du brauchst keinen Doktortitel, um dich zu bewegen! Tabletten lindern Symptome — Bewegung verdrahtet das Gehirn neu. FreeBrain macht Menschen zur besten Medizin.",
     "incubatorLabel": "Vertraut von Innovativer Health-Inkubator",
-    "copyright": "© {{year}} FreeBrain. Alle Rechte vorbehalten."
+    "copyright": "© {{year}} FreeBrain. Alle Rechte vorbehalten.",
+    "explore": "Entdecken",
+    "links": {
+      "home": "Start"
+    },
+    "resources": "Ressourcen",
+    "podcast": "Podcast",
+    "resourceCenter": "Ressourcenzentrum",
+    "soon": "Bald",
+    "backToTop": "Nach oben",
+    "webSummitLabel": "Als ALPHA-Startup zum Web Summit Lissabon eingeladen"
   },
   "modal": {
     "cancel": "Abbrechen",
+    "joinCommunity": {
+      "title": "Community beitreten",
+      "description": "Wähl deinen Weg — chatte täglich mit FreeBrainern auf WhatsApp, erhalte das monatliche Update per E-Mail, oder beides.",
+      "whatsappCta": "WhatsApp-Community beitreten",
+      "pilotCta": "Pilot beitreten"
+    },
     "joinPilot": {
       "title": "Pilot beitreten",
       "description": "Unser Pilot für die virtuelle Neuro-Therapie-App steht kurz vor dem Launch. Werde einer der ersten FreeBrainer!",

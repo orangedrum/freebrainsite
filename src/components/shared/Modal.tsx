@@ -33,6 +33,17 @@ export const Modal = ({ config, onOpenChange }: ModalProps) => {
               {config.ctaText}
             </a>
           </Button>
+          {config.secondaryCtaText && config.secondaryCtaLink && (
+            <Button
+              asChild
+              variant="outline"
+              className="w-full border-foreground/20 text-foreground hover:bg-foreground/10 bg-transparent"
+            >
+              <a href={config.secondaryCtaLink} target="_blank" rel="noopener noreferrer">
+                {config.secondaryCtaText}
+              </a>
+            </Button>
+          )}
           <Button
             variant="outline"
             className="w-full border-foreground/20 text-foreground hover:bg-foreground/10 bg-transparent"

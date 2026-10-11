@@ -24,6 +24,8 @@ export const useModalState = () => {
     icon: IconType,
     ctaText: string = t("modal.advisors.cta"),
     ctaLink: string = EXTERNAL_LINKS.calendly,
+    secondaryCtaText?: string,
+    secondaryCtaLink?: string,
   ): void => {
     setModalConfig({
       isOpen: true,
@@ -32,6 +34,8 @@ export const useModalState = () => {
       icon,
       ctaText,
       ctaLink,
+      secondaryCtaText,
+      secondaryCtaLink,
     });
   };
 

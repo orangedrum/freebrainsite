@@ -17,8 +17,7 @@ import {
 import type { Condition, EvidenceItem, NeuralNode, SocialFeed } from "@/types";
 import { TikTokIcon } from "@/components/shared/TikTokIcon";
 
-export const LOGO_URL =
-  "https://assets.cdn.filesafe.space/yblU9x5q5wszWmmHd5ey/media/6a3b53b3ae7d4768392fa598.png";
+export const LOGO_URL = "/smoothbluebkgrnd_nobkgrnd.png";
 
 export const FIREFLY_LOGO_URL =
   "https://vibe.filesafe.space/1782179753705442134/attachments/3bb178ac-ff68-42c2-a782-b105f1b839bb.gif";
@@ -44,6 +43,11 @@ export const EXTERNAL_LINKS = {
   calendly:
     "https://calendly.com/jean-kaluza/app-idea-day-1-facilitation-clone",
   pilotForm: "https://jq8ounso.forms.app/freethebrains-participation",
+  mailingList: "https://share.forms.app/theproductshift/freethebrains-participation",
+  productShift: "https://www.theproductshift.com",
+  webSummit:
+    "https://websummit.com/appearances/lis26/62641e0c-1273-4217-bd18-4f3b97fdeb76/?code=FREEBRAIN&utm_source=Iterable&utm_medium=email&utm_campaign=campaign_484969",
+  founderLinkedin: "https://www.linkedin.com/in/jeankaluza",
   instagram:
     "https://www.instagram.com/freebrainsmove?igsh=ZTloaDF3dzNscWVm",
   facebook: "https://www.facebook.com/share/1HsPvX6Hfz/",

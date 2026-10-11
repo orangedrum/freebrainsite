@@ -6,6 +6,7 @@ import { SectionHeading } from "@/components/shared/SectionHeading";
 import { GridBackground } from "@/components/shared/GridBackground";
 import { HeroSection } from "@/features/home/HeroSection";
 import { ConditionsMarquee } from "@/features/home/ConditionsMarquee";
+import { WebSummitSection } from "@/features/home/WebSummitSection";
 import { OnDemandTherapySection } from "@/features/home/OnDemandTherapySection";
 import { BecomeFreeBrainerSection } from "@/features/home/BecomeFreeBrainerSection";
 import { GetInvolvedSection } from "@/features/home/GetInvolvedSection";
@@ -20,10 +21,11 @@ const Index = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-background font-sans">
-      <Header />
+      <Header onOpenModal={openModal} />
 
       <main className="flex-1">
         <HeroSection onOpenModal={openModal} />
+        <WebSummitSection />
         <ConditionsMarquee />
 
         <section id="platform" className="relative overflow-hidden py-20 md:py-32 z-0">

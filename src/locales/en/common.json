@@ -1,7 +1,8 @@
 {
   "header": {
     "joinCommunity": "Join Community",
-    "getInvolved": "Get Involved"
+    "getInvolved": "Get Involved",
+    "team": "Team"
   },
   "hero": {
     "presentedBy": "The ProductShift Presents",
@@ -71,6 +72,73 @@
       }
     }
   },
+  "advisors": {
+    "pill": "Guided by Experts",
+    "title": "Our Advisors",
+    "description": "Neurologists, technologists, and movement specialists guiding our clinical and technical direction.",
+    "invite": {
+      "title": "Become an Advisor",
+      "description": "Are you a neurologist, technologist, or movement specialist? Help guide our clinical and technical direction."
+    },
+    "members": {
+      "advisor1": {
+        "name": "Anoop",
+        "role": "Neuroscientist | Brain + Body Intelligence for Elite Sport",
+        "contribution": "Anoop brings scientific expertise in neuroscience, brain function, neuroplasticity and neurotechnology, supporting the development and validation of evidence-based approaches, research strategy and the translation of neuroscience into practical interventions."
+      },
+      "advisor2": {
+        "name": "Martin",
+        "role": "Technology • Placeholder Title",
+        "contribution": "Placeholder: what they bring to FreeBrain — e.g. product and AI direction for habit-forming therapy."
+      }
+    }
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "The people moving FreeBrain forward.",
+    "founder": {
+      "name": "Jean Kaluza",
+      "role": "Founder, UX Researcher, Growth Strategist, Gen AI Innovator",
+      "photoAlt": "Jean Kaluza speaking on stage",
+      "highlights": {
+        "startups": "Led product for high-growth startups (including one acquired for $36M)",
+        "thoughtLeader": "Thought leader, speaker, writer & consultant",
+        "director": "Director of TheProductShift, Launched ProductShift's own UserTesting App",
+        "optimization": "Optimizing digital experiences, growth & flywheel implementation"
+      },
+      "linkedinCta": "Connect on LinkedIn",
+      "productShiftCta": "Visit The ProductShift"
+    },
+    "stats": {
+      "experience": "Years Experience",
+      "projects": "Projects Completed",
+      "roi": "Avg ROI Increase",
+      "successRate": "Success Rate"
+    },
+    "clients": {
+      "title": "Satisfied Projects",
+      "logos": {
+        "disney": "Disney",
+        "codeschool": "Code School",
+        "pluralsight": "Pluralsight",
+        "stackpath": "StackPath"
+      }
+    }
+  },
+  "websummit": {
+    "pill": "Web Summit · Lisbon",
+    "title": "Catch FreeBrain at Web Summit 2026",
+    "dates": "November 9–12, 2026 · MEO Arena, Lisbon",
+    "description": "We're bringing positively addicting movement therapy for your brain to the world's biggest tech stage. Come move with us in Lisbon!",
+    "cta": "See us at Web Summit",
+    "countdown": {
+      "days": "Days",
+      "hours": "Hours",
+      "minutes": "Minutes",
+      "seconds": "Seconds",
+      "live": "We're live in Lisbon! Come find us."
+    }
+  },
   "getInvolved": {
     "title": "Get Involved",
     "subtitle": "In this early stage of growth & discovery, you can play a major role in our development. Here's how:",
@@ -132,12 +200,28 @@
     }
   },
   "footer": {
-    "tagline": "Positively addicting on-demand movement therapy for your brain",
+    "tagline": "You don't need a PhD to move! Pills manage symptoms — movement rewires the brain. FreeBrain makes people the best medicine.",
     "incubatorLabel": "Trusted by Innovative Health Incubator",
-    "copyright": "© {{year}} FreeBrain. All rights reserved."
+    "copyright": "© {{year}} FreeBrain. All rights reserved.",
+    "explore": "Explore",
+    "links": {
+      "home": "Home"
+    },
+    "resources": "Resources",
+    "podcast": "Podcast",
+    "resourceCenter": "Resource Center",
+    "soon": "Soon",
+    "backToTop": "Back to top",
+    "webSummitLabel": "Invited as an alpha startup at Web Summit Lisbon"
   },
   "modal": {
     "cancel": "Cancel",
+    "joinCommunity": {
+      "title": "Join Community",
+      "description": "Pick your lane — chat daily with FreeBrainers on WhatsApp, get the monthly drop by email, or do both.",
+      "whatsappCta": "Join WhatsApp Community",
+      "pilotCta": "Join Pilot"
+    },
     "joinPilot": {
       "title": "Join Pilot",
       "description": "Our virtual neuro-therapy app pilot is about to launch. Come be one of the first FreeBrainers!",

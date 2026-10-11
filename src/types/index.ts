@@ -40,6 +40,8 @@ export interface ModalConfig {
   icon: IconType | null;
   ctaText: string;
   ctaLink: string;
+  secondaryCtaText?: string;
+  secondaryCtaLink?: string;
 }
 
 export interface GrowthCard {
@@ -63,4 +65,6 @@ export type OpenModalFn = (
   icon: IconType,
   ctaText?: string,
   ctaLink?: string,
+  secondaryCtaText?: string,
+  secondaryCtaLink?: string,
 ) => void;

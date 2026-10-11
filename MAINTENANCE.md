@@ -28,6 +28,21 @@ To resolve later:
 
 Status: PARKED
 
+### 2. [2026-10-09, branch `advisorupdates`] Compress `public/founder_drum.jpg` (4.2MB)
+The drumming photo is ~40x heavier than the other founder photos and loads on the Team page. Resize to max 1600px wide + export JPG quality ~70 (target <300KB) with any image tool, keeping the same filename so no code change is needed.
+
+Status: PARKED
+
+### 3. [2026-10-09, branch `advisorupdates`] Compress `public/disneydesignsprint.png` (1.4MB)
+Team hero background wash behind an 85% blue overlay. Export as JPG quality ~70, max 2000px wide (target <300KB), keeping the same filename so no code change is needed.
+
+Status: PARKED
+
+### 4. [2026-10-09, branch `advisorupdates`] Compress `public/smoothbluebkgrnd_nobkgrnd.png` (284KB) + `public/aigenwebsumitvision.jpeg` (2.6MB)
+The header logo loads on every page and the summit art is the home hero — resize logo to ~256px + JPG ~70, summit art to 2000px + JPG ~70, same filenames so no code change is needed. (`smoothbluebkgrnd.png` 983KB is now the favicon — shrink a copy to 64px PNG for the tab icon and point index.html at it instead.)
+
+Status: PARKED
+
 ---
 
 ## Resolved
