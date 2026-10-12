@@ -1,6 +1,7 @@
+import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
-import { Users } from "lucide-react";
+import { Link, Navigate } from "react-router-dom";
+import { Users, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LOGO_URL, EXTERNAL_LINKS } from "@/lib/constants";
 import { scrollToSection } from "@/lib/navigation";
@@ -10,9 +11,10 @@ interface HeaderProps {
   onOpenModal: OpenModalFn;
 }
 
-/** Sticky site navigation header with logo, community link, and CTA. */
+/** Sticky site navigation header with logo, mobile drawer, and CTAs. */
 export const Header = ({ onOpenModal }: HeaderProps) => {
   const { t } = useTranslation();
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   const openJoinCommunity = (): void => {
     onOpenModal(
@@ -24,7 +26,31 @@ export const Header = ({ onOpenModal }: HeaderProps) => {
       t("modal.joinCommunity.pilotCta"),
       EXTERNAL_LINKS.mailingList,
     );
+    setMobileOpen(false);
   };
+
+  const handleGetInvolved = (): void => {
+    scrollToSection("get-involved");
+    setMobileOpen(false);
+  };
+
+  const mobileLinks = (
+    <div className="flex flex-col gap-3 pt-4 md:hidden">
+      <Link
+        to="/team"
+        onClick={() => setMobileOpen(false)}
+        className="text-foreground hover:text-primary transition-colors"
+      >
+        {t("header.team")}
+      </Link>
+      <Button variant="ghost" className="w-full justify-start" onClick={openJoinCommunity}>
+        {t("header.joinCommunity")}
+      </Button>
+      <Button variant="default" className="w-full justify-start bg-primary text-brand" onClick={handleGetInvolved}>
+        {t("header.getInvolved")}
+      </Button>
+    </div>
+  );
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-foreground/10 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
@@ -37,6 +63,7 @@ export const Header = ({ onOpenModal }: HeaderProps) => {
           />
           <span className="text-xl font-bold text-foreground">FreeBrain</span>
         </Link>
+
         <div className="flex items-center gap-4">
           <Button
             variant="ghost"
@@ -53,13 +80,31 @@ export const Header = ({ onOpenModal }: HeaderProps) => {
             {t("header.joinCommunity")}
           </Button>
           <Button
+            className="bg-primary text-brand hover:bg-primary/90 transition-opacity border-0 md:hidden"
+            onClick={openJoinCommunity}
+          >
+            {t("header.joinCommunity")}
+          </Button>
+          <Button
             className="bg-primary text-brand hover:bg-primary/90 transition-opacity border-0"
-            onClick={() => scrollToSection("get-involved")}
+            onClick={handleGetInvolved}
           >
             {t("header.getInvolved")}
           </Button>
+
+          <Button
+            variant="ghost"
+            className="md:hidden p-2"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileOpen}
+          >
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </Button>
         </div>
       </div>
+
+      {mobileLinks}
     </header>
   );
 };
