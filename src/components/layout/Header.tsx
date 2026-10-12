@@ -104,7 +104,7 @@ export const Header = ({ onOpenModal }: HeaderProps) => {
         </div>
       </div>
 
-      {mobileLinks}
+      {mobileOpen && mobileLinks}
     </header>
   );
 };
