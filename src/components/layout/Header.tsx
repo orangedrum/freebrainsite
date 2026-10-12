@@ -80,13 +80,7 @@ export const Header = ({ onOpenModal }: HeaderProps) => {
             {t("header.joinCommunity")}
           </Button>
           <Button
-            className="bg-primary text-brand hover:bg-primary/90 transition-opacity border-0 md:hidden"
-            onClick={openJoinCommunity}
-          >
-            {t("header.joinCommunity")}
-          </Button>
-          <Button
-            className="bg-primary text-brand hover:bg-primary/90 transition-opacity border-0"
+            className="hidden md:inline-flex bg-primary text-brand hover:bg-primary/90 transition-opacity border-0"
             onClick={handleGetInvolved}
           >
             {t("header.getInvolved")}
