@@ -5,12 +5,23 @@ interface VideoPlayerProps {
   src: string;
   poster: string;
   rotationClass?: string;
+  orientation?: "vertical" | "horizontal";
 }
 
 /** Video player with a translucent play button overlay that hides on play. */
-export const VideoPlayer = ({ src, poster, rotationClass = "" }: VideoPlayerProps) => {
+export const VideoPlayer = ({
+  src,
+  poster,
+  rotationClass = "",
+  orientation = "vertical",
+}: VideoPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  const frameClasses =
+    orientation === "horizontal"
+      ? "w-full max-w-2xl aspect-video"
+      : "w-full max-w-[320px] aspect-[9/16]";
 
   const togglePlay = (event: MouseEvent<HTMLVideoElement>): void => {
     const video = event.currentTarget;
@@ -22,9 +33,9 @@ export const VideoPlayer = ({ src, poster, rotationClass = "" }: VideoPlayerProp
   };
 
   return (
-    <div className={`relative mx-auto w-full max-w-[320px] group cursor-pointer ${rotationClass}`}>
+    <div className={`relative mx-auto group cursor-pointer ${frameClasses} ${rotationClass}`}>
       <div className="absolute inset-0 bg-foreground/10 rounded-[2rem] transform scale-105 -z-10"></div>
-      <div className="relative rounded-[2rem] overflow-hidden border border-foreground/10 shadow-xl aspect-[9/16] bg-background/20">
+      <div className="relative rounded-[2rem] overflow-hidden border border-foreground/10 shadow-xl h-full bg-background/20">
         <video
           ref={videoRef}
           src={src}
