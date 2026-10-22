@@ -168,8 +168,13 @@
     "safetyNote": "Jede Seite kann mit 7 Tagen Frist stoppen. Es gibt keine Gebühren jeglicher Art.",
     "appTitle": "Über die FreeBrain-App",
     "appBody": "FreeBrain ist ein mobiles App-Konzept, das Pflegekräften und Personal hilft, kurze, spaßige Bewegungspausen in den Alltag einzubauen, ohne komplexe Schulung. Es ist noch früh, und das Feedback Ihres Teams wird es gestalten. Wir beabsichtigen, es Ihnen nach dem Piloten als Hinterlassenschaft ohne Verpflichtung anzubieten.",
+    "workshopsTitle": "Workshops in Lissabon",
+    "workshopsBody": "Ein Einblick in unsere Bewegungssitzungen im Centro de Dia Nossa Senhora (Santa Casa) und anderen Partnerinstitutionen.",
+    "workshopPhoto1": "[Platzhalter — Workshop-Foto 1]",
+    "workshopPhoto2": "[Platzhalter — Workshop-Foto 2]",
     "summitTitle": "Web Summit Lissabon, November",
     "summitBody": "FreeBrain stellt als Alpha Startup aus. Wir laden eine kleine Gruppe Lissabonner Einrichtungen ein, einen Vertreter zu unserem Stand für einen Tag zu schicken, um an den Bewegungsdemonstrationen teilzunehmen und der Welt zu zeigen, was Lissabon für Bewegungstherapie tut.",
+    "summitPhoto": "[Platzhalter — Foto der Web Summit-Teilnahme]",
     "nextTitle": "Nächster Schritt",
     "nextBody": "Nennen Sie mir einen Tag, der passt, und ich bringe die einseitige Vereinbarung.",
     "cta": "Jean auf WhatsApp schreiben"

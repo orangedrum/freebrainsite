@@ -62,6 +62,19 @@ const LisbonPilot = () => {
             </div>
 
             <div className="space-y-3">
+              <SectionHeading title={t("lisbonPilot.workshopsTitle")} className="mb-6" />
+              <p className="text-muted-foreground leading-relaxed">{t("lisbonPilot.workshopsBody")}</p>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="aspect-video rounded-2xl bg-secondary border border-foreground/10 flex items-center justify-center text-center px-4">
+                  <span className="text-sm text-muted-foreground">{t("lisbonPilot.workshopPhoto1")}</span>
+                </div>
+                <div className="aspect-video rounded-2xl bg-secondary border border-foreground/10 flex items-center justify-center text-center px-4">
+                  <span className="text-sm text-muted-foreground">{t("lisbonPilot.workshopPhoto2")}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="space-y-3">
               <SectionHeading title={t("lisbonPilot.askTitle")} className="mb-6" />
               <div className="rounded-2xl bg-secondary border border-foreground/10 p-6">
                 <ul className="space-y-2 text-sm text-muted-foreground list-disc marker:text-brand-accent pl-5">
@@ -113,6 +126,9 @@ const LisbonPilot = () => {
             <div className="space-y-3">
               <SectionHeading title={t("lisbonPilot.summitTitle")} className="mb-6" />
               <p className="text-muted-foreground leading-relaxed">{t("lisbonPilot.summitBody")}</p>
+              <div className="aspect-video rounded-2xl bg-secondary border border-foreground/10 flex items-center justify-center text-center px-4">
+                <span className="text-sm text-muted-foreground">{t("lisbonPilot.summitPhoto")}</span>
+              </div>
             </div>
 
             <div className="rounded-2xl bg-secondary border border-foreground/10 p-8 text-center space-y-4">
