@@ -1,6 +1,6 @@
 import { useTranslation } from "react-i18next";
-import { ArrowUpRight } from "lucide-react";
-import { EXTERNAL_LINKS } from "@/lib/constants";
+import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useCountdown } from "@/hooks/useCountdown";
 
 const SUMMIT_START = new Date("2026-11-09T09:00:00Z");
@@ -52,15 +52,13 @@ export const WebSummitSection = () => {
           </h2>
           <p className="text-lg font-semibold text-foreground">{t("websummit.dates")}</p>
           <p className="text-lg text-foreground/90">{t("websummit.description")}</p>
-          <a
-            href={EXTERNAL_LINKS.webSummit}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            to="/lisbon-pilot"
             className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-brand transition-colors hover:bg-primary/90"
           >
-            {t("websummit.cta")}
-            <ArrowUpRight className="h-4 w-4" />
-          </a>
+            {t("websummit.lisbonCta")}
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
       </div>
     </section>

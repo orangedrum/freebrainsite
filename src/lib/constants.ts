@@ -40,6 +40,7 @@ export const VIDEO_SOURCES = {
 
 export const EXTERNAL_LINKS = {
   whatsapp: "https://chat.whatsapp.com/LWOO3dw2nJUKCXypnc6LY6",
+  jeanWhatsapp: "https://wa.me/573233284172",
   calendly:
     "https://calendly.com/jean-kaluza/app-idea-day-1-facilitation-clone",
   pilotForm: "https://jq8ounso.forms.app/freethebrains-participation",

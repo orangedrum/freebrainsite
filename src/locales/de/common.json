@@ -127,10 +127,11 @@
   },
   "websummit": {
     "pill": "Web Summit · Lissabon",
-    "title": "Triff FreeBrain auf dem Web Summit 2026",
+    "title": "Partnerschaften mit Einrichtungen für das Web Summit 2026 gesucht",
     "dates": "9.–12. November 2026 · MEO Arena, Lissabon",
-    "description": "Wir bringen positiv süchtig machende Bewegungstherapie für dein Gehirn auf die größte Tech-Bühne der Welt. Komm und bewege dich mit uns in Lissabon!",
+    "description": "Wir bieten kostenlose Bewegungstherapie-Sitzungen an, um mit unserem Lissabon-Pilot zu kooperieren und positiv süchtigmachende Bewegungstherapie auf der größten Tech-Bühne der Welt zu teilen. Erfahren Sie, wie Sie Teil unseres Pilots werden können!",
     "cta": "Triff uns auf dem Web Summit",
+    "lisbonCta": "Lissabon-Pilot entdecken",
     "countdown": {
       "days": "Tage",
       "hours": "Stunden",
@@ -138,6 +139,40 @@
       "seconds": "Sekunden",
       "live": "Wir sind live in Lissabon! Komm vorbei."
     }
+  },
+  "lisbonPilot": {
+    "heroTitle": "Lissabon-Pilot",
+    "heroSubtitle": "Neurogesundheit, Bewegung und Innovation in Lissabon",
+    "introTitle": "Kostenlose Tango-Bewegungsworkshops für Menschen mit Parkinson und ältere Menschen mit kognitivem Abbau",
+    "introBody": "Ein kostenloser Pilot für Lissabonner Pflegeeinrichtungen, bis zum 30. November 2026. Sanft, vom Personal beaufsichtigt und an jede Fähigkeit angepasst.",
+    "whyTitle": "Warum das, und warum ich",
+    "whyBody": "Ich bin Jean, Gründerin von FreeBrain. Ich lebe mit Dystonie und habe sie jahrelang mit argentinischem Tango in den Griff bekommen, nach einer Ausbildung in Buenos Aires. Ich arbeite wöchentlich ehrenamtlich im Centro de Dia Nossa Senhora (Santa Casa). Die meisten unserer Instagram-Community leben mit Parkinson und sagen uns, dass das Schwierigste ist, in Bewegung zu bleiben. Das ist das Problem, an dem wir arbeiten.",
+    "offerTitle": "Was wir anbieten",
+    "offer1": "Einen wöchentlichen 45-minütigen Tango-Bewegungsworkshop für motorische und kognitive Stimulation, geleitet von mir und beaufsichtigt durch Ihr Personal",
+    "offer2": "Sanfte Übungen angepasst an reduzierte Mobilität, mit Sitzoption für alle",
+    "offer3": "Einfache Techniken, die Ihr Team nutzen kann, um Bewohner und Patienten zwischen den Sitzungen zu aktivieren",
+    "offer4": "Eine anonymisierte Zusammenfassung der Ergebnisse am Ende des Pilots",
+    "askTitle": "Was wir im Gegenzug bitten",
+    "ask1": "Einen geeigneten Raum und mindestens ein qualifiziertes Personalmitglied bei jeder Sitzung",
+    "ask2": "Ein 15-minütiges Check-in nach jedem Workshop und eine kurze anonyme Umfrage (ca. 5 Minuten)",
+    "ask3": "Einverständniserklärungen von jedem Teilnehmer und von jeder gefilmten Person",
+    "ask4": "Bestätigung, dass die Haftpflichtversicherung Ihrer Einrichtung Aktivitäten auf Ihrem Gelände abdeckt",
+    "ask5": "Optional: Erlaubnis, Fotos und Videos zu teilen (mit Einverständnis) und eine kurze Empfehlung, falls Sie zufrieden sind",
+    "howTitle": "Wie es funktioniert",
+    "step1": "Kennenlernen und einigen. Wir besprechen eine kurze Vereinbarung und bestätigen Ihre Versicherungsdetails.",
+    "step2": "Wöchentliche Sitzungen. 45 Minuten zu einem Tag und einer Zeit, die zu Ihrem Ablauf passt, dann ein schnelles Check-in.",
+    "step3": "Review und Hinterlassenschaft. Wir teilen unsere Beobachtungen und hinterlassen Techniken sowie frühzeitigen Zugang zum FreeBrain-App-Konzept.",
+    "safetyTitle": "Sicherheit und Einverständnis",
+    "safetyBody": "Bewegung birgt immer ein gewisses Risiko, daher planen wir dafür. Ihr Personal bleibt für Sicherheit und medizinische Entscheidungen verantwortlich, und ich werde jede Aktivität jederzeit anpassen oder stoppen. Wer ein hohes Sturzrisiko hat, kann sitzen, nur zusehen oder pausieren. Die Teilnahme ist freiwillig, und Filmen erfolgt nur mit schriftlichem Einverständnis. Diese Workshops sind eine Bewegungsaktivität, keine medizinische Behandlung, und ersetzen niemandes Pflege.",
+    "safetyNote": "Jede Seite kann mit 7 Tagen Frist stoppen. Es gibt keine Gebühren jeglicher Art.",
+    "appTitle": "Über die FreeBrain-App",
+    "appBody": "FreeBrain ist ein mobiles App-Konzept, das Pflegekräften und Personal hilft, kurze, spaßige Bewegungspausen in den Alltag einzubauen, ohne komplexe Schulung. Es ist noch früh, und das Feedback Ihres Teams wird es gestalten. Wir beabsichtigen, es Ihnen nach dem Piloten als Hinterlassenschaft ohne Verpflichtung anzubieten.",
+    "summitTitle": "Web Summit Lissabon, November",
+    "summitBody": "FreeBrain stellt als Alpha Startup aus. Wir laden eine kleine Gruppe Lissabonner Einrichtungen ein, einen Vertreter zu unserem Stand für einen Tag zu schicken, um an den Bewegungsdemonstrationen teilzunehmen und der Welt zu zeigen, was Lissabon für Bewegungstherapie tut.",
+    "summitPhotoAlt": "KI-generierte Vorschau des FreeBrain-Stands beim Web Summit Lissabon",
+    "nextTitle": "Nächster Schritt",
+    "nextBody": "Nennen Sie mir einen Tag, der passt, und ich bringe die einseitige Vereinbarung.",
+    "cta": "Jean auf WhatsApp schreiben"
   },
   "getInvolved": {
     "title": "Mitmachen",
@@ -205,7 +240,8 @@
     "copyright": "© {{year}} FreeBrain. Alle Rechte vorbehalten.",
     "explore": "Entdecken",
     "links": {
-      "home": "Start"
+      "home": "Start",
+      "lisbonPilot": "Lissabon-Pilot"
     },
     "resources": "Ressourcen",
     "podcast": "Podcast",

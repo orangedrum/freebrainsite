@@ -127,10 +127,11 @@
   },
   "websummit": {
     "pill": "Web Summit · Lisbon",
-    "title": "Catch FreeBrain at Web Summit 2026",
+    "title": "Seeking Institution Partnerships for Web Summit 2026",
     "dates": "November 9–12, 2026 · MEO Arena, Lisbon",
-    "description": "We're bringing positively addicting movement therapy for your brain to the world's biggest tech stage. Come move with us in Lisbon!",
+    "description": "We're offering free movement therapy sessions to partner with us for our Lisbon pilot to share positively addicting movement therapy the world's biggest tech stage. Learn more about being part of our pilot!",
     "cta": "See us at Web Summit",
+    "lisbonCta": "Learn about Lisbon Pilot",
     "countdown": {
       "days": "Days",
       "hours": "Hours",
@@ -138,6 +139,40 @@
       "seconds": "Seconds",
       "live": "We're live in Lisbon! Come find us."
     }
+  },
+  "lisbonPilot": {
+    "heroTitle": "Lisbon Pilot",
+    "heroSubtitle": "Neurohealth movement and Lisbon innovation",
+    "introTitle": "Free tango movement workshops for people with Parkinson's and elderly with cognitive decline",
+    "introBody": "A free pilot for Lisbon care institutions, now through 30 November 2026. Gentle, staff-supervised and adapted to every ability.",
+    "whyTitle": "Why this, and why me",
+    "whyBody": "I'm Jean, founder of FreeBrain. I live with dystonia and have managed it with Argentine tango for years, after training in Buenos Aires. I volunteer weekly at Centro de Dia Nossa Senhora (Santa Casa). Most of our Instagram community lives with Parkinson's, and they tell us the hardest part is keeping moving. That is the problem we are working on.",
+    "offerTitle": "What we offer",
+    "offer1": "A weekly 45-minute tango movement workshop for motor and cognitive stimulation, led by me and supervised by your staff",
+    "offer2": "Gentle exercises adapted to reduced mobility, with a seated option for everyone",
+    "offer3": "Simple techniques your team can use to activate residents and patients between sessions",
+    "offer4": "An anonymized summary of results at the end of the pilot",
+    "askTitle": "What we ask in return",
+    "ask1": "A suitable room and at least one qualified staff member present at every session",
+    "ask2": "A 15-minute check-in after each workshop and a short anonymous survey (about 5 minutes)",
+    "ask3": "Consent forms from each participant, and from anyone who is filmed",
+    "ask4": "Confirmation that your institution's liability insurance covers activities on your premises",
+    "ask5": "Optional: permission to share photos and video (with consent) and a short recommendation if you're happy",
+    "howTitle": "How it works",
+    "step1": "Meet and agree. We review a short agreement together and confirm your insurance details.",
+    "step2": "Weekly sessions. 45 minutes at a day and time that suits your routine, then a quick check-in.",
+    "step3": "Review and leave-behind. We share what we observed and leave you with techniques and early access to the FreeBrain app concept.",
+    "safetyTitle": "Safety and consent",
+    "safetyBody": "Movement always carries some risk, so we plan for it. Your staff stay responsible for safety and medical decisions, and I will adapt or stop any activity at any time. Anyone with high fall risk can sit, watch only or sit out. Taking part is voluntary, and filming only happens with written consent. These workshops are a movement activity, not medical treatment, and they don't replace anyone's care.",
+    "safetyNote": "Either side can stop with 7 days' notice. There are no fees of any kind.",
+    "appTitle": "About the FreeBrain app",
+    "appBody": "FreeBrain is a mobile app concept designed to help caregivers and staff fit short, fun movement breaks into daily routines, with no complex training. It is still early, and your team's feedback will shape it. We intend to offer it to you as a leave-behind after the pilot, with no obligation.",
+    "summitTitle": "Web Summit Lisbon, November",
+    "summitBody": "FreeBrain is exhibiting as an Alpha Startup. We're inviting a small group of Lisbon institutions to send one representative to our booth for a day to join the movement demonstrations and show the world what Lisbon is doing for movement therapy.",
+    "summitPhotoAlt": "AI-generated preview of the FreeBrain booth at Web Summit Lisbon",
+    "nextTitle": "Next step",
+    "nextBody": "Tell me a day that works and I'll bring the one-page agreement.",
+    "cta": "Message Jean on WhatsApp"
   },
   "getInvolved": {
     "title": "Get Involved",
@@ -205,7 +240,8 @@
     "copyright": "© {{year}} FreeBrain. All rights reserved.",
     "explore": "Explore",
     "links": {
-      "home": "Home"
+      "home": "Home",
+      "lisbonPilot": "Lisbon Pilot"
     },
     "resources": "Resources",
     "podcast": "Podcast",

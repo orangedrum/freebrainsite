@@ -127,10 +127,11 @@
   },
   "websummit": {
     "pill": "Web Summit · Lisboa",
-    "title": "Encuentra a FreeBrain en Web Summit 2026",
+    "title": "Buscando alianzas institucionales para Web Summit 2026",
     "dates": "9–12 de noviembre de 2026 · MEO Arena, Lisboa",
-    "description": "Llevamos la terapia de movimiento positivamente adictiva para tu cerebro al mayor escenario tecnológico del mundo. ¡Ven a moverte con nosotros en Lisboa!",
+    "description": "Ofrecemos sesiones gratuitas de terapia de movimiento para asociarse con nuestro piloto de Lisboa y compartir una terapia de movimiento positivamente adictiva en el mayor escenario tecnológico del mundo. ¡Infórmese sobre cómo formar parte de nuestro piloto!",
     "cta": "Venos en Web Summit",
+    "lisbonCta": "Conozca el Piloto de Lisboa",
     "countdown": {
       "days": "Días",
       "hours": "Horas",
@@ -138,6 +139,40 @@
       "seconds": "Segundos",
       "live": "¡Estamos en vivo en Lisboa! Ven a vernos."
     }
+  },
+  "lisbonPilot": {
+    "heroTitle": "Piloto de Lisboa",
+    "heroSubtitle": "Neurosalud, movimiento e innovación en Lisboa",
+    "introTitle": "Talleres gratuitos de movimiento en tango para personas con Parkinson y personas mayores con deterioro cognitivo",
+    "introBody": "Un piloto gratuito para instituciones de cuidado de Lisboa, hasta el 30 de noviembre de 2026. Suave, supervisado por el personal y adaptado a cada capacidad.",
+    "whyTitle": "Por qué esto, y por qué yo",
+    "whyBody": "Soy Jean, fundadora de FreeBrain. Vivo con distonía y la he controlado con tango argentino durante años, tras formarme en Buenos Aires. Soy voluntaria semanalmente en el Centro de Dia Nossa Senhora (Santa Casa). La mayoría de nuestra comunidad de Instagram vive con Parkinson y nos dicen que la parte más difícil es seguir moviéndose. Ese es el problema en el que estamos trabajando.",
+    "offerTitle": "Lo que ofrecemos",
+    "offer1": "Un taller semanal de 45 minutos de movimiento en tango para estimulación motora y cognitiva, impartido por mí y supervisado por su personal",
+    "offer2": "Ejercicios suaves adaptados a movilidad reducida, con opción sentada para todos",
+    "offer3": "Técnicas sencillas que su equipo puede usar para activar a residentes y pacientes entre sesiones",
+    "offer4": "Un resumen anónimo de resultados al final del piloto",
+    "askTitle": "Lo que pedimos a cambio",
+    "ask1": "Una sala adecuada y al menos un miembro del personal cualificado presente en cada sesión",
+    "ask2": "Un check-in de 15 minutos tras cada taller y una encuesta anónima corta (unos 5 minutos)",
+    "ask3": "Formularios de consentimiento de cada participante y de quien sea filmado",
+    "ask4": "Confirmación de que el seguro de responsabilidad civil de su institución cubre actividades en sus instalaciones",
+    "ask5": "Opcional: permiso para compartir fotos y vídeos (con consentimiento) y una breve recomendación si están satisfechos",
+    "howTitle": "Cómo funciona",
+    "step1": "Conocernos y acordar. Revisamos juntos un breve acuerdo y confirmamos los detalles del seguro.",
+    "step2": "Sesiones semanales. 45 minutos a la hora y día que mejor se ajuste a su rutina, luego un check-in rápido.",
+    "step3": "Revisión y legado. Compartimos lo observado y dejamos técnicas y acceso anticipado al concepto de la app FreeBrain.",
+    "safetyTitle": "Seguridad y consentimiento",
+    "safetyBody": "El movimiento siempre conlleva cierto riesgo, por lo que planificamos para ello. Su personal sigue siendo responsable de la seguridad y las decisiones médicas, y yo adaptaré o detendré cualquier actividad en cualquier momento. Quien tenga alto riesgo de caídas puede sentarse, ver o no participar. La participación es voluntaria y el filming solo ocurre con consentimiento escrito. Estos talleres son una actividad de movimiento, no un tratamiento médico, y no sustituyen la atención de nadie.",
+    "safetyNote": "Cualquiera de las partes puede detener con 7 días de aviso. No hay ningún tipo de tarifa.",
+    "appTitle": "Sobre la app FreeBrain",
+    "appBody": "FreeBrain es un concepto de app móvil diseñado para ayudar a cuidadores y personal a encajar breves pausas de movimiento divertidas en las rutinas diarias, sin formación compleja. Todavía es temprano y los comentarios de su equipo lo moldearán. Pretendemos ofrecerla como legado tras el piloto, sin obligación.",
+    "summitTitle": "Web Summit Lisboa, noviembre",
+    "summitBody": "FreeBrain expone como Alpha Startup. Invitamos a un pequeño grupo de instituciones de Lisboa a enviar un representante a nuestro stand durante un día para unirse a las demostraciones de movimiento y mostrar al mundo lo que Lisboa hace por la terapia de movimiento.",
+    "summitPhotoAlt": "Vista previa generada por IA del stand de FreeBrain en Web Summit Lisboa",
+    "nextTitle": "Siguiente paso",
+    "nextBody": "Dígame un día que funcione y llevaré el acuerdo de una página.",
+    "cta": "Enviar mensaje a Jean por WhatsApp"
   },
   "getInvolved": {
     "title": "Participa",
@@ -205,7 +240,8 @@
     "copyright": "© {{year}} FreeBrain. Todos los derechos reservados.",
     "explore": "Explorar",
     "links": {
-      "home": "Inicio"
+      "home": "Inicio",
+      "lisbonPilot": "Piloto de Lisboa"
     },
     "resources": "Recursos",
     "podcast": "Pódcast",
