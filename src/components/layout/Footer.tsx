@@ -72,6 +72,14 @@ export const Footer = () => {
               </Link>
             </li>
             <li>
+              <Link
+                to="/lisbon-pilot"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {t("footer.links.lisbonPilot")}
+              </Link>
+            </li>
+            <li>
               <button
                 type="button"
                 onClick={() => scrollToSection("get-involved")}

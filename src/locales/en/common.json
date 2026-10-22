@@ -245,7 +245,8 @@
     "copyright": "© {{year}} FreeBrain. All rights reserved.",
     "explore": "Explore",
     "links": {
-      "home": "Home"
+      "home": "Home",
+      "lisbonPilot": "Lisbon Pilot"
     },
     "resources": "Resources",
     "podcast": "Podcast",
