@@ -82,14 +82,14 @@
     },
     "members": {
       "advisor1": {
-        "name": "Anoop",
+        "name": "Anoop Antony",
         "role": "Neuroscientist | Brain + Body Intelligence for Elite Sport",
-        "contribution": "Anoop brings scientific expertise in neuroscience, brain function, neuroplasticity and neurotechnology, supporting the development and validation of evidence-based approaches, research strategy and the translation of neuroscience into practical interventions."
+        "contribution": "Anoop brings scientific expertise in neuroscience, brain function, neuroplasticity and neurotechnology, supporting the development and validation of evidence-based approaches, research strategy and the translation of neuroscience into practical interventions.\n\nAnoop supports the curriculum and content development, guiding FreeBrain teams to ensure exercises are evidence-backed through the latest in neuroscience."
       },
       "advisor2": {
-        "name": "Martin",
-        "role": "Technology • Placeholder Title",
-        "contribution": "Placeholder: what they bring to FreeBrain — e.g. product and AI direction for habit-forming therapy."
+        "name": "Martín Zúñiga",
+        "role": "Co-founder and CEO of Hattrick IT | MBA | Medical Devices and Digital Health",
+        "contribution": "As a veteran in digital health, Martin runs a software development company working across medtech and digital health. His experience includes building digital products and software for regulated environments, working with early-stage teams, and growing a business.\n\nAs an advisor to FreeBrain, Martín supports the team on product and technology decisions, business strategy, and turning ideas into practical next steps."
       }
     }
   },

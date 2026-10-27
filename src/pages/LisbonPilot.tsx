@@ -58,11 +58,7 @@ const LisbonPilot = () => {
               </div>
 
               <div className="flex justify-center md:justify-end">
-                <VideoPlayer
-                  src="/meddirectorinterviewesp.mp4"
-                  poster="/medpostimg.jpeg"
-                  orientation="horizontal"
-                />
+                <VideoPlayer src="/tangoworkshop.mp4" poster="/tangoworkshop.png" />
               </div>
             </div>
 

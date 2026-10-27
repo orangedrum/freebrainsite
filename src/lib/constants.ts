@@ -40,7 +40,7 @@ export const VIDEO_SOURCES = {
 
 export const EXTERNAL_LINKS = {
   whatsapp: "https://chat.whatsapp.com/LWOO3dw2nJUKCXypnc6LY6",
-  jeanWhatsapp: "https://wa.me/573233284172",
+  jeanWhatsapp: "https://wa.me/351913515202",
   calendly:
     "https://calendly.com/jean-kaluza/app-idea-day-1-facilitation-clone",
   pilotForm: "https://jq8ounso.forms.app/freethebrains-participation",
@@ -49,6 +49,8 @@ export const EXTERNAL_LINKS = {
   webSummit:
     "https://websummit.com/appearances/lis26/62641e0c-1273-4217-bd18-4f3b97fdeb76/?code=FREEBRAIN&utm_source=Iterable&utm_medium=email&utm_campaign=campaign_484969",
   founderLinkedin: "https://www.linkedin.com/in/jeankaluza",
+  anoopLinkedin: "https://www.linkedin.com/in/anoop-antony-529a72181/",
+  martinLinkedin: "https://www.linkedin.com/in/martin-zuniga/",
   instagram:
     "https://www.instagram.com/freebrainsmove?igsh=ZTloaDF3dzNscWVm",
   facebook: "https://www.facebook.com/share/1HsPvX6Hfz/",

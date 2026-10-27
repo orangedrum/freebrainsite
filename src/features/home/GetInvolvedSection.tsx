@@ -2,7 +2,6 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Brain, Handshake, Banknote } from "lucide-react";
 import type { GetInvolvedCard, OpenModalFn } from "@/types";
-import { scrollToSection } from "@/lib/navigation";
 import { EXTERNAL_LINKS } from "@/lib/constants";
 import { GridBackground } from "@/components/shared/GridBackground";
 
@@ -70,7 +69,13 @@ export const GetInvolvedSection = ({ onOpenModal }: GetInvolvedSectionProps) => 
                 className="w-full bg-primary text-brand hover:bg-primary/90 mt-4 border-0"
                 onClick={() => {
                   if (card.title === freeBrainersTitle) {
-                    scrollToSection("growth-discovery");
+                    onOpenModal(
+                      t("modal.joinPilot.title"),
+                      t("modal.joinPilot.description"),
+                      card.icon,
+                      t("modal.joinPilot.cta"),
+                      EXTERNAL_LINKS.pilotForm,
+                    );
                     return;
                   }
                   if (card.title === advisorsTitle) {

@@ -82,14 +82,14 @@
     },
     "members": {
       "advisor1": {
-        "name": "Anoop",
+        "name": "Anoop Antony",
         "role": "Neuroscientist | Brain + Body Intelligence for Elite Sport",
-        "contribution": "Anoop traz experiência científica em neurociência, função cerebral, neuroplasticidade e neurotecnologia, apoiando o desenvolvimento e a validação de abordagens baseadas em evidências, a estratégia de pesquisa e a tradução da neurociência em intervenções práticas."
+        "contribution": "Anoop traz experiência científica em neurociência, função cerebral, neuroplasticidade e neurotecnologia, apoiando o desenvolvimento e a validação de abordagens baseadas em evidências, a estratégia de pesquisa e a tradução da neurociência em intervenções práticas.\n\nAnoop apoia o desenvolvimento de currículo e conteúdo, orientando as equipes da FreeBrain para garantir que os exercícios sejam baseados em evidências com base nos avanços mais recentes da neurociência."
       },
       "advisor2": {
-        "name": "Martin",
-        "role": "Tecnologia • Título provisório",
-        "contribution": "Provisório: o que traz à FreeBrain — ex. direção de produto e IA para terapia formadora de hábitos."
+        "name": "Martín Zúñiga",
+        "role": "Cofundador e CEO da Hattrick IT | MBA | Dispositivos médicos e saúde digital",
+        "contribution": "Como veterano em saúde digital, Martín dirige uma empresa de desenvolvimento de software que atua em medtech e saúde digital. Sua experiência inclui construir produtos digitais e software para ambientes regulados, trabalhar com equipes em fase inicial e fazer crescer um negócio.\n\nComo consultor da FreeBrain, Martín apoia a equipe em decisões de produto e tecnologia, estratégia de negócios e na transformação de ideias em próximos passos práticos."
       }
     }
   },
