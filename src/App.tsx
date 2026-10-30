@@ -8,6 +8,8 @@ import { ScrollToTop } from "@/components/shared/ScrollToTop";
 import Index from "./pages/Index";
 import Team from "./pages/Team";
 import LisbonPilot from "./pages/LisbonPilot";
+import MovementPlanner from "./pages/MovementPlanner";
+import Movements from "./pages/Movements";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +26,8 @@ const App = () => (
           <Route path="/team" element={<Team />} />
           <Route path="/teams" element={<Navigate to="/team" replace />} />
           <Route path="/lisbon-pilot" element={<LisbonPilot />} />
+          <Route path="/movement-planner" element={<MovementPlanner />} />
+          <Route path="/movements" element={<Movements />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

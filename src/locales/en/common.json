@@ -2,7 +2,49 @@
   "header": {
     "joinCommunity": "Join Community",
     "getInvolved": "Get Involved",
-    "team": "Team"
+    "team": "Team",
+    "movementPlanner": "Movement Planner",
+    "sampleExercises": "Sample Exercises"
+  },
+  "movement": {
+    "titleSeatedGeneric": "Gentle Seated Movement",
+    "descriptionSeatedGeneric": "A gentle seated movement routine for days with limited mobility.",
+    "titleSeatedTango": "Tango Movement — Seated",
+    "descriptionSeatedTango": "Guided tango movement adapted for seated practice.",
+    "titleAssistedGeneric": "Assisted Standing Movement",
+    "descriptionAssistedGeneric": "Standing movement supported by a caregiver or support surface.",
+    "titleAssistedTango": "Assisted Standing Tango",
+    "descriptionAssistedTango": "Guided tango movement with caregiver support.",
+    "titleIndependentGeneric": "Independent Standing Movement",
+    "descriptionIndependentGeneric": "Standing movement for independent mobility.",
+    "titleIndependentTango": "Independent Standing Tango",
+    "descriptionIndependentTango": "Guided tango movement for independent practice."
+  },
+  "movements": {
+    "title": "Movement Exercises",
+    "subtitle": "Guided movement videos tailored to your Movement Plan."
+  },
+  "movementPlanner": {
+    "title": "Movement Plan",
+    "subtitle": "Build your personalized 10-minute movement routine",
+    "mobilityLabel": "Patient's mobility",
+    "focusLabel": "Current movement focus",
+    "generateCta": "Generate My Safe Demo",
+    "recipe": {
+      "title": "Your 10-Minute Home Recipe",
+      "text": "3 Mins Rhythmic Warm-Up, 5 Mins Dual-Task Dance Demo, 2 Mins Chest-Opening Stretch. Do this daily and you should see significant results."
+    },
+    "tryNow": "Ready to try right now?",
+    "mobility": {
+      "seated": "Seated",
+      "assistedStanding": "Standing with Support",
+      "independent": "Independent Standing"
+    },
+    "focus": {
+      "freezingGait": "Freezing of Gait",
+      "tremor": "Tremors",
+      "posturalInstability": "Postural Instability"
+    }
   },
   "hero": {
     "presentedBy": "The ProductShift Presents",

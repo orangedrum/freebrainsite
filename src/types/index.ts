@@ -68,3 +68,15 @@ export type OpenModalFn = (
   secondaryCtaText?: string,
   secondaryCtaLink?: string,
 ) => void;
+
+export type MovementMobility = "seated" | "assistedStanding" | "independent";
+
+export interface MovementItem {
+  id: string;
+  src: string;
+  style: "generic" | "tango";
+  mobility: MovementMobility;
+  titleKey: string;
+  descriptionKey: string;
+  minutes: number;
+}

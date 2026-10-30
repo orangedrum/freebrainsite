@@ -2,7 +2,49 @@
   "header": {
     "joinCommunity": "Únete a la Comunidad",
     "getInvolved": "Participa",
-    "team": "Equipo"
+    "team": "Equipo",
+    "movementPlanner": "Planificador de Movimiento",
+    "sampleExercises": "Ejercicios de Ejemplo"
+  },
+  "movement": {
+    "titleSeatedGeneric": "Movimiento Sentado Suave",
+    "descriptionSeatedGeneric": "Una rutina de movimiento suave para días con movilidad limitada.",
+    "titleSeatedTango": "Movimiento en Tango — Sentado",
+    "descriptionSeatedTango": "Movimiento guiado en tango adaptado para práctica sentada.",
+    "titleAssistedGeneric": "Movimiento de Pie Asistido",
+    "descriptionAssistedGeneric": "Movimiento de pie con apoyo de cuidador o superficie.",
+    "titleAssistedTango": "Movimiento de Pie Asistido en Tango",
+    "descriptionAssistedTango": "Movimiento guiado en tango con apoyo de cuidador.",
+    "titleIndependentGeneric": "Movimiento de Pie Independiente",
+    "descriptionIndependentGeneric": "Movimiento de pie para movilidad independiente.",
+    "titleIndependentTango": "Movimiento de Pie Independiente en Tango",
+    "descriptionIndependentTango": "Movimiento guiado en tango para práctica independiente."
+  },
+  "movements": {
+    "title": "Ejercicios de Movimiento",
+    "subtitle": "Videos de movimiento guiados, adaptados a tu Plan de Movimiento."
+  },
+  "movementPlanner": {
+    "title": "Plan de Movimiento",
+    "subtitle": "Construye tu rutina personalizada de movimiento de 10 minutos",
+    "mobilityLabel": "Movilidad del paciente",
+    "focusLabel": "Enfoque de movimiento actual",
+    "generateCta": "Generar Mi Demo Segura",
+    "recipe": {
+      "title": "Tu Receta Casera de 10 Minutos",
+      "text": "3 Mins Rhythmic Warm-Up, 5 Mins Dual-Task Dance Demo, 2 Mins Chest-Opening Stretch. Do this daily and you should see significant results."
+    },
+    "tryNow": "Listo para intentarlo ahora mismo?",
+    "mobility": {
+      "seated": "Sentado",
+      "assistedStanding": "De Pie con Apoyo",
+      "independent": "De Pie Independiente"
+    },
+    "focus": {
+      "freezingGait": "Congelación de la Marcha",
+      "tremor": "Tremor",
+      "posturalInstability": "Inestabilidad Postural"
+    }
   },
   "hero": {
     "presentedBy": "The ProductShift Presenta",

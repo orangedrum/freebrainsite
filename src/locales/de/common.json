@@ -2,7 +2,49 @@
   "header": {
     "joinCommunity": "Community beitreten",
     "getInvolved": "Mitmachen",
-    "team": "Team"
+    "team": "Team",
+    "movementPlanner": "Bewegungsplan",
+    "sampleExercises": "Beispiele"
+  },
+  "movement": {
+    "titleSeatedGeneric": "Sanfte Sitzbewegung",
+    "descriptionSeatedGeneric": "Eine sanfte Sitzbewegung für Tage mit eingeschränkter Mobilität.",
+    "titleSeatedTango": "Tango-Bewegung — Sitzend",
+    "descriptionSeatedTango": "Geführte Tango-Bewegung für sitzende Praxis.",
+    "titleAssistedGeneric": "Bewegung im Stehen mit Assistenz",
+    "descriptionAssistedGeneric": "Stehende Bewegung mit Unterstützung durch Pflegeperson oder Stützfläche.",
+    "titleAssistedTango": "Tango-Bewegung im Stehen mit Assistenz",
+    "descriptionAssistedTango": "Geführte Tango-Bewegung mit Pflegeperson-Unterstützung.",
+    "titleIndependentGeneric": "Bewegung im Stehen — unabhängig",
+    "descriptionIndependentGeneric": "Stehende Bewegung für unabhängige Mobilität.",
+    "titleIndependentTango": "Tango-Bewegung — unabhängig",
+    "descriptionIndependentTango": "Geführte Tango-Bewegung für unabhängige Praxis."
+  },
+  "movements": {
+    "title": "Bewegungsübungen",
+    "subtitle": "Geführte Bewegungsvideos, die auf deinen Bewegungsplan zugeschnitten sind."
+  },
+  "movementPlanner": {
+    "title": "Bewegungsplan",
+    "subtitle": "Erstelle deinen personalisierten 10-Minuten-Bewegungsplan",
+    "mobilityLabel": "Mobilität des Patienten",
+    "focusLabel": "Aktueller Bewegungs-/Fokus",
+    "generateCta": "Generieren Sie Meine Sichere Demo",
+    "recipe": {
+      "title": "Dein 10-Minuten-Hausrezept",
+      "text": "3 Mins Rhythmic Warm-Up, 5 Mins Dual-Task Dance Demo, 2 Mins Chest-Opening Stretch. Do this daily and you should see significant results."
+    },
+    "tryNow": "Bereit, es jetzt zu versuchen?",
+    "mobility": {
+      "seated": "Sitzend",
+      "assistedStanding": "Stehend mit Unterstützung",
+      "independent": "Unabhängig stehend"
+    },
+    "focus": {
+      "freezingGait": "Frierendes Gehen",
+      "tremor": "Tremor",
+      "posturalInstability": "Posturaler Instabilität"
+    }
   },
   "hero": {
     "presentedBy": "The ProductShift präsentiert",

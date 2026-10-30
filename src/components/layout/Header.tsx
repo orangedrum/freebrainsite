@@ -43,6 +43,20 @@ export const Header = ({ onOpenModal }: HeaderProps) => {
       >
         {t("header.team")}
       </Link>
+      <Link
+        to="/movement-planner"
+        onClick={() => setMobileOpen(false)}
+        className="text-foreground hover:text-primary transition-colors"
+      >
+        {t("header.movementPlanner")}
+      </Link>
+      <Link
+        to="/movements"
+        onClick={() => setMobileOpen(false)}
+        className="text-foreground hover:text-primary transition-colors"
+      >
+        {t("header.sampleExercises")}
+      </Link>
       <Button variant="ghost" className="w-full justify-start" onClick={openJoinCommunity}>
         {t("header.joinCommunity")}
       </Button>
@@ -71,6 +85,20 @@ export const Header = ({ onOpenModal }: HeaderProps) => {
             asChild
           >
             <Link to="/team">{t("header.team")}</Link>
+          </Button>
+          <Button
+            variant="ghost"
+            className="hidden md:inline-flex text-foreground hover:bg-foreground/10 hover:text-foreground"
+            asChild
+          >
+            <Link to="/movement-planner">{t("header.movementPlanner")}</Link>
+          </Button>
+          <Button
+            variant="ghost"
+            className="hidden md:inline-flex text-foreground hover:bg-foreground/10 hover:text-foreground"
+            asChild
+          >
+            <Link to="/movements">{t("header.sampleExercises")}</Link>
           </Button>
           <Button
             variant="ghost"
