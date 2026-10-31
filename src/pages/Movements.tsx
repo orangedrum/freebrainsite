@@ -6,6 +6,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Modal } from "@/components/shared/Modal";
 import { VideoPlayer } from "@/components/shared/VideoPlayer";
+import { MovementPageMeta } from "@/features/movements/MovementPageMeta";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
@@ -16,32 +17,14 @@ import { useModalState } from "@/hooks/useModalState";
 import { Users } from "lucide-react";
 import { EXTERNAL_LINKS } from "@/lib/constants";
 import type { MovementItem, MovementMobility } from "@/types";
-
-const MOVEMENTS: MovementItem[] = [
-  { id: "seated-generic", src: "/tangoworkshop.mp4", style: "generic", mobility: "seated", titleKey: "movement.seatedGeneric.title", descriptionKey: "movement.seatedGeneric.description", whyHelpfulKey: "movement.seatedGeneric.whyHelpful", minutes: 5 },
-  { id: "seated-tango", src: "/tangoworkshop.mp4", style: "tango", mobility: "seated", titleKey: "movement.seatedTango.title", descriptionKey: "movement.seatedTango.description", whyHelpfulKey: "movement.seatedTango.whyHelpful", minutes: 15 },
-  { id: "assisted-generic", src: "/tangoworkshop.mp4", style: "generic", mobility: "assistedStanding", titleKey: "movement.assistedGeneric.title", descriptionKey: "movement.assistedGeneric.description", whyHelpfulKey: "movement.assistedGeneric.whyHelpful", minutes: 5 },
-  { id: "assisted-tango", src: "/tangoworkshop.mp4", style: "tango", mobility: "assistedStanding", titleKey: "movement.assistedTango.title", descriptionKey: "movement.assistedTango.description", whyHelpfulKey: "movement.assistedTango.whyHelpful", minutes: 15 },
-  { id: "independent-generic", src: "/tangoworkshop.mp4", style: "generic", mobility: "independent", titleKey: "movement.independentGeneric.title", descriptionKey: "movement.independentGeneric.description", whyHelpfulKey: "movement.independentGeneric.whyHelpful", minutes: 5 },
-  { id: "independent-tango", src: "/tangoworkshop.mp4", style: "tango", mobility: "independent", titleKey: "movement.independentTango.title", descriptionKey: "movement.independentTango.description", whyHelpfulKey: "movement.independentTango.whyHelpful", minutes: 15 },
-];
-
-const MOBILITY_OPTIONS: { value: MovementMobility; key: string }[] = [
-  { value: "seated", key: "movementPlanner.mobility.seated" },
-  { value: "assistedStanding", key: "movementPlanner.mobility.assistedStanding" },
-  { value: "independent", key: "movementPlanner.mobility.independent" },
-];
-
-const FOCUS_OPTIONS: { value: string; key: string }[] = [
-  { value: "freezingGait", key: "movementPlanner.focus.freezingGait" },
-  { value: "tremor", key: "movementPlanner.focus.tremor" },
-  { value: "posturalInstability", key: "movementPlanner.focus.posturalInstability" },
-];
-
-const CONDITIONS = ["alzheimers", "essentialTremor", "cognitiveImpairments", "als", "cerebrovascularDisease", "huntingtonsDisease", "multipleSclerosis", "epilepsy", "spinaBifida", "dystonias", "dementia", "cerebralPalsy", "diabeticNeuropathy", "migraines", "parkinsonsDisease"];
-
-const TIME_OPTIONS = [1, 5, 15];
-const FAQ_ITEMS = [{ id: "q1", questionKey: "movements.faq.q1", answerKey: "movements.faq.a1" }, { id: "q2", questionKey: "movements.faq.q2", answerKey: "movements.faq.a2" }, { id: "q3", questionKey: "movements.faq.q3", answerKey: "movements.faq.a3" }, { id: "q4", questionKey: "movements.faq.q4", answerKey: "movements.faq.a4" }, { id: "q5", questionKey: "movements.faq.q5", answerKey: "movements.faq.a5" }, { id: "q6", questionKey: "movements.faq.q6", answerKey: "movements.faq.a6" }, { id: "q7", questionKey: "movements.faq.q7", answerKey: "movements.faq.a7" }, { id: "q8", questionKey: "movements.faq.q8", answerKey: "movements.faq.a8" }, { id: "q9", questionKey: "movements.faq.q9", answerKey: "movements.faq.a9" }, { id: "q10", questionKey: "movements.faq.q10", answerKey: "movements.faq.a10" }];
+import {
+  CONDITIONS,
+  FAQ_ITEMS,
+  FOCUS_OPTIONS,
+  MOBILITY_OPTIONS,
+  MOVEMENTS,
+  TIME_OPTIONS,
+} from "@/features/movements/movementPageData";
 
 export const Movements = () => {
   const { t } = useTranslation();
@@ -126,6 +109,7 @@ export const Movements = () => {
         <section className="relative overflow-hidden pt-10 md:pt-16 pb-20 md:pb-32 z-0">
           <div className="relative z-10 w-full px-4 md:px-6">
             <div className="w-full space-y-4">
+              <MovementPageMeta />
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tight sm:text-4xl text-foreground">{t("movements.title")}</h1>
                 <p className="text-lg text-muted-foreground">{t("movements.subtitle")}</p>
@@ -265,7 +249,7 @@ export const Movements = () => {
               <BenefitsOfMovement />
             </div>
             <div className="mt-[50px]">
-              <h2 className="text-xl font-bold text-foreground">{t("movements.researchTitle")}</h2>
+              <h2 id="movement-research" className="text-xl font-bold text-foreground">{t("movements.researchTitle")}</h2>
               <p className="mt-2 text-foreground/90">{t("movements.researchBody")}</p>
             </div>
             <div className="mt-[50px]">
