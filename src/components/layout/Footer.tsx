@@ -96,6 +96,22 @@ export const Footer = () => {
             {t("footer.resources")}
           </p>
           <ul className="space-y-2 text-sm">
+            <li>
+              <Link
+                to="/movement-planner"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {t("header.movementPlanner")}
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/movements"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {t("header.sampleExercises")}
+              </Link>
+            </li>
             <li className="flex items-center gap-2 text-muted-foreground">
               {t("footer.podcast")}
               <span className="rounded-full border border-brand-accent bg-foreground/10 px-2 py-0.5 text-[10px] font-medium text-foreground">

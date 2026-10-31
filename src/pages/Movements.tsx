@@ -7,9 +7,6 @@ import { VideoPlayer } from "@/components/shared/VideoPlayer";
 import { useModalState } from "@/hooks/useModalState";
 import type { MovementItem, MovementMobility, OpenModalFn } from "@/types";
 
-interface MovementsProps {
-  onOpenModal: OpenModalFn;
-}
 
 const MOVEMENTS_BY_MOBILITY: Record<MovementMobility, MovementItem[]> = {
   seated: [
@@ -74,10 +71,10 @@ const MOVEMENTS_BY_MOBILITY: Record<MovementMobility, MovementItem[]> = {
   ],
 };
 
-export const Movements = ({ onOpenModal }: MovementsProps) => {
+export const Movements = () => {
   const { t } = useTranslation();
   const location = useLocation();
-  const { modalConfig, closeModal } = useModalState();
+  const { modalConfig, openModal, closeModal } = useModalState();
 
   const movements: MovementItem[] = [];
   if (location.state?.mobility) {
@@ -86,12 +83,12 @@ export const Movements = ({ onOpenModal }: MovementsProps) => {
 
   return (
     <div className="flex min-h-screen flex-col bg-background font-sans">
-      <Header onOpenModal={onOpenModal} />
+      <Header onOpenModal={openModal} />
       <main className="flex-1">
         <section className="relative overflow-hidden py-20 md:py-32 z-0">
-          <div className="container relative mx-auto px-4 md:px-6 z-10">
-            <div className="mx-auto max-w-4xl space-y-8">
-              <div className="space-y-2 text-center">
+          <div className="relative z-10 w-full px-4 md:px-6">
+            <div className="w-full space-y-8">
+              <div className="space-y-2">
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl text-foreground">{t("movements.title")}</h2>
                 <p className="text-lg text-muted-foreground">{t("movements.subtitle")}</p>
               </div>

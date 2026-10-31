@@ -14,6 +14,9 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+const MovementPlannerRoute = () => <MovementPlanner />;
+const MovementsRoute = () => <Movements />;
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -26,8 +29,8 @@ const App = () => (
           <Route path="/team" element={<Team />} />
           <Route path="/teams" element={<Navigate to="/team" replace />} />
           <Route path="/lisbon-pilot" element={<LisbonPilot />} />
-          <Route path="/movement-planner" element={<MovementPlanner />} />
-          <Route path="/movements" element={<Movements />} />
+          <Route path="/movement-planner" element={<MovementPlannerRoute />} />
+          <Route path="/movements" element={<MovementsRoute />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
