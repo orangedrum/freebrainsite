@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet-async";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Modal } from "@/components/shared/Modal";
@@ -17,6 +18,18 @@ const Team = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-background font-sans">
+      <Helmet>
+        <title>FreeBrain Research Team & Advisors | FreeBrain</title>
+        <meta name="description" content="Meet the FreeBrain research team and advisors — experts in neurology, movement therapy, and neuroscience driving our mission to make movement medicine accessible." />
+        <link rel="canonical" href="https://www.freethebrains.com/team" />
+        <meta property="og:title" content="FreeBrain Research Team & Advisors | FreeBrain" />
+        <meta property="og:description" content="Meet the FreeBrain research team and advisors — experts in neurology, movement therapy, and neuroscience." />
+        <meta property="og:url" content="https://www.freethebrains.com/team" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="FreeBrain Research Team & Advisors | FreeBrain" />
+        <meta name="twitter:description" content="Meet the FreeBrain research team and advisors." />
+      </Helmet>
       <Header onOpenModal={openModal} />
 
       <main className="flex-1">

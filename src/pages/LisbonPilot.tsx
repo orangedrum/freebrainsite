@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { Helmet } from "react-helmet-async";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Modal } from "@/components/shared/Modal";
@@ -16,6 +17,18 @@ const LisbonPilot = () => {
 
   return (
     <div className="flex min-h-screen flex-col bg-background font-sans">
+      <Helmet>
+        <title>FreeBrain Lisbon Pilot — Join Our Movement Therapy Program | FreeBrain</title>
+        <meta name="description" content="Join the FreeBrain Lisbon Pilot program. Experience on-demand movement therapy for neurological conditions. Register your interest for workshops and community sessions." />
+        <link rel="canonical" href="https://www.freethebrains.com/lisbon-pilot" />
+        <meta property="og:title" content="FreeBrain Lisbon Pilot — Join Our Movement Therapy Program | FreeBrain" />
+        <meta property="og:description" content="Join the FreeBrain Lisbon Pilot program. Experience on-demand movement therapy for neurological conditions." />
+        <meta property="og:url" content="https://www.freethebrains.com/lisbon-pilot" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="FreeBrain Lisbon Pilot — Join Our Movement Therapy Program | FreeBrain" />
+        <meta name="twitter:description" content="Join the FreeBrain Lisbon Pilot program." />
+      </Helmet>
       <Header onOpenModal={openModal} />
       <main className="flex-1">
         <section className="relative overflow-hidden py-20 md:py-32 z-0">
@@ -40,9 +53,9 @@ const LisbonPilot = () => {
             <div className="grid gap-8 md:grid-cols-2 md:items-start">
               <div className="space-y-6 text-left">
                 <div className="space-y-2">
-                  <h4 className="text-lg font-bold tracking-tight text-foreground md:text-xl">
+                  <h1 className="text-lg font-bold tracking-tight text-foreground md:text-xl">
                     {t("lisbonPilot.introTitle")}
-                  </h4>
+                  </h1>
                   <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                     {t("lisbonPilot.introBody")}
                   </p>
@@ -104,9 +117,9 @@ const LisbonPilot = () => {
         <section className="py-10 md:py-12">
           <div className="container mx-auto px-4 md:px-6 max-w-4xl grid gap-8 md:grid-cols-2 md:items-start">
             <div className="space-y-3">
-              <h3 className="text-xl font-bold tracking-tight text-foreground">
+              <h2 className="text-xl font-bold tracking-tight text-foreground">
                 {t("lisbonPilot.offerTitle")}
-              </h3>
+              </h2>
               <div className="rounded-2xl bg-secondary border border-foreground/10 p-6">
                 <ul className="space-y-2 text-sm text-muted-foreground list-disc marker:text-brand-accent pl-5">
                   <li>{t("lisbonPilot.offer1")}</li>
@@ -118,9 +131,9 @@ const LisbonPilot = () => {
             </div>
 
             <div className="space-y-3">
-              <h3 className="text-xl font-bold tracking-tight text-foreground">
+              <h2 className="text-xl font-bold tracking-tight text-foreground">
                 {t("lisbonPilot.askTitle")}
-              </h3>
+              </h2>
               <div className="rounded-2xl bg-secondary border border-foreground/10 p-6">
                 <ul className="space-y-2 text-sm text-muted-foreground list-disc marker:text-brand-accent pl-5">
                   <li>{t("lisbonPilot.ask1")}</li>
@@ -133,9 +146,9 @@ const LisbonPilot = () => {
             </div>
 
             <div className="space-y-3">
-              <h3 className="text-xl font-bold tracking-tight text-foreground">
+              <h2 className="text-xl font-bold tracking-tight text-foreground">
                 {t("lisbonPilot.safetyTitle")}
-              </h3>
+              </h2>
               <div className="rounded-2xl bg-secondary border border-foreground/10 p-6 space-y-3">
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   {t("lisbonPilot.safetyBody")}
@@ -145,7 +158,7 @@ const LisbonPilot = () => {
             </div>
 
             <div className="md:col-span-2 rounded-2xl bg-secondary border border-foreground/10 p-8 text-center space-y-4">
-              <h3 className="text-xl font-bold text-foreground">{t("lisbonPilot.nextTitle")}</h3>
+              <h2 className="text-xl font-bold text-foreground">{t("lisbonPilot.nextTitle")}</h2>
               <p className="text-muted-foreground">{t("lisbonPilot.nextBody")}</p>
               <button
                 type="button"

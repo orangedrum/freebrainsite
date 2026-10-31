@@ -78,5 +78,6 @@ export interface MovementItem {
   mobility: MovementMobility;
   titleKey: string;
   descriptionKey: string;
+  whyHelpfulKey: string;
   minutes: number;
 }

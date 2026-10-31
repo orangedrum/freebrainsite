@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { X, Star, Users, Home, Brain, Rocket, Building2, ArrowRight } from "lucide-react";
 import { EXTERNAL_LINKS } from "@/lib/constants";
@@ -45,6 +46,52 @@ export const MovementPlanner = () => {
   }, [recipe]);
   return (
     <div className="flex min-h-screen flex-col bg-background font-sans">
+      <Helmet>
+        <title>Free Movement Plan for Parkinson's Disease | FreeBrain</title>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              { "@type": "Question", "name": t("movementPlanner.faq.q1"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a1") } },
+              { "@type": "Question", "name": t("movementPlanner.faq.q2"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a2") } },
+              { "@type": "Question", "name": t("movementPlanner.faq.q3"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a3") } },
+              { "@type": "Question", "name": t("movementPlanner.faq.q4"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a4") } },
+              { "@type": "Question", "name": t("movementPlanner.faq.q5"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a5") } },
+              { "@type": "Question", "name": t("movementPlanner.faq.q6"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a6") } },
+              { "@type": "Question", "name": t("movementPlanner.faq.q7"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a7") } },
+              { "@type": "Question", "name": t("movementPlanner.faq.q8"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a8") } },
+              { "@type": "Question", "name": t("movementPlanner.faq.q9"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a9") } },
+              { "@type": "Question", "name": t("movementPlanner.faq.q10"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a10") } },
+              { "@type": "Question", "name": t("movementPlanner.faq.q11"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a11") } },
+              { "@type": "Question", "name": t("movementPlanner.faq.q12"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a12") } },
+              { "@type": "Question", "name": t("movementPlanner.faq.q13"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a13") } },
+              { "@type": "Question", "name": t("movementPlanner.faq.q14"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a14") } },
+            ]
+          })}
+        </script>
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Free Movement Plan for Parkinson's Disease",
+            "url": "https://www.freethebrains.com/movement-planner",
+            "applicationCategory": "HealthApplication",
+            "operatingSystem": "Web",
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+            "description": "Build a personalized 10-minute movement plan for Parkinson's disease. Free tool for freezing of gait, tremor, and postural instability."
+          })}
+        </script>
+        <meta name="description" content="Build a personalized 10-minute movement plan for Parkinson's disease. Free tool for freezing of gait, tremor, and postural instability. Seated, assisted, or independent exercises." />
+        <link rel="canonical" href="https://www.freethebrains.com/movement-planner" />
+        <meta property="og:title" content="Free Movement Plan for Parkinson's Disease | FreeBrain" />
+        <meta property="og:description" content="Build a personalized 10-minute movement plan for Parkinson's disease. Free tool for freezing of gait, tremor, and postural instability." />
+        <meta property="og:url" content="https://www.freethebrains.com/movement-planner" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Free Movement Plan for Parkinson's Disease | FreeBrain" />
+        <meta name="twitter:description" content="Build a personalized 10-minute movement plan for Parkinson's disease. Free tool for freezing of gait, tremor, and postural instability." />
+      </Helmet>
       <Header onOpenModal={openModal} />
       <main className="flex-1">
         <section className="relative overflow-hidden pt-10 md:pt-16 pb-20 md:pb-32 z-0">
