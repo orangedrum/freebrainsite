@@ -1,10 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 
 export type BunnyChallengePhase =
-  | "ready"
+  | "intro"
   | "countdown"
   | "playing"
-  | "stopped"
   | "result";
 
 export type BunnyChallengePattern = "bunnyLeft" | "bunnyRight";
@@ -14,13 +13,26 @@ const BEAT_INTERVALS_MS = [
   5000, 4000, 3750, 3500, 3300, 3000, 2800, 2600, 2400, 2200, 2000, 1800, 1600,
   1400, 1200, 1000,
 ];
+const THREE_SECOND_BEATS = 5;
+
+const getChallengeBeatIntervals = (): number[] => {
+  const firstThreeSecondBeatIndex = BEAT_INTERVALS_MS.indexOf(3000);
+  return [
+    ...BEAT_INTERVALS_MS.slice(0, firstThreeSecondBeatIndex + 1),
+    ...Array.from({ length: THREE_SECOND_BEATS }, () => 3000),
+    ...BEAT_INTERVALS_MS.slice(firstThreeSecondBeatIndex + 1),
+  ];
+};
+const CHALLENGE_BEAT_INTERVALS_MS = getChallengeBeatIntervals();
 
 export const getBeatIntervalMs = (beatIndex: number): number => {
-  return BEAT_INTERVALS_MS[Math.min(beatIndex, BEAT_INTERVALS_MS.length - 1)];
+  return CHALLENGE_BEAT_INTERVALS_MS[
+    Math.min(beatIndex, CHALLENGE_BEAT_INTERVALS_MS.length - 1)
+  ];
 };
 
 export const useBunnyChallenge = () => {
-  const [phase, setPhase] = useState<BunnyChallengePhase>("ready");
+  const [phase, setPhase] = useState<BunnyChallengePhase>("intro");
   const [pattern, setPattern] = useState<BunnyChallengePattern>("bunnyRight");
   const [beatIndex, setBeatIndex] = useState(0);
   const [countdownValue, setCountdownValue] = useState(COUNTDOWN_START);
@@ -80,18 +92,16 @@ export const useBunnyChallenge = () => {
     if (phase !== "playing" || startedAtRef.current === null) return;
 
     setElapsedMs(performance.now() - startedAtRef.current);
-    setPhase("stopped");
-  };
-
-  const showResult = (): void => {
-    if (phase === "stopped") setPhase("result");
+    setPhase("result");
   };
 
   const resetChallenge = (): void => {
     startedAtRef.current = null;
     setElapsedMs(0);
     setCountdownValue(COUNTDOWN_START);
-    setPhase("ready");
+    setPattern("bunnyRight");
+    setBeatIndex(0);
+    setPhase("intro");
   };
 
   return {
@@ -101,7 +111,6 @@ export const useBunnyChallenge = () => {
     beatIndex,
     phase,
     resetChallenge,
-    showResult,
     startChallenge,
     stopChallenge,
   };

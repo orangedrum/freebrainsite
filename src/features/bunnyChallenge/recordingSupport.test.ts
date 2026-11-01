@@ -6,9 +6,11 @@ describe("selectRecordingMimeType", () => {
     const isTypeSupported = vi.fn((mimeType: string) => mimeType === "video/webm");
 
     expect(selectRecordingMimeType(isTypeSupported)).toBe("video/webm");
-    expect(isTypeSupported).toHaveBeenCalledWith("video/mp4");
-    expect(isTypeSupported).toHaveBeenCalledWith("video/webm;codecs=vp8");
-    expect(isTypeSupported).toHaveBeenCalledWith("video/webm");
+    expect(isTypeSupported.mock.calls.map(([mimeType]) => mimeType)).toEqual([
+      "video/mp4",
+      "video/webm;codecs=vp8",
+      "video/webm",
+    ]);
   });
 
   it("returns no format when the browser supports none of the candidates", () => {

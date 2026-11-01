@@ -1,51 +1,15 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
 import {
   drawBunnyChallengeVideoFrame,
   type BunnyChallengeRecordingScene,
 } from "./bunnyChallengeVideoCanvas";
+import { getRecordingSupport } from "./recordingSupport";
 import {
-  getRecordingSupport,
-  type RecordingSupportError,
-} from "./recordingSupport";
-
-type RecordingStatus =
-  | "idle"
-  | "requesting"
-  | "recording"
-  | "processing"
-  | "ready"
-  | "error";
-
-type RecordingError =
-  | RecordingSupportError
-  | "recordingPermissionDenied"
-  | "recordingCameraNotFound"
-  | "recordingCameraBusy"
-  | "recordingInterrupted"
-  | "recordingFailed";
-
-export const getRecordingError = (error: unknown): RecordingError => {
-  if (error instanceof DOMException) {
-    if (error.name === "NotAllowedError" || error.name === "SecurityError") {
-      return "recordingPermissionDenied";
-    }
-    if (error.name === "NotFoundError" || error.name === "DevicesNotFoundError") {
-      return "recordingCameraNotFound";
-    }
-    if (error.name === "NotReadableError" || error.name === "TrackStartError") {
-      return "recordingCameraBusy";
-    }
-  }
-  return "recordingFailed";
-};
-
-const loadImage = (source: string): Promise<HTMLImageElement> =>
-  new Promise((resolve, reject) => {
-    const image = new Image();
-    image.onload = () => resolve(image);
-    image.onerror = () => reject(new Error(`Unable to load recording image: ${source}`));
-    image.src = source;
-  });
+  getRecordingError,
+  loadRecordingImage,
+  type RecordingError,
+  type RecordingStatus,
+} from "./recordingHelpers";
 
 export const useBunnyChallengeRecording = (
   scene: BunnyChallengeRecordingScene,
@@ -54,12 +18,16 @@ export const useBunnyChallengeRecording = (
   const [status, setStatus] = useState<RecordingStatus>("idle");
   const [error, setError] = useState<RecordingError | null>(null);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
+  const [posterUrl, setPosterUrl] = useState<string | null>(null);
   const [mimeType, setMimeType] = useState<string | null>(null);
+  const [cameraStream, setCameraStream] = useState<MediaStream | null>(null);
   const sceneRef = useRef(scene);
   const cameraVideoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const recorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
+  const imagesRef = useRef<{ bunny: HTMLImageElement; gun: HTMLImageElement } | null>(null);
+  const canvasContextRef = useRef<CanvasRenderingContext2D | null>(null);
   const cameraStreamRef = useRef<MediaStream | null>(null);
   const canvasStreamRef = useRef<MediaStream | null>(null);
   const animationFrameRef = useRef<number | null>(null);
@@ -67,7 +35,6 @@ export const useBunnyChallengeRecording = (
   const hasRecordingErrorRef = useRef(false);
   const isStartingRef = useRef(false);
   const isMountedRef = useRef(true);
-
   const support = getRecordingSupport();
 
   const releaseStreams = useCallback((): void => {
@@ -80,12 +47,14 @@ export const useBunnyChallengeRecording = (
     cameraStreamRef.current = null;
     canvasStreamRef.current = null;
     if (cameraVideoRef.current) cameraVideoRef.current.srcObject = null;
+    if (isMountedRef.current) setCameraStream(null);
   }, []);
 
   const revokePreview = useCallback((): void => {
     if (videoUrlRef.current) URL.revokeObjectURL(videoUrlRef.current);
     videoUrlRef.current = null;
     setVideoUrl(null);
+    setPosterUrl(null);
   }, []);
 
   const startRecording = useCallback(async (): Promise<boolean> => {
@@ -114,6 +83,7 @@ export const useBunnyChallengeRecording = (
         isStartingRef.current = false;
         return false;
       }
+      setCameraStream(cameraStream);
 
       const cameraVideo = cameraVideoRef.current;
       const canvas = canvasRef.current;
@@ -127,18 +97,23 @@ export const useBunnyChallengeRecording = (
         return false;
       }
 
+      const isWideLayout = window.innerWidth >= 768;
+      canvas.width = isWideLayout ? 1280 : 720;
+      canvas.height = isWideLayout ? 720 : 1280;
       const context = canvas.getContext("2d");
       if (!context) throw new Error("Recording canvas is unavailable");
 
       const [bunnyImage, gunImage] = await Promise.all([
-        loadImage("/handgesture_bunny.svg"),
-        loadImage("/handgesture_gun.svg"),
+        loadRecordingImage("/handgesture_bunny.svg"),
+        loadRecordingImage("/handgesture_gun.svg"),
       ]);
       if (!isMountedRef.current) {
         releaseStreams();
         isStartingRef.current = false;
         return false;
       }
+      imagesRef.current = { bunny: bunnyImage, gun: gunImage };
+      canvasContextRef.current = context;
 
       const renderFrame = (): void => {
         drawBunnyChallengeVideoFrame(
@@ -207,7 +182,7 @@ export const useBunnyChallengeRecording = (
       });
 
       chunksRef.current = [];
-      recorder.start(1000);
+      recorder.start();
       setMimeType(recorder.mimeType);
       setStatus("recording");
       isStartingRef.current = false;
@@ -226,6 +201,24 @@ export const useBunnyChallengeRecording = (
   const stopRecording = useCallback((): void => {
     const recorder = recorderRef.current;
     if (recorder?.state === "recording") {
+      const canvas = canvasRef.current;
+      const context = canvasContextRef.current;
+      const images = imagesRef.current;
+      const cameraVideo = cameraVideoRef.current;
+      if (canvas && context && images && cameraVideo) {
+        drawBunnyChallengeVideoFrame(
+          context,
+          cameraVideo,
+          images.bunny,
+          images.gun,
+          sceneRef.current,
+        );
+        setPosterUrl(canvas.toDataURL("image/jpeg", 0.82));
+      }
+      if (animationFrameRef.current !== null) {
+        window.cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
+      }
       setStatus("processing");
       recorder.stop();
       return;
@@ -240,7 +233,7 @@ export const useBunnyChallengeRecording = (
     setStatus("idle");
   }, [revokePreview]);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     sceneRef.current = scene;
   }, [scene]);
 
@@ -250,17 +243,21 @@ export const useBunnyChallengeRecording = (
       isMountedRef.current = false;
       if (recorderRef.current?.state === "recording") recorderRef.current.stop();
       releaseStreams();
+      imagesRef.current = null;
+      canvasContextRef.current = null;
       if (videoUrlRef.current) URL.revokeObjectURL(videoUrlRef.current);
     };
   }, [releaseStreams]);
 
   return {
     cameraVideoRef,
+    cameraStream,
     canvasRef,
     discardRecording,
     error,
     isRecordingSelected,
     mimeType,
+    posterUrl,
     setIsRecordingSelected,
     startRecording,
     status,

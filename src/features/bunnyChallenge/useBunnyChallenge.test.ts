@@ -2,6 +2,12 @@ import { act, renderHook } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { getBeatIntervalMs, useBunnyChallenge } from "./useBunnyChallenge";
 
+const advanceCountdown = (): void => {
+  for (let second = 0; second < 3; second += 1) {
+    act(() => vi.advanceTimersByTime(1000));
+  }
+};
+
 describe("useBunnyChallenge", () => {
   afterEach(() => {
     vi.useRealTimers();
@@ -11,10 +17,13 @@ describe("useBunnyChallenge", () => {
     vi.useFakeTimers();
     const { result } = renderHook(() => useBunnyChallenge());
 
+    expect(result.current.phase).toBe("intro");
     act(() => result.current.startChallenge());
     expect(result.current.phase).toBe("countdown");
 
-    act(() => vi.advanceTimersByTime(2999));
+    act(() => vi.advanceTimersByTime(1000));
+    act(() => vi.advanceTimersByTime(1000));
+    act(() => vi.advanceTimersByTime(999));
     expect(result.current.phase).toBe("countdown");
     expect(result.current.countdownValue).toBe(1);
 
@@ -23,26 +32,23 @@ describe("useBunnyChallenge", () => {
     expect(result.current.elapsedMs).toBe(0);
   });
 
-  it("freezes elapsed time when stopped and advances through result", () => {
+  it("freezes elapsed time and shows the result when stopped", () => {
     vi.useFakeTimers();
     const { result } = renderHook(() => useBunnyChallenge());
 
     act(() => result.current.startChallenge());
-    act(() => vi.advanceTimersByTime(3000));
+    advanceCountdown();
     act(() => vi.advanceTimersByTime(1200));
     act(() => result.current.stopChallenge());
 
-    expect(result.current.phase).toBe("stopped");
+    expect(result.current.phase).toBe("result");
     expect(result.current.elapsedMs).toBe(1200);
 
     act(() => vi.advanceTimersByTime(1000));
     expect(result.current.elapsedMs).toBe(1200);
 
-    act(() => result.current.showResult());
-    expect(result.current.phase).toBe("result");
-
     act(() => result.current.resetChallenge());
-    expect(result.current.phase).toBe("ready");
+    expect(result.current.phase).toBe("intro");
     expect(result.current.elapsedMs).toBe(0);
   });
 
@@ -51,7 +57,7 @@ describe("useBunnyChallenge", () => {
     const { result } = renderHook(() => useBunnyChallenge());
 
     act(() => result.current.startChallenge());
-    act(() => vi.advanceTimersByTime(3000));
+    advanceCountdown();
     expect(result.current.phase).toBe("playing");
     expect(result.current.pattern).toBe("bunnyRight");
 
@@ -70,8 +76,11 @@ describe("useBunnyChallenge", () => {
     expect(getBeatIntervalMs(3)).toBe(3500);
     expect(getBeatIntervalMs(4)).toBe(3300);
     expect(getBeatIntervalMs(5)).toBe(3000);
-    expect(getBeatIntervalMs(15)).toBe(1000);
-    expect(getBeatIntervalMs(20)).toBe(1000);
+    expect(getBeatIntervalMs(6)).toBe(3000);
+    expect(getBeatIntervalMs(10)).toBe(3000);
+    expect(getBeatIntervalMs(11)).toBe(2800);
+    expect(getBeatIntervalMs(21)).toBe(1000);
+    expect(getBeatIntervalMs(30)).toBe(1000);
 
     act(() => result.current.stopChallenge());
     const stoppedPattern = result.current.pattern;

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { getRecordingError } from "./useBunnyChallengeRecording";
+import { getRecordingError } from "./recordingHelpers";
 
 describe("getRecordingError", () => {
   it("distinguishes permission, missing-camera, and busy-camera failures", () => {
