@@ -16,6 +16,7 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Modal } from "@/components/shared/Modal";
 import { useModalState } from "@/hooks/useModalState";
+import { BunnyChallengeGame } from "@/features/bunnyChallenge/BunnyChallengeGame";
 
 const FAQ_ITEMS = [
   { questionKey: "bunnyChallenge.faq.q1", answerKey: "bunnyChallenge.faq.a1" },
@@ -116,45 +117,7 @@ const BunnyChallenge = () => {
               <p className="text-lg text-muted-foreground">{t("bunnyChallenge.subtitle")}</p>
             </header>
 
-            <section
-              aria-labelledby="bunny-challenge-preview"
-              className="rounded-2xl border border-foreground/10 bg-secondary p-6 md:p-8"
-            >
-              <h2 id="bunny-challenge-preview" className="text-xl font-bold text-foreground">
-                {t("bunnyChallenge.previewTitle")}
-              </h2>
-              <p className="mt-2 text-foreground/90">{t("bunnyChallenge.simultaneousNotice")}</p>
-              <div className="mt-6 grid grid-cols-2 gap-4 md:gap-8">
-                <figure className="flex flex-col items-center gap-3 rounded-xl bg-background/70 p-4 text-center">
-                  <img
-                    src="/handgesture_bunny.svg"
-                    alt={t("bunnyChallenge.pose1Alt")}
-                    className="h-28 w-28 object-contain motion-safe:animate-pulse motion-reduce:animate-none md:h-36 md:w-36"
-                  />
-                  <figcaption className="font-semibold text-foreground">
-                    {t("bunnyChallenge.pose1Label")}
-                  </figcaption>
-                </figure>
-                <figure className="flex flex-col items-center gap-3 rounded-xl bg-background/70 p-4 text-center">
-                  <img
-                    src="/handgesture_gun.svg"
-                    alt={t("bunnyChallenge.pose2Alt")}
-                    className="h-28 w-28 object-contain motion-safe:animate-pulse motion-reduce:animate-none md:h-36 md:w-36"
-                  />
-                  <figcaption className="font-semibold text-foreground">
-                    {t("bunnyChallenge.pose2Label")}
-                  </figcaption>
-                </figure>
-              </div>
-              <p className="mt-6 text-sm text-muted-foreground">{t("bunnyChallenge.previewOnly")}</p>
-            </section>
-
-            <section id="challenge-facts" aria-labelledby="bunny-challenge-facts">
-              <h2 id="bunny-challenge-facts" className="text-xl font-bold text-foreground">
-                {t("bunnyChallenge.factsTitle")}
-              </h2>
-              <p className="mt-2 text-foreground/90">{t("bunnyChallenge.factsBody")}</p>
-            </section>
+            <BunnyChallengeGame />
 
             <section aria-labelledby="bunny-challenge-how-to" className="space-y-3">
               <h2 id="bunny-challenge-how-to" className="text-xl font-bold text-foreground">
