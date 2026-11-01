@@ -16,6 +16,11 @@ export interface RecordingSupport {
   error: RecordingSupportError | null;
 }
 
+export const getRecordingCanvasDimensions = (): {
+  width: number;
+  height: number;
+} => ({ width: 540, height: 960 });
+
 export const selectRecordingMimeType = (
   isTypeSupported: (mimeType: string) => boolean,
 ): string | null => RECORDING_MIME_TYPES.find(isTypeSupported) ?? null;

@@ -3,7 +3,10 @@ import {
   drawBunnyChallengeVideoFrame,
   type BunnyChallengeRecordingScene,
 } from "./bunnyChallengeVideoCanvas";
-import { getRecordingSupport } from "./recordingSupport";
+import {
+  getRecordingCanvasDimensions,
+  getRecordingSupport,
+} from "./recordingSupport";
 import {
   getRecordingError,
   loadRecordingImage,
@@ -106,9 +109,9 @@ export const useBunnyChallengeRecording = (
         return false;
       }
 
-      const isWideLayout = window.innerWidth >= window.innerHeight;
-      canvas.width = isWideLayout ? 960 : 540;
-      canvas.height = isWideLayout ? 540 : 960;
+      const { width, height } = getRecordingCanvasDimensions();
+      canvas.width = width;
+      canvas.height = height;
       const context = canvas.getContext("2d");
       if (!context) throw new Error("Recording canvas is unavailable");
 

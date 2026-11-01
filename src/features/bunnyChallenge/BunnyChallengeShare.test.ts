@@ -4,7 +4,6 @@ import {
   createShareData,
   formatChallengeElapsedTime,
   supportsNativeShare,
-  supportsFileSharing,
 } from "./bunnyChallengeSharing";
 
 describe("Bunny Challenge sharing", () => {
@@ -15,12 +14,12 @@ describe("Bunny Challenge sharing", () => {
   it("creates the caption with the challenge URL and score", () => {
     expect(
       createChallengeCaption(
-        "12s",
-        "https://freethebrains.com/bunny-challenge",
-        "I lasted {{time}}! Try it: {{url}} #freethebrains",
+        "00:08.3 sec",
+        "https://freebrainsite-fani4x4mh-jeans-projects-3cddd625.vercel.app/bunny-challenge",
+        "I just did the FreeBrain Bunny Challenge and lasted {{time}}! Can you beat me? Try gamified neuro health for every neurological and cognitive condition: {{url}} #freethebrains",
       ),
     ).toBe(
-      "I lasted 12s! Try it: https://freethebrains.com/bunny-challenge #freethebrains",
+      "I just did the FreeBrain Bunny Challenge and lasted 00:08.3 sec! Can you beat me? Try gamified neuro health for every neurological and cognitive condition: https://freebrainsite-fani4x4mh-jeans-projects-3cddd625.vercel.app/bunny-challenge #freethebrains",
     );
   });
 
@@ -31,7 +30,7 @@ describe("Bunny Challenge sharing", () => {
 
   it("shares the video file only when the browser supports file sharing", () => {
     const file = new File(["video"], "challenge.webm", { type: "video/webm" });
-    const baseData: ShareData = { text: "caption", url: "https://example.com" };
+    const baseData: ShareData = { text: "caption https://example.com" };
     const canShareFiles = vi.fn(() => true);
 
     expect(createShareData(baseData, file, canShareFiles)).toEqual({
@@ -41,8 +40,12 @@ describe("Bunny Challenge sharing", () => {
     expect(createShareData(baseData, file, vi.fn(() => false))).toEqual(baseData);
     expect(createShareData(baseData, file, undefined)).toEqual(baseData);
     expect(createShareData(baseData, null, canShareFiles)).toEqual(baseData);
-    expect(supportsFileSharing(file, vi.fn(() => {
+    expect(createShareData(baseData, file, vi.fn(() => {
       throw new Error("unsupported");
-    }))).toBe(false);
+    }))).toEqual(baseData);
+    expect(canShareFiles).toHaveBeenCalledWith({
+      ...baseData,
+      files: [file],
+    });
   });
 });

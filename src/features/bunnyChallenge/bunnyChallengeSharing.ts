@@ -2,25 +2,18 @@ export const supportsNativeShare = (
   shareFunction: Navigator["share"] | undefined,
 ): boolean => typeof shareFunction === "function";
 
-export const supportsFileSharing = (
-  file: File,
-  canShareFiles: Navigator["canShare"] | undefined,
-): boolean => {
-  if (!canShareFiles) return false;
-  try {
-    return canShareFiles({ files: [file] });
-  } catch {
-    return false;
-  }
-};
-
 export const createShareData = (
   baseData: ShareData,
   videoFile: File | null,
-  canShareFiles: Navigator["canShare"] | undefined,
+  canShareData: Navigator["canShare"] | undefined,
 ): ShareData => {
-  if (!videoFile || !supportsFileSharing(videoFile, canShareFiles)) return baseData;
-  return { ...baseData, files: [videoFile] };
+  if (!videoFile || !canShareData) return baseData;
+  const fileData: ShareData = { ...baseData, files: [videoFile] };
+  try {
+    return canShareData(fileData) ? fileData : baseData;
+  } catch {
+    return baseData;
+  }
 };
 
 export const createChallengeCaption = (

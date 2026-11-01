@@ -22,15 +22,18 @@ export const BunnyChallengeShare = ({
 }: BunnyChallengeShareProps) => {
   const { t } = useTranslation();
   const [copyStatus, setCopyStatus] = useState<"idle" | "copied" | "error">("idle");
-  const [shareError, setShareError] = useState(false);
+  const [shareErrorName, setShareErrorName] = useState<string | null>(null);
+  const [isNativeShareBlocked, setIsNativeShareBlocked] = useState(false);
   const elapsedLabel = `${formatChallengeElapsedTime(elapsedMs)} ${t("bunnyChallenge.secondsShort")}`;
-  const challengeUrl = `${window.location.origin}/bunny-challenge`;
+  const challengeUrl =
+    "https://freebrainsite-fani4x4mh-jeans-projects-3cddd625.vercel.app/bunny-challenge";
   const caption = createChallengeCaption(
     elapsedLabel,
     challengeUrl,
     t("bunnyChallenge.shareCaption"),
   );
-  const canUseNativeShare = supportsNativeShare(navigator.share);
+  const canUseNativeShare =
+    supportsNativeShare(navigator.share) && !isNativeShareBlocked;
   const videoFile = videoBlob
     ? new File(
         [videoBlob],
@@ -42,7 +45,6 @@ export const BunnyChallengeShare = ({
     {
       title: t("bunnyChallenge.shareTitle"),
       text: caption,
-      url: challengeUrl,
     },
     videoFile,
     navigator.canShare?.bind(navigator),
@@ -51,11 +53,19 @@ export const BunnyChallengeShare = ({
 
   const shareChallenge = (): void => {
     if (!navigator.share) return;
-    setShareError(false);
-    void navigator.share(shareData).catch((error: unknown) => {
-      if (error instanceof DOMException && error.name === "AbortError") return;
-      setShareError(true);
-    });
+    setShareErrorName(null);
+    try {
+      void navigator.share(shareData).catch((error: unknown) => {
+        if (error instanceof DOMException && error.name === "AbortError") return;
+        setIsNativeShareBlocked(true);
+        setShareErrorName(
+          error instanceof Error ? error.name : "UnknownError",
+        );
+      });
+    } catch (error) {
+      setIsNativeShareBlocked(true);
+      setShareErrorName(error instanceof Error ? error.name : "UnknownError");
+    }
   };
 
   const copyCaption = async (): Promise<void> => {
@@ -109,9 +119,9 @@ export const BunnyChallengeShare = ({
           {t("bunnyChallenge.shareCopyFailed")}
         </p>
       )}
-      {shareError && (
+      {shareErrorName && (
         <p className="text-sm text-danger" role="alert">
-          {t("bunnyChallenge.shareFailed")}
+          {t("bunnyChallenge.shareBlocked", { reason: shareErrorName })}
         </p>
       )}
     </section>

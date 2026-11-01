@@ -1,5 +1,16 @@
 import { describe, expect, it, vi } from "vitest";
-import { selectRecordingMimeType } from "./recordingSupport";
+import {
+  getRecordingCanvasDimensions,
+  selectRecordingMimeType,
+} from "./recordingSupport";
+
+describe("getRecordingCanvasDimensions", () => {
+  it("always returns portrait dimensions", () => {
+    const dimensions = getRecordingCanvasDimensions();
+    expect(dimensions.height).toBeGreaterThan(dimensions.width);
+    expect(dimensions).toEqual({ width: 540, height: 960 });
+  });
+});
 
 describe("selectRecordingMimeType", () => {
   it("uses the first format supported by the browser", () => {
