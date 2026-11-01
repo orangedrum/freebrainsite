@@ -1,7 +1,10 @@
 import { ArrowDownToLine, RotateCcw } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
+import { BunnyChallengeLeaderboard } from "./BunnyChallengeLeaderboard";
 import { BunnyChallengeRecordingControls } from "./BunnyChallengeRecordingControls";
+import { BunnyChallengeShare } from "./BunnyChallengeShare";
+import { formatChallengeElapsedTime } from "./bunnyChallengeSharing";
 import type { useBunnyChallengeRecording } from "./useBunnyChallengeRecording";
 
 type RecordingController = ReturnType<typeof useBunnyChallengeRecording>;
@@ -11,15 +14,6 @@ interface BunnyChallengeResultScreenProps {
   elapsedMs: number;
   onTryAgain: () => void;
 }
-
-const formatElapsedTime = (elapsedMs: number): string => {
-  const tenths = Math.floor(elapsedMs / 100);
-  const minutes = Math.floor(tenths / 600);
-  const seconds = Math.floor(tenths / 10) % 60;
-  const deciseconds = tenths % 10;
-
-  return `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}.${deciseconds}`;
-};
 
 export const BunnyChallengeResultScreen = ({
   controller,
@@ -41,7 +35,7 @@ export const BunnyChallengeResultScreen = ({
           {t("bunnyChallenge.elapsedLabel")}
         </p>
         <p className="mt-1 text-4xl font-bold tabular-nums text-foreground">
-          {formatElapsedTime(elapsedMs)}
+          {formatChallengeElapsedTime(elapsedMs)}
         </p>
         <h3 className="mt-5 text-2xl font-bold text-foreground md:text-3xl">
           {t("bunnyChallenge.resultTitle")}
@@ -50,9 +44,6 @@ export const BunnyChallengeResultScreen = ({
         <p className="mt-4 font-semibold text-foreground">
           {t("bunnyChallenge.resultSharePrompt")}
         </p>
-        <div className="mt-5 rounded-xl border border-dashed border-foreground/20 p-4 text-sm text-muted-foreground">
-          {t("bunnyChallenge.shareOptionsComingSoon")}
-        </div>
         {controller.status === "ready" && controller.videoUrl && (
           <Button asChild className="mt-3 w-full">
             <a
@@ -66,6 +57,12 @@ export const BunnyChallengeResultScreen = ({
             </a>
           </Button>
         )}
+        <BunnyChallengeShare
+          elapsedMs={elapsedMs}
+          videoBlob={controller.status === "ready" ? controller.videoBlob : null}
+          mimeType={controller.mimeType}
+        />
+        <BunnyChallengeLeaderboard elapsedMs={elapsedMs} />
         <Button type="button" onClick={onTryAgain} className="mt-6 min-h-12">
           <RotateCcw className="mr-2 h-4 w-4" aria-hidden="true" />
           {t("bunnyChallenge.playAgain")}

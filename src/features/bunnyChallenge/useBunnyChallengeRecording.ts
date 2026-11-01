@@ -18,6 +18,7 @@ export const useBunnyChallengeRecording = (
   const [status, setStatus] = useState<RecordingStatus>("idle");
   const [error, setError] = useState<RecordingError | null>(null);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
+  const [videoBlob, setVideoBlob] = useState<Blob | null>(null);
   const [posterUrl, setPosterUrl] = useState<string | null>(null);
   const [mimeType, setMimeType] = useState<string | null>(null);
   const [cameraStream, setCameraStream] = useState<MediaStream | null>(null);
@@ -26,7 +27,11 @@ export const useBunnyChallengeRecording = (
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const recorderRef = useRef<MediaRecorder | null>(null);
   const chunksRef = useRef<Blob[]>([]);
-  const imagesRef = useRef<{ bunny: HTMLImageElement; gun: HTMLImageElement } | null>(null);
+  const imagesRef = useRef<{
+    bunny: HTMLImageElement;
+    gun: HTMLImageElement;
+    logo: HTMLImageElement;
+  } | null>(null);
   const canvasContextRef = useRef<CanvasRenderingContext2D | null>(null);
   const cameraStreamRef = useRef<MediaStream | null>(null);
   const canvasStreamRef = useRef<MediaStream | null>(null);
@@ -57,6 +62,7 @@ export const useBunnyChallengeRecording = (
     videoUrlRef.current = null;
     posterUrlRef.current = null;
     setVideoUrl(null);
+    setVideoBlob(null);
     setPosterUrl(null);
   }, []);
 
@@ -106,16 +112,17 @@ export const useBunnyChallengeRecording = (
       const context = canvas.getContext("2d");
       if (!context) throw new Error("Recording canvas is unavailable");
 
-      const [bunnyImage, gunImage] = await Promise.all([
+      const [bunnyImage, gunImage, logoImage] = await Promise.all([
         loadRecordingImage("/handgesture_bunny.svg"),
         loadRecordingImage("/handgesture_gun.svg"),
+        loadRecordingImage("/smoothbluebkgrnd_nobkgrnd.png"),
       ]);
       if (!isMountedRef.current) {
         releaseStreams();
         isStartingRef.current = false;
         return false;
       }
-      imagesRef.current = { bunny: bunnyImage, gun: gunImage };
+      imagesRef.current = { bunny: bunnyImage, gun: gunImage, logo: logoImage };
       canvasContextRef.current = context;
 
       let lastFrameTime = 0;
@@ -126,6 +133,7 @@ export const useBunnyChallengeRecording = (
             cameraVideo,
             bunnyImage,
             gunImage,
+            logoImage,
             sceneRef.current,
           );
           lastFrameTime = timestamp;
@@ -173,6 +181,7 @@ export const useBunnyChallengeRecording = (
         }
         const previewUrl = URL.createObjectURL(videoBlob);
         videoUrlRef.current = previewUrl;
+        setVideoBlob(videoBlob);
         setVideoUrl(previewUrl);
         setMimeType(recorder.mimeType);
         setStatus("ready");
@@ -219,6 +228,7 @@ export const useBunnyChallengeRecording = (
           cameraVideo,
           images.bunny,
           images.gun,
+          images.logo,
           sceneRef.current,
         );
         canvas.toBlob((posterBlob) => {
@@ -279,5 +289,6 @@ export const useBunnyChallengeRecording = (
     stopRecording,
     support,
     videoUrl,
+    videoBlob,
   };
 };

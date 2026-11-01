@@ -7,6 +7,7 @@ export interface BunnyChallengeRecordingScene {
   elapsedMs: number;
   instructionLabel: string;
   countdownLabel: string;
+  brandLine: string;
   factLabel: string;
 }
 
@@ -87,6 +88,40 @@ const drawCamera = (
   context.scale(-1, 1);
   context.drawImage(video, offsetX, offsetY, drawWidth, drawHeight);
   context.restore();
+};
+
+const drawBranding = (
+  context: CanvasRenderingContext2D,
+  logo: HTMLImageElement,
+  brandLine: string,
+): void => {
+  const { width } = context.canvas;
+  const padding = Math.max(12, width * 0.018);
+  const iconSize = Math.max(28, width * 0.055);
+  const textSize = Math.max(14, width * 0.025);
+  const top = padding;
+  const textX = padding * 2 + iconSize;
+  const textY = top + iconSize / 2;
+  const textWidth = Math.min(width * 0.58, width - textX - padding);
+
+  context.fillStyle = `${getThemeColor("--background")}`;
+  context.globalAlpha = 0.78;
+  context.fillRect(
+    padding / 2,
+    top / 2,
+    textX + textWidth - padding / 2,
+    iconSize + padding,
+  );
+  context.globalAlpha = 1;
+  if (logo.complete && logo.naturalWidth) {
+    context.drawImage(logo, padding, top, iconSize, iconSize);
+  }
+  context.fillStyle = getThemeColor("--foreground");
+  context.font = `bold ${textSize}px sans-serif`;
+  context.textAlign = "left";
+  context.textBaseline = "middle";
+  context.fillText(brandLine, textX, textY, textWidth);
+  context.textBaseline = "alphabetic";
 };
 
 const drawChallengeOverlay = (
@@ -199,10 +234,12 @@ export const drawBunnyChallengeVideoFrame = (
   camera: HTMLVideoElement,
   bunnyImage: HTMLImageElement,
   gunImage: HTMLImageElement,
+  logo: HTMLImageElement,
   scene: BunnyChallengeRecordingScene,
 ): void => {
   const { width, height } = context.canvas;
   const isPortrait = height > width;
   drawCamera(context, camera, { x: 0, y: 0, width, height });
   drawChallengeOverlay(context, scene, isPortrait, bunnyImage, gunImage);
+  drawBranding(context, logo, scene.brandLine);
 };

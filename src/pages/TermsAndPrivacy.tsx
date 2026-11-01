@@ -36,6 +36,13 @@ const TermsAndPrivacy = () => {
             <p className="text-foreground/90">{t("termsPrivacy.recordingStorage")}</p>
             <p className="text-foreground/90">{t("termsPrivacy.recordingControls")}</p>
           </article>
+          <article className="space-y-4 rounded-2xl border border-foreground/10 bg-secondary p-6 md:p-8">
+            <h2 className="text-xl font-bold text-foreground">
+              {t("termsPrivacy.leaderboardTitle")}
+            </h2>
+            <p className="text-foreground/90">{t("termsPrivacy.leaderboardConsent")}</p>
+            <p className="text-foreground/90">{t("termsPrivacy.leaderboardData")}</p>
+          </article>
           <p className="text-sm text-muted-foreground">
             {t("termsPrivacy.fullPolicyNotice")}
           </p>
