@@ -97,7 +97,7 @@ export const useBunnyChallengeRecording = (
         return false;
       }
 
-      const isWideLayout = window.innerWidth >= 768;
+      const isWideLayout = window.innerWidth >= window.innerHeight;
       canvas.width = isWideLayout ? 1280 : 720;
       canvas.height = isWideLayout ? 720 : 1280;
       const context = canvas.getContext("2d");

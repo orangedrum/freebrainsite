@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Camera, CameraOff, Check, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
+import { Switch } from "@/components/ui/switch";
 import type { useBunnyChallengeRecording } from "./useBunnyChallengeRecording";
 
 type RecordingController = ReturnType<typeof useBunnyChallengeRecording>;
@@ -11,14 +11,12 @@ type RecordingControlsMode = "setup" | "live" | "result";
 interface BunnyChallengeRecordingControlsProps {
   controller: RecordingController;
   mode: RecordingControlsMode;
-  onStop?: () => void;
   onContinueWithoutRecording?: () => void;
 }
 
 export const BunnyChallengeRecordingControls = ({
   controller,
   mode,
-  onStop,
   onContinueWithoutRecording,
 }: BunnyChallengeRecordingControlsProps) => {
   const { t } = useTranslation();
@@ -39,15 +37,6 @@ export const BunnyChallengeRecordingControls = ({
       {mode === "setup" && (
         <div className="space-y-3 rounded-xl border border-foreground/10 bg-background/70 p-4">
           <div className="flex items-start gap-3">
-            <Checkbox
-              id="bunny-recording-consent"
-              checked={controller.isRecordingSelected}
-              disabled={Boolean(controller.support.error)}
-              onCheckedChange={(checked) =>
-                controller.setIsRecordingSelected(checked === true)
-              }
-              className="mt-1"
-            />
             <div className="flex-1">
               <label
                 htmlFor="bunny-recording-consent"
@@ -59,6 +48,14 @@ export const BunnyChallengeRecordingControls = ({
                 {t("bunnyChallenge.recordingConsent")}
               </p>
             </div>
+            <Switch
+              id="bunny-recording-consent"
+              checked={controller.isRecordingSelected}
+              disabled={Boolean(controller.support.error)}
+              onCheckedChange={controller.setIsRecordingSelected}
+              aria-label={t("bunnyChallenge.recordingOptIn")}
+              className="mt-1 h-8 w-14 scale-110"
+            />
             <Video aria-hidden="true" className="h-6 w-6 shrink-0 text-primary" />
           </div>
           {controller.support.error && (
@@ -136,8 +133,8 @@ export const BunnyChallengeRecordingControls = ({
       )}
 
       {mode === "live" && (
-        <div className="relative overflow-hidden rounded-xl border border-foreground/10 bg-background">
-          <div className="relative aspect-[9/16] max-h-[70vh] w-full md:aspect-[4/5]">
+        <div className="absolute right-2 top-2 z-10 w-1/4 min-w-20 max-w-32 overflow-hidden rounded-xl border border-foreground/20 bg-background shadow-lg sm:right-4 sm:top-4">
+          <div className="relative aspect-[9/16] w-full">
             {controller.status === "recording" ? (
               <video
                 ref={previewVideoRef}
@@ -148,13 +145,13 @@ export const BunnyChallengeRecordingControls = ({
                 className="h-full w-full scale-x-[-1] object-cover"
               />
             ) : (
-              <div className="flex h-full flex-col items-center justify-center gap-3 p-6 text-center">
-                <CameraOff className="h-10 w-10 text-muted-foreground" aria-hidden="true" />
-                <p className="text-sm text-muted-foreground">
+              <div className="flex h-full flex-col items-center justify-center gap-1 p-2 text-center">
+                <CameraOff className="h-6 w-6 text-muted-foreground" aria-hidden="true" />
+                <p className="text-xs text-muted-foreground">
                   {t("bunnyChallenge.recordingCameraOff")}
                 </p>
                 {controller.error && (
-                  <p className="text-sm text-danger" role="alert">
+                  <p className="text-xs text-danger" role="alert">
                     {t(`bunnyChallenge.${controller.error}`)}
                   </p>
                 )}
@@ -162,19 +159,10 @@ export const BunnyChallengeRecordingControls = ({
             )}
           </div>
           {controller.status === "recording" && (
-            <p className="absolute left-3 top-3 flex items-center gap-2 rounded-full bg-background/90 px-3 py-1 text-sm font-semibold text-foreground" role="status">
-              <span className="h-2 w-2 animate-pulse rounded-full bg-danger" />
+            <p className="px-1 py-1 text-center text-[10px] font-medium leading-tight text-info" role="status">
               {t("bunnyChallenge.recordingActive")}
             </p>
           )}
-          <Button
-            type="button"
-            variant="destructive"
-            onClick={onStop}
-            className="absolute bottom-4 left-1/2 min-h-12 min-w-32 -translate-x-1/2 px-8 text-lg"
-          >
-            {t("bunnyChallenge.stop")}
-          </Button>
         </div>
       )}
     </div>

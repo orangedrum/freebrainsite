@@ -1,5 +1,6 @@
-import { ArrowRight, Smartphone, Video } from "lucide-react";
+import { ArrowRight, Hand, Heart } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { BunnyChallengeRecordingControls } from "./BunnyChallengeRecordingControls";
 import type { useBunnyChallengeRecording } from "./useBunnyChallengeRecording";
@@ -18,54 +19,96 @@ export const BunnyChallengeIntro = ({
   onContinueWithoutRecording,
 }: BunnyChallengeIntroProps) => {
   const { t } = useTranslation();
+  const isRecordingSelected = controller.isRecordingSelected;
 
   return (
-    <div className="mx-auto max-w-3xl rounded-2xl border border-foreground/10 bg-background/70 p-6 text-center shadow-lg md:p-10">
-      <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-primary/10 text-primary">
-        <Video className="h-10 w-10" aria-hidden="true" />
-      </div>
-      <h3 className="mt-5 text-2xl font-bold text-foreground md:text-3xl">
-        {t("bunnyChallenge.introTitle")}
+    <div
+      className={`relative mx-auto max-w-3xl rounded-2xl border p-6 text-center shadow-lg transition-colors md:p-10 ${
+        isRecordingSelected
+          ? "border-brand-accent/70 bg-brand-accent/5"
+          : "border-foreground/10 bg-background/70"
+      }`}
+    >
+      {isRecordingSelected && (
+        <>
+          <Heart className="absolute left-4 top-4 h-6 w-6 fill-brand-accent/20 text-brand-accent" aria-hidden="true" />
+          <Heart className="absolute right-4 top-4 h-6 w-6 fill-brand-accent/20 text-brand-accent" aria-hidden="true" />
+          <Heart className="absolute bottom-4 left-4 h-6 w-6 fill-brand-accent/20 text-brand-accent" aria-hidden="true" />
+          <Heart className="absolute bottom-4 right-4 h-6 w-6 fill-brand-accent/20 text-brand-accent" aria-hidden="true" />
+        </>
+      )}
+      <h3 id="bunny-challenge-preview" className="text-3xl font-bold text-foreground md:text-4xl">
+        {t("bunnyChallenge.prepareTitle")}
       </h3>
-      <p className="mx-auto mt-3 max-w-xl text-foreground/90">
-        {t("bunnyChallenge.introBody")}
-      </p>
 
-      <div className="my-6 rounded-xl bg-secondary/60 p-5 text-left">
-        <div className="flex items-start gap-3">
-          <Smartphone className="mt-1 h-6 w-6 shrink-0 text-primary" aria-hidden="true" />
-          <div className="space-y-2 text-foreground/90">
-            <p className="sm:hidden">{t("bunnyChallenge.mobileSetup")}</p>
-            <p className="hidden sm:block">{t("bunnyChallenge.desktopSetup")}</p>
-            <p>{t("bunnyChallenge.copyInstruction")}</p>
+      <div className="mt-7 space-y-5 text-left">
+        <section className="rounded-xl bg-secondary/60 p-4 sm:p-5">
+          <div className="flex items-center justify-center gap-3 sm:gap-5">
+            <Hand className="h-8 w-8 shrink-0 -scale-x-100 text-primary sm:h-10 sm:w-10" aria-hidden="true" />
+            <div className="max-w-md space-y-2 text-center">
+              <h4 className="text-lg font-bold text-foreground sm:text-xl">
+                {t("bunnyChallenge.handsStepTitle")}
+              </h4>
+              <p className="text-sm text-foreground/90 sm:text-base">
+                <span className="sm:hidden">{t("bunnyChallenge.mobileSetup")}</span>
+                <span className="hidden sm:inline">{t("bunnyChallenge.desktopSetup")}</span>
+              </p>
+            </div>
+            <Hand className="h-8 w-8 shrink-0 text-primary sm:h-10 sm:w-10" aria-hidden="true" />
           </div>
-        </div>
+        </section>
+
+        <section
+          className={`rounded-xl border p-4 transition-colors sm:p-5 ${
+            isRecordingSelected
+              ? "border-brand-accent/50 bg-brand-accent/10"
+              : "border-foreground/10 bg-background/60"
+          }`}
+        >
+          <h4 className="text-lg font-bold text-foreground sm:text-xl">
+            {t("bunnyChallenge.recordStepTitle")}
+          </h4>
+          <p className="mt-2 text-sm text-foreground/90 sm:text-base">
+            {t("bunnyChallenge.recordStepBody")}
+          </p>
+          {isRecordingSelected && (
+            <p className="mt-2 text-lg font-bold text-brand-accent sm:text-xl" role="status">
+              {t("bunnyChallenge.recordingThanks")}
+            </p>
+          )}
+          <div className="mt-4">
+            <BunnyChallengeRecordingControls
+              controller={controller}
+              mode="setup"
+              onContinueWithoutRecording={onContinueWithoutRecording}
+            />
+          </div>
+          <Link
+            to="/terms-and-privacy"
+            className="mt-3 inline-block text-sm text-foreground/80 underline underline-offset-4 hover:text-foreground"
+          >
+            {t("bunnyChallenge.termsLink")}
+          </Link>
+        </section>
+
+        <section className="rounded-xl bg-secondary/60 p-4 text-center sm:p-5">
+          <h4 className="text-lg font-bold text-foreground sm:text-xl">
+            {t("bunnyChallenge.beginStepTitle")}
+          </h4>
+          <p className="mt-2 text-sm text-foreground/90 sm:text-base">
+            {t("bunnyChallenge.beginStepBody")}
+          </p>
+          <Button
+            type="button"
+            onClick={onGo}
+            disabled={controller.status === "requesting"}
+            className="mt-5 min-h-14 min-w-48 text-lg"
+          >
+            {t("bunnyChallenge.go")}
+            <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
+          </Button>
+        </section>
       </div>
-
-      <p className="font-semibold text-foreground">
-        {t("bunnyChallenge.highScore")}
-      </p>
-      <p className="mt-5 text-lg font-semibold text-foreground">
-        {t("bunnyChallenge.areYouReady")}
-      </p>
-
-      <div className="mx-auto mt-5 max-w-xl text-left">
-        <BunnyChallengeRecordingControls
-          controller={controller}
-          mode="setup"
-          onContinueWithoutRecording={onContinueWithoutRecording}
-        />
-      </div>
-
-      <Button
-        type="button"
-        onClick={onGo}
-        disabled={controller.status === "requesting"}
-        className="mt-6 min-h-14 min-w-48 text-lg"
-      >
-        {t("bunnyChallenge.go")}
-        <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
-      </Button>
     </div>
   );
 };

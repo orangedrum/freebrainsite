@@ -4,13 +4,8 @@ export interface BunnyChallengeRecordingScene {
   pattern: BunnyChallengePattern;
   phase: BunnyChallengePhase;
   countdownValue: number;
-  beatSeconds: string;
   elapsedMs: number;
-  bunnyLabel: string;
-  gunLabel: string;
-  patternLabel: string;
-  cueLabel: string;
-  readyLabel: string;
+  instructionLabel: string;
   countdownLabel: string;
   factLabel: string;
 }
@@ -27,39 +22,6 @@ const getThemeColor = (token: string): string => {
     .getPropertyValue(token)
     .trim();
   return `hsl(${value})`;
-};
-
-const getLayout = (canvas: HTMLCanvasElement): {
-  camera: Rectangle;
-  challenge: Rectangle;
-  isPortrait: boolean;
-} => {
-  const isPortrait = canvas.height > canvas.width;
-  if (isPortrait) {
-    const challengeHeight = canvas.height * 0.48;
-    return {
-      challenge: { x: 0, y: 0, width: canvas.width, height: challengeHeight },
-      camera: {
-        x: 0,
-        y: challengeHeight,
-        width: canvas.width,
-        height: canvas.height - challengeHeight,
-      },
-      isPortrait,
-    };
-  }
-
-  const challengeWidth = canvas.width * 0.56;
-  return {
-    challenge: { x: 0, y: 0, width: challengeWidth, height: canvas.height },
-    camera: {
-      x: challengeWidth,
-      y: 0,
-      width: canvas.width - challengeWidth,
-      height: canvas.height,
-    },
-    isPortrait,
-  };
 };
 
 const drawCamera = (
@@ -90,14 +52,99 @@ const drawCamera = (
   context.restore();
 };
 
-const drawPose = (
+const drawChallengeOverlay = (
+  context: CanvasRenderingContext2D,
+  scene: BunnyChallengeRecordingScene,
+  isPortrait: boolean,
+  bunnyImage: HTMLImageElement,
+  gunImage: HTMLImageElement,
+): void => {
+  const { width, height } = context.canvas;
+  const bandHeight = height * (isPortrait ? 1 / 3 : 2 / 3);
+  const bandY = height - bandHeight;
+  const background = getComputedStyle(document.documentElement)
+    .getPropertyValue("--background")
+    .trim();
+  const gradient = context.createLinearGradient(0, bandY, 0, height);
+  gradient.addColorStop(0, `hsl(${background} / 0)`);
+  gradient.addColorStop(0.22, `hsl(${background} / 0.78)`);
+  gradient.addColorStop(1, `hsl(${background} / 0.9)`);
+  context.fillStyle = gradient;
+  context.fillRect(0, bandY, width, bandHeight);
+
+  const foreground = getThemeColor("--foreground");
+  context.fillStyle = foreground;
+  context.textAlign = "center";
+  context.shadowColor = getThemeColor("--background");
+  context.shadowBlur = 4;
+
+  if (scene.phase === "countdown") {
+    context.font = `bold ${isPortrait ? 72 : 60}px sans-serif`;
+    context.fillText(
+      scene.countdownLabel.replace("__COUNT__", String(scene.countdownValue)),
+      width / 2,
+      bandY + bandHeight * 0.55,
+      width - 48,
+    );
+    context.font = `${isPortrait ? 22 : 20}px sans-serif`;
+    context.fillText(
+      scene.instructionLabel,
+      width / 2,
+      bandY + bandHeight * 0.7,
+      width - 48,
+    );
+    context.shadowBlur = 0;
+    return;
+  }
+
+  const poseSize = Math.min(
+    bandHeight * 0.62,
+    width * (isPortrait ? 0.34 : 0.31),
+  );
+  const poseY = bandY + bandHeight * 0.035;
+  const centerX = width / 2;
+  const poseGap = width * 0.035;
+  const leftX = centerX - poseSize - poseGap / 2;
+  const rightX = centerX + poseGap / 2;
+  const bunnyX = scene.pattern === "bunnyRight" ? rightX : leftX;
+  const gunX = scene.pattern === "bunnyRight" ? leftX : rightX;
+
+  drawPose(context, bunnyImage, bunnyX, poseY, poseSize, false);
+  drawPose(context, gunImage, gunX, poseY, poseSize, scene.pattern === "bunnyLeft");
+
+  context.shadowBlur = 0;
+  context.font = `bold ${isPortrait ? 30 : 26}px sans-serif`;
+  context.fillText(getTimerText(scene.elapsedMs), centerX, bandY + bandHeight * 0.76);
+  context.font = `${isPortrait ? 17 : 18}px sans-serif`;
+  const maxTextWidth = width * 0.9;
+  const lines: string[] = [];
+  let line = "";
+  for (const word of scene.factLabel.split(/\s+/)) {
+    const candidate = line ? `${line} ${word}` : word;
+    if (line && context.measureText(candidate).width > maxTextWidth) {
+      lines.push(line);
+      line = word;
+    } else {
+      line = candidate;
+    }
+  }
+  if (line) lines.push(line);
+
+  const lineHeight = isPortrait ? 23 : 24;
+  const firstLineY = height - lines.length * lineHeight - bandHeight * 0.04;
+  lines.forEach((text, index) => {
+    context.fillText(text, centerX, firstLineY + index * lineHeight, maxTextWidth);
+  });
+};
+
+function drawPose(
   context: CanvasRenderingContext2D,
   image: HTMLImageElement,
   x: number,
   y: number,
   size: number,
   isMirrored: boolean,
-): void => {
+): void {
   if (!image.complete || !image.naturalWidth) return;
   context.save();
   if (isMirrored) {
@@ -108,24 +155,14 @@ const drawPose = (
     context.drawImage(image, x, y, size, size);
   }
   context.restore();
-};
+}
 
-const getCueText = (scene: BunnyChallengeRecordingScene): string => {
-  if (scene.phase === "countdown") {
-    return scene.countdownLabel.replace("__COUNT__", String(scene.countdownValue));
-  }
-  if (scene.phase === "playing") {
-    return scene.cueLabel.replace("__SECONDS__", scene.beatSeconds);
-  }
-  return scene.readyLabel;
-};
-
-const getTimerText = (elapsedMs: number): string => {
+function getTimerText(elapsedMs: number): string {
   const tenths = Math.floor(elapsedMs / 100);
   return `${String(Math.floor(tenths / 600)).padStart(2, "0")}:${String(
     Math.floor(tenths / 10) % 60,
   ).padStart(2, "0")}.${tenths % 10}`;
-};
+}
 
 export const drawBunnyChallengeVideoFrame = (
   context: CanvasRenderingContext2D,
@@ -134,55 +171,8 @@ export const drawBunnyChallengeVideoFrame = (
   gunImage: HTMLImageElement,
   scene: BunnyChallengeRecordingScene,
 ): void => {
-  const { challenge, camera: cameraArea, isPortrait } = getLayout(context.canvas);
-  const foreground = getThemeColor("--foreground");
-  context.fillStyle = getThemeColor("--background");
-  context.fillRect(0, 0, context.canvas.width, context.canvas.height);
-  context.fillStyle = foreground;
-  context.textAlign = "center";
-
-  const poseSize = Math.min(
-    isPortrait ? 150 : 145,
-    challenge.width * (isPortrait ? 0.22 : 0.2),
-  );
-  const poseY = challenge.y + (isPortrait ? 24 : challenge.height * 0.18);
-  const halfWidth = challenge.width / 2;
-  const bunnyX =
-    challenge.x +
-    halfWidth * (scene.pattern === "bunnyRight" ? 1.5 : 0.5) -
-    poseSize / 2;
-  const gunX =
-    challenge.x +
-    halfWidth * (scene.pattern === "bunnyRight" ? 0.5 : 1.5) -
-    poseSize / 2;
-
-  const centerX = challenge.x + challenge.width / 2;
-  if (scene.phase !== "playing") {
-    context.font = `bold ${isPortrait ? 46 : 38}px sans-serif`;
-    context.fillText(getCueText(scene), centerX, challenge.height / 2, challenge.width - 32);
-    return;
-  }
-
-  drawCamera(context, camera, cameraArea);
-  drawPose(context, bunnyImage, bunnyX, poseY, poseSize, false);
-  drawPose(
-    context,
-    gunImage,
-    gunX,
-    poseY,
-    poseSize,
-    scene.pattern === "bunnyLeft",
-  );
-  context.font = `bold ${isPortrait ? 21 : 18}px sans-serif`;
-  context.fillText(scene.bunnyLabel, bunnyX + poseSize / 2, poseY + poseSize + 28, halfWidth - 12);
-  context.fillText(scene.gunLabel, gunX + poseSize / 2, poseY + poseSize + 28, halfWidth - 12);
-
-  const patternY = poseY + poseSize + (isPortrait ? 80 : 65);
-  context.font = `bold ${isPortrait ? 22 : 17}px sans-serif`;
-  context.fillText(scene.patternLabel, centerX, patternY, challenge.width - 32);
-  context.fillText(getCueText(scene), centerX, patternY + 48, challenge.width - 32);
-  context.font = `bold ${isPortrait ? 32 : 27}px sans-serif`;
-  context.fillText(getTimerText(scene.elapsedMs), centerX, patternY + 100);
-  context.font = `${isPortrait ? 16 : 14}px sans-serif`;
-  context.fillText(scene.factLabel, centerX, challenge.height - 24, challenge.width - 32);
+  const { width, height } = context.canvas;
+  const isPortrait = height > width;
+  drawCamera(context, camera, { x: 0, y: 0, width, height });
+  drawChallengeOverlay(context, scene, isPortrait, bunnyImage, gunImage);
 };
