@@ -10,6 +10,7 @@ import Team from "./pages/Team";
 import LisbonPilot from "./pages/LisbonPilot";
 import MovementPlanner from "./pages/MovementPlanner";
 import Movements from "./pages/Movements";
+import BunnyChallenge from "./pages/BunnyChallenge";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -31,6 +32,7 @@ const App = () => (
           <Route path="/lisbon-pilot" element={<LisbonPilot />} />
           <Route path="/movement-planner" element={<MovementPlannerRoute />} />
           <Route path="/movements" element={<MovementsRoute />} />
+          <Route path="/bunny-challenge" element={<BunnyChallenge />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

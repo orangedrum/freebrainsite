@@ -9,6 +9,40 @@
   "breadcrumb": {
     "home": "Início"
   },
+  "bunnyChallenge": {
+    "title": "Desafio de coordenação: o coelho escapa",
+    "subtitle": "Um desafio divertido para as duas mãos: mantenha duas posições diferentes ao mesmo tempo enquanto o coelho escapa.",
+    "metaTitle": "Desafio de coordenação: o coelho escapa | FreeBrain",
+    "metaDescription": "Experimente o desafio divertido de coordenação das mãos da FreeBrain. Imite duas posições ilustradas ao mesmo tempo, decida quando errou e veja seu tempo.",
+    "previewTitle": "O desafio das duas mãos",
+    "simultaneousNotice": "Quando o jogo estiver disponível, imite a Pose 1 com uma mão e a Pose 2 com a outra ao mesmo tempo. O coelho sempre escapa.",
+    "pose1Label": "Pose 1",
+    "pose1Alt": "Ilustração do gesto da mão do coelho para a Pose 1",
+    "pose2Label": "Pose 2",
+    "pose2Alt": "Ilustração do gesto da mão apontando para a Pose 2",
+    "previewOnly": "Esta página apresenta o desafio. A indicação interativa e o cronômetro serão adicionados na próxima etapa.",
+    "factsTitle": "Fatos sobre movimento junto à indicação",
+    "factsBody": "Durante o jogo, fatos sobre o cérebro e o movimento revisados por profissionais clínicos serão exibidos em rotação abaixo da indicação visual.",
+    "howToTitle": "Como o desafio vai funcionar",
+    "howToStep1": "Coloque o dispositivo em um local onde consiga ver a tela e deixe as duas mãos livres.",
+    "howToStep2": "Siga a indicação mantendo a Pose 1 com uma mão e a Pose 2 com a outra, simultaneamente.",
+    "howToStep3": "Quando errar, toque em STOP. O coelho escapa de qualquer forma.",
+    "timerTitle": "Um tempo autodeclarado",
+    "timerBody": "Quando o desafio estiver disponível, o cronômetro medirá o tempo decorrido desde o início até você tocar em STOP. Ele não observará suas mãos, detectará erros nem avaliará seus movimentos. Você decide quando cometeu um erro.",
+    "recordingTitle": "A gravação é opcional",
+    "recordingBody": "O desafio planejado poderá ser jogado sem gravação. A gravação com câmera não faz parte desta primeira versão.",
+    "faqTitle": "Perguntas frequentes",
+    "faq": {
+      "q1": "O que é o desafio O coelho escapa?",
+      "a1": "É um desafio divertido de coordenação das mãos. Imite uma posição ilustrada com uma mão e a outra posição com a outra ao mesmo tempo, seguindo uma indicação.",
+      "q2": "Como funciona o cronômetro?",
+      "a2": "Ele registrará o tempo decorrido até você tocar em STOP. Você decide quando erra; a página não acompanhará nem julgará os movimentos das suas mãos.",
+      "q3": "Preciso me gravar?",
+      "a3": "Não. O desafio foi planejado para ser jogado sem gravação. A gravação não está incluída nesta primeira versão.",
+      "q4": "Isto é uma avaliação médica ou do movimento?",
+      "a4": "Não. É uma atividade lúdica de coordenação, não um teste médico, diagnóstico, tratamento ou avaliação da saúde cerebral."
+    }
+  },
   "movement": {
     "titleSeatedGeneric": "Movimento Sentado Suave",
     "descriptionSeatedGeneric": "Uma rotina suave de movimento para dias com mobilidade limitada.",

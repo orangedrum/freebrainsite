@@ -9,6 +9,40 @@
   "breadcrumb": {
     "home": "Home"
   },
+  "bunnyChallenge": {
+    "title": "Bunny Escape Hand Coordination Challenge",
+    "subtitle": "A playful two-hand challenge: hold two different hand poses at the same time while the bunny makes its escape.",
+    "metaTitle": "Bunny Escape Hand Coordination Challenge | FreeBrain",
+    "metaDescription": "Try FreeBrain's playful hand coordination challenge. Copy two illustrated hand poses at once, decide when you make a mistake, and see your elapsed time.",
+    "previewTitle": "The two-hand challenge",
+    "simultaneousNotice": "When play is available, use one hand to copy Pose 1 and your other hand to copy Pose 2 at the same time. The bunny always gets away.",
+    "pose1Label": "Pose 1",
+    "pose1Alt": "Illustration of the bunny hand gesture for Pose 1",
+    "pose2Label": "Pose 2",
+    "pose2Alt": "Illustration of the pointing hand gesture for Pose 2",
+    "previewOnly": "This page is an introduction to the challenge. The interactive cue and timer are the next build step.",
+    "factsTitle": "Movement facts with the cue",
+    "factsBody": "During play, clinician-reviewed brain and movement facts will rotate beneath the visual cue.",
+    "howToTitle": "How the challenge will work",
+    "howToStep1": "Place your device where you can see it clearly and keep both hands free.",
+    "howToStep2": "Follow the cue by holding Pose 1 with one hand and Pose 2 with the other, simultaneously.",
+    "howToStep3": "When you make a mistake, tap STOP. The bunny escapes either way.",
+    "timerTitle": "A self-reported time",
+    "timerBody": "When the challenge is playable, the timer will measure elapsed time from the start until you tap STOP. It will not watch your hands, detect mistakes, or assess your movement. You decide when you made an error.",
+    "recordingTitle": "Recording is optional",
+    "recordingBody": "The planned challenge will be playable without recording. Camera recording is not part of this first version.",
+    "faqTitle": "Frequently asked questions",
+    "faq": {
+      "q1": "What is the Bunny Escape challenge?",
+      "a1": "It is a playful hand coordination challenge. Copy one illustrated pose with one hand and the other pose with your other hand at the same time while a cue guides you.",
+      "q2": "How does the timer score work?",
+      "a2": "It will record elapsed time until you tap STOP. You decide when you make a mistake; the page will not track or judge your hand movements.",
+      "q3": "Do I need to record myself?",
+      "a3": "No. The challenge is designed to be playable without recording. Recording is not included in this first version.",
+      "q4": "Is this a medical or movement assessment?",
+      "a4": "No. It is a playful coordination activity, not a medical test, diagnosis, treatment, or assessment of brain health."
+    }
+  },
   "movement": {
     "titleSeatedGeneric": "Gentle Seated Movement",
     "descriptionSeatedGeneric": "A gentle seated movement routine for days with limited mobility.",

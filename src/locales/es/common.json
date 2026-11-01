@@ -9,6 +9,40 @@
   "breadcrumb": {
     "home": "Inicio"
   },
+  "bunnyChallenge": {
+    "title": "Desafío de coordinación: el conejo escapa",
+    "subtitle": "Un divertido desafío de dos manos: mantén dos posiciones diferentes al mismo tiempo mientras el conejo escapa.",
+    "metaTitle": "Desafío de coordinación: el conejo escapa | FreeBrain",
+    "metaDescription": "Prueba el divertido desafío de coordinación de manos de FreeBrain. Imita dos posiciones ilustradas a la vez, decide cuándo te equivocas y consulta tu tiempo.",
+    "previewTitle": "El desafío de las dos manos",
+    "simultaneousNotice": "Cuando el juego esté disponible, copia la Pose 1 con una mano y la Pose 2 con la otra al mismo tiempo. El conejo siempre escapa.",
+    "pose1Label": "Pose 1",
+    "pose1Alt": "Ilustración del gesto de la mano del conejo para la Pose 1",
+    "pose2Label": "Pose 2",
+    "pose2Alt": "Ilustración del gesto de la mano señalando para la Pose 2",
+    "previewOnly": "Esta página presenta el desafío. La señal interactiva y el cronómetro se añadirán en el siguiente paso.",
+    "factsTitle": "Datos de movimiento junto a la señal",
+    "factsBody": "Durante el juego, aparecerán de forma rotativa datos sobre el cerebro y el movimiento revisados por profesionales clínicos.",
+    "howToTitle": "Cómo funcionará el desafío",
+    "howToStep1": "Coloca el dispositivo donde puedas verlo bien y deja las dos manos libres.",
+    "howToStep2": "Sigue la señal manteniendo la Pose 1 con una mano y la Pose 2 con la otra, simultáneamente.",
+    "howToStep3": "Cuando te equivoques, pulsa STOP. El conejo escapa de todos modos.",
+    "timerTitle": "Un tiempo autodeclarado",
+    "timerBody": "Cuando el desafío esté disponible, el cronómetro medirá el tiempo desde el inicio hasta que pulses STOP. No observará tus manos, detectará errores ni evaluará tus movimientos. Tú decides cuándo te has equivocado.",
+    "recordingTitle": "La grabación es opcional",
+    "recordingBody": "El desafío previsto se podrá jugar sin grabar. La grabación con cámara no forma parte de esta primera versión.",
+    "faqTitle": "Preguntas frecuentes",
+    "faq": {
+      "q1": "¿Qué es el desafío El conejo escapa?",
+      "a1": "Es un divertido desafío de coordinación de manos. Copia una posición ilustrada con una mano y la otra posición con la otra al mismo tiempo, siguiendo una señal.",
+      "q2": "¿Cómo funciona el cronómetro?",
+      "a2": "Registrará el tiempo transcurrido hasta que pulses STOP. Tú decides cuándo cometes un error; la página no seguirá ni juzgará los movimientos de tus manos.",
+      "q3": "¿Tengo que grabarme?",
+      "a3": "No. El desafío está diseñado para poder jugarse sin grabación. La grabación no está incluida en esta primera versión.",
+      "q4": "¿Es una evaluación médica o del movimiento?",
+      "a4": "No. Es una actividad lúdica de coordinación, no una prueba médica, diagnóstico, tratamiento ni evaluación de la salud cerebral."
+    }
+  },
   "movement": {
     "titleSeatedGeneric": "Movimiento Sentado Suave",
     "descriptionSeatedGeneric": "Una rutina de movimiento suave para días con movilidad limitada.",

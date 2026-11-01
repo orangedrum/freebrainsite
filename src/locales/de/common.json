@@ -9,6 +9,40 @@
   "breadcrumb": {
     "home": "Start"
   },
+  "bunnyChallenge": {
+    "title": "Hand-Koordinationsspiel: Der Hase entkommt",
+    "subtitle": "Eine spielerische Herausforderung für beide Hände: Halte gleichzeitig zwei verschiedene Handpositionen, während der Hase entkommt.",
+    "metaTitle": "Hand-Koordinationsspiel: Der Hase entkommt | FreeBrain",
+    "metaDescription": "Probiere FreeBrains spielerische Herausforderung für die Handkoordination aus. Imitiere gleichzeitig zwei abgebildete Handpositionen, entscheide selbst, wann du einen Fehler machst, und sieh deine Zeit.",
+    "previewTitle": "Die Herausforderung für beide Hände",
+    "simultaneousNotice": "Sobald das Spiel verfügbar ist, imitiere Pose 1 mit einer Hand und Pose 2 gleichzeitig mit der anderen. Der Hase entkommt immer.",
+    "pose1Label": "Pose 1",
+    "pose1Alt": "Abbildung der Hasen-Handgeste für Pose 1",
+    "pose2Label": "Pose 2",
+    "pose2Alt": "Abbildung der zeigenden Handgeste für Pose 2",
+    "previewOnly": "Diese Seite stellt die Herausforderung vor. Der interaktive Hinweis und Timer folgen im nächsten Entwicklungsschritt.",
+    "factsTitle": "Bewegungsfakten zum Hinweis",
+    "factsBody": "Während des Spiels werden klinisch geprüfte Fakten zu Gehirn und Bewegung unter dem visuellen Hinweis eingeblendet.",
+    "howToTitle": "So wird die Herausforderung funktionieren",
+    "howToStep1": "Platziere dein Gerät so, dass du den Bildschirm gut sehen kannst, und halte beide Hände frei.",
+    "howToStep2": "Folge dem Hinweis und halte Pose 1 mit einer Hand und Pose 2 gleichzeitig mit der anderen.",
+    "howToStep3": "Tippe auf STOP, wenn du einen Fehler machst. Der Hase entkommt so oder so.",
+    "timerTitle": "Eine selbst angegebene Zeit",
+    "timerBody": "Sobald die Herausforderung spielbar ist, misst der Timer die verstrichene Zeit vom Start bis zu deinem Tipp auf STOP. Er beobachtet deine Hände nicht, erkennt keine Fehler und bewertet deine Bewegungen nicht. Du entscheidest selbst, wann dir ein Fehler passiert ist.",
+    "recordingTitle": "Aufnahme ist optional",
+    "recordingBody": "Die geplante Herausforderung wird ohne Aufnahme spielbar sein. Eine Kameraaufnahme ist in dieser ersten Version nicht enthalten.",
+    "faqTitle": "Häufig gestellte Fragen",
+    "faq": {
+      "q1": "Was ist die Herausforderung „Der Hase entkommt“?",
+      "a1": "Es ist ein spielerisches Hand-Koordinationsspiel. Imitiere gleichzeitig eine abgebildete Pose mit der einen und die andere Pose mit der anderen Hand und folge dabei einem Hinweis.",
+      "q2": "Wie funktioniert die Zeitmessung?",
+      "a2": "Sie wird die verstrichene Zeit bis zu deinem Tipp auf STOP messen. Du entscheidest, wann du einen Fehler machst; die Seite wird deine Handbewegungen nicht erfassen oder bewerten.",
+      "q3": "Muss ich mich aufnehmen?",
+      "a3": "Nein. Die Herausforderung ist so geplant, dass sie ohne Aufnahme spielbar ist. Eine Aufnahme ist in dieser ersten Version nicht enthalten.",
+      "q4": "Ist das eine medizinische oder Bewegungsbeurteilung?",
+      "a4": "Nein. Es ist eine spielerische Koordinationsaktivität, kein medizinischer Test, keine Diagnose oder Behandlung und keine Beurteilung der Gehirngesundheit."
+    }
+  },
   "movement": {
     "titleSeatedGeneric": "Sanfte Sitzbewegung",
     "descriptionSeatedGeneric": "Eine sanfte Sitzbewegung für Tage mit eingeschränkter Mobilität.",
