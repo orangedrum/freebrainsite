@@ -7,6 +7,7 @@ export interface BunnyChallengeRecordingScene {
   elapsedMs: number;
   instructionLabel: string;
   countdownLabel: string;
+  challengePrompt: string;
   brandLine: string;
   factLabel: string;
 }
@@ -124,6 +125,41 @@ const drawBranding = (
   context.textBaseline = "alphabetic";
 };
 
+const drawChallengePromptAndTimer = (
+  context: CanvasRenderingContext2D,
+  scene: BunnyChallengeRecordingScene,
+): void => {
+  const { width, height } = context.canvas;
+  const centerX = width / 2;
+  const challengePromptY = height * 0.2;
+  const timerCenterY = height / 3;
+  const timerText = getTimerText(scene.elapsedMs);
+
+  context.save();
+  context.textAlign = "center";
+  context.textBaseline = "middle";
+  context.shadowColor = getThemeColor("--background");
+  context.shadowBlur = 4;
+  context.fillStyle = getThemeColor("--foreground");
+  context.font = "bold 22px sans-serif";
+  context.fillText(scene.challengePrompt, centerX, challengePromptY, width - 48);
+
+  context.font = "bold 32px sans-serif";
+  const timerWidth = context.measureText(timerText).width + 32;
+  const timerHeight = 56;
+  const timerX = centerX - timerWidth / 2;
+  const timerY = timerCenterY - timerHeight / 2;
+  context.fillStyle = `hsl(${getThemeToken("--background")} / 0.82)`;
+  context.fillRect(timerX, timerY, timerWidth, timerHeight);
+  context.shadowBlur = 0;
+  context.strokeStyle = getThemeColor("--info");
+  context.lineWidth = 1;
+  context.strokeRect(timerX + 0.5, timerY + 0.5, timerWidth - 1, timerHeight - 1);
+  context.fillStyle = getThemeColor("--foreground");
+  context.fillText(timerText, centerX, timerCenterY);
+  context.restore();
+};
+
 const drawChallengeOverlay = (
   context: CanvasRenderingContext2D,
   scene: BunnyChallengeRecordingScene,
@@ -162,10 +198,7 @@ const drawChallengeOverlay = (
     return;
   }
 
-  const poseSize = Math.min(
-    bandHeight * 0.62,
-    width * (isPortrait ? 0.34 : 0.31),
-  );
+  const poseSize = Math.min(bandHeight * 0.52, width * 0.34);
   const poseY = bandY + bandHeight * 0.035;
   const centerX = width / 2;
   const poseGap = width * 0.035;
@@ -178,9 +211,7 @@ const drawChallengeOverlay = (
   drawPose(context, gunImage, gunX, poseY, poseSize, scene.pattern === "bunnyLeft");
 
   context.shadowBlur = 0;
-  context.font = `bold ${isPortrait ? 30 : 26}px sans-serif`;
-  context.fillText(getTimerText(scene.elapsedMs), centerX, bandY + bandHeight * 0.76);
-  context.font = `${isPortrait ? 17 : 18}px sans-serif`;
+  context.font = `${isPortrait ? 20 : 22}px sans-serif`;
   const maxTextWidth = width * 0.9;
   const lines: string[] = [];
   let line = "";
@@ -195,8 +226,8 @@ const drawChallengeOverlay = (
   }
   if (line) lines.push(line);
 
-  const lineHeight = isPortrait ? 23 : 24;
-  const firstLineY = height - lines.length * lineHeight - bandHeight * 0.04;
+  const lineHeight = isPortrait ? 25 : 27;
+  const firstLineY = poseY + poseSize + lineHeight;
   lines.forEach((text, index) => {
     context.fillText(text, centerX, firstLineY + index * lineHeight, maxTextWidth);
   });
@@ -240,6 +271,9 @@ export const drawBunnyChallengeVideoFrame = (
   const { width, height } = context.canvas;
   const isPortrait = height > width;
   drawCamera(context, camera, { x: 0, y: 0, width, height });
+  if (scene.phase === "playing") {
+    drawChallengePromptAndTimer(context, scene);
+  }
   drawChallengeOverlay(context, scene, isPortrait, bunnyImage, gunImage);
   drawBranding(context, logo, scene.brandLine);
 };

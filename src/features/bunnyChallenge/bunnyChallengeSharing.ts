@@ -1,20 +1,4 @@
-export const supportsNativeShare = (
-  shareFunction: Navigator["share"] | undefined,
-): boolean => typeof shareFunction === "function";
-
-export const createShareData = (
-  baseData: ShareData,
-  videoFile: File | null,
-  canShareData: Navigator["canShare"] | undefined,
-): ShareData => {
-  if (!videoFile || !canShareData) return baseData;
-  const fileData: ShareData = { ...baseData, files: [videoFile] };
-  try {
-    return canShareData(fileData) ? fileData : baseData;
-  } catch {
-    return baseData;
-  }
-};
+export const BUNNY_CHALLENGE_URL = "https://www.freethebrains.com/bunny-challenge";
 
 export const createChallengeCaption = (
   elapsedLabel: string,

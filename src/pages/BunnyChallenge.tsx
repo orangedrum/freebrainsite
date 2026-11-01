@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { X } from "lucide-react";
+import { ArrowRight, FlaskConical, X } from "lucide-react";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,9 +12,12 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Modal } from "@/components/shared/Modal";
+import { ExercisesForCondition } from "@/components/shared/ExercisesForCondition";
 import { useModalState } from "@/hooks/useModalState";
 import { BunnyChallengeGame } from "@/features/bunnyChallenge/BunnyChallengeGame";
 
@@ -147,19 +150,64 @@ const BunnyChallenge = () => {
               </article>
             </section>
 
+            <section className="flex flex-col gap-4 rounded-2xl border border-foreground/10 bg-secondary p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+              <div>
+                <h2 className="text-xl font-bold text-foreground">
+                  {t("bunnyChallenge.pickMovementTitle")}
+                </h2>
+                <p className="mt-2 max-w-3xl text-sm text-foreground/90">
+                  {t("bunnyChallenge.pickMovementBody")}
+                </p>
+              </div>
+              <Button asChild className="shrink-0">
+                <Link to="/movements">
+                  {t("bunnyChallenge.pickMovementCta")}
+                  <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
+                </Link>
+              </Button>
+            </section>
+
+            <section
+              aria-labelledby="bunny-challenge-science"
+              className="rounded-2xl border border-foreground/10 bg-secondary p-5 sm:p-6"
+            >
+              <div className="flex items-center gap-3">
+                <FlaskConical className="h-6 w-6 shrink-0 text-primary" aria-hidden="true" />
+                <h2 id="bunny-challenge-science" className="text-xl font-bold text-foreground">
+                  {t("bunnyChallenge.scienceTitle")}
+                </h2>
+              </div>
+              <h3 className="mt-4 text-lg font-semibold text-foreground">
+                {t("bunnyChallenge.scienceMechanismTitle")}
+              </h3>
+              <p className="mt-2 text-sm leading-relaxed text-foreground/90">
+                {t("bunnyChallenge.scienceMechanismBody")}
+              </p>
+            </section>
+
             <section aria-labelledby="bunny-challenge-faq">
               <h2 id="bunny-challenge-faq" className="text-xl font-bold text-foreground">
                 {t("bunnyChallenge.faqTitle")}
               </h2>
-              <dl className="mt-4 space-y-4">
-                {FAQ_ITEMS.map(({ questionKey, answerKey }) => (
-                  <div key={questionKey} className="rounded-xl bg-secondary p-4">
-                    <dt className="font-semibold text-foreground">{t(questionKey)}</dt>
-                    <dd className="mt-1 text-sm text-foreground/90">{t(answerKey)}</dd>
-                  </div>
+              <Accordion type="multiple" className="mt-2 w-full">
+                {FAQ_ITEMS.map(({ questionKey, answerKey }, index) => (
+                  <AccordionItem
+                    key={questionKey}
+                    value={`bunny-challenge-faq-${index + 1}`}
+                    className="mb-2 overflow-hidden rounded-sm bg-secondary shadow-md transition-colors hover:bg-secondary/70"
+                  >
+                    <AccordionTrigger className="px-4 text-left text-base font-semibold text-foreground hover:no-underline">
+                      {t(questionKey)}
+                    </AccordionTrigger>
+                    <AccordionContent className="px-4 text-sm text-foreground/90">
+                      {t(answerKey)}
+                    </AccordionContent>
+                  </AccordionItem>
                 ))}
-              </dl>
+              </Accordion>
             </section>
+
+            <ExercisesForCondition />
           </div>
         </section>
       </main>

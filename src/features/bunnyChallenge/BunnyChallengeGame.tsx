@@ -34,6 +34,7 @@ export const BunnyChallengeGame = () => {
     elapsedMs,
     instructionLabel: t("bunnyChallenge.countdownHandsFree"),
     countdownLabel: t("bunnyChallenge.countdown", { count: "__COUNT__" }),
+    challengePrompt: t("bunnyChallenge.videoChallengePrompt"),
     brandLine: t("bunnyChallenge.videoBrandLine"),
     factLabel: t(PLAY_MESSAGE_KEYS[factIndex]),
   });
