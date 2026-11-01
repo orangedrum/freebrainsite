@@ -54,7 +54,7 @@ export const BunnyChallengeRecordingControls = ({
               disabled={Boolean(controller.support.error)}
               onCheckedChange={controller.setIsRecordingSelected}
               aria-label={t("bunnyChallenge.recordingOptIn")}
-              className="mt-1 h-8 w-14 scale-110"
+              className="mt-1 shrink-0"
             />
             <Video aria-hidden="true" className="h-6 w-6 shrink-0 text-primary" />
           </div>

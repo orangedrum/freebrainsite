@@ -17,11 +17,48 @@ interface Rectangle {
   height: number;
 }
 
-const getThemeColor = (token: string): string => {
-  const value = getComputedStyle(document.documentElement)
+const themeColors = new Map<string, string>();
+const backgroundGradients = new WeakMap<
+  CanvasRenderingContext2D,
+  { width: number; height: number; gradient: CanvasGradient }
+>();
+
+const getThemeToken = (token: string): string => {
+  const cachedColor = themeColors.get(token);
+  if (cachedColor) return cachedColor;
+  const color = getComputedStyle(document.documentElement)
     .getPropertyValue(token)
     .trim();
-  return `hsl(${value})`;
+  themeColors.set(token, color);
+  return color;
+};
+
+const getThemeColor = (token: string): string => {
+  return `hsl(${getThemeToken(token)})`;
+};
+
+const getOverlayGradient = (
+  context: CanvasRenderingContext2D,
+  bandY: number,
+  height: number,
+): CanvasGradient => {
+  const cachedGradient = backgroundGradients.get(context);
+  if (
+    cachedGradient?.width === context.canvas.width &&
+    cachedGradient.height === context.canvas.height
+  ) {
+    return cachedGradient.gradient;
+  }
+  const gradient = context.createLinearGradient(0, bandY, 0, height);
+  gradient.addColorStop(0, `hsl(${getThemeToken("--background")} / 0)`);
+  gradient.addColorStop(0.22, `hsl(${getThemeToken("--background")} / 0.78)`);
+  gradient.addColorStop(1, `hsl(${getThemeToken("--background")} / 0.9)`);
+  backgroundGradients.set(context, {
+    width: context.canvas.width,
+    height: context.canvas.height,
+    gradient,
+  });
+  return gradient;
 };
 
 const drawCamera = (
@@ -62,14 +99,7 @@ const drawChallengeOverlay = (
   const { width, height } = context.canvas;
   const bandHeight = height * (isPortrait ? 1 / 3 : 2 / 3);
   const bandY = height - bandHeight;
-  const background = getComputedStyle(document.documentElement)
-    .getPropertyValue("--background")
-    .trim();
-  const gradient = context.createLinearGradient(0, bandY, 0, height);
-  gradient.addColorStop(0, `hsl(${background} / 0)`);
-  gradient.addColorStop(0.22, `hsl(${background} / 0.78)`);
-  gradient.addColorStop(1, `hsl(${background} / 0.9)`);
-  context.fillStyle = gradient;
+  context.fillStyle = getOverlayGradient(context, bandY, height);
   context.fillRect(0, bandY, width, bandHeight);
 
   const foreground = getThemeColor("--foreground");

@@ -45,7 +45,7 @@ export const BunnyChallengePlayScreen = ({
 
   if (countdownValue > 0) {
     return (
-      <div className="rounded-2xl border border-foreground/10 bg-background/70 p-5 text-center md:p-8">
+      <div className="mx-auto flex h-[min(74svh,760px)] min-h-[400px] max-w-5xl flex-col items-center justify-center rounded-2xl border border-foreground/10 bg-secondary p-4 text-center">
         <p
           className="text-6xl font-bold tabular-nums text-foreground md:text-7xl"
           role="status"
@@ -62,8 +62,8 @@ export const BunnyChallengePlayScreen = ({
   }
 
   return (
-    <div className="relative mx-auto min-h-[min(74vh,760px)] max-w-5xl rounded-2xl border border-foreground/10 bg-secondary p-3 text-center sm:p-6">
-      <div className="grid min-h-[min(54vh,560px)] grid-cols-2 items-center gap-2 pt-24 sm:gap-4">
+    <div className="relative mx-auto flex h-[min(74svh,760px)] min-h-[400px] max-w-5xl flex-col overflow-hidden rounded-2xl border border-foreground/10 bg-secondary p-3 text-center sm:p-6">
+      <div className="grid min-h-0 flex-1 grid-cols-2 items-center gap-2 pt-20 sm:gap-4">
         <figure
           className="flex h-full flex-col items-center justify-center transition-transform duration-500 ease-in-out motion-reduce:transition-none"
           style={{
@@ -75,7 +75,7 @@ export const BunnyChallengePlayScreen = ({
           <img
             src="/handgesture_bunny.svg"
             alt={t("bunnyChallenge.pose1Alt")}
-            className="h-[min(42vh,380px)] w-full max-w-[42vw] object-contain sm:max-w-[36vw] md:max-w-[360px]"
+            className="h-full max-h-[45vh] w-full max-w-[42vw] object-contain sm:max-w-[36vw] md:max-w-[360px]"
           />
         </figure>
         <figure
@@ -89,12 +89,12 @@ export const BunnyChallengePlayScreen = ({
           <img
             src="/handgesture_gun.svg"
             alt={t("bunnyChallenge.pose2Alt")}
-            className="h-[min(42vh,380px)] w-full max-w-[42vw] object-contain sm:max-w-[36vw] md:max-w-[360px]"
+            className="h-full max-h-[45vh] w-full max-w-[42vw] object-contain sm:max-w-[36vw] md:max-w-[360px]"
             style={{ transform: isBunnyOnRight ? "none" : "scaleX(-1)" }}
           />
         </figure>
       </div>
-      <p className="mx-auto -mt-2 min-h-10 max-w-3xl text-base font-semibold text-foreground sm:text-lg md:text-xl">
+      <p className="mx-auto min-h-10 max-w-3xl text-base font-semibold text-foreground sm:text-lg md:text-xl">
         {t(PLAY_MESSAGE_KEYS[factIndex])}
       </p>
       <p

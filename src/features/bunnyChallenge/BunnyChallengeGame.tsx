@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { BunnyChallengeIntro } from "./BunnyChallengeIntro";
 import { BunnyChallengePlayScreen } from "./BunnyChallengePlayScreen";
@@ -17,6 +17,7 @@ const PLAY_MESSAGE_KEYS = [
 export const BunnyChallengeGame = () => {
   const { t } = useTranslation();
   const [factIndex, setFactIndex] = useState(0);
+  const challengeFrameRef = useRef<HTMLElement>(null);
   const {
     countdownValue,
     elapsedMs,
@@ -44,6 +45,21 @@ export const BunnyChallengeGame = () => {
     return () => window.clearInterval(intervalId);
   }, [phase]);
 
+  useEffect(() => {
+    if (phase !== "countdown") return;
+
+    const scrollFrame = window.requestAnimationFrame(() => {
+      challengeFrameRef.current?.scrollIntoView({
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          ? "auto"
+          : "smooth",
+        block: "center",
+      });
+    });
+
+    return () => window.cancelAnimationFrame(scrollFrame);
+  }, [phase]);
+
   const startChallengeFromIntro = async (): Promise<void> => {
     if (recording.isRecordingSelected && !(await recording.startRecording())) return;
     setFactIndex(0);
@@ -69,19 +85,17 @@ export const BunnyChallengeGame = () => {
 
   return (
     <section
-      aria-labelledby={phase === "intro" ? "bunny-challenge-preview" : undefined}
+      ref={challengeFrameRef}
       aria-label={
-        phase === "countdown"
-          ? t("bunnyChallenge.countdownHandsFree")
-          : phase === "playing"
-            ? t("bunnyChallenge.title")
-            : phase === "result"
-              ? t("bunnyChallenge.resultTitle")
-              : undefined
+        phase === "intro"
+          ? t("bunnyChallenge.prepareTitle")
+          : phase === "countdown"
+            ? t("bunnyChallenge.countdownHandsFree")
+            : phase === "playing"
+              ? t("bunnyChallenge.title")
+              : t("bunnyChallenge.resultTitle")
       }
-      className={`rounded-2xl border border-foreground/10 bg-secondary ${
-        phase === "playing" ? "p-2 sm:p-3" : "p-5 md:p-8"
-      }`}
+      className="scroll-mt-24 rounded-2xl border border-foreground/10 bg-secondary p-2 sm:p-3"
     >
       {phase === "intro" && (
         <BunnyChallengeIntro
@@ -117,8 +131,8 @@ export const BunnyChallengeGame = () => {
       />
       <canvas
         ref={recording.canvasRef}
-        width={720}
-        height={1280}
+        width={540}
+        height={960}
         aria-hidden="true"
         className="hidden"
       />

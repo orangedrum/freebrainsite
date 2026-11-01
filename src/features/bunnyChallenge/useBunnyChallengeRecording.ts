@@ -32,6 +32,7 @@ export const useBunnyChallengeRecording = (
   const canvasStreamRef = useRef<MediaStream | null>(null);
   const animationFrameRef = useRef<number | null>(null);
   const videoUrlRef = useRef<string | null>(null);
+  const posterUrlRef = useRef<string | null>(null);
   const hasRecordingErrorRef = useRef(false);
   const isStartingRef = useRef(false);
   const isMountedRef = useRef(true);
@@ -52,7 +53,9 @@ export const useBunnyChallengeRecording = (
 
   const revokePreview = useCallback((): void => {
     if (videoUrlRef.current) URL.revokeObjectURL(videoUrlRef.current);
+    if (posterUrlRef.current) URL.revokeObjectURL(posterUrlRef.current);
     videoUrlRef.current = null;
+    posterUrlRef.current = null;
     setVideoUrl(null);
     setPosterUrl(null);
   }, []);
@@ -98,8 +101,8 @@ export const useBunnyChallengeRecording = (
       }
 
       const isWideLayout = window.innerWidth >= window.innerHeight;
-      canvas.width = isWideLayout ? 1280 : 720;
-      canvas.height = isWideLayout ? 720 : 1280;
+      canvas.width = isWideLayout ? 960 : 540;
+      canvas.height = isWideLayout ? 540 : 960;
       const context = canvas.getContext("2d");
       if (!context) throw new Error("Recording canvas is unavailable");
 
@@ -115,22 +118,27 @@ export const useBunnyChallengeRecording = (
       imagesRef.current = { bunny: bunnyImage, gun: gunImage };
       canvasContextRef.current = context;
 
-      const renderFrame = (): void => {
-        drawBunnyChallengeVideoFrame(
-          context,
-          cameraVideo,
-          bunnyImage,
-          gunImage,
-          sceneRef.current,
-        );
+      let lastFrameTime = 0;
+      const renderFrame = (timestamp: number): void => {
+        if (timestamp - lastFrameTime >= 50) {
+          drawBunnyChallengeVideoFrame(
+            context,
+            cameraVideo,
+            bunnyImage,
+            gunImage,
+            sceneRef.current,
+          );
+          lastFrameTime = timestamp;
+        }
         animationFrameRef.current = window.requestAnimationFrame(renderFrame);
       };
-      renderFrame();
+      animationFrameRef.current = window.requestAnimationFrame(renderFrame);
 
-      const canvasStream = canvas.captureStream(24);
+      const canvasStream = canvas.captureStream(20);
       canvasStreamRef.current = canvasStream;
       const recorder = new MediaRecorder(canvasStream, {
         mimeType: support.mimeType,
+        videoBitsPerSecond: 1_500_000,
       });
       recorderRef.current = recorder;
       recorder.ondataavailable = (event: BlobEvent): void => {
@@ -182,7 +190,7 @@ export const useBunnyChallengeRecording = (
       });
 
       chunksRef.current = [];
-      recorder.start();
+      recorder.start(1000);
       setMimeType(recorder.mimeType);
       setStatus("recording");
       isStartingRef.current = false;
@@ -213,7 +221,13 @@ export const useBunnyChallengeRecording = (
           images.gun,
           sceneRef.current,
         );
-        setPosterUrl(canvas.toDataURL("image/jpeg", 0.82));
+        canvas.toBlob((posterBlob) => {
+          if (!posterBlob || !isMountedRef.current) return;
+          if (posterUrlRef.current) URL.revokeObjectURL(posterUrlRef.current);
+          const previewPosterUrl = URL.createObjectURL(posterBlob);
+          posterUrlRef.current = previewPosterUrl;
+          setPosterUrl(previewPosterUrl);
+        }, "image/jpeg", 0.82);
       }
       if (animationFrameRef.current !== null) {
         window.cancelAnimationFrame(animationFrameRef.current);
@@ -246,6 +260,7 @@ export const useBunnyChallengeRecording = (
       imagesRef.current = null;
       canvasContextRef.current = null;
       if (videoUrlRef.current) URL.revokeObjectURL(videoUrlRef.current);
+      if (posterUrlRef.current) URL.revokeObjectURL(posterUrlRef.current);
     };
   }, [releaseStreams]);
 

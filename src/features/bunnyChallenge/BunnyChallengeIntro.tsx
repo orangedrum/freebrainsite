@@ -37,7 +37,7 @@ export const BunnyChallengeIntro = ({
           <Heart className="absolute bottom-4 right-4 h-6 w-6 fill-brand-accent/20 text-brand-accent" aria-hidden="true" />
         </>
       )}
-      <h3 id="bunny-challenge-preview" className="text-3xl font-bold text-foreground md:text-4xl">
+      <h3 className="text-3xl font-bold text-foreground md:text-4xl">
         {t("bunnyChallenge.prepareTitle")}
       </h3>
 
@@ -95,9 +95,6 @@ export const BunnyChallengeIntro = ({
           <h4 className="text-lg font-bold text-foreground sm:text-xl">
             {t("bunnyChallenge.beginStepTitle")}
           </h4>
-          <p className="mt-2 text-sm text-foreground/90 sm:text-base">
-            {t("bunnyChallenge.beginStepBody")}
-          </p>
           <Button
             type="button"
             onClick={onGo}
