@@ -522,17 +522,15 @@
   "pilotSignup": {
     "fullName": "Vollständiger Name",
     "email": "E-Mail-Adresse",
-    "phone": "Telefonnummer",
-    "role": "Ich bin...",
-    "institution": "Einrichtung oder Klinik",
-    "notes": "Möchtest du uns noch etwas mitteilen? (optional)",
-    "roles": {
-      "individual": "Privatperson",
-      "clinician": "Klinisches Fachpersonal",
-      "institutionRep": "Vertretung einer Einrichtung",
-      "parentOrPOA": "Elternteil oder bevollmächtigte Person",
-      "other": "Sonstiges"
+    "phone": "Telefonnummer für WhatsApp oder SMS",
+    "contactMethod": "Bevorzugter Kontaktweg",
+    "contactMethodPlaceholder": "WhatsApp oder SMS auswählen",
+    "contactMethods": {
+      "whatsapp": "WhatsApp",
+      "text": "SMS"
     },
+    "title": "Wie lautet deine Position? (optional)",
+    "institution": "Einrichtung oder Klinik (optional)",
     "termsPrefix": "Ich habe die",
     "termsLink": "Nutzungsbedingungen",
     "termsSuffix": "gelesen und stimme ihnen zu. Ich bestätige außerdem, dass meine Angaben korrekt sind.",
@@ -544,16 +542,15 @@
     "success": "Danke — deine Anmeldung ist eingegangen. Du erhältst eine Kopie und die nächsten Schritte per E-Mail.",
     "successCalendly": "Buche deine vier Sitzungen einzeln",
     "successTerms": "Nutzungsbedingungen ansehen",
-    "contactJean": "Jean über WhatsApp kontaktieren",
     "errors": {
       "termsRequired": "Bitte stimme den Nutzungsbedingungen zu, bevor du das Formular absendest.",
       "consentsRequired": "Um die kostenlosen Tango-Sitzungen zu erhalten, stimme den Einwilligungen für Fotos/Videos und die Verwendung der Marke zu.",
       "rateLimited": "Zu viele Versuche. Bitte warte einige Minuten, bevor du es erneut versuchst.",
-      "emailServiceUnavailable": "Der E-Mail-Dienst für Anmeldungen ist in dieser Vorschau nicht konfiguriert. Es wurden keine E-Mails gesendet. Nutze eine Vercel-Vorschau oder konfiguriere RESEND_API_KEY nur serverseitig für lokale Tests.",
-      "endpointUnavailable": "Die Anmelde-API ist unter dieser Adresse nicht verfügbar. Es wurde keine Anmeldung gesendet. Nutze die Vercel-Vorschau oder starte den Vercel-kompatiblen lokalen Entwicklungsserver.",
-      "delivery": "Deine Anmeldungs-E-Mails konnten nicht gesendet werden. Bitte versuche es später erneut oder kontaktiere Jean.",
+      "emailServiceUnavailable": "Der E-Mail-Dienst für Anmeldungen ist vorübergehend nicht verfügbar. Es wurden keine E-Mails gesendet. Bitte versuche es später erneut.",
+      "endpointUnavailable": "Der Anmeldedienst ist nicht erreichbar. Deine Anmeldung wurde nicht gesendet. Bitte versuche es später erneut.",
+      "delivery": "Deine Anmeldungs-E-Mails konnten nicht gesendet werden. Bitte versuche es später erneut.",
       "partialDelivery": "Dein Anmeldedatensatz wurde per E-Mail an Jean gesendet, aber die Bestätigungs-E-Mail konnte nicht zugestellt werden. Bitte sende das Formular nicht erneut.",
-      "network": "Wir konnten nicht bestätigen, ob deine Anmeldung eingegangen ist. Bitte kontaktiere Jean, bevor du es erneut versuchst, um doppelte Anmeldungen zu vermeiden.",
+      "network": "Wir konnten nicht bestätigen, ob deine Anmeldung eingegangen ist. Bitte prüfe deine E-Mails, bevor du es erneut versuchst, um doppelte Anmeldungen zu vermeiden.",
       "default": "Das Formular konnte nicht gesendet werden. Bitte überprüfe deine Angaben und versuche es erneut."
     }
   },

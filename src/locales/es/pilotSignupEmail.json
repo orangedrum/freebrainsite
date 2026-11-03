@@ -6,9 +6,9 @@
     "fullName": "Nombre completo",
     "email": "Correo electrónico",
     "phone": "Teléfono",
-    "role": "Rol",
+    "contactMethod": "Medio de contacto preferido",
+    "title": "Cargo",
     "institution": "Institución o clínica",
-    "notes": "Notas",
     "termsAccepted": "Términos aceptados",
     "termsVersion": "Versión de los términos",
     "tangoOptIn": "4 sesiones gratuitas de tango",
@@ -16,12 +16,9 @@
     "brandingConsent": "Consentimiento para la marca de la institución",
     "locale": "Idioma de inscripción"
   },
-  "roles": {
-    "individual": "Persona particular",
-    "clinician": "Profesional clínico",
-    "institutionRep": "Representante de una institución",
-    "parentOrPOA": "Madre, padre o representante legal",
-    "other": "Otro"
+  "contactMethods": {
+    "whatsapp": "WhatsApp",
+    "text": "Mensaje de texto"
   },
   "yes": "Sí",
   "accepted": "Aceptado",

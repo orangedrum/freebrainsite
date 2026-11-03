@@ -524,17 +524,15 @@
   "pilotSignup": {
     "fullName": "Nome completo",
     "email": "Endereço de e-mail",
-    "phone": "Número de telefone",
-    "role": "Eu sou...",
-    "institution": "Instituição ou clínica",
-    "notes": "Quer nos contar mais alguma coisa? (opcional)",
-    "roles": {
-      "individual": "Pessoa física",
-      "clinician": "Profissional de saúde",
-      "institutionRep": "Representante de instituição",
-      "parentOrPOA": "Responsável legal ou procurador",
-      "other": "Outro"
+    "phone": "Telefone para WhatsApp ou mensagem de texto",
+    "contactMethod": "Ponto de contato",
+    "contactMethodPlaceholder": "Escolha WhatsApp ou mensagem de texto",
+    "contactMethods": {
+      "whatsapp": "WhatsApp",
+      "text": "Mensagem de texto"
     },
+    "title": "Qual é o seu cargo? (opcional)",
+    "institution": "Instituição ou clínica (opcional)",
     "termsPrefix": "Li e concordo com os",
     "termsLink": "Termos e Serviços",
     "termsSuffix": "e confirmo que as informações fornecidas são corretas.",
@@ -546,16 +544,15 @@
     "success": "Obrigado — recebemos sua inscrição. Confira seu e-mail para ver uma cópia e os próximos passos.",
     "successCalendly": "Agende suas quatro sessões, uma de cada vez",
     "successTerms": "Consultar os Termos e Serviços",
-    "contactJean": "Falar com Jean pelo WhatsApp",
     "errors": {
       "termsRequired": "Aceite os Termos antes de enviar.",
       "consentsRequired": "Para receber as sessões gratuitas de tango, aceite as autorizações de fotos/vídeos e uso da marca.",
       "rateLimited": "Muitas tentativas. Aguarde alguns minutos antes de tentar novamente.",
-      "emailServiceUnavailable": "O serviço de e-mail da inscrição não está configurado nesta prévia. Nenhum e-mail foi enviado. Use uma prévia da Vercel ou configure RESEND_API_KEY apenas no servidor para testar localmente.",
-      "endpointUnavailable": "A API de inscrição não está disponível neste endereço. A inscrição não foi enviada. Use a prévia da Vercel ou inicie o servidor local compatível com a Vercel.",
-      "delivery": "Não foi possível enviar os e-mails da inscrição. Tente novamente mais tarde ou fale com Jean.",
+      "emailServiceUnavailable": "O serviço de e-mail da inscrição está temporariamente indisponível. Nenhum e-mail foi enviado. Tente novamente mais tarde.",
+      "endpointUnavailable": "Não foi possível acessar o serviço de inscrição. O formulário não foi enviado. Tente novamente mais tarde.",
+      "delivery": "Não foi possível enviar os e-mails da inscrição. Tente novamente mais tarde.",
       "partialDelivery": "O registro da sua inscrição foi enviado por e-mail para Jean, mas não foi possível enviar a confirmação. Não envie o formulário novamente.",
-      "network": "Não foi possível confirmar se sua inscrição foi recebida. Fale com Jean antes de tentar novamente para evitar duplicidade.",
+      "network": "Não foi possível confirmar se sua inscrição foi recebida. Verifique seu e-mail antes de tentar novamente para evitar duplicidade.",
       "default": "Não foi possível enviar o formulário. Confira suas informações e tente novamente."
     }
   },

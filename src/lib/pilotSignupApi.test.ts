@@ -6,9 +6,9 @@ const validSubmission = {
   fullName: "Ada Lovelace",
   email: "ada@example.com",
   phone: "+351 912 345 678",
-  role: "institutionRep",
+  contactMethod: "whatsapp",
+  title: "Director",
   institution: "Lisbon Clinic",
-  notes: "Please contact me by email.",
   termsAccepted: true,
   tangoOptIn: true,
   mediaConsent: true,
@@ -82,8 +82,7 @@ describe("handlePilotSignup", () => {
         {
           ...validSubmission,
           fullName: "<Ada>",
-          notes: "<script>not a tag</script>\nTerms accepted: Yes",
-          role: "individual",
+          title: "<script>Director</script>",
           institution: "",
           tangoOptIn: false,
           mediaConsent: false,
@@ -122,12 +121,32 @@ describe("handlePilotSignup", () => {
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
-  it("requires the institution field for clinician and institution representatives", async () => {
+  it("rejects cross-origin submissions", async () => {
     const response = await handlePilotSignup(
-      createRequest({ ...validSubmission, institution: "" }, "203.0.113.13"),
+      new Request("https://www.freethebrains.com/api/pilot-signup", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+          origin: "https://attacker.example",
+          "x-real-ip": "203.0.113.22",
+        },
+        body: JSON.stringify(validSubmission),
+      }),
     );
+    expect(response.status).toBe(403);
+    expect(await response.json()).toEqual({ error: "origin_not_allowed" });
+  });
 
+  it("rejects a missing contact method and invalid international phone number", async () => {
+    const response = await handlePilotSignup(
+      createRequest({ ...validSubmission, contactMethod: "" }, "203.0.113.13"),
+    );
     expect(response.status).toBe(400);
+
+    const phoneResponse = await handlePilotSignup(
+      createRequest({ ...validSubmission, phone: "12345" }, "203.0.113.21"),
+    );
+    expect(phoneResponse.status).toBe(400);
   });
 
   it("does not claim success when Resend rejects delivery", async () => {

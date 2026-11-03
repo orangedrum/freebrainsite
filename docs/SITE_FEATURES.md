@@ -40,7 +40,7 @@ Hero (image bg) → `AdvisorsSection` (Anoop + Martin LinkedIn cards + invite ca
 
 ### Lisbon Pilot (`/lisbon-pilot`)
 Hero → intro/why → `VideoPlayer` (`/tangoworkshop.mp4`) → 3-step how-it-works → app copy → Web Summit section → 2×2 cards (what we offer / what we ask / safety / CTA).
-**Key interaction:** embedded localized signup form; use `/lisbon-pilot?program=tango` for the Tango pilot form, where tango opt-in is visible and unchecked by default and photo/video + branding consents are gated until opt-in. The base URL has the general signup form. Partial email delivery asks users not to resubmit and provides Jean's WhatsApp as a contact fallback. Helmet meta only.
+**Key interaction:** embedded localized signup form; use `/lisbon-pilot?program=tango` for the Tango pilot form, where tango opt-in is visible and unchecked by default and photo/video + branding consents are gated until opt-in. The base URL has the general signup form. Email errors remain in-form and do not display a WhatsApp link. Helmet meta only.
 
 ### Movement Planner (`/movement-planner`)
 Inputs: mobility Select (`seated|assistedStanding|independent`) + focus Select (`freezingGait|tremor|posturalInstability`) + Generate.
@@ -89,7 +89,7 @@ Renders the full `terms/master-terms.md` content from the **`terms` i18n namespa
 |---|---|
 | **Cookiebot** | Only third-party script (`index.html`, auto-blocking) |
 | **ipapi.co** | Language geo-fallback |
-| **Resend** | `/api/pilot-signup` sends the user confirmation and signed-record email to `jean@freethebrains.com`; uses the existing server-only `RESEND_API_KEY` configured in Vercel |
+| **Resend** | `/api/pilot-signup` Web `GET`/`POST` function sends the user confirmation and signed-record email to `jean@freethebrains.com`; uses the existing server-only `RESEND_API_KEY` configured in Vercel |
 | **Calendly** | Advisors/funding/care/design modals |
 | **WhatsApp** | Community group + fallback contact for a signup delivery issue |
 | **forms.app** | Pilot registration + mailing list (external) |

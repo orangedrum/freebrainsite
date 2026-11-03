@@ -72,9 +72,14 @@
   redirected); ✅ **P4 implemented** — `POST /api/pilot-signup` validates and emails the record and
   confirmation through Resend; ✅ **P5/P6 implemented** — localized form embedded in the Lisbon
   page's former WhatsApp CTA section, with the Terms/tango/media/branding consent flow. Use
-  `/lisbon-pilot?program=tango` for Tango signup; the base page shows the general form. The local
-  Vite API adapter now runs the same handler; real email delivery and the end-to-end funnel remain
-  for P7 Preview QA. P8 git/deployment is user-managed.
+  `/lisbon-pilot?program=tango` for Tango signup; the base page shows the general form. The form
+  now asks for an optional free-text title and a required WhatsApp/text contact preference + valid
+  phone. It also uses a hidden honeypot, same-origin checks, server-side validation, a request-size
+  cap, and a per-IP rate limit (in-memory, best-effort per warm function instance). Growthstrat
+  Preview returned HTML instead of API JSON; the entrypoint now exports explicit Web `GET`/`POST`
+  handlers, and the development adapter runs the same handler. P7 remains blocked until the
+  deployed Vercel Function is confirmed and real email delivery is tested. P8 git and deployment
+  are user-managed.
 - **SEO Phase 1** (may be uncommitted): per-page Helmet meta, sitemap/robots, FAQ/WebApplication
   JSON-LD.
 - ~~`jean@freethebrains.com` mailbox~~ ✅ resolved 2026-11-03 (`MAINTENANCE.md` R1 — Zoho

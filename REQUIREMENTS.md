@@ -11,13 +11,13 @@
 | P1 | Lock provider, Terms, fields, consent, and signup decisions | ✅ Decisions recorded below |
 | P2 | Draft consolidated Terms and review notes | ✅ `terms/master-terms.md` + `terms/REVIEW-NOTES.md` |
 | P3 | Publish `/terms`, translate all body text ×4, update site links | ✅ Complete |
-| P4 | Resend/Vercel endpoint: participant confirmation + signed-record email | ✅ Implemented and unit-tested |
-| P5 | Localized form, validation, Terms and consent flows, success/Calendly state | ✅ Implemented and unit-tested |
+| P4 | Resend/Vercel endpoint: participant confirmation + signed-record email | ✅ Implemented with explicit Web `GET`/`POST` handlers; unit-tested |
+| P5 | Localized form, validation, Terms and consent flows, success/Calendly state | ✅ Implemented and unit-tested; optional free-text title and required WhatsApp/text contact details |
 | P6 | Replace Lisbon WhatsApp next step with the pilot form and positive program copy | ✅ Implemented; Tango opt-in appears only at `/lisbon-pilot?program=tango` |
-| P7 | Real end-to-end submissions, four-locale checks, email verification, mobile and link QA | 🟡 In progress; unit/UI checks pass, but real delivery still needs a Vercel Preview test |
+| P7 | Real end-to-end submissions, four-locale checks, email verification, mobile and link QA | 🟠 Blocked: Growthstrat deployment returned a non-JSON API response. Retest after deploying the explicit Web handlers and verify Vercel built `api/pilot-signup.ts` as a Function |
 | P8 | Final review, stage/commit, merge flow, deploy | ⏳ User handles all git commands and deployment; no git commands are run by the assistant |
 
-**Local testing note:** Vite does not serve Vercel Functions by default. `vitePilotSignupApi.ts` adds a development-only adapter that invokes the same API handler. It reads `RESEND_API_KEY` from the process environment or local env files server-side only; without it, submissions return a clear service-unavailable message and no email is sent. For actual email QA, use the deployed Vercel Preview. Never submit test data without intending to email both the participant and Jean.
+**Local testing note:** Vite does not serve Vercel Functions by default. `vitePilotSignupApi.ts` adds a development-only adapter that invokes the same API handler. It reads `RESEND_API_KEY` from the process environment or local env files server-side only; without it, submissions return a clear service-unavailable message and no email is sent. For actual email QA, use the deployed Vercel Preview. Never submit test data without intending to email both the participant and Jean. Confirm `api/pilot-signup.ts` is present in the exact commit/deployment and listed as a Function in Vercel deployment details; the SPA catch-all must not serve `index.html` for `/api/pilot-signup`.
 
 ## Locked inputs (from stakeholder)
 
@@ -34,10 +34,10 @@
 |---|---|---|---|---|
 | 1 | Full name | text | ✅ | |
 | 2 | Email | email | ✅ | confirmation destination; format-validated |
-| 3 | Phone | tel | ✅ | pilot is contact-driven; international format tolerated |
-| 4 | Role | select | ✅ | `individual` / `clinician` / `institutionRep` / `parentOrPOA` / `other` |
-| 5 | Institution / clinic | text | ⚠️ conditional | optional in general; **required when role = clinician or institutionRep** |
-| 6 | Notes | textarea | ⛔ optional | free text, ≤1000 chars |
+| 3 | Point of contact | select | ✅ | WhatsApp or text |
+| 4 | Phone | tel | ✅ | required for chosen contact channel; 7–15 digits, international format |
+| 5 | Title | text | ⛔ optional | free text; no role dropdown |
+| 6 | Institution / clinic | text | ⛔ optional | |
 | 7 | Consent: Terms | checkbox | ✅ | see D7 cascade |
 | 8 | Consent: 4 free tango sessions | checkbox | ⚠️ conditional | visible only with program flag; see D3/D7 |
 | 9 | Consent: photos/videos | checkbox | ⚠️ gated | disabled until #8 checked; see D7 |
@@ -60,7 +60,9 @@ All labels, options, hints, errors → `t()` in **en/es/de/pt** (keys in sync). 
 
 **Revisit triggers (any → add storage):** >~50 submissions/month; need to filter/report; legal advice to keep centralized records. Storage options then: Vercel KV / Supabase (free tiers) — decided at that time, still $0.
 
-**Spam/abuse:** honeypot field + per-IP rate limit in the function (best-effort v1).
+**Spam/abuse:** hidden honeypot, same-origin check, strict server-side field/consent validation,
+16 KB body cap, and a 5-submission-per-10-minute per-IP limit. Rate limiting is in-memory and
+best-effort per warm serverless function instance, not a global or durable control.
 
 ## D3 — Tango-checkbox visibility mechanism
 
@@ -100,7 +102,7 @@ General signup experiences omit the tango consent section.
 
 ## D6 — Success flow
 
-**Submit → function → both emails queued → success state.** Failure = explicit error state (no silent success; nothing is stored, so a failed send must not look like a signed deal). If the record email is sent but confirmation fails, tell the user not to resubmit and offer Jean's WhatsApp.
+**Submit → function → both emails queued → success state.** Failure = explicit error state (no silent success; nothing is stored, so a failed send must not look like a signed deal). Error states never add a WhatsApp contact link.
 
 Success screen contains:
 1. Confirmation copy ("check your email — we sent you a copy of what you agreed to").

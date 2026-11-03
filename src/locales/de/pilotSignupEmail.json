@@ -6,9 +6,9 @@
     "fullName": "Vollständiger Name",
     "email": "E-Mail",
     "phone": "Telefon",
-    "role": "Rolle",
+    "contactMethod": "Bevorzugter Kontaktweg",
+    "title": "Position",
     "institution": "Einrichtung / Klinik",
-    "notes": "Anmerkungen",
     "termsAccepted": "Nutzungsbedingungen akzeptiert",
     "termsVersion": "Version der Nutzungsbedingungen",
     "tangoOptIn": "4 kostenlose Tango-Sitzungen",
@@ -16,12 +16,9 @@
     "brandingConsent": "Einwilligung zur Nutzung des Partner-Brandings",
     "locale": "Anmeldesprache"
   },
-  "roles": {
-    "individual": "Einzelperson",
-    "clinician": "Klinische Fachkraft",
-    "institutionRep": "Vertretung einer Einrichtung",
-    "parentOrPOA": "Elternteil oder bevollmächtigte Person",
-    "other": "Sonstiges"
+  "contactMethods": {
+    "whatsapp": "WhatsApp",
+    "text": "SMS"
   },
   "yes": "Ja",
   "accepted": "Akzeptiert",

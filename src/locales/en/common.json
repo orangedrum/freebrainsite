@@ -532,17 +532,15 @@
   "pilotSignup": {
     "fullName": "Full name",
     "email": "Email address",
-    "phone": "Phone number",
-    "role": "I am a...",
-    "institution": "Institution or clinic",
-    "notes": "Anything else you'd like us to know? (optional)",
-    "roles": {
-      "individual": "Individual",
-      "clinician": "Clinician",
-      "institutionRep": "Institution representative",
-      "parentOrPOA": "Parent or power of attorney",
-      "other": "Other"
+    "phone": "Phone number for WhatsApp or text",
+    "contactMethod": "Point of contact",
+    "contactMethodPlaceholder": "Choose WhatsApp or text",
+    "contactMethods": {
+      "whatsapp": "WhatsApp",
+      "text": "Text message"
     },
+    "title": "What is your title? (optional)",
+    "institution": "Institution or clinic (optional)",
     "termsPrefix": "I have read and agree to the",
     "termsLink": "Terms & Services",
     "termsSuffix": "and confirm the information I provided is accurate.",
@@ -554,16 +552,15 @@
     "success": "Thanks — your signup was received. Check your email for a copy and the next step.",
     "successCalendly": "Book your four sessions one at a time",
     "successTerms": "Review the Terms & Services",
-    "contactJean": "Contact Jean on WhatsApp",
     "errors": {
       "termsRequired": "Please accept the Terms before submitting.",
       "consentsRequired": "To receive the free tango sessions, accept both photo/video and partner branding consents.",
       "rateLimited": "Too many attempts. Please wait a few minutes before trying again.",
-      "emailServiceUnavailable": "The signup email service isn't configured for this preview. No emails were sent. Use a Vercel preview or configure the server-only RESEND_API_KEY for local testing.",
-      "endpointUnavailable": "The signup API isn't available at this address. No submission was sent. Use the Vercel preview or start the local Vercel-compatible dev server.",
-      "delivery": "We couldn't send your signup emails. Please try again later or contact Jean.",
+      "emailServiceUnavailable": "The signup email service is temporarily unavailable. No emails were sent. Please try again later.",
+      "endpointUnavailable": "We couldn't reach the signup service. Your form was not submitted. Please try again later.",
+      "delivery": "We couldn't send your signup emails. Please try again later.",
       "partialDelivery": "Your signup record was emailed to Jean, but the confirmation email could not be sent. Please don't submit again.",
-      "network": "We couldn't confirm whether your signup was received. Please contact Jean before trying again to avoid a duplicate.",
+      "network": "We couldn't confirm whether your signup was received. Please check your email before trying again to avoid a duplicate.",
       "default": "We couldn't submit this form. Please check your information and try again."
     }
   },

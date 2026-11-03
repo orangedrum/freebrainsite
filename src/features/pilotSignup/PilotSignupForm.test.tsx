@@ -81,8 +81,11 @@ describe("PilotSignupForm", () => {
     fireEvent.change(screen.getByLabelText("Email address"), {
       target: { value: "ada@example.com" },
     });
-    fireEvent.change(screen.getByLabelText("Phone number"), {
+    fireEvent.change(screen.getByLabelText("Phone number for WhatsApp or text"), {
       target: { value: "+351 912 345 678" },
+    });
+    fireEvent.change(screen.getByLabelText("Point of contact"), {
+      target: { value: "whatsapp" },
     });
 
     const form = container.querySelector("form");
@@ -99,6 +102,8 @@ describe("PilotSignupForm", () => {
     expect(JSON.parse(String(request.body))).toMatchObject({
       fullName: "Ada Lovelace",
       email: "ada@example.com",
+      phone: "+351 912 345 678",
+      contactMethod: "whatsapp",
       termsAccepted: true,
       tangoOptIn: false,
       mediaConsent: false,
@@ -109,6 +114,10 @@ describe("PilotSignupForm", () => {
     expect(screen.getByRole("link", { name: /book your four sessions/i })).toHaveAttribute(
       "href",
       "https://calendly.com/jean-kaluza/app-idea-day-1-facilitation-clone",
+    );
+    expect(screen.getByRole("link", { name: /^Terms & Services$/i })).toHaveAttribute(
+      "target",
+      "_blank",
     );
   });
 
@@ -129,20 +138,20 @@ describe("PilotSignupForm", () => {
     fireEvent.change(screen.getByLabelText("Email address"), {
       target: { value: "ada@example.com" },
     });
-    fireEvent.change(screen.getByLabelText("Phone number"), {
+    fireEvent.change(screen.getByLabelText("Phone number for WhatsApp or text"), {
       target: { value: "+351 912 345 678" },
+    });
+    fireEvent.change(screen.getByLabelText("Point of contact"), {
+      target: { value: "text" },
     });
     fireEvent.click(screen.getByRole("checkbox", { name: /I have read and agree/i }));
 
     fireEvent.submit(container.querySelector("form")!);
 
     expect(await screen.findByRole("alert")).toHaveTextContent(
-      "signup API isn't available at this address",
+      "couldn't reach the signup service",
     );
-    expect(screen.getByRole("link", { name: /contact Jean on WhatsApp/i })).toHaveAttribute(
-      "href",
-      "https://wa.me/351913515202",
-    );
+    expect(screen.queryByRole("link", { name: /WhatsApp/i })).toBeNull();
   });
 
   it("explains when the local API is running without email credentials", async () => {
@@ -162,15 +171,18 @@ describe("PilotSignupForm", () => {
     fireEvent.change(screen.getByLabelText("Email address"), {
       target: { value: "ada@example.com" },
     });
-    fireEvent.change(screen.getByLabelText("Phone number"), {
+    fireEvent.change(screen.getByLabelText("Phone number for WhatsApp or text"), {
       target: { value: "+351 912 345 678" },
+    });
+    fireEvent.change(screen.getByLabelText("Point of contact"), {
+      target: { value: "text" },
     });
     fireEvent.click(screen.getByRole("checkbox", { name: /I have read and agree/i }));
     fireEvent.submit(container.querySelector("form")!);
 
     expect(await screen.findByRole("alert")).toHaveTextContent(
-      "email service isn't configured for this preview",
+      "email service is temporarily unavailable",
     );
-    expect(screen.getByRole("link", { name: /contact Jean on WhatsApp/i })).toBeInTheDocument();
+    expect(screen.queryByRole("link", { name: /WhatsApp/i })).toBeNull();
   });
 });

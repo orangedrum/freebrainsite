@@ -4,9 +4,9 @@ export interface SignupFormValues {
   fullName: string;
   email: string;
   phone: string;
-  role: string;
+  contactMethod: string;
+  title: string;
   institution: string;
-  notes: string;
   termsAccepted: boolean;
   tangoOptIn: boolean;
   mediaConsent: boolean;

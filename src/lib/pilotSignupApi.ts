@@ -58,6 +58,16 @@ const getClientIp = (request: Request): string | null => {
   return forwardedIp && isIP(forwardedIp) ? forwardedIp : null;
 };
 
+const isAllowedOrigin = (request: Request): boolean => {
+  const origin = request.headers.get("origin");
+  if (!origin) return request.headers.get("sec-fetch-site") !== "cross-site";
+  try {
+    return new URL(origin).origin === new URL(request.url).origin;
+  } catch {
+    return false;
+  }
+};
+
 const allowRequest = (ipAddress: string, now: number): boolean => {
   const current = rateLimitByIp.get(ipAddress);
   if (!current || now - current.windowStartedAt >= RATE_LIMIT_WINDOW_MS) {
@@ -80,6 +90,9 @@ const allowRequest = (ipAddress: string, now: number): boolean => {
 export const handlePilotSignup = async (request: Request): Promise<Response> => {
   if (request.method !== "POST") {
     return getJsonResponse(405, { error: "method_not_allowed" });
+  }
+  if (!isAllowedOrigin(request)) {
+    return getJsonResponse(403, { error: "origin_not_allowed" });
   }
   if (!request.headers.get("content-type")?.includes("application/json")) {
     return getJsonResponse(415, { error: "unsupported_media_type" });

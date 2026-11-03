@@ -524,17 +524,15 @@
   "pilotSignup": {
     "fullName": "Nombre completo",
     "email": "Correo electrónico",
-    "phone": "Número de teléfono",
-    "role": "Soy...",
-    "institution": "Institución o clínica",
-    "notes": "¿Algo más que quieras contarnos? (opcional)",
-    "roles": {
-      "individual": "Persona particular",
-      "clinician": "Profesional clínico",
-      "institutionRep": "Representante de una institución",
-      "parentOrPOA": "Madre, padre o representante legal",
-      "other": "Otro"
+    "phone": "Teléfono para WhatsApp o mensajes de texto",
+    "contactMethod": "Punto de contacto",
+    "contactMethodPlaceholder": "Elige WhatsApp o mensaje de texto",
+    "contactMethods": {
+      "whatsapp": "WhatsApp",
+      "text": "Mensaje de texto"
     },
+    "title": "¿Cuál es tu cargo? (opcional)",
+    "institution": "Institución o clínica (opcional)",
     "termsPrefix": "He leído y acepto los",
     "termsLink": "Términos y Servicios",
     "termsSuffix": "y confirmo que la información que proporcioné es correcta.",
@@ -546,16 +544,15 @@
     "success": "Gracias: recibimos tu solicitud. Revisa tu correo para ver una copia y conocer los próximos pasos.",
     "successCalendly": "Reserva tus cuatro sesiones de una en una",
     "successTerms": "Consulta los Términos y Servicios",
-    "contactJean": "Contactar con Jean por WhatsApp",
     "errors": {
       "termsRequired": "Acepta los Términos antes de enviar el formulario.",
       "consentsRequired": "Para recibir las sesiones gratuitas de tango, acepta los permisos de fotos/vídeos y de uso de marca.",
       "rateLimited": "Has realizado demasiados intentos. Espera unos minutos antes de volver a intentarlo.",
-      "emailServiceUnavailable": "El servicio de correo de registro no está configurado para esta vista previa. No se enviaron correos. Usa una vista previa de Vercel o configura RESEND_API_KEY solo en el servidor para probar localmente.",
-      "endpointUnavailable": "La API de registro no está disponible en esta dirección. No se envió la solicitud. Usa la vista previa de Vercel o inicia el servidor local compatible con Vercel.",
-      "delivery": "No pudimos enviar los correos de registro. Inténtalo más tarde o contacta con Jean.",
+      "emailServiceUnavailable": "El servicio de correo de registro no está disponible temporalmente. No se enviaron correos. Inténtalo más tarde.",
+      "endpointUnavailable": "No pudimos conectar con el servicio de registro. No se envió el formulario. Inténtalo más tarde.",
+      "delivery": "No pudimos enviar los correos de registro. Inténtalo más tarde.",
       "partialDelivery": "El registro se envió por correo a Jean, pero no se pudo enviar el mensaje de confirmación. No vuelvas a enviar el formulario.",
-      "network": "No pudimos confirmar si recibimos tu solicitud. Contacta con Jean antes de volver a intentarlo para evitar duplicados.",
+      "network": "No pudimos confirmar si recibimos tu solicitud. Revisa tu correo antes de volver a intentarlo para evitar duplicados.",
       "default": "No pudimos enviar el formulario. Comprueba tus datos e inténtalo de nuevo."
     }
   },

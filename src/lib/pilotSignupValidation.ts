@@ -1,21 +1,13 @@
-const ROLE_LABELS = {
-  individual: "Individual",
-  clinician: "Clinician",
-  institutionRep: "Institution representative",
-  parentOrPOA: "Parent or power of attorney",
-  other: "Other",
-} as const;
-
-export type PilotRole = keyof typeof ROLE_LABELS;
 export type SupportedLanguage = "en" | "es" | "de" | "pt";
+export type ContactMethod = "whatsapp" | "text";
 
 export interface PilotSignupSubmission {
   fullName: string;
   email: string;
   phone: string;
-  role: PilotRole;
+  contactMethod: ContactMethod;
+  title: string;
   institution: string;
-  notes: string;
   termsAccepted: true;
   tangoOptIn: boolean;
   mediaConsent: boolean;
@@ -28,14 +20,20 @@ const isRecord = (value: unknown): value is Record<string, unknown> =>
 
 const isString = (value: unknown): value is string => typeof value === "string";
 
-const isRole = (value: unknown): value is PilotRole =>
-  isString(value) && Object.prototype.hasOwnProperty.call(ROLE_LABELS, value);
-
 const isLanguage = (value: unknown): value is SupportedLanguage =>
   value === "en" || value === "es" || value === "de" || value === "pt";
 
 const isBoolean = (value: unknown): value is boolean => typeof value === "boolean";
-const hasLineBreak = (value: string): boolean => /[\r\n]/.test(value);
+const hasControlCharacter = (value: string): boolean => /\p{Cc}/u.test(value);
+const isContactMethod = (value: unknown): value is ContactMethod =>
+  value === "whatsapp" || value === "text";
+
+export const isValidInternationalPhone = (phone: string): boolean => {
+  const trimmedPhone = phone.trim();
+  if (!/^\+?[0-9][0-9 ().-]*[0-9]$/.test(trimmedPhone)) return false;
+  const digitCount = trimmedPhone.replace(/\D/g, "").length;
+  return digitCount >= 7 && digitCount <= 15;
+};
 
 export const validatePilotSignup = (payload: unknown): PilotSignupSubmission | null => {
   if (!isRecord(payload)) return null;
@@ -44,9 +42,9 @@ export const validatePilotSignup = (payload: unknown): PilotSignupSubmission | n
     !isString(payload.fullName) ||
     !isString(payload.email) ||
     !isString(payload.phone) ||
-    !isRole(payload.role) ||
+    !isContactMethod(payload.contactMethod) ||
+    !isString(payload.title) ||
     !isString(payload.institution) ||
-    !isString(payload.notes) ||
     payload.termsAccepted !== true ||
     !isBoolean(payload.tangoOptIn) ||
     !isBoolean(payload.mediaConsent) ||
@@ -59,29 +57,14 @@ export const validatePilotSignup = (payload: unknown): PilotSignupSubmission | n
   const fullName = payload.fullName.trim();
   const email = payload.email.trim();
   const phone = payload.phone.trim();
+  const title = payload.title.trim();
   const institution = payload.institution.trim();
-  const notes = payload.notes.trim();
 
-  if (fullName.length < 1 || fullName.length > 120 || hasLineBreak(fullName)) return null;
+  if (fullName.length < 1 || fullName.length > 120 || hasControlCharacter(fullName)) return null;
   if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return null;
-  if (
-    phone.length > 40 ||
-    !/^[+\d(). -]+$/.test(phone) ||
-    phone.replace(/\D/g, "").length < 6
-  ) {
-    return null;
-  }
-  if (
-    institution.length > 180 ||
-    hasLineBreak(institution) ||
-    notes.length > 1000
-  ) {
-    return null;
-  }
-  if (
-    (payload.role === "clinician" || payload.role === "institutionRep") &&
-    institution.length === 0
-  ) {
+  if (phone.length > 24 || !isValidInternationalPhone(phone)) return null;
+  if (title.length > 120 || hasControlCharacter(title)) return null;
+  if (institution.length > 180 || hasControlCharacter(institution)) {
     return null;
   }
   if (
@@ -96,9 +79,9 @@ export const validatePilotSignup = (payload: unknown): PilotSignupSubmission | n
     fullName,
     email,
     phone,
-    role: payload.role,
+    contactMethod: payload.contactMethod,
+    title,
     institution,
-    notes,
     termsAccepted: true,
     tangoOptIn: payload.tangoOptIn,
     mediaConsent: payload.mediaConsent,
@@ -106,5 +89,3 @@ export const validatePilotSignup = (payload: unknown): PilotSignupSubmission | n
     locale: payload.locale,
   };
 };
-
-export const getPilotRoleLabel = (role: PilotRole): string => ROLE_LABELS[role];

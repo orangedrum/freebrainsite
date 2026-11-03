@@ -6,9 +6,9 @@
     "fullName": "Full name",
     "email": "Email",
     "phone": "Phone",
-    "role": "Role",
+    "contactMethod": "Preferred contact",
+    "title": "Title",
     "institution": "Institution / clinic",
-    "notes": "Notes",
     "termsAccepted": "Terms accepted",
     "termsVersion": "Terms version",
     "tangoOptIn": "4 free tango sessions",
@@ -16,12 +16,9 @@
     "brandingConsent": "Partner branding consent",
     "locale": "Signup language"
   },
-  "roles": {
-    "individual": "Individual",
-    "clinician": "Clinician",
-    "institutionRep": "Institution representative",
-    "parentOrPOA": "Parent or power of attorney",
-    "other": "Other"
+  "contactMethods": {
+    "whatsapp": "WhatsApp",
+    "text": "Text message"
   },
   "yes": "Yes",
   "accepted": "Accepted",
