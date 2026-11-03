@@ -5,10 +5,18 @@ import en from "./locales/en/common.json";
 import es from "./locales/es/common.json";
 import de from "./locales/de/common.json";
 import pt from "./locales/pt/common.json";
+import termsEn from "./locales/en/terms.json";
+import termsEs from "./locales/es/terms.json";
+import termsDe from "./locales/de/terms.json";
+import termsPt from "./locales/pt/terms.json";
+import pilotSignupEmailEn from "./locales/en/pilotSignupEmail.json";
+import pilotSignupEmailEs from "./locales/es/pilotSignupEmail.json";
+import pilotSignupEmailDe from "./locales/de/pilotSignupEmail.json";
+import pilotSignupEmailPt from "./locales/pt/pilotSignupEmail.json";
 import { fetchLanguageByIp } from "./lib/geoLanguage";
+import { SUPPORTED_LANGUAGES, type SupportedLanguage } from "./lib/languages";
 
-export const SUPPORTED_LANGUAGES = ["en", "es", "de", "pt"] as const;
-export type SupportedLanguage = (typeof SUPPORTED_LANGUAGES)[number];
+export { SUPPORTED_LANGUAGES, type SupportedLanguage } from "./lib/languages";
 
 // Read BEFORE init — i18next caches the detected language on init,
 // so post-init reads cannot distinguish a manual choice from an automatic one.
@@ -21,10 +29,10 @@ i18n
   .use(initReactI18next)
   .init({
     resources: {
-      en: { translation: en },
-      es: { translation: es },
-      de: { translation: de },
-      pt: { translation: pt },
+      en: { translation: en, terms: termsEn, pilotSignupEmail: pilotSignupEmailEn },
+      es: { translation: es, terms: termsEs, pilotSignupEmail: pilotSignupEmailEs },
+      de: { translation: de, terms: termsDe, pilotSignupEmail: pilotSignupEmailDe },
+      pt: { translation: pt, terms: termsPt, pilotSignupEmail: pilotSignupEmailPt },
     },
     fallbackLng: "en",
     supportedLngs: [...SUPPORTED_LANGUAGES],

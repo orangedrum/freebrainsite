@@ -131,8 +131,8 @@ const drawChallengePromptAndTimer = (
 ): void => {
   const { width, height } = context.canvas;
   const centerX = width / 2;
-  const challengePromptY = height * 0.2;
-  const timerCenterY = height / 3;
+  const challengePromptY = height * 0.235;
+  const timerCenterY = height * 0.3;
   const timerText = getTimerText(scene.elapsedMs);
 
   context.save();
@@ -142,7 +142,21 @@ const drawChallengePromptAndTimer = (
   context.shadowBlur = 4;
   context.fillStyle = getThemeColor("--foreground");
   context.font = "bold 22px sans-serif";
-  context.fillText(scene.challengePrompt, centerX, challengePromptY, width - 48);
+  const promptWidth = Math.min(
+    context.measureText(scene.challengePrompt).width + 32,
+    width - 48,
+  );
+  const promptHeight = 42;
+  const promptX = centerX - promptWidth / 2;
+  const promptY = challengePromptY - promptHeight / 2;
+  context.fillStyle = `hsl(${getThemeToken("--background")} / 0.82)`;
+  context.fillRect(promptX, promptY, promptWidth, promptHeight);
+  context.shadowBlur = 0;
+  context.strokeStyle = getThemeColor("--info");
+  context.lineWidth = 2;
+  context.strokeRect(promptX + 1, promptY + 1, promptWidth - 2, promptHeight - 2);
+  context.fillStyle = getThemeColor("--foreground");
+  context.fillText(scene.challengePrompt, centerX, challengePromptY, promptWidth - 16);
 
   context.font = "bold 32px sans-serif";
   const timerWidth = context.measureText(timerText).width + 32;
@@ -211,7 +225,7 @@ const drawChallengeOverlay = (
   drawPose(context, gunImage, gunX, poseY, poseSize, scene.pattern === "bunnyLeft");
 
   context.shadowBlur = 0;
-  context.font = `${isPortrait ? 20 : 22}px sans-serif`;
+  context.font = `${isPortrait ? 24 : 24}px sans-serif`;
   const maxTextWidth = width * 0.9;
   const lines: string[] = [];
   let line = "";
@@ -226,7 +240,7 @@ const drawChallengeOverlay = (
   }
   if (line) lines.push(line);
 
-  const lineHeight = isPortrait ? 25 : 27;
+  const lineHeight = 30;
   const firstLineY = poseY + poseSize + lineHeight;
   lines.forEach((text, index) => {
     context.fillText(text, centerX, firstLineY + index * lineHeight, maxTextWidth);

@@ -4,7 +4,15 @@
     "getInvolved": "Participe",
     "team": "Equipe",
     "movementPlanner": "Planejador de Movimento",
-    "sampleExercises": "Exercícios de Exemplo"
+    "sampleExercises": "Localizador de exercícios",
+    "resources": "Recursos",
+    "movementPlannerDescription": "Crie um plano de movimento personalizado para suas necessidades e objetivos.",
+    "exerciseFinder": "Localizador de exercícios",
+    "exerciseFinderDescription": "Explore vídeos de movimento e exercícios para diferentes capacidades.",
+    "tryBunnyDemo": "Experimente o demo do coelho ✌️👈",
+    "primaryNavigation": "Navegação principal",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu"
   },
   "breadcrumb": {
     "home": "Início"
@@ -87,7 +95,7 @@
     "recordingPreviewDescription": "Visualize o vídeo gravado do seu Desafio do Coelho.",
     "openRecordingPreview": "Abrir prévia do vídeo",
     "videoBrandLine": "Experimente em freethebrains.com",
-    "videoChallengePrompt": "Você consegue fazer melhor?",
+    "videoChallengePrompt": "Você consegue fazer isso melhor?",
     "recordingDownload": "Baixar vídeo",
     "recordingDiscard": "Descartar vídeo",
     "playMessageA": "Você está treinando seu cérebro agora mesmo",
@@ -96,12 +104,12 @@
     "playMessageD": "43% vivem com uma condição neurológica que poderia se beneficiar de terapia de movimento regular",
     "playMessageE": "Compartilhe este vídeo para divulgar a FreeBrain e ajudar a libertar mais cérebros!",
     "faqTitle": "Perguntas frequentes",
-    "scienceTitle": "A ciência por trás disso:",
     "scienceMechanismTitle": "Mecanismo neurológico e da ciência do exercício",
-    "scienceMechanismBody": "Este neuroexercício lúdico convida você a seguir sinais visuais, alternar posições das mãos, coordenar os dois lados do corpo e responder a um ritmo variável. Essas tarefas envolvem atenção visual, planejamento motor, ritmo e sequenciamento. O Desafio do Coelho é um jogo de coordenação — não um tratamento ou avaliação médica — e não há comprovação de que melhore ou trate condições neurológicas ou cognitivas.",
-    "pickMovementTitle": "Escolha um movimento para transformar este plano em uma rotina",
+    "citationLabel": "Citação {{number}}",
+    "scienceMechanismBody": "Shoot the Bunny — também conhecido como Squirt the Bunny ou Hunt the Rabbit — é um exercício bilateral de coordenação entre mãos e cérebro. Imitar duas posições diferentes ao mesmo tempo e alternar os lados mobiliza atenção visual, planejamento motor, ritmo e sequenciamento, enquanto exige que o sistema nervoso coordene movimentos nos dois lados do corpo e do cérebro.",
+    "neuroplasticityTitle": "Neuroplasticidade",
+    "neuroplasticityBody": "Neuroplasticidade é a capacidade de neurônios e redes neurais se adaptarem ao longo do tempo, muitas vezes em resposta a experiências repetidas. Pesquisas sobre exercícios aeróbicos regulares — não especificamente sobre este breve jogo de coordenação — relacionam a atividade a fatores neurotróficos como BDNF, IGF-1 e VEGF, que participam de processos associados à formação de vasos sanguíneos no cérebro e à adaptação neural. Estudos de vários meses de exercício aeróbico consistente também relatam associações com funções executivas e alterações na massa cinzenta em regiões como o córtex pré-frontal e o hipocampo. Essas evidências descrevem exercícios aeróbicos sustentados; não comprovam que jogar o Desafio do Coelho produza os mesmos efeitos.",
     "pickMovementBody": "Este jogo de coordenação das mãos é um começo divertido. Explore os exercícios de movimento da FreeBrain e encontre rotinas para diferentes condições neurológicas e níveis de mobilidade.",
-    "pickMovementCta": "Explorar exercícios de movimento",
     "faq": {
       "q1": "O que é o desafio O coelho escapa?",
       "a1": "É um desafio divertido de coordenação das mãos. Imite as posições do coelho e da pistola ao mesmo tempo e troque o lado em que cada imagem aparece conforme o ritmo acelera.",
@@ -112,18 +120,6 @@
       "q4": "Isto é uma avaliação médica ou do movimento?",
       "a4": "Não. É uma atividade lúdica de coordenação, não um teste médico, diagnóstico, tratamento ou avaliação da saúde cerebral."
     }
-  },
-  "termsPrivacy": {
-    "title": "Termos e Privacidade",
-    "metaTitle": "Termos e Privacidade | FreeBrain",
-    "intro": "Esta página explica a gravação opcional de vídeo do Desafio do Coelho.",
-    "recordingTitle": "Gravação de vídeo do Desafio do Coelho",
-    "recordingOptional": "A gravação é opcional e vem desativada por padrão. Você pode jogar sem usar a câmera.",
-    "recordingPermission": "Se você optar por gravar, a câmera só será ativada depois que pressionar “Vamos”. A experiência solicita apenas vídeo, sem acesso ao microfone.",
-    "recordingStorage": "O vídeo é composto e mantido temporariamente no seu navegador. Ele não é enviado nem armazenado pela FreeBrain ou pela Supabase. Você pode visualizar, baixar para o dispositivo ou descartar.",
-    "recordingControls": "Ao parar o desafio, a gravação termina e as faixas da câmera são liberadas. Ao descartar o vídeo, a prévia temporária é removida da página.",
-    "fullPolicyNotice": "Estas informações são específicas da gravação do Desafio do Coelho; os Termos de Serviço e a Política de Privacidade completos da FreeBrain serão adicionados aqui.",
-    "backToChallenge": "Voltar ao Desafio do Coelho"
   },
   "movement": {
     "titleSeatedGeneric": "Movimento Sentado Suave",
@@ -521,8 +517,47 @@
     "summitBody": "FreeBrain está exibindo como Alpha Startup. Convidamos um pequeno grupo de instituições de Lisboa a enviar um representante ao nosso estande por um dia para participar das demonstrações de movimento e mostrar ao mundo o que Lisboa faz pela terapia de movimento.",
     "summitPhotoAlt": "Pré-visualização gerada por IA da barraca da FreeBrain no Web Summit Lisboa",
     "nextTitle": "Próximo passo",
-    "nextBody": "Me diga um dia que funcione e eu trago o acordo de uma página.",
-    "cta": "Enviar mensagem para Jean no WhatsApp"
+    "nextBody": "Preencha este breve formulário para demonstrar seu interesse no piloto de Lisboa. Enviaremos por e-mail uma cópia da sua inscrição e os próximos passos.",
+    "nextBodyTango": "Solicite quatro sessões gratuitas e presenciais de movimento com tango pelo piloto de Lisboa. Preencha este breve formulário e enviaremos os próximos passos por e-mail. Os Termos explicam segurança e responsabilidades.",
+    "cta": "Enviar inscrição no piloto"
+  },
+  "pilotSignup": {
+    "fullName": "Nome completo",
+    "email": "Endereço de e-mail",
+    "phone": "Número de telefone",
+    "role": "Eu sou...",
+    "institution": "Instituição ou clínica",
+    "notes": "Quer nos contar mais alguma coisa? (opcional)",
+    "roles": {
+      "individual": "Pessoa física",
+      "clinician": "Profissional de saúde",
+      "institutionRep": "Representante de instituição",
+      "parentOrPOA": "Responsável legal ou procurador",
+      "other": "Outro"
+    },
+    "termsPrefix": "Li e concordo com os",
+    "termsLink": "Termos e Serviços",
+    "termsSuffix": "e confirmo que as informações fornecidas são corretas.",
+    "tangoOptIn": "Aceito receber quatro sessões gratuitas de tango.",
+    "tangoConsentNote": "Para receber essas sessões, você também precisa concordar com as autorizações de fotos/vídeos e uso da marca abaixo.",
+    "mediaConsent": "Concordo que fotos e vídeos meus sejam capturados e utilizados conforme descrito nos Termos.",
+    "brandingConsent": "Concordo que a FreeBrain use o nome, logotipo ou marca da minha instituição conforme descrito nos Termos.",
+    "submitting": "Enviando...",
+    "success": "Obrigado — recebemos sua inscrição. Confira seu e-mail para ver uma cópia e os próximos passos.",
+    "successCalendly": "Agende suas quatro sessões, uma de cada vez",
+    "successTerms": "Consultar os Termos e Serviços",
+    "contactJean": "Falar com Jean pelo WhatsApp",
+    "errors": {
+      "termsRequired": "Aceite os Termos antes de enviar.",
+      "consentsRequired": "Para receber as sessões gratuitas de tango, aceite as autorizações de fotos/vídeos e uso da marca.",
+      "rateLimited": "Muitas tentativas. Aguarde alguns minutos antes de tentar novamente.",
+      "emailServiceUnavailable": "O serviço de e-mail da inscrição não está configurado nesta prévia. Nenhum e-mail foi enviado. Use uma prévia da Vercel ou configure RESEND_API_KEY apenas no servidor para testar localmente.",
+      "endpointUnavailable": "A API de inscrição não está disponível neste endereço. A inscrição não foi enviada. Use a prévia da Vercel ou inicie o servidor local compatível com a Vercel.",
+      "delivery": "Não foi possível enviar os e-mails da inscrição. Tente novamente mais tarde ou fale com Jean.",
+      "partialDelivery": "O registro da sua inscrição foi enviado por e-mail para Jean, mas não foi possível enviar a confirmação. Não envie o formulário novamente.",
+      "network": "Não foi possível confirmar se sua inscrição foi recebida. Fale com Jean antes de tentar novamente para evitar duplicidade.",
+      "default": "Não foi possível enviar o formulário. Confira suas informações e tente novamente."
+    }
   },
   "getInvolved": {
     "title": "Participe",
@@ -591,7 +626,8 @@
     "explore": "Explorar",
     "links": {
       "home": "Início",
-      "lisbonPilot": "Piloto de Lisboa"
+      "lisbonPilot": "Piloto de Lisboa",
+      "terms": "Termos e Serviços"
     },
     "resources": "Recursos",
     "podcast": "Podcast",

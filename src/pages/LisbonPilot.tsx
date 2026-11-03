@@ -6,14 +6,17 @@ import { Modal } from "@/components/shared/Modal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { GridBackground } from "@/components/shared/GridBackground";
 import { VideoPlayer } from "@/components/shared/VideoPlayer";
+import { PilotSignupForm } from "@/features/pilotSignup/PilotSignupForm";
+import { isTangoSignup } from "@/features/pilotSignup/pilotSignupFormUtils";
 import { useModalState } from "@/hooks/useModalState";
-import { EXTERNAL_LINKS } from "@/lib/constants";
-import { openExternalLink } from "@/lib/navigation";
+import { useLocation } from "react-router-dom";
 
 /** Lisbon movement pilot page — FreeBrain styles, tango workshops for Parkinson's. */
 const LisbonPilot = () => {
   const { t } = useTranslation();
+  const { search } = useLocation();
   const { modalConfig, openModal, closeModal } = useModalState();
+  const isTangoProgram = isTangoSignup(search);
 
   return (
     <div className="flex min-h-screen flex-col bg-background font-sans">
@@ -157,16 +160,15 @@ const LisbonPilot = () => {
               </div>
             </div>
 
-            <div className="md:col-span-2 rounded-2xl bg-secondary border border-foreground/10 p-8 text-center space-y-4">
+            <div
+              id="next-step"
+              className="md:col-span-2 rounded-2xl bg-secondary border border-foreground/10 p-8 space-y-4"
+            >
               <h2 className="text-xl font-bold text-foreground">{t("lisbonPilot.nextTitle")}</h2>
-              <p className="text-muted-foreground">{t("lisbonPilot.nextBody")}</p>
-              <button
-                type="button"
-                onClick={() => openExternalLink(EXTERNAL_LINKS.jeanWhatsapp)}
-                className="inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-sm font-semibold text-foreground transition-colors hover:bg-brand-hover"
-              >
-                {t("lisbonPilot.cta")}
-              </button>
+              <p className="text-muted-foreground leading-relaxed">
+                {t(isTangoProgram ? "lisbonPilot.nextBodyTango" : "lisbonPilot.nextBody")}
+              </p>
+              <PilotSignupForm isTangoProgram />
             </div>
           </div>
         </section>

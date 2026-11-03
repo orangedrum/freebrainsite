@@ -84,7 +84,7 @@ export const BunnyChallengeIntro = ({
             />
           </div>
           <Link
-            to="/terms-and-privacy"
+            to="/terms"
             className="mt-3 inline-block text-sm text-foreground/80 underline underline-offset-4 hover:text-foreground"
           >
             {t("bunnyChallenge.termsLink")}

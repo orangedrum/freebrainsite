@@ -4,7 +4,15 @@
     "getInvolved": "Mitmachen",
     "team": "Team",
     "movementPlanner": "Bewegungsplan",
-    "sampleExercises": "Beispiele"
+    "sampleExercises": "Übungsfinder",
+    "resources": "Ressourcen",
+    "movementPlannerDescription": "Erstelle einen persönlichen Bewegungsplan passend zu deinen Bedürfnissen und Zielen.",
+    "exerciseFinder": "Übungsfinder",
+    "exerciseFinderDescription": "Entdecke Bewegungsvideos und Übungen für unterschiedliche Fähigkeiten.",
+    "tryBunnyDemo": "Bunny-Demo ausprobieren ✌️👈",
+    "primaryNavigation": "Hauptnavigation",
+    "openMenu": "Menü öffnen",
+    "closeMenu": "Menü schließen"
   },
   "breadcrumb": {
     "home": "Start"
@@ -87,7 +95,7 @@
     "recordingPreviewDescription": "Sieh dir die Aufnahme deiner Bunny-Challenge an.",
     "openRecordingPreview": "Videovorschau öffnen",
     "videoBrandLine": "Probiere es auf freethebrains.com",
-    "videoChallengePrompt": "Schaffst du es besser?",
+    "videoChallengePrompt": "Kannst du es besser machen?",
     "recordingDownload": "Video herunterladen",
     "recordingDiscard": "Video löschen",
     "playMessageA": "Du trainierst gerade dein Gehirn",
@@ -96,12 +104,12 @@
     "playMessageD": "43 % leben mit einer neurologischen Erkrankung, die von regelmäßiger Bewegungstherapie profitieren könnte",
     "playMessageE": "Teile dieses Video, um FreeBrain bekannter zu machen und mehr Gehirne zu befreien!",
     "faqTitle": "Häufig gestellte Fragen",
-    "scienceTitle": "Die Wissenschaft dahinter:",
     "scienceMechanismTitle": "Neurologischer und bewegungswissenschaftlicher Mechanismus",
-    "scienceMechanismBody": "Diese spielerische Neuro-Übung fordert dich dazu auf, visuelle Hinweise zu verfolgen, Handposen zu wechseln, beide Körperseiten zu koordinieren und auf einen wechselnden Rhythmus zu reagieren. Dabei kommen visuelle Aufmerksamkeit, Bewegungsplanung, Timing und Reihenfolge zum Einsatz. Die Hasen-Challenge ist ein Koordinationsspiel – keine medizinische Behandlung oder Beurteilung. Es ist nicht belegt, dass sie neurologische oder kognitive Erkrankungen verbessert oder behandelt.",
-    "pickMovementTitle": "Wähle eine Bewegung, um diesen Plan in eine Routine zu verwandeln",
+    "citationLabel": "Quelle {{number}}",
+    "scienceMechanismBody": "Shoot the Bunny – auch Squirt the Bunny oder Hunt the Rabbit genannt – ist eine beidseitige Hand-Gehirn-Koordinationsübung. Zwei unterschiedliche Handposen gleichzeitig nachzuahmen und die Seiten zu wechseln, beansprucht visuelle Aufmerksamkeit, Bewegungsplanung, Timing und Reihenfolge. Dabei muss das Nervensystem Bewegungen auf beiden Körper- und Gehirnseiten koordinieren.",
+    "neuroplasticityTitle": "Neuroplastizität",
+    "neuroplasticityBody": "Neuroplastizität bezeichnet die Fähigkeit von Neuronen und neuronalen Netzwerken, sich im Laufe der Zeit anzupassen – oft durch wiederholte Erfahrungen. Forschung zu regelmäßigem aerobem Training – nicht zu diesem kurzen Koordinationsspiel speziell – bringt Bewegung mit neurotrophen Faktoren wie BDNF, IGF-1 und VEGF in Verbindung. Diese Faktoren wirken an Prozessen mit, die mit der Bildung von Blutgefäßen im Gehirn und neuronaler Anpassung zusammenhängen. Studien über mehrere Monate regelmäßigen Ausdauertrainings berichten außerdem Zusammenhänge mit exekutiven Funktionen und Veränderungen der grauen Substanz, unter anderem im präfrontalen Kortex und Hippocampus. Diese Erkenntnisse beziehen sich auf dauerhaftes aerobes Training und belegen nicht, dass die Bunny-Challenge dieselben Effekte erzielt.",
     "pickMovementBody": "Dieses Hand-Koordinationsspiel ist ein spielerischer Einstieg. Entdecke die Bewegungsübungen von FreeBrain und finde Routinen für verschiedene neurologische Erkrankungen und Mobilitätsstufen.",
-    "pickMovementCta": "Bewegungsübungen entdecken",
     "faq": {
       "q1": "Was ist die Herausforderung „Der Hase entkommt“?",
       "a1": "Es ist ein spielerisches Hand-Koordinationsspiel. Imitiere gleichzeitig die Hasen- und Fingerpistolenpose und wechsle die Seiten, auf denen die Bilder erscheinen, während das Tempo steigt.",
@@ -112,18 +120,6 @@
       "q4": "Ist das eine medizinische oder Bewegungsbeurteilung?",
       "a4": "Nein. Es ist eine spielerische Koordinationsaktivität, kein medizinischer Test, keine Diagnose oder Behandlung und keine Beurteilung der Gehirngesundheit."
     }
-  },
-  "termsPrivacy": {
-    "title": "Nutzungsbedingungen & Datenschutz",
-    "metaTitle": "Nutzungsbedingungen & Datenschutz | FreeBrain",
-    "intro": "Diese Seite erklärt die optionale Videoaufnahme der Bunny-Challenge.",
-    "recordingTitle": "Videoaufnahme der Bunny-Challenge",
-    "recordingOptional": "Die Aufnahme ist optional und standardmäßig ausgeschaltet. Du kannst die Challenge ohne Kamera spielen.",
-    "recordingPermission": "Wenn du zustimmst, wird die Kamera erst aktiviert, wenn du auf „Los“ tippst. Es wird nur Video angefordert, kein Mikrofonzugriff.",
-    "recordingStorage": "Das Video wird in deinem Browser zusammengesetzt und vorübergehend dort gehalten. Es wird weder zu FreeBrain noch zu Supabase hochgeladen oder dort gespeichert. Du kannst es ansehen, herunterladen oder löschen.",
-    "recordingControls": "Wenn du die Challenge stoppst, endet die Aufnahme und die Kameraspuren werden freigegeben. Beim Löschen des Videos wird die temporäre Vorschau von der Seite entfernt.",
-    "fullPolicyNotice": "Diese Informationen beziehen sich nur auf die Aufnahme der Bunny-Challenge. Die vollständigen Nutzungsbedingungen und Datenschutzbestimmungen von FreeBrain werden hier ergänzt.",
-    "backToChallenge": "Zurück zur Bunny-Challenge"
   },
   "movement": {
     "titleSeatedGeneric": "Sanfte Sitzbewegung",
@@ -519,8 +515,47 @@
     "summitBody": "FreeBrain stellt als Alpha Startup aus. Wir laden eine kleine Gruppe Lissabonner Einrichtungen ein, einen Vertreter zu unserem Stand für einen Tag zu schicken, um an den Bewegungsdemonstrationen teilzunehmen und der Welt zu zeigen, was Lissabon für Bewegungstherapie tut.",
     "summitPhotoAlt": "KI-generierte Vorschau des FreeBrain-Stands beim Web Summit Lissabon",
     "nextTitle": "Nächster Schritt",
-    "nextBody": "Nennen Sie mir einen Tag, der passt, und ich bringe die einseitige Vereinbarung.",
-    "cta": "Jean auf WhatsApp schreiben"
+    "nextBody": "Fülle dieses kurze Formular aus, um dein Interesse am Lissabon-Pilotprojekt zu bekunden. Wir senden dir eine Kopie deiner Anmeldung und die nächsten Schritte per E-Mail.",
+    "nextBodyTango": "Frage im Rahmen des Lissabon-Pilotprojekts vier kostenlose Tango-Bewegungseinheiten vor Ort an. Fülle das kurze Formular aus; wir senden dir die nächsten Schritte per E-Mail. Die Nutzungsbedingungen erläutern Sicherheit und Verantwortung.",
+    "cta": "Für den Pilot anmelden"
+  },
+  "pilotSignup": {
+    "fullName": "Vollständiger Name",
+    "email": "E-Mail-Adresse",
+    "phone": "Telefonnummer",
+    "role": "Ich bin...",
+    "institution": "Einrichtung oder Klinik",
+    "notes": "Möchtest du uns noch etwas mitteilen? (optional)",
+    "roles": {
+      "individual": "Privatperson",
+      "clinician": "Klinisches Fachpersonal",
+      "institutionRep": "Vertretung einer Einrichtung",
+      "parentOrPOA": "Elternteil oder bevollmächtigte Person",
+      "other": "Sonstiges"
+    },
+    "termsPrefix": "Ich habe die",
+    "termsLink": "Nutzungsbedingungen",
+    "termsSuffix": "gelesen und stimme ihnen zu. Ich bestätige außerdem, dass meine Angaben korrekt sind.",
+    "tangoOptIn": "Ich möchte vier kostenlose Tango-Sitzungen erhalten.",
+    "tangoConsentNote": "Um diese Sitzungen zu erhalten, musst du auch den untenstehenden Einwilligungen für Fotos/Videos und die Verwendung der Marke zustimmen.",
+    "mediaConsent": "Ich willige ein, dass Fotos und Videos von mir gemäß den Nutzungsbedingungen aufgenommen und verwendet werden.",
+    "brandingConsent": "Ich willige ein, dass FreeBrain den Namen, das Logo oder die Marke meiner Einrichtung gemäß den Nutzungsbedingungen verwendet.",
+    "submitting": "Wird gesendet...",
+    "success": "Danke — deine Anmeldung ist eingegangen. Du erhältst eine Kopie und die nächsten Schritte per E-Mail.",
+    "successCalendly": "Buche deine vier Sitzungen einzeln",
+    "successTerms": "Nutzungsbedingungen ansehen",
+    "contactJean": "Jean über WhatsApp kontaktieren",
+    "errors": {
+      "termsRequired": "Bitte stimme den Nutzungsbedingungen zu, bevor du das Formular absendest.",
+      "consentsRequired": "Um die kostenlosen Tango-Sitzungen zu erhalten, stimme den Einwilligungen für Fotos/Videos und die Verwendung der Marke zu.",
+      "rateLimited": "Zu viele Versuche. Bitte warte einige Minuten, bevor du es erneut versuchst.",
+      "emailServiceUnavailable": "Der E-Mail-Dienst für Anmeldungen ist in dieser Vorschau nicht konfiguriert. Es wurden keine E-Mails gesendet. Nutze eine Vercel-Vorschau oder konfiguriere RESEND_API_KEY nur serverseitig für lokale Tests.",
+      "endpointUnavailable": "Die Anmelde-API ist unter dieser Adresse nicht verfügbar. Es wurde keine Anmeldung gesendet. Nutze die Vercel-Vorschau oder starte den Vercel-kompatiblen lokalen Entwicklungsserver.",
+      "delivery": "Deine Anmeldungs-E-Mails konnten nicht gesendet werden. Bitte versuche es später erneut oder kontaktiere Jean.",
+      "partialDelivery": "Dein Anmeldedatensatz wurde per E-Mail an Jean gesendet, aber die Bestätigungs-E-Mail konnte nicht zugestellt werden. Bitte sende das Formular nicht erneut.",
+      "network": "Wir konnten nicht bestätigen, ob deine Anmeldung eingegangen ist. Bitte kontaktiere Jean, bevor du es erneut versuchst, um doppelte Anmeldungen zu vermeiden.",
+      "default": "Das Formular konnte nicht gesendet werden. Bitte überprüfe deine Angaben und versuche es erneut."
+    }
   },
   "getInvolved": {
     "title": "Mitmachen",
@@ -589,7 +624,8 @@
     "explore": "Entdecken",
     "links": {
       "home": "Start",
-      "lisbonPilot": "Lissabon-Pilot"
+      "lisbonPilot": "Lissabon-Pilot",
+      "terms": "Nutzungsbedingungen"
     },
     "resources": "Ressourcen",
     "podcast": "Podcast",

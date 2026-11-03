@@ -9,10 +9,12 @@ import { VideoPlayer } from "@/components/shared/VideoPlayer";
 import { MovementPageMeta } from "@/features/movements/MovementPageMeta";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
 import { ExercisesForCondition } from "@/components/shared/ExercisesForCondition";
+import { FaqAccordion } from "@/components/shared/FaqAccordion";
+import { FaqJsonLd } from "@/components/shared/FaqJsonLd";
 import { BenefitsOfMovement } from "@/components/shared/BenefitsOfMovement";
 import { MovementByCondition } from "@/components/shared/MovementByCondition";
+import { MovementPlannerPromoCard } from "@/components/shared/MovementPlannerPromoCard";
 import { useModalState } from "@/hooks/useModalState";
 import { Users } from "lucide-react";
 import { EXTERNAL_LINKS } from "@/lib/constants";
@@ -67,24 +69,6 @@ export const Movements = () => {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              { "@type": "Question", "name": t("movements.faq.q1"), "acceptedAnswer": { "@type": "Answer", "text": t("movements.faq.a1") } },
-              { "@type": "Question", "name": t("movements.faq.q2"), "acceptedAnswer": { "@type": "Answer", "text": t("movements.faq.a2") } },
-              { "@type": "Question", "name": t("movements.faq.q3"), "acceptedAnswer": { "@type": "Answer", "text": t("movements.faq.a3") } },
-              { "@type": "Question", "name": t("movements.faq.q4"), "acceptedAnswer": { "@type": "Answer", "text": t("movements.faq.a4") } },
-              { "@type": "Question", "name": t("movements.faq.q5"), "acceptedAnswer": { "@type": "Answer", "text": t("movements.faq.a5") } },
-              { "@type": "Question", "name": t("movements.faq.q6"), "acceptedAnswer": { "@type": "Answer", "text": t("movements.faq.a6") } },
-              { "@type": "Question", "name": t("movements.faq.q7"), "acceptedAnswer": { "@type": "Answer", "text": t("movements.faq.a7") } },
-              { "@type": "Question", "name": t("movements.faq.q8"), "acceptedAnswer": { "@type": "Answer", "text": t("movements.faq.a8") } },
-              { "@type": "Question", "name": t("movements.faq.q9"), "acceptedAnswer": { "@type": "Answer", "text": t("movements.faq.a9") } },
-              { "@type": "Question", "name": t("movements.faq.q10"), "acceptedAnswer": { "@type": "Answer", "text": t("movements.faq.a10") } },
-            ]
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
             "@type": "WebApplication",
             "name": "Free Movement Exercises for Neurological Conditions",
             "url": "https://www.freethebrains.com/movements",
@@ -104,6 +88,7 @@ export const Movements = () => {
         <meta name="twitter:title" content="Free Movement Exercises for Neurological Conditions | FreeBrain" />
         <meta name="twitter:description" content="Free guided movement videos for Parkinson's, MS, stroke recovery, epilepsy, and 15+ neurological conditions." />
       </Helmet>
+      <FaqJsonLd items={FAQ_ITEMS} />
       <Header onOpenModal={openModal} />
       <main className="flex-1">
         <section className="relative overflow-hidden pt-10 md:pt-16 pb-20 md:pb-32 z-0">
@@ -216,22 +201,19 @@ export const Movements = () => {
                 </Dialog>
               </div>
             </div>
-            <div className="rounded-[21.6px] border border-white bg-[#c1c9ff] p-6 md:p-8 space-y-4 shadow-md mt-[50px]">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-                <div className="md:col-span-9">
-                  <h3 className="text-xl font-bold text-brand">{t("movementPlanner.pickMovementTitle")}</h3>
-                  <p className="text-xs text-brand">
+            <div className="mt-[50px]">
+              <MovementPlannerPromoCard
+                href="/movement-planner"
+                description={
+                  <>
                     {t("movementPlanner.pickMovementBodyPrefix")}
-                    <button type="button" onClick={() => openModal(t("modal.joinPilot.title"), t("modal.joinPilot.description"), Users, t("modal.joinPilot.cta"), EXTERNAL_LINKS.pilotForm)} className="font-medium text-brand underline underline-offset-4 hover:text-brand">
+                    <button type="button" onClick={() => openModal(t("modal.joinPilot.title"), t("modal.joinPilot.description"), Users, t("modal.joinPilot.cta"), EXTERNAL_LINKS.pilotForm)} className="font-medium text-primary underline underline-offset-4 hover:text-primary">
                       {t("movementPlanner.pickMovementBodyLink")}
                     </button>
                     {t("movementPlanner.pickMovementBodySuffix")}
-                  </p>
-                </div>
-                <div className="md:col-span-3">
-                  <button type="button" onClick={() => navigate("/movement-planner")} className="w-full mt-4 rounded-xl border border-brand bg-foreground px-4 py-2 text-sm font-medium text-brand shadow-md">Browse movements</button>
-                </div>
-              </div>
+                  </>
+                }
+              />
             </div>
             <div className="mt-[50px]">
               <h2 className="text-xl font-bold text-foreground">{t("movements.whatIsTitle")}</h2>
@@ -264,14 +246,13 @@ export const Movements = () => {
             </div>
             <div className="mt-[50px]">
               <h2 className="text-xl font-bold text-foreground">{t("movements.faqTitle")}</h2>
-              <Accordion type="multiple" className="mt-2 w-full">
-                {FAQ_ITEMS.map((item) => (
-                  <AccordionItem key={item.id} value={item.id} className="mb-2 rounded-sm bg-secondary shadow-md overflow-hidden transition-colors hover:bg-secondary/70">
-                    <AccordionTrigger className="px-4 text-base font-semibold text-foreground hover:no-underline">{t(item.questionKey)}</AccordionTrigger>
-                    <AccordionContent className="px-4 text-sm text-foreground/90">{t(item.answerKey)}</AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+              <FaqAccordion
+                items={FAQ_ITEMS.map((item) => ({
+                  id: item.id,
+                  question: t(item.questionKey),
+                  answer: t(item.answerKey),
+                }))}
+              />
             </div>
           </div>
         </section>

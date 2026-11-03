@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { forwardRef, useState, useRef, useEffect, type RefCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { Globe, Check } from "lucide-react";
 import { SUPPORTED_LANGUAGES, type SupportedLanguage } from "@/i18n";
@@ -18,10 +18,15 @@ const LANGUAGE_FLAGS: Record<SupportedLanguage, string> = {
 };
 
 /** Floating language switcher — fixed bottom-right, toggles between all supported languages. */
-export const LanguageSwitcher = () => {
+export const LanguageSwitcher = forwardRef<HTMLDivElement>((_, forwardedRef) => {
   const { i18n } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const setContainerRef: RefCallback<HTMLDivElement> = (element) => {
+    containerRef.current = element;
+    if (typeof forwardedRef === "function") forwardedRef(element);
+    else if (forwardedRef) forwardedRef.current = element;
+  };
 
   const currentLanguage = i18n.language as SupportedLanguage;
 
@@ -42,7 +47,7 @@ export const LanguageSwitcher = () => {
 
   return (
     <div
-      ref={containerRef}
+      ref={setContainerRef}
       className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2"
     >
       {isOpen && (
@@ -73,4 +78,6 @@ export const LanguageSwitcher = () => {
       </button>
     </div>
   );
-};
+});
+
+LanguageSwitcher.displayName = "LanguageSwitcher";

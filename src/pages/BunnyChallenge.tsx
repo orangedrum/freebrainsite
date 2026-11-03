@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { ArrowRight, FlaskConical, X } from "lucide-react";
+import { FlaskConical, X } from "lucide-react";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -12,12 +12,14 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Modal } from "@/components/shared/Modal";
 import { ExercisesForCondition } from "@/components/shared/ExercisesForCondition";
+import { FaqAccordion } from "@/components/shared/FaqAccordion";
+import { FaqJsonLd } from "@/components/shared/FaqJsonLd";
+import { ResearchCitation } from "@/components/shared/ResearchCitation";
+import { MovementPlannerPromoCard } from "@/components/shared/MovementPlannerPromoCard";
 import { useModalState } from "@/hooks/useModalState";
 import { BunnyChallengeGame } from "@/features/bunnyChallenge/BunnyChallengeGame";
 
@@ -32,12 +34,6 @@ const BunnyChallenge = () => {
   const { t } = useTranslation();
   const { modalConfig, openModal, closeModal } = useModalState();
   const [isAlertDismissed, setIsAlertDismissed] = useState(false);
-
-  const faqStructuredData = FAQ_ITEMS.map(({ questionKey, answerKey }) => ({
-    "@type": "Question",
-    name: t(questionKey),
-    acceptedAnswer: { "@type": "Answer", text: t(answerKey) },
-  }));
 
   return (
     <div className="flex min-h-screen flex-col bg-background font-sans">
@@ -61,14 +57,8 @@ const BunnyChallenge = () => {
             description: t("bunnyChallenge.metaDescription"),
           })}
         </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "FAQPage",
-            mainEntity: faqStructuredData,
-          })}
-        </script>
       </Helmet>
+      <FaqJsonLd items={FAQ_ITEMS} />
       <Header onOpenModal={openModal} />
       <main className="flex-1">
         <section className="relative overflow-hidden py-10 md:py-16">
@@ -113,6 +103,8 @@ const BunnyChallenge = () => {
               </div>
             )}
 
+            <ResearchCitation />
+
             <header className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 {t("bunnyChallenge.title")}
@@ -150,38 +142,58 @@ const BunnyChallenge = () => {
               </article>
             </section>
 
-            <section className="flex flex-col gap-4 rounded-2xl border border-foreground/10 bg-secondary p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
-              <div>
-                <h2 className="text-xl font-bold text-foreground">
-                  {t("bunnyChallenge.pickMovementTitle")}
-                </h2>
-                <p className="mt-2 max-w-3xl text-sm text-foreground/90">
-                  {t("bunnyChallenge.pickMovementBody")}
-                </p>
-              </div>
-              <Button asChild className="shrink-0">
-                <Link to="/movements">
-                  {t("bunnyChallenge.pickMovementCta")}
-                  <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
-                </Link>
-              </Button>
-            </section>
+            <MovementPlannerPromoCard
+              href="/movements"
+              description={t("bunnyChallenge.pickMovementBody")}
+            />
 
             <section
               aria-labelledby="bunny-challenge-science"
-              className="rounded-2xl border border-foreground/10 bg-secondary p-5 sm:p-6"
+              className="space-y-3"
             >
               <div className="flex items-center gap-3">
                 <FlaskConical className="h-6 w-6 shrink-0 text-primary" aria-hidden="true" />
                 <h2 id="bunny-challenge-science" className="text-xl font-bold text-foreground">
-                  {t("bunnyChallenge.scienceTitle")}
+                  {t("bunnyChallenge.scienceMechanismTitle")}
                 </h2>
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-foreground">
-                {t("bunnyChallenge.scienceMechanismTitle")}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-foreground/90">
+              <p className="text-xs text-muted-foreground">
+                <a
+                  href="https://en.wikipedia.org/wiki/Neurobiological_effects_of_physical_exercise"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={t("bunnyChallenge.citationLabel", { number: 1 })}
+                  className="underline underline-offset-2"
+                >
+                  [1]
+                </a>{" "}
+                <a
+                  href="https://en.wikipedia.org/wiki/Neuroplasticity"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={t("bunnyChallenge.citationLabel", { number: 2 })}
+                  className="underline underline-offset-2"
+                >
+                  [2]
+                </a>{" "}
+                <a
+                  href="https://en.wikipedia.org/wiki/Brain-derived_neurotrophic_factor"
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={t("bunnyChallenge.citationLabel", { number: 3 })}
+                  className="underline underline-offset-2"
+                >
+                  [3]
+                </a>
+              </p>
+              <p className="text-sm leading-relaxed text-foreground/90">
                 {t("bunnyChallenge.scienceMechanismBody")}
+              </p>
+              <h3 className="pt-2 text-lg font-semibold text-foreground">
+                {t("bunnyChallenge.neuroplasticityTitle")}
+              </h3>
+              <p className="text-sm leading-relaxed text-foreground/90">
+                {t("bunnyChallenge.neuroplasticityBody")}
               </p>
             </section>
 
@@ -189,22 +201,13 @@ const BunnyChallenge = () => {
               <h2 id="bunny-challenge-faq" className="text-xl font-bold text-foreground">
                 {t("bunnyChallenge.faqTitle")}
               </h2>
-              <Accordion type="multiple" className="mt-2 w-full">
-                {FAQ_ITEMS.map(({ questionKey, answerKey }, index) => (
-                  <AccordionItem
-                    key={questionKey}
-                    value={`bunny-challenge-faq-${index + 1}`}
-                    className="mb-2 overflow-hidden rounded-sm bg-secondary shadow-md transition-colors hover:bg-secondary/70"
-                  >
-                    <AccordionTrigger className="px-4 text-left text-base font-semibold text-foreground hover:no-underline">
-                      {t(questionKey)}
-                    </AccordionTrigger>
-                    <AccordionContent className="px-4 text-sm text-foreground/90">
-                      {t(answerKey)}
-                    </AccordionContent>
-                  </AccordionItem>
-                ))}
-              </Accordion>
+              <FaqAccordion
+                items={FAQ_ITEMS.map(({ questionKey, answerKey }, index) => ({
+                  id: `bunny-challenge-faq-${index + 1}`,
+                  question: t(questionKey),
+                  answer: t(answerKey),
+                }))}
+              />
             </section>
 
             <ExercisesForCondition />

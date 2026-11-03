@@ -4,7 +4,15 @@
     "getInvolved": "Get Involved",
     "team": "Team",
     "movementPlanner": "Movement Planner",
-    "sampleExercises": "Sample Exercises"
+    "sampleExercises": "Exercise Finder",
+    "resources": "Resources",
+    "movementPlannerDescription": "Build a personalized movement plan around your needs and goals.",
+    "exerciseFinder": "Exercise Finder",
+    "exerciseFinderDescription": "Explore movement videos and exercises for different abilities.",
+    "tryBunnyDemo": "Try Bunny Demo ✌️👈",
+    "primaryNavigation": "Primary navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu"
   },
   "breadcrumb": {
     "home": "Home"
@@ -87,7 +95,7 @@
     "recordingPreviewDescription": "Preview your recorded Bunny Challenge video.",
     "openRecordingPreview": "Open video preview",
     "videoBrandLine": "You try at freethebrains.com",
-    "videoChallengePrompt": "Can you do better?",
+    "videoChallengePrompt": "Can you do it better?",
     "recordingDownload": "Download video",
     "recordingDiscard": "Discard video",
     "playMessageA": "You are training your brain right now",
@@ -96,12 +104,12 @@
     "playMessageD": "43% live with a neuro condition that would benefit from regular movement therapy",
     "playMessageE": "Share this video to spread FreeBrain and help free more brains!",
     "faqTitle": "Frequently asked questions",
-    "scienceTitle": "The Science Behind This:",
     "scienceMechanismTitle": "Neurological & Exercise Science Mechanism",
-    "scienceMechanismBody": "This playful neuro exercise asks you to follow visual cues, switch hand poses, coordinate both sides of the body, and respond to a changing rhythm. Those tasks involve visual attention, motor planning, timing, and sequencing. The Bunny Challenge is a coordination game—not a medical treatment or assessment, and it has not been shown to improve or treat neurological or cognitive conditions.",
-    "pickMovementTitle": "Pick a movement to turn this plan into a routine",
+    "citationLabel": "Citation {{number}}",
+    "scienceMechanismBody": "Shoot the Bunny—also known as Squirt the Bunny or Hunt the Rabbit—is a bilateral hand-and-brain coordination exercise. Matching two different hand poses at once and switching sides engages visual attention, motor planning, timing, and sequencing, while asking the nervous system to coordinate movement across both sides of the body and brain.",
+    "neuroplasticityTitle": "Neuroplasticity",
+    "neuroplasticityBody": "Neuroplasticity is the ability of neurons and neural networks to adapt over time, often through repeated experience. Research on regular aerobic exercise—not on this brief coordination game specifically—has linked exercise with neurotrophic factors such as BDNF, IGF-1, and VEGF, which take part in processes related to brain blood-vessel formation and neural adaptation. Studies of consistent aerobic exercise over several months also report associations with executive function and gray-matter changes in regions including the prefrontal cortex and hippocampus. This evidence describes sustained aerobic exercise; it should not be taken as proof that playing Bunny Challenge produces the same effects.",
     "pickMovementBody": "This hand-coordination game is a playful starting point. Explore FreeBrain movement exercises and find routines for different neurological conditions and mobility levels.",
-    "pickMovementCta": "Explore movement exercises",
     "faq": {
       "q1": "What is the Bunny Escape challenge?",
       "a1": "It is a playful hand coordination challenge. Copy the bunny and finger-gun poses at the same time, switching which side each picture appears on as the pace speeds up.",
@@ -112,18 +120,6 @@
       "q4": "Is this a medical or movement assessment?",
       "a4": "No. It is a playful coordination activity, not a medical test, diagnosis, treatment, or assessment of brain health."
     }
-  },
-  "termsPrivacy": {
-    "title": "Terms & Privacy",
-    "metaTitle": "Terms & Privacy | FreeBrain",
-    "intro": "This page explains optional video recording for the Bunny Challenge.",
-    "recordingTitle": "Bunny Challenge video recording",
-    "recordingOptional": "Recording is optional and off by default. You can play the challenge without using your camera.",
-    "recordingPermission": "If you opt in, camera access is requested only after you press Go. The experience requests video only and does not request microphone access.",
-    "recordingStorage": "The video is composed and kept temporarily in your browser. It is not uploaded to or stored by FreeBrain or Supabase. You can preview it, download it to your device, or discard it.",
-    "recordingControls": "When you stop the challenge, the recording ends and camera tracks are released. Discarding the video removes its temporary preview from the page.",
-    "fullPolicyNotice": "This information is specific to Bunny Challenge recording; FreeBrain's complete Terms of Service and Privacy Policy will be added here.",
-    "backToChallenge": "Back to Bunny Challenge"
   },
   "movement": {
     "titleSeatedGeneric": "Gentle Seated Movement",
@@ -298,7 +294,7 @@
       "tenMinuteRoutines": "10-minute routines",
       "freeToUse": "Free to use"
     },
-    "pickMovementTitle": "Pick a movement to turn this plan into a routine",
+    "pickMovementTitle": "FreeBrain can help make movement part of your routine",
     "pickMovementBodyPrefix": "A ",
     "pickMovementBodyLink": "free account",
     "pickMovementBodySuffix": " adds alerts on the movements you save, session reminders and calendar sync.",
@@ -529,8 +525,47 @@
     "summitBody": "FreeBrain is exhibiting as an Alpha Startup. We're inviting a small group of Lisbon institutions to send one representative to our booth for a day to join the movement demonstrations and show the world what Lisbon is doing for movement therapy.",
     "summitPhotoAlt": "AI-generated preview of the FreeBrain booth at Web Summit Lisbon",
     "nextTitle": "Next step",
-    "nextBody": "Tell me a day that works and I'll bring the one-page agreement.",
-    "cta": "Message Jean on WhatsApp"
+    "nextBody": "Complete this short form to register your interest in the Lisbon pilot. We'll email you a copy of your submission and the next steps.",
+    "nextBodyTango": "Request four free, live tango movement sessions through the Lisbon pilot. Complete this short form and we'll email you the next steps. The Terms explain safety and responsibility.",
+    "cta": "Submit pilot signup"
+  },
+  "pilotSignup": {
+    "fullName": "Full name",
+    "email": "Email address",
+    "phone": "Phone number",
+    "role": "I am a...",
+    "institution": "Institution or clinic",
+    "notes": "Anything else you'd like us to know? (optional)",
+    "roles": {
+      "individual": "Individual",
+      "clinician": "Clinician",
+      "institutionRep": "Institution representative",
+      "parentOrPOA": "Parent or power of attorney",
+      "other": "Other"
+    },
+    "termsPrefix": "I have read and agree to the",
+    "termsLink": "Terms & Services",
+    "termsSuffix": "and confirm the information I provided is accurate.",
+    "tangoOptIn": "I opt in to receive four free tango sessions.",
+    "tangoConsentNote": "To receive these sessions, you must also agree to both photo/video and partner branding consent below.",
+    "mediaConsent": "I consent to photos and videos of me being captured and used as described in the Terms.",
+    "brandingConsent": "I consent to FreeBrain using my institution's name, logo, or branding as described in the Terms.",
+    "submitting": "Sending...",
+    "success": "Thanks — your signup was received. Check your email for a copy and the next step.",
+    "successCalendly": "Book your four sessions one at a time",
+    "successTerms": "Review the Terms & Services",
+    "contactJean": "Contact Jean on WhatsApp",
+    "errors": {
+      "termsRequired": "Please accept the Terms before submitting.",
+      "consentsRequired": "To receive the free tango sessions, accept both photo/video and partner branding consents.",
+      "rateLimited": "Too many attempts. Please wait a few minutes before trying again.",
+      "emailServiceUnavailable": "The signup email service isn't configured for this preview. No emails were sent. Use a Vercel preview or configure the server-only RESEND_API_KEY for local testing.",
+      "endpointUnavailable": "The signup API isn't available at this address. No submission was sent. Use the Vercel preview or start the local Vercel-compatible dev server.",
+      "delivery": "We couldn't send your signup emails. Please try again later or contact Jean.",
+      "partialDelivery": "Your signup record was emailed to Jean, but the confirmation email could not be sent. Please don't submit again.",
+      "network": "We couldn't confirm whether your signup was received. Please contact Jean before trying again to avoid a duplicate.",
+      "default": "We couldn't submit this form. Please check your information and try again."
+    }
   },
   "getInvolved": {
     "title": "Get Involved",
@@ -599,7 +634,8 @@
     "explore": "Explore",
     "links": {
       "home": "Home",
-      "lisbonPilot": "Lisbon Pilot"
+      "lisbonPilot": "Lisbon Pilot",
+      "terms": "Terms & Services"
     },
     "resources": "Resources",
     "podcast": "Podcast",

@@ -10,11 +10,15 @@ import { Footer } from "@/components/layout/Footer";
 import { Modal } from "@/components/shared/Modal";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui/accordion";
+import { ResearchCitation } from "@/components/shared/ResearchCitation";
+import { FaqAccordion } from "@/components/shared/FaqAccordion";
+import { FaqJsonLd } from "@/components/shared/FaqJsonLd";
+import { SegmentedBody } from "@/components/shared/SegmentedBody";
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
 import { ExercisesForCondition } from "@/components/shared/ExercisesForCondition";
 import { BenefitsOfMovement } from "@/components/shared/BenefitsOfMovement";
 import { MovementRecipeTable } from "@/components/shared/MovementRecipeTable";
+import { MovementPlannerPromoCard } from "@/components/shared/MovementPlannerPromoCard";
 import { useModalState } from "@/hooks/useModalState";
 import type { MovementMobility, OpenModalFn } from "@/types";
 const MOBILITY_OPTIONS: { value: MovementMobility; key: string }[] = [{ value: "seated", key: "movementPlanner.mobility.seated" }, { value: "assistedStanding", key: "movementPlanner.mobility.assistedStanding" }, { value: "independent", key: "movementPlanner.mobility.independent" }];
@@ -51,28 +55,6 @@ export const MovementPlanner = () => {
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
-            "@type": "FAQPage",
-            "mainEntity": [
-              { "@type": "Question", "name": t("movementPlanner.faq.q1"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a1") } },
-              { "@type": "Question", "name": t("movementPlanner.faq.q2"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a2") } },
-              { "@type": "Question", "name": t("movementPlanner.faq.q3"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a3") } },
-              { "@type": "Question", "name": t("movementPlanner.faq.q4"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a4") } },
-              { "@type": "Question", "name": t("movementPlanner.faq.q5"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a5") } },
-              { "@type": "Question", "name": t("movementPlanner.faq.q6"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a6") } },
-              { "@type": "Question", "name": t("movementPlanner.faq.q7"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a7") } },
-              { "@type": "Question", "name": t("movementPlanner.faq.q8"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a8") } },
-              { "@type": "Question", "name": t("movementPlanner.faq.q9"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a9") } },
-              { "@type": "Question", "name": t("movementPlanner.faq.q10"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a10") } },
-              { "@type": "Question", "name": t("movementPlanner.faq.q11"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a11") } },
-              { "@type": "Question", "name": t("movementPlanner.faq.q12"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a12") } },
-              { "@type": "Question", "name": t("movementPlanner.faq.q13"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a13") } },
-              { "@type": "Question", "name": t("movementPlanner.faq.q14"), "acceptedAnswer": { "@type": "Answer", "text": t("movementPlanner.faq.a14") } },
-            ]
-          })}
-        </script>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
             "@type": "WebApplication",
             "name": "Free Movement Plan for Parkinson's Disease",
             "url": "https://www.freethebrains.com/movement-planner",
@@ -92,6 +74,7 @@ export const MovementPlanner = () => {
         <meta name="twitter:title" content="Free Movement Plan for Parkinson's Disease | FreeBrain" />
         <meta name="twitter:description" content="Build a personalized 10-minute movement plan for Parkinson's disease. Free tool for freezing of gait, tremor, and postural instability." />
       </Helmet>
+      <FaqJsonLd items={FAQ_ITEMS} />
       <Header onOpenModal={openModal} />
       <main className="flex-1">
         <section className="relative overflow-hidden pt-10 md:pt-16 pb-20 md:pb-32 z-0">
@@ -136,19 +119,7 @@ export const MovementPlanner = () => {
                   </button>
                 </div>
               )}
-              <div className="space-y-2">
-                <p className="text-xs text-muted-foreground">
-                  <a
-                    href="#"
-                    onClick={(event) => event.preventDefault()}
-                    className="font-medium text-foreground/90 underline underline-offset-4 hover:text-foreground"
-                  >
-                    {t("movementPlanner.researchTeam")}
-                  </a>
-                  {" · "}
-                  {t("movementPlanner.researchedMeta")}
-                </p>
-              </div>
+              <ResearchCitation />
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tight sm:text-4xl text-foreground">{t("movementPlanner.title")}</h1>
                 <p className="text-lg text-muted-foreground">{t("movementPlanner.subtitle")}</p>
@@ -221,78 +192,41 @@ export const MovementPlanner = () => {
                   )}
                 </div>
               </div>
-              <div className="rounded-[21.6px] border border-white bg-[#c1c9ff] p-6 md:p-8 space-y-4 shadow-md">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-                  <div className="md:col-span-9">
-                    <h3 className="text-xl font-bold text-brand">{t("movementPlanner.pickMovementTitle")}</h3>
-                    <p className="text-xs text-brand">
-                      {t("movementPlanner.pickMovementBodyPrefix")}
-                      <button
-                        type="button"
-                        onClick={() =>
-                          openModal(
-                            t("modal.joinPilot.title"),
-                            t("modal.joinPilot.description"),
-                            Users,
-                            t("modal.joinPilot.cta"),
-                            EXTERNAL_LINKS.pilotForm,
-                          )
-                        }
-                        className="font-medium text-brand underline underline-offset-4 hover:text-brand"
-                      >
-                        {t("movementPlanner.pickMovementBodyLink")}
-                      </button>
-                      {t("movementPlanner.pickMovementBodySuffix")}
-                    </p>
-                  </div>
-                  <div className="md:col-span-3">
-                    <Button variant="outline" className="w-full mt-4 bg-foreground text-brand border-brand shadow-md" onClick={() => navigate("/movements")}>
-                      {t("movementPlanner.pickMovementCta")}
-                    </Button>
-                  </div>
-                </div>
-              </div>
+              <MovementPlannerPromoCard
+                href="/movements"
+                description={
+                  <>
+                    {t("movementPlanner.pickMovementBodyPrefix")}
+                    <button
+                      type="button"
+                      onClick={() =>
+                        openModal(
+                          t("modal.joinPilot.title"),
+                          t("modal.joinPilot.description"),
+                          Users,
+                          t("modal.joinPilot.cta"),
+                          EXTERNAL_LINKS.pilotForm,
+                        )
+                      }
+                      className="font-medium text-primary underline underline-offset-4 hover:text-primary"
+                    >
+                      {t("movementPlanner.pickMovementBodyLink")}
+                    </button>
+                    {t("movementPlanner.pickMovementBodySuffix")}
+                  </>
+                }
+              />
             </div>
               <>
                 <h3 className="mt-[50px] text-xl font-bold text-foreground">{t("movementPlanner.whatIsTitle")}</h3>
-                <p className="mt-2 text-foreground/90">
-                  {t("movementPlanner.whatIsBodyPart1")}
-                  <strong>{t("movementPlanner.whatIsBodyBold1")}</strong>
-                  {t("movementPlanner.whatIsBodyPart2")}
-                  <strong>{t("movementPlanner.whatIsBodyBold2")}</strong>
-                  {t("movementPlanner.whatIsBodyPart3")}
-                  <strong>{t("movementPlanner.whatIsBodyBold3")}</strong>
-                  {t("movementPlanner.whatIsBodyPart4")}
-                  <strong>{t("movementPlanner.whatIsBodyBold4")}</strong>
-                  {t("movementPlanner.whatIsBodyPart5")}
-                </p>
+                <SegmentedBody baseKey="movementPlanner.whatIsBody" parts={5} className="mt-2 text-foreground/90" />
               </>
               <div className="mt-[50px]">
                 <BenefitsOfMovement />
               </div>
               <>
                 <h3 className="mt-[50px] text-xl font-bold text-foreground">{t("movementPlanner.resultsTitle")}</h3>
-                <p className="mt-2 text-foreground/90">
-                  {t("movementPlanner.resultsBodyPart1")}
-                  <strong>{t("movementPlanner.resultsBodyBold1")}</strong>
-                  {t("movementPlanner.resultsBodyPart2")}
-                  <strong>{t("movementPlanner.resultsBodyBold2")}</strong>
-                  {t("movementPlanner.resultsBodyPart3")}
-                  <strong>{t("movementPlanner.resultsBodyBold3")}</strong>
-                  {t("movementPlanner.resultsBodyPart4")}
-                  <strong>{t("movementPlanner.resultsBodyBold4")}</strong>
-                  {t("movementPlanner.resultsBodyPart5")}
-                  <strong>{t("movementPlanner.resultsBodyBold5")}</strong>
-                  {t("movementPlanner.resultsBodyPart6")}
-                  <strong>{t("movementPlanner.resultsBodyBold6")}</strong>
-                  {t("movementPlanner.resultsBodyPart7")}
-                  <strong>{t("movementPlanner.resultsBodyBold7")}</strong>
-                  {t("movementPlanner.resultsBodyPart8")}
-                  <strong>{t("movementPlanner.resultsBodyBold8")}</strong>
-                  {t("movementPlanner.resultsBodyPart9")}
-                  <strong>{t("movementPlanner.resultsBodyBold9")}</strong>
-                  {t("movementPlanner.resultsBodyPart10")}
-                </p>
+                <SegmentedBody baseKey="movementPlanner.resultsBody" parts={10} className="mt-2 text-foreground/90" />
               </>
               <>
                 <h3 className="mt-[50px] text-xl font-bold text-foreground">{t("movementPlanner.howToTitle")}</h3>
@@ -316,18 +250,13 @@ export const MovementPlanner = () => {
               </div>
               <>
                 <h3 className="mt-[50px] text-xl font-bold text-foreground">{t("movementPlanner.faqTitle")}</h3>
-                <Accordion type="multiple" className="mt-2 w-full">
-                  {FAQ_ITEMS.map((item) => (
-                    <AccordionItem key={item.id} value={item.id} className="mb-2 rounded-sm bg-secondary shadow-md overflow-hidden transition-colors hover:bg-secondary/70">
-                      <AccordionTrigger className="px-4 text-base font-semibold text-foreground hover:no-underline">
-                        {t(item.questionKey)}
-                      </AccordionTrigger>
-                      <AccordionContent className="px-4 text-sm text-foreground/90">
-                        {t(item.answerKey)}
-                      </AccordionContent>
-                    </AccordionItem>
-                  ))}
-                </Accordion>
+                <FaqAccordion
+                  items={FAQ_ITEMS.map((item) => ({
+                    id: item.id,
+                    question: t(item.questionKey),
+                    answer: t(item.answerKey),
+                  }))}
+                />
               </>
           </div>
         </section>

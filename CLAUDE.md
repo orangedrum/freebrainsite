@@ -3,6 +3,11 @@
 > **Read this before making ANY change.** Every rule below is non-negotiable.
 > These rules apply to Claude, Cursor, Copilot, and any other AI coding tool.
 
+**Companion references:**
+- `docs/SITE_FEATURES.md` — complete inventory of every feature and how it *actually* works.
+- `docs/SITE_KNOWN_ISSUES.md` — open bugs, i18n gaps, dead code, deliberate decisions.
+- `docs/growth-strategy.md` — SEO/growth phase plan. `MAINTENANCE.md` — repo hygiene backlog.
+
 ---
 
 ## Project Overview
@@ -125,6 +130,17 @@ src/
 
 ---
 
+## The Site Has Published Terms — Hold Us to Them
+
+The binding Terms & Conditions live at `terms/master-terms.md` (source) and render at `/terms` (UI copy in `src/locales/{en,es,de,pt}/terms.json`, all four kept in sync; version stamp in `src/features/terms/TermsDocument.tsx`).
+
+- **Any feature touching consent, photo/video/media rights, partner branding, personal data, liability, sessions, or the Lisbon pilot must satisfy those Terms as written — or the Terms must be amended first.**
+- Never ship behavior that quietly contradicts a clause (e.g. using media without consent, gating rights on session use, changing what sign-ups agree to).
+- If the product must change, update in the same change: `terms/master-terms.md`, all four `terms.json`, the version stamp, and `terms/REVIEW-NOTES.md` — or adjust the feature back to match.
+- **When in doubt, hold us to the Terms.**
+
+---
+
 ## Never-Do List
 
 - ❌ Hardcode colors (`text-white`, `bg-blue-500`, `#hex`)
@@ -140,6 +156,7 @@ src/
 - ❌ Use `console.log` in production code
 - ❌ Use `any` type — always use proper TypeScript types
 - ❌ Modify files in `src/components/ui/` — these are shadcn primitives
+- ❌ Ship consent/media/branding/data/liability features that contradict the published Terms (see "Hold Us to Them")
 
 ---
 

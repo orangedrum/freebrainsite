@@ -80,6 +80,14 @@ export const Footer = () => {
               </Link>
             </li>
             <li>
+              <Link
+                to="/terms"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {t("footer.links.terms")}
+              </Link>
+            </li>
+            <li>
               <button
                 type="button"
                 onClick={() => scrollToSection("get-involved")}

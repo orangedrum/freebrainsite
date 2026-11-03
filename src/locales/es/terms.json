@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "title": "Términos y Servicios | FreeBrain",
+    "description": "Términos y Servicios de FreeBrain: términos del sitio web, renuncia de responsabilidad sanitaria, consentimiento de fotos y vídeo, datos y RGPD, y el piloto opcional con 4 sesiones de tango gratuitas. Versión 1.0.",
+    "heading": "Términos y Servicios",
+    "versionLine": "Versión {{version}} · Emitida el {{date}} · En vigor desde su publicación",
+    "provider": "**Proveedor:** The ProductShift, LLC (“ProductShift”, “we”), una sociedad de responsabilidad limitada constituida según las leyes del Estado de Wyoming, EE. UU., que opera el proyecto FreeBrain (“FreeBrain”).",
+    "contact": "**Contacto para todas las notificaciones:** jean@freethebrains.com",
+    "stamp": "**Sello de versión:** este documento es la Versión 1.0, con fecha 2026-11-03. Toda copia mostrada a los usuarios debe mostrar esta versión y fecha. Cuando un usuario acepta estos Términos, el registro de aceptación guarda este número de versión.",
+    "contents": "En esta página",
+    "backToTop": "Volver arriba"
+  },
+  "sections": {
+    "1": {
+      "title": "Partes, Protección y Definiciones",
+      "clauses": {
+        "1_1": "**El Proveedor.** FreeBrain es un proyecto de ProductShift. ProductShift es la parte contratante; las referencias a “FreeBrain” en estos Términos significan ProductShift.",
+        "1_2": "**Protección de las personas.** Jean Kaluza (Fundador) y toda persona que preste servicios bajo FreeBrain (instructores, personal, contratistas, voluntarios) actúan en nombre de ProductShift y dentro del alcance de su función. En la medida permitida por la ley, los Usuarios y los Participantes eximen de responsabilidad a dichas personas frente a reclamaciones derivadas del programa. Nada en estos Términos limita ni excluye responsabilidad que la ley aplicable no permita limitar o excluir.",
+        "1_3": "**Quién puede aceptar.** Estos Términos solo pueden ser aceptados por personas mayores de 18 años, o por un padre, tutor legal o titular de poder notarial (“POA”) que actúe en nombre de un menor o de una persona sin capacidad legal. Cuando participa una institución, un representante autorizado obliga a la institución.",
+        "1_4": "**Definiciones.** “Usuario” = cualquier visitante del sitio web o la aplicación. “Participante” = cualquier persona que tome parte en las sesiones de movimiento de FreeBrain. “Institución Socia” = una clínica, residencia o institución similar del Piloto. “Piloto” = el programa opcional de tango de FreeBrain de la cláusula 7. “Sesiones” = sesiones de movimiento en vivo o grabadas. “Contenido” = fotos, vídeo, audio, texto, logotipos y otros materiales. “Consentimientos” = las casillas electrónicas descritas en las cláusulas 4 y 7."
+      }
+    },
+    "2": {
+      "title": "Condiciones del Sitio Web y la Aplicación",
+      "clauses": {
+        "2_1": "**Uso aceptable.** Los Usuarios no deben: infringir ninguna ley; interferir con o sondear el sitio/la aplicación (extracción de datos, sondeo, sobrecarga); subir código malicioso; suplantar a otros; acosar a otros usuarios; ni usar el sitio/la aplicación para ofrecer consejos o servicios médicos no autorizados.",
+        "2_2": "**Cuentas.** Cuando se ofrecen cuentas, el usuario es responsable de sus credenciales y de la actividad realizada con la cuenta; ProductShift puede suspender cuentas usadas en incumplimiento de estos Términos.",
+        "2_3": "**Propiedad intelectual.** Todo el contenido, la metodología, la marca, los planes de estudio y los materiales de FreeBrain son propiedad de ProductShift. No se concede ninguna licencia para replicar, distribuir o comercializar por separado los métodos de FreeBrain. Cuando se facilitan materiales (incluido durante un Piloto), el destinatario solo puede usarlos internamente. Los nombres y logotipos de los socios siguen siendo propiedad del socio; FreeBrain recibe únicamente la licencia limitada de la cláusula 4.4. Los comentarios facilitados a FreeBrain pueden usarse para mejorar el programa sin compensación.",
+        "2_4": "**Servicios de terceros.** El sitio/la aplicación enlaza a terceros (WhatsApp, Calendly, forms.app, redes sociales, alojamiento de vídeo). Dichos servicios operan bajo sus propias condiciones; ProductShift no los controla ni responde de ellos.",
+        "2_5": "**Terminación del acceso.** ProductShift puede suspender o terminar el acceso al sitio/la aplicación por incumplimiento material de estos Términos.",
+        "2_6": "**Renuncia de responsabilidad.** El sitio/la aplicación y el programa se ofrecen “tal cual”. FreeBrain no promete resultados clínicos, mejoras de la salud ni ningún resultado concreto."
+      }
+    },
+    "3": {
+      "title": "Renuncia Médica y Asignación de Responsabilidad",
+      "clauses": {
+        "3_1": "**No es consejo ni servicio médico.** FreeBrain **no es un proveedor de atención sanitaria con licencia**. No ofrece consejo, diagnóstico ni tratamiento médico. El programa es un **complemento de movimiento puramente voluntario** que complementa y nunca sustituye la atención médica.",
+        "3_2": "**Quién es responsable.** Toda la responsabilidad por la participación de un Participante recae en **la institución o clínica que presta servicios a sus pacientes o residentes, el padre, el titular del poder notarial o el propio Participante, sin importar en qué parte del mundo se encuentre el Participante**, incluida la decisión de participar, la supervisión durante la actividad, la obtención del clearance médico y la vigilancia de contraindicaciones.",
+        "3_3": "**Menores y personas sin capacidad.** Los menores y las personas sin capacidad legal participan solo bajo la responsabilidad de su padre, tutor, POA o institución, según lo establecido en 3.2. FreeBrain se apoya en el clearance y la supervisión de dicha parte.",
+        "3_4": "**Asumpción del riesgo.** La actividad física conlleva riesgos inherentes, incluidas caídas. La participación es voluntario y puede detenerse en cualquier momento, sin consecuencia alguna para la atención o los servicios que el Participante reciba de otro modo.",
+        "3_5": "**Clearance para trabajo de pie.** Las sesiones se realizan sentado de forma predeterminada. Cualquier segmento de pie o deambulación se aplica solo a Participantes con clearance de la parte responsable y bajo su supervisión directa."
+      }
+    },
+    "4": {
+      "title": "Consentimiento de Fotos, Vídeo y Marca",
+      "clauses": {
+        "4_1": "**Captura in situ (opt-in).** FreeBrain puede fotografiar y filmar Sesiones solo cuando se haya dado el consentimiento aplicable: para las instituciones del Piloto, la hoja de consentimiento por residente (cláusula 7.10); para registros individuales, los Consentimientos electrónicos (cláusulas 4.6 y 7.2). Las personas identificables aparecen solo con dicho consentimiento escrito o electrónico.",
+        "4_2": "**Grabación en la aplicación.** El reto de la aplicación puede grabar vídeo **solo después de que el usuario active la grabación**. Usa únicamente vídeo de cámara (sin micrófono), se procesa y almacena **localmente en el navegador del usuario y nunca se sube ni se almacena en FreeBrain**. FreeBrain no recibe nada de una grabación en la aplicación salvo que el usuario la comparta voluntariamente.",
+        "4_3": "**Derechos de uso y retirada.** FreeBrain puede usar el Contenido consentido para el programa, el sitio web, la aplicación, las redes sociales, presentaciones y eventos (incluido Web Summit). Las imágenes nunca se venden a terceros. El consentimiento puede retirarse en cualquier momento escribiendo a jean@freethebrains.com; FreeBrain deja entonces de usarlo a futuro y elimina el material ya publicado cuando sea razonablemente posible.",
+        "4_4": "**Licencia de logotipo y marca.** Una Institución Socia autoriza a FreeBrain a mostrar su nombre y logotipo como “FreeBrain Pilot Partner” (sitio web, redes sociales, presentaciones, eventos). La institución puede retirar este permiso para materiales futuros con 7 días de aviso por escrito.",
+        "4_5": "**No se infieren datos de salud.** El uso del Contenido bajo esta cláusula 4 no autoriza a FreeBrain a inferir, recoger ni procesar ningún estado de salud de ninguna persona a partir de dicho Contenido. FreeBrain no vende datos personales.",
+        "4_6": "**Consentimiento como condición de las sesiones gratuitas del Piloto.** El consentimiento de medios y el consentimiento de marca (cláusulas 4.1/4.4, presentados electrónicamente como parte del registro del Piloto) son **condiciones de elegibilidad para las sesiones gratuitas del Piloto**: sin ambos consentimientos, las sesiones gratuitas no están disponibles (véase la cláusula 7.2)."
+      }
+    },
+    "5": {
+      "title": "Datos, Privacidad y Confidencialidad",
+      "clauses": {
+        "5_1": "**Datos mínimos.** FreeBrain recoge solo datos de asistencia y comentarios anonimizados o agregados. No se procesan datos de salud identificables sin consentimiento por escrito y, cuando sea necesario, un acuerdo de encargo de tratamiento (Artículo 28 del RGPD).",
+        "5_2": "**Derecho de datos de la UE.** Ambas partes cumplen el RGPD (Reglamento (UE) 2016/679) y la Ley portuguesa 58/2019. Una Institución Socia es responsable de los datos de sus residentes y conserva las hojas de consentimiento firmadas (cláusula 7.10).",
+        "5_3": "**Registros de registro.** Los envíos de registro del Piloto se registran como dos correos: una confirmación al usuario y un registro firmado a jean@freethebrains.com (campos, estado de las casillas, marca de tiempo, dirección IP y versión de los Términos aceptados). El buzón de jean@ es el registro oficial. Solicitudes de acceso, corrección o eliminación: jean@freethebrains.com.",
+        "5_4": "**Confidencialidad.** Cada parte mantiene confidencial la información no pública de la otra durante 2 años tras la finalización de estos Términos, salvo que la información ya sea pública o su divulgación esté requerida por la ley.",
+        "5_5": "**Publicaciones.** FreeBrain puede publicar hallazgos de forma agregada y desidentificada. Una Institución Socia puede ser agradecida por su nombre según la cláusula 4.4, salvo que solicite anonimato por escrito para una publicación concreta.",
+        "5_6": "**Incidentes.** Cada parte notifica a la otra sin demora cualquier brecha de datos que afecte a los datos del Piloto."
+      }
+    },
+    "6": {
+      "title": "Limitación de Responsabilidad e Indemnización",
+      "clauses": {
+        "6_1": "**Límite.** FreeBrain sigue siendo responsable del contenido de las Sesiones que diseña y imparte en la medida en que un daño resulte de su propia negligencia. La responsabilidad total de ProductShift bajo estos Términos se limita a **la mayor de las cantidades abonadas en los 12 meses anteriores y USD $1.000**. Ninguna parte es responsable de daños indirectos ni de lucro cesante.",
+        "6_2": "**Excepciones.** Nada en estos Términos limita ni excluye la responsabilidad por dolo o culpa grave, por muerte o lesiones corporales causadas por culpa, ni aquello que la ley no permita limitar.",
+        "6_3": "**Indemnización.** Cada Participante, padre, POA e Institución Socia **indemniza y exime de responsabilidad a ProductShift, FreeBrain y a las personas descritas en la cláusula 1.2** frente a reclamaciones de residentes, familias o terceros relacionadas con la participación y la seguridad —incluidas las decisiones sobre quién participa, la supervisión y las instalaciones—, salvo cuando sean causadas por dolo o culpa grave de FreeBrain."
+      }
+    },
+    "7": {
+      "title": "OPCIONAL — Piloto FreeBrain: 4 Sesiones de Tango En Vivo Gratuitas",
+      "note": "Esta cláusula 7 solo se aplica a la persona u institución que se adhiere al Piloto (Consentimiento electrónico bajo 7.2, o firma de un Acuerdo de Colaboración del Piloto). Todo el demás puede ignorarla por completo.",
+      "clauses": {
+        "7_1": "**Qué ofrece el Piloto (un regalo).** 4 sesiones de tango-terapia en vivo **gratuitas — ofrecidas como regalo por FreeBrain** (valor habitual USD $240 / EUR €214,16), impartidas a lo largo de aproximadamente un mes: movimiento guiado e inspirado en el tango, adaptable a participantes sentados; una llamada de check-in; una breve encuesta de comentarios; y un Resumen del Piloto con resultados anonimizados. Para las Instituciones Sociales, el Piloto incluye también el protagonismo en Web Summit y la Oferta de Socio Fundador opcional (7.9). Las sesiones pueden realizarse completamente sentado, sin obligación de continuar después.",
+        "7_2": "**Elegibilidad y Consentimientos obligatorios.** Las sesiones gratuitas están condicionadas a que el Participante marque: (a) la aceptación de estos Términos; (b) la adhesión al Piloto; (c) el **consentimiento de medios** (cláusula 4); y (d) el **consentimiento de marca** (cláusula 4.4). Los consentimientos (c) y (d) se muestran deshabilitados hasta que se marque (b) y después se vuelven obligatorios — **sin consentimiento de medios y de marca, no hay sesiones gratuitas**. Si (c) o (d) se retira posteriormente, las Sesiones aún no impartidas pasan al precio habitual (7.7); las Sesiones ya impartidas no se ven afectadas.",
+        "7_3": "**Programación — responsabilidad del Participante/de la institución.** Las sesiones son un regalo: **reservarlas es responsabilidad exclusiva del Participante o la Institución Socia**; FreeBrain no programa en su nombre. El correo de confirmación contiene un enlace de Calendly (https://calendly.com/jean-kaluza/app-idea-day-1-facilitation-clone) que se usa para reservar cada una de las 4 sesiones, una de cada vez. La programación se realiza después de la aceptación, no durante el registro. Ambas partes avisan con al menos 48 horas de antelación de cualquier conflicto de agenda.",
+        "7_4": "**Impartición y reprogramación.** Las sesiones las imparte Jean Kaluza, en persona en las instalaciones del Participante/de la Institución (o por vídeo si se acuerda), en fechas acordadas de común acuerdo. Si FreeBrain cancela una sesión, se reprograma dentro de los 14 días.",
+        "7_5": "**Seguridad y responsabilidad.** Las cláusulas 3 y 6 se aplican íntegramente al Piloto. Además: las sesiones se realizan **sentado de forma predeterminada**; los segmentos de pie o deambulación se aplican solo a Participantes con clearance de la parte responsable y bajo la supervisión directa de su personal. Para las Instituciones Sociales: la institución es responsable de la seguridad, la supervisión, la evaluación y el clearance médico, la recogida de consentimientos y las instalaciones; **su propio seguro cubre toda la actividad de los residentes en sus instalaciones, incluidas estas Sesiones**, confirmado por escrito antes de la primera sesión; FreeBrain y ProductShift no aseguran ni responden de caídas o lesiones durante las sesiones presenciales (conforme a 6.2).",
+        "7_6": "**Asistencia, pausa y terminación.** Una sesión perdida sin aviso se reprograma una vez sin coste; una segunda sesión perdida sin aviso puede pausar el Piloto. Si no se confirman nuevas fechas dentro de los 14 días tras una pausa, el Piloto termina sin cuota ni penalización. Cualquiera de las partes puede dar por terminado el Piloto con 7 días de aviso por escrito, o de inmediato por razones de seguridad o por un incumplimiento grave no subsanado en 7 días.",
+        "7_7": "**Precios.** Las 4 sesiones son **GRATUITAS** a cambio de los compromisos de comentarios, medios y marca de las cláusulas 4 y 7. Si no se cumplen las condiciones de 7.2 (o se retiran), las Sesiones aún no impartidas se tarifan al precio habitual: **USD $60 / EUR €53,54 cada una**. **Las Sesiones que nunca se reservan ni se usan no se cobran, y el no uso no afecta al derecho de FreeBrain a usar la marca y los medios ya consentidos bajo las cláusulas 4.3 y 4.4.** Las cantidades no incluyen IVA ni otros impuestos (9.2).",
+        "7_8": "**Adiciones de la Institución Socia.** (a) Personal y traducción: al menos un miembro cualificado del personal de la institución (enfermero, auxiliar o terapeuta) por cada 30 residentes presentes, más apoyo de traducción al portugués. (b) Instalaciones: una sala con sillas (o, para vídeo, internet estable y una pantalla audible). (c) Comentarios: breves comentarios tras cada sesión (~5 minutos) y una llamada de check-in durante el Mes del Piloto. (d) Web Summit — disposición del piloto de Lisboa, **se aplica solo a los registros del Piloto realizados antes del 6 de noviembre de 2026** (la fecha límite para nombrar al personal) y no se aplica a registros posteriores: un miembro del personal de la institución se une a Jean Kaluza en el stand de FreeBrain, Web Summit Lisboa, **miércoles 11 de noviembre de 2026**, nombrado antes del **6 de noviembre de 2026** y sustituible; dicha persona sigue siendo empleado de la institución y está cubierta por su seguro; FreeBrain gestiona el acceso al stand. Si nadie es nombrado o asiste, se aplica 7.7 a las Sesiones aún no impartidas.",
+        "7_9": "**Oferta de Socio Fundador (opcional).** Las Instituciones Sociales pueden firmar opcionalmente la Oferta de Socio Fundador: Mes del Piloto gratuito + 12 meses del Plan FreeBrain Facility por **USD $500 (EUR €446,15)** — habitualmente USD $160/mes o $1.200/año —, válida hasta el **31 de diciembre de 2026**; el año de pago comienza el día después de que finalice el Mes del Piloto (o la fecha de firma, si es posterior); facturada por ProductShift, pago a 14 días; garantía de satisfacción: reembolso íntegro de los $500 a petición dentro de los primeros 30 días de pago; renovación al precio habitual entonces vigente con 60 días de aviso, cancelable con 30 días de aviso antes de la renovación; se aplican las cláusulas 4 a 7 y 9 de estos Términos. Solo entra en vigor si se firma. (Planes individuales, códigos de recomendación y créditos de socios: acuerdo separado, condiciones según lo acordado por escrito.)",
+        "7_10": "**Consentimiento informado del residente (instituciones).** Antes de la primera Sesión, cada residente (o su representante legal) firma una sola vez la hoja de consentimiento informado de FreeBrain, que cubre las 4 Sesiones del Piloto: participación voluntaria, riesgos inherentes incluidas caídas, presencia del personal de la institución, derecho a detenerse en cualquier momento, que FreeBrain no es un proveedor de atención sanitaria, y un **Sí/No por residente para fotos y vídeo** (retirable en cualquier momento). La institución conserva las hojas y solo indica a FreeBrain quién no permitió fotos o vídeo. Residentes que no pueden consentir por sí mismos: el consentimiento lo da su representante legal o acompañante designado, y el miembro del personal registra el acuerdo del residente a participar. La institución confirma el clearance clínico de los residentes listados.",
+        "7_11": "**Documentos del Piloto.** Cuando una institución firma un Acuerdo de Colaboración del Piloto (página de firma más los anexos de Oferta de Socio Fundador y Consentimiento Informado del Residente), esas páginas de firma completan dicho Acuerdo; estos Términos se incorporan por referencia y rigen el Piloto en general."
+      }
+    },
+    "8": {
+      "title": "Ley Aplicable y Disputas",
+      "clauses": {
+        "8_1": "**Principal — EE. UU.** Estos Términos y cualquier disputa derivada de ellos se rigen por las leyes del **Estado de Wyoming, EE. UU.**, con exclusión de las normas de conflicto de leyes.",
+        "8_2": "**Respaldo internacional.** Para Usuarios/Participantes fuera de EE. UU., se aplican las disposiciones obligatorias de protección del consumidor y de responsabilidad del país de su residencia habitual, que no pueden renunciarse mediante estos Términos; si no hay resolución, las disputas se someten primero a mediación de buena fe y, después, a los tribunales de la residencia habitual del participante, o a los de Wyoming a elección de ProductShift.",
+        "8_3": "**Ley local flexible.** Se aplica primero la ley de Wyoming (8.1). Las partes pueden acordar por escrito la ley y los tribunales del lugar donde se imparte un Piloto — por ejemplo, la ley portuguesa y los tribunales de Lisboa para un Piloto con sede en Lisboa—, y un Acuerdo de Colaboración del Piloto firmado antes de la entrada en vigor de estos Términos continúa bajo su propia cláusula de ley aplicable (ley portuguesa; tribunales de Lisboa) hasta armonizarse por escrito con 8.1. La asignación de responsabilidad de las cláusulas 3.2 y 6.3 se aplica en todo el mundo, con independencia de qué ley resulte aplicable.",
+        "8_4": "**Idioma.** Estos Términos se publican en inglés; el sitio web puede mostrar versiones traducidas por comodidad y, en caso de divergencia, prevalece el texto en inglés. Cuando se firma un acuerdo bilingüe (véase 8.3), su propia cláusula de idioma rige ese acuerdo."
+      }
+    },
+    "9": {
+      "title": "Disposiciones Generales",
+      "clauses": {
+        "9_1": "**Fuerza mayor.** Ninguna parte es responsable de fallos causados por eventos fuera de su control razonable (enfermedad, clima, cortes de electricidad o de internet); las Sesiones se reprograman.",
+        "9_2": "**Impuestos y pagos.** Las cantidades no incluyen IVA ni otros impuestos, que corren a cargo de quien la ley designe (incluido el IVA de inversión de sujeto pasivo cuando corresponda). Los pagos se hacen en USD por transferencia bancaria o enlace de pago; cada parte asume sus propias comisiones bancarias.",
+        "9_3": "**Notificaciones.** Las notificaciones se envían a las direcciones de correo facilitadas (las notificaciones del Piloto, a los contactos dados en el registro).",
+        "9_4": "**Enmiendas y actualizaciones.** FreeBrain puede actualizar estos Términos en cualquier momento. Cada actualización se publica en esta página con un nuevo número y fecha de versión, y la versión mostrada aquí es siempre la vigente. El uso continuado del sitio o la aplicación tras una actualización constituye la aceptación de los Términos actualizados; un registro de aceptación del Piloto guarda siempre la versión presentada en el registro, y una actualización no altera los compromisos ya aceptados por una parte (9.7). Otras enmiendas a un acuerdo bilateral del Piloto siguen por escrito, confirmadas por correo electrónico por ambas partes.",
+        "9_5": "**Cesión.** Ninguna parte puede ceder estos Términos sin el consentimiento por escrito de la otra, salvo ProductShift a una entidad sucesora con notificación.",
+        "9_6": "**Divisibilidad.** Si una disposición es inválida, el resto sigue vigente y las partes la sustituyen por la disposición válida más próxima.",
+        "9_7": "**Acuerdo íntegro.** Estos Términos (Versión 1.0), junto con cualquier Acuerdo de Colaboración del Piloto y anexos firmados por una parte y los Consentimientos electrónicos registrados, constituyen el acuerdo íntegro y sustituyen las conversaciones previas sobre la materia.",
+        "9_8": "**Firmas electrónicas.** Marcar la casilla de aceptación (o firmar un ejemplar) constituye una firma electrónica válida con el mismo efecto, conforme a la legislación aplicable sobre firma electrónica (incluida la Ley ESIGN de EE. UU. y, para firmantes de la UE, el Reglamento eIDAS (UE) N.º 910/2014). Las partes firmantes confirman que tienen facultades para obligar a su parte.",
+        "9_9": "**Independencia y no exclusividad.** No existe relación laboral, de agencia ni de empresa conjunta. FreeBrain puede trabajar con varios socios; los socios pueden usar otros programas.",
+        "9_10": "**Contacto.** Preguntas, retiradas de consentimiento y solicitudes de datos: **jean@freethebrains.com**."
+      }
+    },
+    "10": {
+      "title": "Historial de Versiones",
+      "clauses": {
+        "10_1": "**1.0 — 2026-11-03** — Consolidación inicial: términos del sitio web/la aplicación + cláusulas de medios/datos/responsabilidad + sección opcional del Piloto (4 sesiones de tango gratuitas), fusionados del Acuerdo de Colaboración del Piloto y los términos en el lugar."
+      }
+    }
+  }
+}

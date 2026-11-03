@@ -1,0 +1,34 @@
+{
+  "subject": "Deine FreeBrain-Pilotanmeldung ist eingegangen – nächster Schritt: Terminplanung",
+  "greeting": "Hallo {{name}},",
+  "intro": "Wir haben deine FreeBrain-Pilotanmeldung und deine Auswahl erhalten:",
+  "fields": {
+    "fullName": "Vollständiger Name",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "role": "Rolle",
+    "institution": "Einrichtung / Klinik",
+    "notes": "Anmerkungen",
+    "termsAccepted": "Nutzungsbedingungen akzeptiert",
+    "termsVersion": "Version der Nutzungsbedingungen",
+    "tangoOptIn": "4 kostenlose Tango-Sitzungen",
+    "mediaConsent": "Einwilligung für Fotos / Videos",
+    "brandingConsent": "Einwilligung zur Nutzung des Partner-Brandings",
+    "locale": "Anmeldesprache"
+  },
+  "roles": {
+    "individual": "Einzelperson",
+    "clinician": "Klinische Fachkraft",
+    "institutionRep": "Vertretung einer Einrichtung",
+    "parentOrPOA": "Elternteil oder bevollmächtigte Person",
+    "other": "Sonstiges"
+  },
+  "yes": "Ja",
+  "accepted": "Akzeptiert",
+  "notSelected": "Nicht ausgewählt",
+  "notProvided": "Nicht angegeben",
+  "termsLink": "Nutzungsbedingungen lesen, Version {{version}}",
+  "nextStep": "Nächster Schritt",
+  "bookingLink": "Buche deine vier Sitzungen einzeln",
+  "schedulingNotice": "Die Terminplanung liegt in deiner Verantwortung. Bitte bewahre diese E-Mail auf."
+}

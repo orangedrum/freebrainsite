@@ -47,4 +47,11 @@ Status: PARKED
 
 ## Resolved
 
-(none yet)
+### R1. [2026-11-03, branch `growthstrat`] Zoho email DNS setup for jean@freethebrains.com (was Pending #5)
+Original problem: only Zoho's domain-verification TXT was published — `jean@` could not receive mail (no MX), and outbound mail landed in Spam (missing Zoho SPF/DKIM; Gmail warned "couldn't verify this email was sent from freethebrains.com"). This would have blocked Prompt 4's signed-record emails (sent TO jean@).
+
+Fix: stakeholder added the remaining Zoho records (MX ×3, SPF, DKIM) in Vercel DNS and verified in Zoho (EU datacenter `zmverify.zoho.eu`).
+
+Verified 2026-11-03: all email records active; inbound + outbound working; no spam-folder or authentication errors. Resend records (`send` SPF + `resend._domainkey`) untouched and intact throughout.
+
+Status: RESOLVED (same day)

@@ -4,7 +4,15 @@
     "getInvolved": "Participa",
     "team": "Equipo",
     "movementPlanner": "Planificador de Movimiento",
-    "sampleExercises": "Ejercicios de Ejemplo"
+    "sampleExercises": "Buscador de ejercicios",
+    "resources": "Recursos",
+    "movementPlannerDescription": "Crea un plan de movimiento personalizado según tus necesidades y objetivos.",
+    "exerciseFinder": "Buscador de ejercicios",
+    "exerciseFinderDescription": "Explora vídeos y ejercicios de movimiento para distintas capacidades.",
+    "tryBunnyDemo": "Prueba el demo del conejo ✌️👈",
+    "primaryNavigation": "Navegación principal",
+    "openMenu": "Abrir menú",
+    "closeMenu": "Cerrar menú"
   },
   "breadcrumb": {
     "home": "Inicio"
@@ -96,12 +104,12 @@
     "playMessageD": "El 43 % vive con una afección neurológica que podría beneficiarse de la terapia de movimiento regular",
     "playMessageE": "¡Comparte este vídeo para difundir FreeBrain y ayudar a liberar más cerebros!",
     "faqTitle": "Preguntas frecuentes",
-    "scienceTitle": "La ciencia detrás de esto:",
     "scienceMechanismTitle": "Mecanismo neurológico y de la ciencia del ejercicio",
-    "scienceMechanismBody": "Este neuroejercicio lúdico te invita a seguir señales visuales, cambiar las posiciones de las manos, coordinar ambos lados del cuerpo y responder a un ritmo cambiante. Estas tareas implican atención visual, planificación motora, sincronización y secuenciación. El desafío del conejo es un juego de coordinación, no un tratamiento ni una evaluación médica, y no se ha demostrado que mejore ni trate afecciones neurológicas o cognitivas.",
-    "pickMovementTitle": "Elige un movimiento para convertir este plan en una rutina",
+    "citationLabel": "Cita {{number}}",
+    "scienceMechanismBody": "Shoot the Bunny —también conocido como Squirt the Bunny o Hunt the Rabbit— es un ejercicio bilateral de coordinación entre las manos y el cerebro. Al imitar dos posiciones distintas a la vez y cambiar de lado, el desafío activa la atención visual, la planificación motora, la sincronización y la secuenciación, y requiere que el sistema nervioso coordine movimientos en ambos lados del cuerpo y del cerebro.",
+    "neuroplasticityTitle": "Neuroplasticidad",
+    "neuroplasticityBody": "La neuroplasticidad es la capacidad de las neuronas y las redes neuronales para adaptarse con el tiempo, a menudo mediante experiencias repetidas. La investigación sobre ejercicio aeróbico regular —no sobre este breve juego de coordinación en particular— lo ha relacionado con factores neurotróficos como BDNF, IGF-1 y VEGF, que participan en procesos vinculados con la formación de vasos sanguíneos cerebrales y la adaptación neuronal. Los estudios sobre varios meses de ejercicio aeróbico constante también informan asociaciones con la función ejecutiva y cambios en la materia gris de regiones como la corteza prefrontal y el hipocampo. Esta evidencia describe el ejercicio aeróbico sostenido; no demuestra que jugar al desafío del conejo produzca los mismos efectos.",
     "pickMovementBody": "Este juego de coordinación manual es un punto de partida divertido. Explora los ejercicios de movimiento de FreeBrain y encuentra rutinas para distintas afecciones neurológicas y niveles de movilidad.",
-    "pickMovementCta": "Explorar ejercicios de movimiento",
     "faq": {
       "q1": "¿Qué es el desafío El conejo escapa?",
       "a1": "Es un divertido desafío de coordinación de manos. Copia las posiciones del conejo y de la pistola al mismo tiempo y cambia qué lado ocupa cada imagen a medida que se acelera el ritmo.",
@@ -112,18 +120,6 @@
       "q4": "¿Es una evaluación médica o del movimiento?",
       "a4": "No. Es una actividad lúdica de coordinación, no una prueba médica, diagnóstico, tratamiento ni evaluación de la salud cerebral."
     }
-  },
-  "termsPrivacy": {
-    "title": "Términos y privacidad",
-    "metaTitle": "Términos y privacidad | FreeBrain",
-    "intro": "Esta página explica la grabación de vídeo opcional del desafío del conejo.",
-    "recordingTitle": "Grabación del desafío del conejo",
-    "recordingOptional": "Grabar es opcional y está desactivado de forma predeterminada. Puedes jugar sin usar la cámara.",
-    "recordingPermission": "Si aceptas, la cámara solo se activa cuando pulsas «Vamos». La función solicita solo vídeo, no acceso al micrófono.",
-    "recordingStorage": "El vídeo se crea y se conserva temporalmente en tu navegador. FreeBrain ni Supabase lo reciben ni lo almacenan. Puedes previsualizarlo, descargarlo en tu dispositivo o descartarlo.",
-    "recordingControls": "Al detener el desafío, termina la grabación y se liberan los permisos de la cámara. Si descartas el vídeo, se elimina su vista previa temporal de la página.",
-    "fullPolicyNotice": "Esta información se refiere únicamente a la grabación del desafío. Aquí se añadirán los Términos del servicio y la Política de privacidad completos de FreeBrain.",
-    "backToChallenge": "Volver al desafío del conejo"
   },
   "movement": {
     "titleSeatedGeneric": "Movimiento Sentado Suave",
@@ -521,8 +517,47 @@
     "summitBody": "FreeBrain expone como Alpha Startup. Invitamos a un pequeño grupo de instituciones de Lisboa a enviar un representante a nuestro stand durante un día para unirse a las demostraciones de movimiento y mostrar al mundo lo que Lisboa hace por la terapia de movimiento.",
     "summitPhotoAlt": "Vista previa generada por IA del stand de FreeBrain en Web Summit Lisboa",
     "nextTitle": "Siguiente paso",
-    "nextBody": "Dígame un día que funcione y llevaré el acuerdo de una página.",
-    "cta": "Enviar mensaje a Jean por WhatsApp"
+    "nextBody": "Completa este breve formulario para mostrar tu interés en el piloto de Lisboa. Te enviaremos por correo una copia de tu solicitud y los próximos pasos.",
+    "nextBodyTango": "Solicita cuatro sesiones gratuitas de movimiento con tango en directo a través del piloto de Lisboa. Completa este breve formulario y te enviaremos los próximos pasos. Los Términos explican la seguridad y las responsabilidades.",
+    "cta": "Enviar solicitud al piloto"
+  },
+  "pilotSignup": {
+    "fullName": "Nombre completo",
+    "email": "Correo electrónico",
+    "phone": "Número de teléfono",
+    "role": "Soy...",
+    "institution": "Institución o clínica",
+    "notes": "¿Algo más que quieras contarnos? (opcional)",
+    "roles": {
+      "individual": "Persona particular",
+      "clinician": "Profesional clínico",
+      "institutionRep": "Representante de una institución",
+      "parentOrPOA": "Madre, padre o representante legal",
+      "other": "Otro"
+    },
+    "termsPrefix": "He leído y acepto los",
+    "termsLink": "Términos y Servicios",
+    "termsSuffix": "y confirmo que la información que proporcioné es correcta.",
+    "tangoOptIn": "Acepto recibir cuatro sesiones gratuitas de tango.",
+    "tangoConsentNote": "Para recibir estas sesiones, también debes aceptar los permisos de fotos/vídeos y de uso de marca que aparecen abajo.",
+    "mediaConsent": "Acepto que se tomen y utilicen fotos y vídeos en los que aparezca, según se describe en los Términos.",
+    "brandingConsent": "Acepto que FreeBrain utilice el nombre, logotipo o marca de mi institución según se describe en los Términos.",
+    "submitting": "Enviando...",
+    "success": "Gracias: recibimos tu solicitud. Revisa tu correo para ver una copia y conocer los próximos pasos.",
+    "successCalendly": "Reserva tus cuatro sesiones de una en una",
+    "successTerms": "Consulta los Términos y Servicios",
+    "contactJean": "Contactar con Jean por WhatsApp",
+    "errors": {
+      "termsRequired": "Acepta los Términos antes de enviar el formulario.",
+      "consentsRequired": "Para recibir las sesiones gratuitas de tango, acepta los permisos de fotos/vídeos y de uso de marca.",
+      "rateLimited": "Has realizado demasiados intentos. Espera unos minutos antes de volver a intentarlo.",
+      "emailServiceUnavailable": "El servicio de correo de registro no está configurado para esta vista previa. No se enviaron correos. Usa una vista previa de Vercel o configura RESEND_API_KEY solo en el servidor para probar localmente.",
+      "endpointUnavailable": "La API de registro no está disponible en esta dirección. No se envió la solicitud. Usa la vista previa de Vercel o inicia el servidor local compatible con Vercel.",
+      "delivery": "No pudimos enviar los correos de registro. Inténtalo más tarde o contacta con Jean.",
+      "partialDelivery": "El registro se envió por correo a Jean, pero no se pudo enviar el mensaje de confirmación. No vuelvas a enviar el formulario.",
+      "network": "No pudimos confirmar si recibimos tu solicitud. Contacta con Jean antes de volver a intentarlo para evitar duplicados.",
+      "default": "No pudimos enviar el formulario. Comprueba tus datos e inténtalo de nuevo."
+    }
   },
   "getInvolved": {
     "title": "Participa",
@@ -591,7 +626,8 @@
     "explore": "Explorar",
     "links": {
       "home": "Inicio",
-      "lisbonPilot": "Piloto de Lisboa"
+      "lisbonPilot": "Piloto de Lisboa",
+      "terms": "Términos y Servicios"
     },
     "resources": "Recursos",
     "podcast": "Pódcast",

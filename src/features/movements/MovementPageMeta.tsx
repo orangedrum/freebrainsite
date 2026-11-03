@@ -11,6 +11,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import { ResearchCitation } from "@/components/shared/ResearchCitation";
 
 export const MovementPageMeta = () => {
   const { t } = useTranslation();
@@ -58,16 +59,7 @@ export const MovementPageMeta = () => {
         </div>
       )}
 
-      <p className="text-xs text-muted-foreground">
-        <a
-          href="#movement-research"
-          className="font-medium text-foreground/90 underline underline-offset-4 hover:text-foreground"
-        >
-          {t("movementPlanner.researchTeam")}
-        </a>
-        {" · "}
-        {t("movementPlanner.researchedMeta")}
-      </p>
+      <ResearchCitation href="#movement-research" />
     </div>
   );
 };

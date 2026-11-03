@@ -1,0 +1,34 @@
+{
+  "subject": "FreeBrain pilot signup received — next step: schedule",
+  "greeting": "Hello {{name}},",
+  "intro": "We received your FreeBrain pilot signup and the choices you submitted:",
+  "fields": {
+    "fullName": "Full name",
+    "email": "Email",
+    "phone": "Phone",
+    "role": "Role",
+    "institution": "Institution / clinic",
+    "notes": "Notes",
+    "termsAccepted": "Terms accepted",
+    "termsVersion": "Terms version",
+    "tangoOptIn": "4 free tango sessions",
+    "mediaConsent": "Photo / video consent",
+    "brandingConsent": "Partner branding consent",
+    "locale": "Signup language"
+  },
+  "roles": {
+    "individual": "Individual",
+    "clinician": "Clinician",
+    "institutionRep": "Institution representative",
+    "parentOrPOA": "Parent or power of attorney",
+    "other": "Other"
+  },
+  "yes": "Yes",
+  "accepted": "Accepted",
+  "notSelected": "Not selected",
+  "notProvided": "Not provided",
+  "termsLink": "Read the Terms & Services, version {{version}}",
+  "nextStep": "Next step",
+  "bookingLink": "Book your four sessions one at a time",
+  "schedulingNotice": "Scheduling is your responsibility. Please keep this email for your records."
+}

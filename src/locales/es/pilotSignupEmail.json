@@ -1,0 +1,34 @@
+{
+  "subject": "Recibimos tu inscripción al piloto de FreeBrain: siguiente paso, programar",
+  "greeting": "Hola {{name}}:",
+  "intro": "Recibimos tu inscripción al piloto de FreeBrain y las opciones que seleccionaste:",
+  "fields": {
+    "fullName": "Nombre completo",
+    "email": "Correo electrónico",
+    "phone": "Teléfono",
+    "role": "Rol",
+    "institution": "Institución o clínica",
+    "notes": "Notas",
+    "termsAccepted": "Términos aceptados",
+    "termsVersion": "Versión de los términos",
+    "tangoOptIn": "4 sesiones gratuitas de tango",
+    "mediaConsent": "Consentimiento para fotos y vídeos",
+    "brandingConsent": "Consentimiento para la marca de la institución",
+    "locale": "Idioma de inscripción"
+  },
+  "roles": {
+    "individual": "Persona particular",
+    "clinician": "Profesional clínico",
+    "institutionRep": "Representante de una institución",
+    "parentOrPOA": "Madre, padre o representante legal",
+    "other": "Otro"
+  },
+  "yes": "Sí",
+  "accepted": "Aceptado",
+  "notSelected": "No seleccionado",
+  "notProvided": "No indicado",
+  "termsLink": "Lee los Términos y servicios, versión {{version}}",
+  "nextStep": "Siguiente paso",
+  "bookingLink": "Programa tus cuatro sesiones de una en una",
+  "schedulingNotice": "La programación es tu responsabilidad. Conserva este correo para tus registros."
+}

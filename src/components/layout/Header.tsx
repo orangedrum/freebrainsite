@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Users, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ResourcesMenu } from "@/components/layout/ResourcesMenu";
 import { LOGO_URL, EXTERNAL_LINKS } from "@/lib/constants";
 import { scrollToSection } from "@/lib/navigation";
 import type { OpenModalFn } from "@/types";
@@ -35,7 +36,7 @@ export const Header = ({ onOpenModal }: HeaderProps) => {
   };
 
   const mobileLinks = (
-    <div className="flex flex-col gap-3 pt-4 md:hidden">
+    <nav aria-label={t("header.primaryNavigation")} className="flex flex-col gap-3 px-4 pb-4 pt-2 lg:hidden">
       <Link
         to="/team"
         onClick={() => setMobileOpen(false)}
@@ -43,27 +44,21 @@ export const Header = ({ onOpenModal }: HeaderProps) => {
       >
         {t("header.team")}
       </Link>
-      <Link
-        to="/movement-planner"
-        onClick={() => setMobileOpen(false)}
-        className="text-foreground hover:text-primary transition-colors"
-      >
-        {t("header.movementPlanner")}
-      </Link>
-      <Link
-        to="/movements"
-        onClick={() => setMobileOpen(false)}
-        className="text-foreground hover:text-primary transition-colors"
-      >
-        {t("header.sampleExercises")}
-      </Link>
+      <ResourcesMenu />
       <Button variant="ghost" className="w-full justify-start" onClick={openJoinCommunity}>
         {t("header.joinCommunity")}
       </Button>
       <Button variant="default" className="w-full justify-start bg-primary text-brand" onClick={handleGetInvolved}>
         {t("header.getInvolved")}
       </Button>
-    </div>
+      <Button
+        asChild
+        className="w-full justify-start border border-foreground/20 bg-brand text-white shadow-md hover:bg-brand-hover"
+        onClick={() => setMobileOpen(false)}
+      >
+        <Link to="/bunny-challenge">{t("header.tryBunnyDemo")}</Link>
+      </Button>
+    </nav>
   );
 
   return (
@@ -78,47 +73,42 @@ export const Header = ({ onOpenModal }: HeaderProps) => {
           <span className="text-xl font-bold text-foreground">FreeBrain</span>
         </Link>
 
-        <div className="flex items-center gap-4">
-          <Button
-            variant="ghost"
-            className="hidden md:inline-flex text-foreground hover:bg-foreground/10 hover:text-foreground"
-            asChild
-          >
-            <Link to="/team">{t("header.team")}</Link>
-          </Button>
-          <Button
-            variant="ghost"
-            className="hidden md:inline-flex text-foreground hover:bg-foreground/10 hover:text-foreground"
-            asChild
-          >
-            <Link to="/movement-planner">{t("header.movementPlanner")}</Link>
-          </Button>
-          <Button
-            variant="ghost"
-            className="hidden md:inline-flex text-foreground hover:bg-foreground/10 hover:text-foreground"
-            asChild
-          >
-            <Link to="/movements">{t("header.sampleExercises")}</Link>
-          </Button>
-          <Button
-            variant="ghost"
-            className="hidden md:inline-flex text-foreground hover:bg-foreground/10 hover:text-foreground"
-            onClick={openJoinCommunity}
-          >
-            {t("header.joinCommunity")}
-          </Button>
-          <Button
-            className="hidden md:inline-flex bg-primary text-brand hover:bg-primary/90 transition-opacity border-0"
-            onClick={handleGetInvolved}
-          >
-            {t("header.getInvolved")}
-          </Button>
+        <div className="flex items-center gap-2">
+          <nav aria-label={t("header.primaryNavigation")} className="hidden items-center gap-1 lg:flex">
+            <Button
+              variant="ghost"
+              className="text-foreground hover:bg-foreground/10 hover:text-foreground"
+              asChild
+            >
+              <Link to="/team">{t("header.team")}</Link>
+            </Button>
+            <ResourcesMenu />
+            <Button
+              variant="ghost"
+              className="text-foreground hover:bg-foreground/10 hover:text-foreground"
+              onClick={openJoinCommunity}
+            >
+              {t("header.joinCommunity")}
+            </Button>
+            <Button
+              className="bg-primary text-brand transition-opacity hover:bg-primary/90"
+              onClick={handleGetInvolved}
+            >
+              {t("header.getInvolved")}
+            </Button>
+            <Button
+              asChild
+              className="border border-foreground/20 bg-brand text-white shadow-md hover:bg-brand-hover"
+            >
+              <Link to="/bunny-challenge">{t("header.tryBunnyDemo")}</Link>
+            </Button>
+          </nav>
 
           <Button
             variant="ghost"
-            className="md:hidden p-2"
+            className="p-2 lg:hidden"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? "Close menu" : "Open menu"}
+            aria-label={mobileOpen ? t("header.closeMenu") : t("header.openMenu")}
             aria-expanded={mobileOpen}
           >
             {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}

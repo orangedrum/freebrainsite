@@ -1,0 +1,34 @@
+{
+  "subject": "Inscrição no piloto FreeBrain recebida — próximo passo: agendar",
+  "greeting": "Olá, {{name}}!",
+  "intro": "Recebemos sua inscrição no piloto FreeBrain e as opções selecionadas:",
+  "fields": {
+    "fullName": "Nome completo",
+    "email": "E-mail",
+    "phone": "Telefone",
+    "role": "Função",
+    "institution": "Instituição / clínica",
+    "notes": "Observações",
+    "termsAccepted": "Termos aceitos",
+    "termsVersion": "Versão dos termos",
+    "tangoOptIn": "4 sessões gratuitas de tango",
+    "mediaConsent": "Consentimento para fotos / vídeos",
+    "brandingConsent": "Consentimento para a marca da instituição",
+    "locale": "Idioma da inscrição"
+  },
+  "roles": {
+    "individual": "Pessoa participante",
+    "clinician": "Profissional de saúde",
+    "institutionRep": "Representante da instituição",
+    "parentOrPOA": "Responsável legal ou procurador",
+    "other": "Outro"
+  },
+  "yes": "Sim",
+  "accepted": "Aceito",
+  "notSelected": "Não selecionado",
+  "notProvided": "Não informado",
+  "termsLink": "Leia os Termos e Serviços, versão {{version}}",
+  "nextStep": "Próximo passo",
+  "bookingLink": "Agende suas quatro sessões, uma de cada vez",
+  "schedulingNotice": "O agendamento é sua responsabilidade. Guarde este e-mail para seus registros."
+}
