@@ -3,10 +3,12 @@ import { Play } from "lucide-react";
 
 interface VideoPlayerProps {
   src: string;
-  poster: string;
+  poster?: string;
   rotationClass?: string;
   orientation?: "vertical" | "horizontal";
   playable?: boolean;
+  previewFrame?: boolean;
+  useIntrinsicAspectRatio?: boolean;
 }
 
 /** Video player with a translucent play button overlay that hides on play. */
@@ -16,14 +18,29 @@ export const VideoPlayer = ({
   rotationClass = "",
   orientation = "vertical",
   playable = true,
+  previewFrame = false,
+  useIntrinsicAspectRatio = false,
 }: VideoPlayerProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [aspectRatio, setAspectRatio] = useState(
+    orientation === "horizontal" ? "16 / 9" : "9 / 16",
+  );
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const frameClasses =
-    orientation === "horizontal"
+  const frameClasses = useIntrinsicAspectRatio
+    ? "w-full max-w-2xl"
+    : orientation === "horizontal"
       ? "w-full max-w-2xl aspect-video"
       : "w-full max-w-[320px] aspect-[9/16]";
+
+  const handleLoadedMetadata = (video: HTMLVideoElement): void => {
+    if (useIntrinsicAspectRatio && video.videoWidth && video.videoHeight) {
+      setAspectRatio(`${video.videoWidth} / ${video.videoHeight}`);
+    }
+    if (previewFrame && video.duration > 0) {
+      video.currentTime = Math.min(0.1, video.duration / 2);
+    }
+  };
 
   const togglePlay = (event: MouseEvent<HTMLVideoElement>): void => {
     if (!playable) return;
@@ -36,15 +53,20 @@ export const VideoPlayer = ({
   };
 
   return (
-    <div className={`relative mx-auto ${playable ? "group cursor-pointer" : "cursor-pointer"} ${frameClasses} ${rotationClass}`}>
+    <div
+      className={`relative mx-auto ${playable ? "group cursor-pointer" : "cursor-pointer"} ${frameClasses} ${rotationClass}`}
+      style={useIntrinsicAspectRatio ? { aspectRatio } : undefined}
+    >
       <div className="absolute inset-0 bg-foreground/10 rounded-[2rem] transform scale-105 -z-10"></div>
       <div className="relative rounded-[2rem] overflow-hidden border border-foreground/10 shadow-xl h-full bg-background/20">
         <video
           ref={videoRef}
           src={src}
           poster={poster}
+          preload={previewFrame ? "metadata" : undefined}
           className="w-full h-full object-cover"
           playsInline
+          onLoadedMetadata={(event) => handleLoadedMetadata(event.currentTarget)}
           onPlay={() => setIsPlaying(true)}
           onPause={() => setIsPlaying(false)}
           onEnded={() => setIsPlaying(false)}

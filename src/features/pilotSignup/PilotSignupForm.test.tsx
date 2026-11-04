@@ -104,7 +104,12 @@ describe("PilotSignupForm", () => {
     renderForm();
     const phoneInput = screen.getByLabelText("Phone number for WhatsApp or text");
 
-    expect(phoneInput).toHaveAttribute("pattern", "[+]?[0-9][0-9 ().-]*[0-9]");
+    expect(phoneInput).toHaveAttribute(
+      "pattern",
+      "\\+?[0-9][0-9 \\(\\)\\.\\-]*[0-9]",
+    );
+    expect(new RegExp(phoneInput.getAttribute("pattern")!, "v").test("+351 912 345 678"))
+      .toBe(true);
     fireEvent.change(phoneInput, { target: { value: "+351 912 345 678" } });
     expect((phoneInput as HTMLInputElement).validity.patternMismatch).toBe(false);
   });

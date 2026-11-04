@@ -57,7 +57,7 @@ export const PilotSignupFields = ({ values, updateValue }: PilotSignupFieldsProp
           inputMode="tel"
           minLength={7}
           maxLength={24}
-          pattern="[+]?[0-9][0-9 ().-]*[0-9]"
+          pattern="\+?[0-9][0-9 \(\)\.\-]*[0-9]"
           placeholder="+351 912 345 678"
           required
           value={values.phone}

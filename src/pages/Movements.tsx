@@ -163,7 +163,13 @@ export const Movements = () => {
                         {results.map((m) => (
                           <div key={m.id} className="flex gap-4 rounded-2xl bg-secondary border border-foreground/10 p-4 cursor-pointer hover:bg-secondary/80 transition-colors" onClick={() => setSelectedVideo(m)}>
                             <div className="shrink-0 w-40 sm:w-48">
-                              <VideoPlayer src={m.src} poster="/tangoworkshop.png" orientation="horizontal" playable={false} />
+                              <VideoPlayer
+                                src={m.src}
+                                orientation="horizontal"
+                                playable={false}
+                                previewFrame
+                                useIntrinsicAspectRatio
+                              />
                             </div>
                             <div className="flex flex-col justify-center gap-1 min-w-0">
                               <h3 className="text-lg font-bold text-foreground">{t(m.titleKey)}</h3>
@@ -192,7 +198,13 @@ export const Movements = () => {
                     {selectedVideo && (
                       <div className="space-y-3">
                         <h3 className="text-lg font-bold text-foreground">{t(selectedVideo.titleKey)}</h3>
-                        <VideoPlayer src={selectedVideo.src} poster="/tangoworkshop.png" orientation="horizontal" />
+                        <VideoPlayer
+                          key={selectedVideo.src}
+                          src={selectedVideo.src}
+                          orientation="horizontal"
+                          previewFrame
+                          useIntrinsicAspectRatio
+                        />
                         <p className="text-sm text-muted-foreground">{t(selectedVideo.descriptionKey)}</p>
                         <p className="text-xs text-foreground/70">{t(selectedVideo.whyHelpfulKey)}</p>
                       </div>

@@ -52,7 +52,7 @@ SEO: Helmet + JSON-LD `WebApplication` (HealthApplication, price 0) + `FaqJsonLd
 ### Exercise Finder (`/movements`)
 Filters: condition combobox (15 conditions — **sets state only, does not filter**), mobility Select (3 levels), time slider (`TIME_OPTIONS = 1|5|15`), "Find my movement".
 **Actual behavior:** `MOVEMENTS.filter(mobility === x && minutes <= t).slice(0, 1)` → **at most one result card** (or no-results message). Click card → `Dialog` with `VideoPlayer` + copy. Before search: rotating fun fact (4 s).
-Data: static `MOVEMENTS` array (6 entries); Independent Standing plays `/ex_standing.mp4`, while seated and assisted-standing results play `/handexercise3.mp4`, in `src/features/movements/movementPageData.ts`.
+Data: static `MOVEMENTS` array (6 entries); Independent Standing plays `/ex_standing.mp4`, while seated and assisted-standing results play `/handexercise3.mp4`, in `src/features/movements/movementPageData.ts`. Finder previews use a frame from the selected video and its intrinsic aspect ratio.
 Sections: `MovementPageMeta` (breadcrumb + disclaimer + `ResearchCitation`), promo card, "What is", how-to, benefits, research copy, `ExercisesForCondition` (15 chips, display-only), `MovementByCondition` (15 cards), 10-item FAQ.
 SEO: Helmet + JSON-LD `WebApplication` + `FaqJsonLd`.
 
