@@ -1,34 +1,16 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
-import { Users, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ResourcesMenu } from "@/components/layout/ResourcesMenu";
-import { LOGO_URL, EXTERNAL_LINKS } from "@/lib/constants";
+import { LOGO_URL } from "@/lib/constants";
 import { scrollToSection } from "@/lib/navigation";
-import type { OpenModalFn } from "@/types";
-
-interface HeaderProps {
-  onOpenModal: OpenModalFn;
-}
 
 /** Sticky site navigation header with logo, mobile drawer, and CTAs. */
-export const Header = ({ onOpenModal }: HeaderProps) => {
+export const Header = () => {
   const { t } = useTranslation();
   const [mobileOpen, setMobileOpen] = useState(false);
-
-  const openJoinCommunity = (): void => {
-    onOpenModal(
-      t("modal.joinCommunity.title"),
-      t("modal.joinCommunity.description"),
-      Users,
-      t("modal.joinCommunity.whatsappCta"),
-      EXTERNAL_LINKS.whatsapp,
-      t("modal.joinCommunity.pilotCta"),
-      EXTERNAL_LINKS.mailingList,
-    );
-    setMobileOpen(false);
-  };
 
   const handleGetInvolved = (): void => {
     scrollToSection("get-involved");
@@ -45,9 +27,6 @@ export const Header = ({ onOpenModal }: HeaderProps) => {
         {t("header.team")}
       </Link>
       <ResourcesMenu />
-      <Button variant="ghost" className="w-full justify-start" onClick={openJoinCommunity}>
-        {t("header.joinCommunity")}
-      </Button>
       <Button variant="default" className="w-full justify-start bg-primary text-brand" onClick={handleGetInvolved}>
         {t("header.getInvolved")}
       </Button>
@@ -83,13 +62,6 @@ export const Header = ({ onOpenModal }: HeaderProps) => {
               <Link to="/team">{t("header.team")}</Link>
             </Button>
             <ResourcesMenu />
-            <Button
-              variant="ghost"
-              className="text-foreground hover:bg-foreground/10 hover:text-foreground"
-              onClick={openJoinCommunity}
-            >
-              {t("header.joinCommunity")}
-            </Button>
             <Button
               className="bg-primary text-brand transition-opacity hover:bg-primary/90"
               onClick={handleGetInvolved}

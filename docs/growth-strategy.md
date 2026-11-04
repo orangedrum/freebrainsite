@@ -71,13 +71,13 @@ Chest-Opening Stretch. Do this daily and you should see significant results.' CT
 1. Filters drive the library list; until inputs are set, no videos show.
 2. The results from the Movement Plan apply to the filters on the Movement Library page.
 3. Pre-flight Safety Check precedes the planner in code (both are v1 deliverables).
-4. All movement videos use `/tangoworkshop.mp4` for now; more videos to come.
+4. Exercise Finder uses `/ex_standing.mp4` for Independent Standing and `/handexercise3.mp4` for seated or assisted-standing results. The Lisbon pilot page keeps `/tangoworkshop.mp4`.
 
 ### Phase 2 — Movement Library v1
 
 - Video-list page (`/movements`) fed by planner state (mobility / focus).
 - Vertical VideoPlayer per movement card; generic + tango variants per mobility.
-- Only `/tangoworkshop.mp4` for v1 (poster: `/tangoworkshop.png`).
+- Mobility-specific videos: `/ex_standing.mp4` for Independent Standing and `/handexercise3.mp4` otherwise.
 
 ### Phase 3 — Conversion
 

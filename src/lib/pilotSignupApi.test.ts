@@ -83,7 +83,7 @@ describe("handlePilotSignup", () => {
           ...validSubmission,
           fullName: "<Ada>",
           title: "<script>Director</script>",
-          institution: "",
+          institution: "Lisbon Clinic",
           tangoOptIn: false,
           mediaConsent: false,
           brandingConsent: false,
@@ -147,6 +147,18 @@ describe("handlePilotSignup", () => {
       createRequest({ ...validSubmission, phone: "12345" }, "203.0.113.21"),
     );
     expect(phoneResponse.status).toBe(400);
+  });
+
+  it("rejects blank titles and institutions", async () => {
+    const blankTitleResponse = await handlePilotSignup(
+      createRequest({ ...validSubmission, title: "  " }, "203.0.113.23"),
+    );
+    const blankInstitutionResponse = await handlePilotSignup(
+      createRequest({ ...validSubmission, institution: "  " }, "203.0.113.24"),
+    );
+
+    expect(blankTitleResponse.status).toBe(400);
+    expect(blankInstitutionResponse.status).toBe(400);
   });
 
   it("does not claim success when Resend rejects delivery", async () => {

@@ -14,13 +14,11 @@ import {
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Modal } from "@/components/shared/Modal";
 import { ExercisesForCondition } from "@/components/shared/ExercisesForCondition";
 import { FaqAccordion } from "@/components/shared/FaqAccordion";
 import { FaqJsonLd } from "@/components/shared/FaqJsonLd";
 import { ResearchCitation } from "@/components/shared/ResearchCitation";
 import { MovementPlannerPromoCard } from "@/components/shared/MovementPlannerPromoCard";
-import { useModalState } from "@/hooks/useModalState";
 import { BunnyChallengeGame } from "@/features/bunnyChallenge/BunnyChallengeGame";
 
 const FAQ_ITEMS = [
@@ -32,7 +30,6 @@ const FAQ_ITEMS = [
 
 const BunnyChallenge = () => {
   const { t } = useTranslation();
-  const { modalConfig, openModal, closeModal } = useModalState();
   const [isAlertDismissed, setIsAlertDismissed] = useState(false);
 
   return (
@@ -59,7 +56,7 @@ const BunnyChallenge = () => {
         </script>
       </Helmet>
       <FaqJsonLd items={FAQ_ITEMS} />
-      <Header onOpenModal={openModal} />
+      <Header />
       <main className="flex-1">
         <section className="relative overflow-hidden py-10 md:py-16">
           <div className="container mx-auto space-y-8 px-4 md:px-6">
@@ -215,7 +212,6 @@ const BunnyChallenge = () => {
         </section>
       </main>
       <Footer />
-      <Modal config={modalConfig} onOpenChange={(open) => { if (!open) closeModal(); }} />
     </div>
   );
 };

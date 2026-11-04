@@ -529,8 +529,8 @@
       "whatsapp": "WhatsApp",
       "text": "SMS"
     },
-    "title": "Wie lautet deine Position? (optional)",
-    "institution": "Einrichtung oder Klinik (optional)",
+    "title": "Wie lautet deine Position?",
+    "institution": "Einrichtung oder Klinik",
     "termsPrefix": "Ich habe die",
     "termsLink": "Nutzungsbedingungen",
     "termsSuffix": "gelesen und stimme ihnen zu. Ich bestätige außerdem, dass meine Angaben korrekt sind.",

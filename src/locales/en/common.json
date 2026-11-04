@@ -539,8 +539,8 @@
       "whatsapp": "WhatsApp",
       "text": "Text message"
     },
-    "title": "What is your title? (optional)",
-    "institution": "Institution or clinic (optional)",
+    "title": "What is your title?",
+    "institution": "Institution or clinic",
     "termsPrefix": "I have read and agree to the",
     "termsLink": "Terms & Services",
     "termsSuffix": "and confirm the information I provided is accurate.",

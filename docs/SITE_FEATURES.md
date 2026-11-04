@@ -32,7 +32,8 @@
 
 ### Home (`/`) — slim composition layer, `useModalState`
 Sections in order: `HeroSection` → `WebSummitSection` (live countdown to `2026-11-09T09:00:00Z`, shows "LIVE" after) → `ConditionsMarquee` (auto-scroll, 15 conditions) → `#platform` (GridBackground + OnDemand + BecomeFreeBrainer) → `GetInvolvedSection` (`#get-involved`) → `SupportingEvidenceSection` (interactive SVG neural-pathway graph: click node → quote + source) → `SocialFeedsSection` (**static** cards, likes/comments are constants) → `Footer` → shared `Modal`.
-CTAs: "Learn more" scrolls to `#platform`; all others dispatch modal variants (below).
+Hero CTAs: **Try Bunny Demo** links to `/bunny-challenge`, **Join Pilot** opens the pilot modal,
+and the **Learn More** text link smooth-scrolls to `#platform`.
 SEO: Helmet meta + JSON-LD `Organization` and `WebSite` (`SearchAction` → `/movements?q=`).
 
 ### Team (`/team`)
@@ -51,7 +52,7 @@ SEO: Helmet + JSON-LD `WebApplication` (HealthApplication, price 0) + `FaqJsonLd
 ### Exercise Finder (`/movements`)
 Filters: condition combobox (15 conditions — **sets state only, does not filter**), mobility Select (3 levels), time slider (`TIME_OPTIONS = 1|5|15`), "Find my movement".
 **Actual behavior:** `MOVEMENTS.filter(mobility === x && minutes <= t).slice(0, 1)` → **at most one result card** (or no-results message). Click card → `Dialog` with `VideoPlayer` + copy. Before search: rotating fun fact (4 s).
-Data: static `MOVEMENTS` array (6 entries, all play `/tangoworkshop.mp4`), in `src/features/movements/movementPageData.ts`.
+Data: static `MOVEMENTS` array (6 entries); Independent Standing plays `/ex_standing.mp4`, while seated and assisted-standing results play `/handexercise3.mp4`, in `src/features/movements/movementPageData.ts`.
 Sections: `MovementPageMeta` (breadcrumb + disclaimer + `ResearchCitation`), promo card, "What is", how-to, benefits, research copy, `ExercisesForCondition` (15 chips, display-only), `MovementByCondition` (15 cards), 10-item FAQ.
 SEO: Helmet + JSON-LD `WebApplication` + `FaqJsonLd`.
 
@@ -69,7 +70,7 @@ Renders the full `terms/master-terms.md` content from the **`terms` i18n namespa
 
 ## Navigation & modals
 
-- **Header** (sticky, blur): logo → `/`; desktop nav = Team · Resources dropdown · Join Community (modal) · Get Involved (scroll `#get-involved`) · **Try Bunny Demo** (`bg-brand` blue CTA → `/bunny-challenge`); mobile hamburger drawer with Resources accordion.
+- **Header** (sticky, blur): logo → `/`; desktop nav = Team · Resources dropdown · Get Involved (scroll `#get-involved`) · **Try Bunny Demo** (`bg-brand` blue CTA → `/bunny-challenge`); mobile hamburger drawer with Resources accordion.
 - **ResourcesMenu**: 2 items — `/movement-planner`, `/movements` — desktop dropdown renders **vertical menu cards** (14px non-bold white titles, 12px muted descriptions, rounded border + lighter-blue hover), mobile expandable list.
 - **Footer**: brand, "Trusted by" badge, Web Summit badge, Explore (Home · Team · Lisbon Pilot · **Terms** · Get Involved) / Resources columns (Podcast + Resource Center = *Soon*), socials, mobile back-to-top.
 - **LanguageSwitcher**: fixed bottom-right globe; 4 languages (🇺🇸 🇲🇽 🇩🇪 🇧🇷).

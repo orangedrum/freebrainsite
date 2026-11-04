@@ -19,6 +19,27 @@ const renderForm = (isTangoProgram = false) =>
     </I18nextProvider>,
   );
 
+const fillRequiredFields = () => {
+  fireEvent.change(screen.getByLabelText("Full name"), {
+    target: { value: "Ada Lovelace" },
+  });
+  fireEvent.change(screen.getByLabelText("Email address"), {
+    target: { value: "ada@example.com" },
+  });
+  fireEvent.change(screen.getByLabelText("Phone number for WhatsApp or text"), {
+    target: { value: "+351 912 345 678" },
+  });
+  fireEvent.change(screen.getByLabelText("Point of contact"), {
+    target: { value: "whatsapp" },
+  });
+  fireEvent.change(screen.getByLabelText(/What is your title/i), {
+    target: { value: "Director" },
+  });
+  fireEvent.change(screen.getByLabelText(/Institution or clinic/i), {
+    target: { value: "Lisbon Clinic" },
+  });
+};
+
 beforeAll(async () => {
   await testI18n.init({
     lng: "en",
@@ -67,6 +88,18 @@ describe("PilotSignupForm", () => {
     expect(mediaConsent).toHaveAttribute("data-state", "unchecked");
   });
 
+  it("marks every text field as required", () => {
+    renderForm();
+    [
+      screen.getByLabelText("Full name"),
+      screen.getByLabelText("Email address"),
+      screen.getByLabelText("Phone number for WhatsApp or text"),
+      screen.getByLabelText("Point of contact"),
+      screen.getByLabelText(/What is your title/i),
+      screen.getByLabelText(/Institution or clinic/i),
+    ].forEach((field) => expect(field).toBeRequired());
+  });
+
   it("requires Terms acceptance and sends the localized consent fields", async () => {
     const fetchMock = vi.fn().mockResolvedValue(
       new Response(JSON.stringify({ status: "emails_queued" }), {
@@ -76,17 +109,7 @@ describe("PilotSignupForm", () => {
     );
     vi.stubGlobal("fetch", fetchMock);
     const { container } = renderForm(true);
-
-    fireEvent.change(screen.getByLabelText("Full name"), { target: { value: "Ada Lovelace" } });
-    fireEvent.change(screen.getByLabelText("Email address"), {
-      target: { value: "ada@example.com" },
-    });
-    fireEvent.change(screen.getByLabelText("Phone number for WhatsApp or text"), {
-      target: { value: "+351 912 345 678" },
-    });
-    fireEvent.change(screen.getByLabelText("Point of contact"), {
-      target: { value: "whatsapp" },
-    });
+    fillRequiredFields();
 
     const form = container.querySelector("form");
     expect(form).not.toBeNull();
@@ -104,6 +127,8 @@ describe("PilotSignupForm", () => {
       email: "ada@example.com",
       phone: "+351 912 345 678",
       contactMethod: "whatsapp",
+      title: "Director",
+      institution: "Lisbon Clinic",
       termsAccepted: true,
       tangoOptIn: false,
       mediaConsent: false,
@@ -132,18 +157,7 @@ describe("PilotSignupForm", () => {
       ),
     );
     const { container } = renderForm();
-    fireEvent.change(screen.getByLabelText("Full name"), {
-      target: { value: "Ada Lovelace" },
-    });
-    fireEvent.change(screen.getByLabelText("Email address"), {
-      target: { value: "ada@example.com" },
-    });
-    fireEvent.change(screen.getByLabelText("Phone number for WhatsApp or text"), {
-      target: { value: "+351 912 345 678" },
-    });
-    fireEvent.change(screen.getByLabelText("Point of contact"), {
-      target: { value: "text" },
-    });
+    fillRequiredFields();
     fireEvent.click(screen.getByRole("checkbox", { name: /I have read and agree/i }));
 
     fireEvent.submit(container.querySelector("form")!);
@@ -165,18 +179,7 @@ describe("PilotSignupForm", () => {
       ),
     );
     const { container } = renderForm();
-    fireEvent.change(screen.getByLabelText("Full name"), {
-      target: { value: "Ada Lovelace" },
-    });
-    fireEvent.change(screen.getByLabelText("Email address"), {
-      target: { value: "ada@example.com" },
-    });
-    fireEvent.change(screen.getByLabelText("Phone number for WhatsApp or text"), {
-      target: { value: "+351 912 345 678" },
-    });
-    fireEvent.change(screen.getByLabelText("Point of contact"), {
-      target: { value: "text" },
-    });
+    fillRequiredFields();
     fireEvent.click(screen.getByRole("checkbox", { name: /I have read and agree/i }));
     fireEvent.submit(container.querySelector("form")!);
 

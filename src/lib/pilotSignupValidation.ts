@@ -63,8 +63,12 @@ export const validatePilotSignup = (payload: unknown): PilotSignupSubmission | n
   if (fullName.length < 1 || fullName.length > 120 || hasControlCharacter(fullName)) return null;
   if (email.length > 254 || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return null;
   if (phone.length > 24 || !isValidInternationalPhone(phone)) return null;
-  if (title.length > 120 || hasControlCharacter(title)) return null;
-  if (institution.length > 180 || hasControlCharacter(institution)) {
+  if (title.length < 1 || title.length > 120 || hasControlCharacter(title)) return null;
+  if (
+    institution.length < 1 ||
+    institution.length > 180 ||
+    hasControlCharacter(institution)
+  ) {
     return null;
   }
   if (

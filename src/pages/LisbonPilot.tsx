@@ -2,20 +2,17 @@ import { useTranslation } from "react-i18next";
 import { Helmet } from "react-helmet-async";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { Modal } from "@/components/shared/Modal";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { GridBackground } from "@/components/shared/GridBackground";
 import { VideoPlayer } from "@/components/shared/VideoPlayer";
 import { PilotSignupForm } from "@/features/pilotSignup/PilotSignupForm";
 import { isTangoSignup } from "@/features/pilotSignup/pilotSignupFormUtils";
-import { useModalState } from "@/hooks/useModalState";
 import { useLocation } from "react-router-dom";
 
 /** Lisbon movement pilot page — FreeBrain styles, tango workshops for Parkinson's. */
 const LisbonPilot = () => {
   const { t } = useTranslation();
   const { search } = useLocation();
-  const { modalConfig, openModal, closeModal } = useModalState();
   const isTangoProgram = isTangoSignup(search);
 
   return (
@@ -32,7 +29,7 @@ const LisbonPilot = () => {
         <meta name="twitter:title" content="FreeBrain Lisbon Pilot — Join Our Movement Therapy Program | FreeBrain" />
         <meta name="twitter:description" content="Join the FreeBrain Lisbon Pilot program." />
       </Helmet>
-      <Header onOpenModal={openModal} />
+      <Header />
       <main className="flex-1">
         <section className="relative overflow-hidden py-20 md:py-32 z-0">
           <img
@@ -174,12 +171,6 @@ const LisbonPilot = () => {
         </section>
       </main>
       <Footer />
-      <Modal
-        config={modalConfig}
-        onOpenChange={(open) => {
-          if (!open) closeModal();
-        }}
-      />
     </div>
   );
 };

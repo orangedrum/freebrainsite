@@ -30,7 +30,7 @@ const Team = () => {
         <meta name="twitter:title" content="FreeBrain Research Team & Advisors | FreeBrain" />
         <meta name="twitter:description" content="Meet the FreeBrain research team and advisors." />
       </Helmet>
-      <Header onOpenModal={openModal} />
+      <Header />
 
       <main className="flex-1">
         <section className="relative overflow-hidden py-20 md:py-32 z-0">

@@ -531,8 +531,8 @@
       "whatsapp": "WhatsApp",
       "text": "Mensaje de texto"
     },
-    "title": "¿Cuál es tu cargo? (opcional)",
-    "institution": "Institución o clínica (opcional)",
+    "title": "¿Cuál es tu cargo?",
+    "institution": "Institución o clínica",
     "termsPrefix": "He leído y acepto los",
     "termsLink": "Términos y Servicios",
     "termsSuffix": "y confirmo que la información que proporcioné es correcta.",

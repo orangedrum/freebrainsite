@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Rocket } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Rocket } from "lucide-react";
 import type { OpenModalFn } from "@/types";
 import { scrollToSection } from "@/lib/navigation";
 import { EXTERNAL_LINKS } from "@/lib/constants";
@@ -30,11 +31,11 @@ export const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
         </p>
         <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button
+            asChild
             size="lg"
-            className="w-full sm:w-auto bg-primary text-brand hover:bg-primary/90 border-0 h-12 px-8"
-            onClick={() => scrollToSection("platform")}
+            className="w-full sm:w-auto h-12 px-8 border-0 bg-background text-foreground shadow-md hover:bg-background/90"
           >
-            {t("hero.learnMore")} <ArrowRight className="ml-2 h-4 w-4" />
+            <Link to="/bunny-challenge">{t("header.tryBunnyDemo")}</Link>
           </Button>
           <Button
             size="lg"
@@ -53,6 +54,16 @@ export const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
             {t("hero.joinPilot")}
           </Button>
         </div>
+        <a
+          href="#platform"
+          onClick={(event) => {
+            event.preventDefault();
+            scrollToSection("platform");
+          }}
+          className="mt-5 inline-block text-sm font-medium text-primary underline underline-offset-4 hover:text-primary/80"
+        >
+          {t("hero.learnMore")}
+        </a>
       </div>
     </section>
   );

@@ -54,7 +54,7 @@
   `UnknownVizError`.)
 
 - **Social feed cards are static** — likes/comments are constants, no live API.
-- **All movement videos are `/tangoworkshop.mp4`** — placeholder per `docs/growth-strategy.md`.
+- The Lisbon pilot video remains `/tangoworkshop.mp4`; Exercise Finder results use `ex_standing.mp4` for Independent Standing and `handexercise3.mp4` otherwise.
 - **Bunny recording is local-only** — no upload by design; terms copy states this explicitly.
 - **Leaderboard is disabled** — "nixed leaderboard" commits; server-side RLS revoked.
 - **`FaqJsonLd` sits outside the page `<Helmet>`** — required: react-helmet-async forbids custom
@@ -73,13 +73,15 @@
   confirmation through Resend; ✅ **P5/P6 implemented** — localized form embedded in the Lisbon
   page's former WhatsApp CTA section, with the Terms/tango/media/branding consent flow. Use
   `/lisbon-pilot?program=tango` for Tango signup; the base page shows the general form. The form
-  now asks for an optional free-text title and a required WhatsApp/text contact preference + valid
-  phone. It also uses a hidden honeypot, same-origin checks, server-side validation, a request-size
+  now requires title, institution/clinic, WhatsApp/text contact preference, and a valid phone. It
+  also uses a hidden honeypot, same-origin checks, server-side validation, a request-size
   cap, and a per-IP rate limit (in-memory, best-effort per warm function instance). Growthstrat
   Preview returned HTML instead of API JSON; the entrypoint now exports explicit Web `GET`/`POST`
-  handlers, and the development adapter runs the same handler. P7 remains blocked until the
-  deployed Vercel Function is confirmed and real email delivery is tested. P8 git and deployment
-  are user-managed.
+  handlers, and the development adapter runs the same handler. Growthstrat now reaches the deployed
+  Vercel Function, which returns `email_service_unavailable` because `RESEND_API_KEY` is missing
+  from that deployment environment. The API logs this configuration error without exposing
+  credentials. P7 remains blocked until the key is configured and real email delivery is tested.
+  P8 git and deployment are user-managed.
 - **SEO Phase 1** (may be uncommitted): per-page Helmet meta, sitemap/robots, FAQ/WebApplication
   JSON-LD.
 - ~~`jean@freethebrains.com` mailbox~~ ✅ resolved 2026-11-03 (`MAINTENANCE.md` R1 — Zoho

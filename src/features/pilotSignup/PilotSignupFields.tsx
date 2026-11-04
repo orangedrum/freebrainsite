@@ -69,6 +69,7 @@ export const PilotSignupFields = ({ values, updateValue }: PilotSignupFieldsProp
         <Input
           autoComplete="organization-title"
           maxLength={120}
+          required
           value={values.title}
           onChange={(event) => updateValue("title", event.target.value)}
         />
@@ -78,6 +79,7 @@ export const PilotSignupFields = ({ values, updateValue }: PilotSignupFieldsProp
         <Input
           autoComplete="organization"
           maxLength={180}
+          required
           value={values.institution}
           onChange={(event) => updateValue("institution", event.target.value)}
         />

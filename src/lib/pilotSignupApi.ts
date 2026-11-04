@@ -128,7 +128,10 @@ export const handlePilotSignup = async (request: Request): Promise<Response> => 
   if (!submission) return getJsonResponse(400, { error: "invalid_submission" });
 
   const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) return getJsonResponse(503, { error: "email_service_unavailable" });
+  if (!apiKey) {
+    console.error("Pilot signup email service unavailable: RESEND_API_KEY is not configured.");
+    return getJsonResponse(503, { error: "email_service_unavailable" });
+  }
 
   const submittedAt = new Date().toISOString();
   try {

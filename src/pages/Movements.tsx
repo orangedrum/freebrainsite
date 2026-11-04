@@ -89,7 +89,7 @@ export const Movements = () => {
         <meta name="twitter:description" content="Free guided movement videos for Parkinson's, MS, stroke recovery, epilepsy, and 15+ neurological conditions." />
       </Helmet>
       <FaqJsonLd items={FAQ_ITEMS} />
-      <Header onOpenModal={openModal} />
+      <Header />
       <main className="flex-1">
         <section className="relative overflow-hidden pt-10 md:pt-16 pb-20 md:pb-32 z-0">
           <div className="relative z-10 w-full px-4 md:px-6">

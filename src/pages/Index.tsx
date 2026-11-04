@@ -59,7 +59,7 @@ const Index = () => {
         <meta name="twitter:title" content="FreeBrain — Movement Therapy for Neurological Conditions" />
         <meta name="twitter:description" content="Free movement plans, exercise videos, and guided routines for Parkinson's, MS, stroke recovery, and more." />
       </Helmet>
-      <Header onOpenModal={openModal} />
+      <Header />
 
       <main className="flex-1">
         <HeroSection onOpenModal={openModal} />
