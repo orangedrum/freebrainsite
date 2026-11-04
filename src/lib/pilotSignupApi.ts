@@ -3,8 +3,8 @@ import {
   createPilotConfirmationEmail,
   createPilotRecordEmail,
   sendPilotEmail,
-} from "./pilotSignupEmails";
-import { validatePilotSignup } from "./pilotSignupValidation";
+} from "./pilotSignupEmails.js";
+import { validatePilotSignup } from "./pilotSignupValidation.js";
 
 const MAX_BODY_LENGTH = 16_384;
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;

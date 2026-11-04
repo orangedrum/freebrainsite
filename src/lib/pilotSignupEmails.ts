@@ -1,10 +1,12 @@
-import type { PilotSignupSubmission } from "./pilotSignupValidation";
-import type { SupportedLanguage } from "./pilotSignupValidation";
-import { TERMS_VERSION } from "./terms";
-import emailEn from "../locales/en/pilotSignupEmail.json";
-import emailEs from "../locales/es/pilotSignupEmail.json";
-import emailDe from "../locales/de/pilotSignupEmail.json";
-import emailPt from "../locales/pt/pilotSignupEmail.json";
+import type {
+  PilotSignupSubmission,
+  SupportedLanguage,
+} from "./pilotSignupValidation.js";
+import { TERMS_VERSION } from "./terms.js";
+import emailEn from "../locales/en/pilotSignupEmail.json" with { type: "json" };
+import emailEs from "../locales/es/pilotSignupEmail.json" with { type: "json" };
+import emailDe from "../locales/de/pilotSignupEmail.json" with { type: "json" };
+import emailPt from "../locales/pt/pilotSignupEmail.json" with { type: "json" };
 
 const SENDER = "FreeBrain <jean@freethebrains.com>";
 const REPLY_TO = "jean@freethebrains.com";
