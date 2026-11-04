@@ -34,14 +34,15 @@
 Sections in order: `HeroSection` → `WebSummitSection` (live countdown to `2026-11-09T09:00:00Z`, shows "LIVE" after) → `ConditionsMarquee` (auto-scroll, 15 conditions) → `#platform` (GridBackground + OnDemand + BecomeFreeBrainer) → `GetInvolvedSection` (`#get-involved`) → `SupportingEvidenceSection` (interactive SVG neural-pathway graph: click node → quote + source) → `SocialFeedsSection` (**static** cards, likes/comments are constants) → `Footer` → shared `Modal`.
 Hero CTAs: **Try Bunny Demo** links to `/bunny-challenge`, **Join Pilot** opens the pilot modal,
 and the **Learn More** text link smooth-scrolls to `#platform`.
-SEO: Helmet meta + JSON-LD `Organization` and `WebSite` (`SearchAction` → `/movements?q=`).
+SEO: Helmet meta + JSON-LD `Organization` and `WebSite`.
 
 ### Team (`/team`)
 Hero (image bg) → `AdvisorsSection` (Anoop + Martin LinkedIn cards + invite card → advisors Calendly modal) → `FounderSection` (LinkedIn + The Product Shift CTAs) → `TeamStatsSection` (4 count-up stats via `useCountUp`, respects `prefers-reduced-motion`; client logo strip) → `GetInvolvedSection` → `Footer` → `Modal`. Helmet meta, no JSON-LD.
 
 ### Lisbon Pilot (`/lisbon-pilot`)
-Hero → intro/why → `VideoPlayer` (`/tangoworkshop.mp4`) → 3-step how-it-works → app copy → Web Summit section → 2×2 cards (what we offer / what we ask / safety / CTA).
-**Key interaction:** embedded localized signup form; use `/lisbon-pilot?program=tango` for the Tango pilot form, where tango opt-in is visible and unchecked by default and photo/video + branding consents are gated until opt-in. The base URL has the general signup form. Email errors remain in-form and do not display a WhatsApp link. Helmet meta only.
+Hero (H1, localized **Sign Up** CTA smooth-scrolls to the form) → intro/why → `VideoPlayer` (`/tangoworkshop.mp4`) → 3-step how-it-works → app copy → Web Summit section → 2×2 cards (what we offer / what we ask / safety / CTA) → localized FAQ.
+**Key interaction:** embedded localized signup form; use `/lisbon-pilot?program=tango` for the Tango pilot form, where tango opt-in is visible and unchecked by default and photo/video + branding consents are gated until opt-in. The base URL has the general signup form. Email errors remain in-form and do not display a WhatsApp link.
+SEO/AEO: localized title, description and social metadata; `WebPage` and visible `FAQPage` JSON-LD.
 
 ### Movement Planner (`/movement-planner`)
 Inputs: mobility Select (`seated|assistedStanding|independent`) + focus Select (`freezingGait|tremor|posturalInstability`) + Generate.
@@ -103,8 +104,9 @@ Renders the full `terms/master-terms.md` content from the **`terms` i18n namespa
 ## SEO
 
 - Per-page `react-helmet-async` meta (title/description/canonical/og/twitter) on Index, Team, LisbonPilot, MovementPlanner, Movements, BunnyChallenge; `index.html` carries defaults + `Organization` JSON-LD.
-- JSON-LD: `Organization`+`WebSite` (home), `WebApplication`+`FAQPage` (planner, movements), `WebPage`+`FAQPage` (bunny).
-- `public/robots.txt` → points to `https://www.freethebrains.com/sitemap.xml`; `public/sitemap.xml` with hreflang alternates.
+- JSON-LD: `Organization`+`WebSite` (home), `WebApplication`+`FAQPage` (planner, movements), `WebPage`+`FAQPage` (Lisbon pilot and bunny).
+- `public/robots.txt` → points to `https://www.freethebrains.com/sitemap.xml`; `public/sitemap.xml` lists canonical routes. Hreflang alternates are omitted because language selection currently uses browser/local storage rather than indexable language URLs.
+- Page-specific Helmet metadata is added client-side in this SPA; static social crawlers may only see the generic `index.html` metadata. Prerendering or static generation is a future SEO improvement.
 - ⚠️ `FaqJsonLd` must render as a **sibling after** the page `<Helmet>` (react-helmet-async forbids custom components inside `<Helmet>`; nesting crashes pages to ErrorBoundary).
 
 ## Config & deploy

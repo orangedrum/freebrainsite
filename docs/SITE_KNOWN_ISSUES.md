@@ -2,7 +2,7 @@
 
 > Where the site's **actual behavior deviates from apparent intent**, plus open bugs.
 > Read with `docs/SITE_FEATURES.md`. Verify before fixing — some entries may be fixed already.
-> Last verified against code: 2026-11-03.
+> Last verified against code: 2026-11-04.
 
 ## Functional bugs
 
@@ -25,13 +25,9 @@
 
 ## i18n sync gaps (rule: 4 locales in sync)
 
-8. `movements.faq.q7–q10` / `a7–a10` **missing in es, de, pt** → raw keys render in
-   FAQ accordion + FAQPage JSON-LD for those languages.
-9. `movementPlanner.resultsBodyPart4` and `resultsBodyBold3` **missing in de** → `SegmentedBody
+8. `movementPlanner.resultsBodyPart4` and `resultsBodyBold3` **missing in de** → `SegmentedBody
    parts={10}` shows raw keys in German.
-10. `ErrorBoundary` fallback strings are hard-coded English (violates the `t()` rule).
-11. `public/sitemap.xml` hreflang uses `?lang=es|de|pt` but the app **never reads a `lang` query
-    param** — sitemap language URLs and the language detector disagree.
+9. `ErrorBoundary` fallback strings are hard-coded English (violates the `t()` rule).
 
 ## Dead / unused code (do not resurrect without reason)
 
@@ -59,6 +55,10 @@
 - **Leaderboard is disabled** — "nixed leaderboard" commits; server-side RLS revoked.
 - **`FaqJsonLd` sits outside the page `<Helmet>`** — required: react-helmet-async forbids custom
   components inside `<Helmet>`; nesting crashes pages to the ErrorBoundary (fixed once already).
+- Sitemap hreflang alternates are intentionally omitted until each locale has an indexable URL;
+  language selection currently uses browser detection/local storage, not a `lang` query parameter.
+- Static social crawlers may only see the shared `index.html` metadata because page-specific
+  Helmet metadata is client-rendered. Prerendering or static generation remains future SEO work.
 - **`space-y-4` specificity trap** — keep top-fold content in its own `space-y-4` div; lower
   sections are siblings outside it with explicit `mt-[50px]` (otherwise the
   `> :not([hidden]) ~ :not([hidden])` selector overrides margins).
@@ -77,12 +77,11 @@
   also uses a hidden honeypot, same-origin checks, server-side validation, a request-size
   cap, and a per-IP rate limit (in-memory, best-effort per warm function instance). Growthstrat
   Preview returned HTML instead of API JSON; the entrypoint now exports explicit Web `GET`/`POST`
-  handlers, and the development adapter runs the same handler. Growthstrat now reaches the deployed
-  Vercel Function, which returns `email_service_unavailable` because `RESEND_API_KEY` is missing
-  from that deployment environment. The API logs this configuration error without exposing
-  credentials. P7 remains blocked until the key is configured and real email delivery is tested.
-  P8 git and deployment are user-managed.
-- **SEO Phase 1** (may be uncommitted): per-page Helmet meta, sitemap/robots, FAQ/WebApplication
-  JSON-LD.
+  handlers, and the development adapter runs the same handler. The Growthstrat Preview initially
+  failed because Node ESM could not resolve extensionless imports; explicit `.js` imports and JSON
+  import attributes fixed the function. Signup and confirmation emails were subsequently received
+  successfully (2026-11-04), completing P7. P8 git and deployment are user-managed.
+- **SEO/AEO**: per-page Helmet meta, sitemap/robots, and structured data are implemented; Lisbon
+  now has localized FAQs and `FAQPage` JSON-LD. Remaining SEO limitations are documented above.
 - ~~`jean@freethebrains.com` mailbox~~ ✅ resolved 2026-11-03 (`MAINTENANCE.md` R1 — Zoho
   MX/SPF/DKIM verified; inbound + outbound working).

@@ -193,7 +193,15 @@
       "q5": "Preciso de equipamento para esses exercícios de movimento?",
       "a5": "Nenhum equipamento é necessário. Todos os exercícios na biblioteca do FreeBrain podem ser feitos em casa apenas com seu corpo e uma cadeira ou superfície de apoio se necessário. Alguns exercícios usam movimento inspirado no tango para maior engajamento.",
       "q6": "Com que frequência devo fazer exercícios de movimento?",
-      "a6": "A prática diária é recomendada. A consistência impulsiona a neuroplasticidade mais que a intensidade, então sessões diárias pequenas superam treinos longos ocasionais. A biblioteca do FreeBrain facilita encontrar o exercício certo para o seu tempo disponível."
+      "a6": "A prática diária é recomendada. A consistência impulsiona a neuroplasticidade mais que a intensidade, então sessões diárias pequenas superam treinos longos ocasionais. A biblioteca do FreeBrain facilita encontrar o exercício certo para o seu tempo disponível.",
+      "q7": "Quais exercícios de movimento são melhores para esclerose múltipla?",
+      "a7": "Para esclerose múltipla, os exercícios de movimento mais adequados se concentram no equilíbrio, na coordenação e na mobilidade suave. A biblioteca do FreeBrain inclui exercícios sentados e em pé que podem ser adaptados à sua energia e mobilidade. Comece com sessões curtas e aumente a duração gradualmente, conforme se sentir confortável.",
+      "q8": "Os exercícios de movimento podem ajudar na recuperação de um AVC?",
+      "a8": "Sim. Os exercícios de movimento são parte importante da reabilitação após um AVC. Eles ajudam a recuperar a função motora, melhorar a coordenação e restaurar a independência. Os vídeos guiados do FreeBrain oferecem rotinas estruturadas para praticar em casa entre sessões de terapia, com opções sentado, em pé com apoio e em pé de forma independente.",
+      "q9": "O que são exercícios sentados para condições neurológicas?",
+      "a9": "São atividades de movimento feitas sentado em uma cadeira, adequadas para pessoas com mobilidade limitada ou preocupações com equilíbrio. O FreeBrain oferece rotinas sentadas com aquecimento rítmico, dança com dupla tarefa e alongamentos, adaptados para a prática sentada.",
+      "q10": "Como começo uma rotina de movimento com uma condição neurológica?",
+      "a10": "Comece selecionando sua condição e nível de mobilidade na biblioteca de movimentos do FreeBrain. Escolha uma sessão curta, de 1 a 5 minutos, adequada à sua capacidade atual. Acompanhe o vídeo guiado e repita a rotina regularmente. Consulte um profissional de saúde antes de começar uma nova rotina."
     }
   },
   "movementPlanner": {
@@ -487,8 +495,22 @@
     }
   },
   "lisbonPilot": {
+    "seoTitle": "Piloto gratuito de movimento com tango em Lisboa para instituições de cuidado | FreeBrain",
+    "seoDescription": "Workshops gratuitos semanais de tango (45 min) para instituições de cuidado de Lisboa, com supervisão da equipe. Inscrições até 30 de novembro de 2026.",
     "heroTitle": "Piloto de Lisboa",
     "heroSubtitle": "Neurosaúde, movimento e inovação em Lisboa",
+    "signUp": "Inscreva-se",
+    "faq": {
+      "title": "Perguntas frequentes sobre o piloto de Lisboa",
+      "eligibilityQuestion": "Para quem é o piloto de Lisboa?",
+      "eligibilityAnswer": "O piloto é destinado a instituições de cuidado de Lisboa que atendem pessoas com Parkinson e idosos com declínio cognitivo.",
+      "sessionsQuestion": "O que acontece durante um workshop?",
+      "sessionsAnswer": "Os workshops são sessões semanais de movimento com tango, com 45 minutos, conduzidas pela FreeBrain e supervisionadas pela equipe da instituição participante. As atividades são adaptadas à capacidade de cada participante.",
+      "treatmentQuestion": "Os workshops são tratamento médico?",
+      "treatmentAnswer": "Não. São atividades de movimento, não tratamentos médicos, e não substituem o cuidado de ninguém. A equipe da instituição continua responsável pela segurança e pelas decisões médicas.",
+      "signupQuestion": "Como uma instituição pode registrar seu interesse?",
+      "signupAnswer": "Preencha o formulário nesta página. A FreeBrain enviará por e-mail uma cópia da inscrição e os próximos passos."
+    },
     "introTitle": "Workshops gratuitos de movimento em tango para pessoas com Parkinson e idosos com declínio cognitivo",
     "introBody": "Um piloto gratuito para instituições de cuidado de Lisboa, até 30 de novembro de 2026. Suave, supervisionado pela equipe e adaptado a cada capacidade.",
     "whyTitle": "Por que isso, e por que eu",

@@ -31,7 +31,7 @@ const Index = () => {
             "name": "FreeBrain",
             "url": "https://www.freethebrains.com",
             "logo": "https://www.freethebrains.com/smoothlogo.png",
-            "description": "On-demand movement therapy for neurological conditions. Free movement plans, exercise videos, and guided routines.",
+            "description": "FreeBrain offers movement therapy, guided exercises, and personalized plans for Parkinson's, MS, stroke recovery, and other neurological conditions.",
             "sameAs": []
           })}
         </script>
@@ -41,23 +41,18 @@ const Index = () => {
             "@type": "WebSite",
             "name": "FreeBrain",
             "url": "https://www.freethebrains.com",
-            "description": "Free movement therapy for neurological conditions. Movement plans, exercise videos, and guided routines for Parkinson's, MS, stroke recovery, and more.",
-            "potentialAction": {
-              "@type": "SearchAction",
-              "target": "https://www.freethebrains.com/movements?q={search_term_string}",
-              "query-input": "required name=search_term_string"
-            }
+            "description": "FreeBrain offers movement therapy, guided exercises, and personalized plans for Parkinson's, MS, stroke recovery, and other neurological conditions."
           })}
         </script>
-        <meta name="description" content="FreeBrain is positively addicting on-demand movement therapy for your brain. Free movement plans, exercise videos, and guided routines for Parkinson's, MS, stroke recovery, and more." />
+        <meta name="description" content="FreeBrain offers movement therapy, guided exercises, and personalized plans for Parkinson's, MS, stroke recovery, and other neurological conditions." />
         <link rel="canonical" href="https://www.freethebrains.com/" />
         <meta property="og:title" content="FreeBrain — Movement Therapy for Neurological Conditions" />
-        <meta property="og:description" content="FreeBrain is positively addicting on-demand movement therapy for your brain. Free movement plans, exercise videos, and guided routines." />
+        <meta property="og:description" content="FreeBrain offers movement therapy, guided exercises, and personalized plans for Parkinson's, MS, stroke recovery, and other neurological conditions." />
         <meta property="og:url" content="https://www.freethebrains.com/" />
         <meta property="og:type" content="website" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="FreeBrain — Movement Therapy for Neurological Conditions" />
-        <meta name="twitter:description" content="Free movement plans, exercise videos, and guided routines for Parkinson's, MS, stroke recovery, and more." />
+        <meta name="twitter:description" content="FreeBrain offers movement therapy, guided exercises, and personalized plans for Parkinson's, MS, stroke recovery, and other neurological conditions." />
       </Helmet>
       <Header />
 

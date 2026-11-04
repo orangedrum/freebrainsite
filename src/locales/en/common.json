@@ -495,8 +495,22 @@
     }
   },
   "lisbonPilot": {
+    "seoTitle": "Free Lisbon Tango Movement Pilot for Care Institutions | FreeBrain",
+    "seoDescription": "Free weekly 45-minute tango workshops for Lisbon care institutions supporting people with Parkinson's and cognitive decline. Staff-supervised. Apply by 30 Nov 2026.",
     "heroTitle": "Lisbon Pilot",
     "heroSubtitle": "Neurohealth movement and Lisbon innovation",
+    "signUp": "Sign Up",
+    "faq": {
+      "title": "Lisbon Pilot FAQs",
+      "eligibilityQuestion": "Who is the Lisbon pilot for?",
+      "eligibilityAnswer": "The pilot is for Lisbon care institutions serving people with Parkinson's and older adults with cognitive decline.",
+      "sessionsQuestion": "What happens during a workshop?",
+      "sessionsAnswer": "Workshops are weekly, 45-minute tango movement sessions led by FreeBrain and supervised by the participating institution's staff. Activities are adapted to each participant's ability.",
+      "treatmentQuestion": "Are the workshops medical treatment?",
+      "treatmentAnswer": "No. They are movement activities, not medical treatment, and do not replace anyone's care. The institution's staff remain responsible for safety and medical decisions.",
+      "signupQuestion": "How can an institution register its interest?",
+      "signupAnswer": "Complete the form on this page. FreeBrain will email a copy of the submission and the next steps."
+    },
     "introTitle": "Free tango movement workshops for people with Parkinson's and elderly with cognitive decline",
     "introBody": "A free pilot for Lisbon care institutions, now through 30 November 2026. Gentle, staff-supervised and adapted to every ability.",
     "whyTitle": "Why this, and why me",

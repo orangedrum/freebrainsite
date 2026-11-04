@@ -193,7 +193,15 @@
       "q5": "Brauche ich Ausrüstung für diese Bewegungsübungen?",
       "a5": "Nein, keine Ausrüstung nötig. Alle Übungen in der FreeBrain-Bibliothek können zu Hause nur mit Ihrem Körper und einem Stuhl oder einer Stützfläche durchgeführt werden. Einige Übungen nutzen Tango-inspirierte Bewegungen für mehr Engagement.",
       "q6": "Wie oft sollte ich Bewegungsübungen machen?",
-      "a6": "Tägliche Praxis wird empfohlen. Konsistenz treibt Neuroplastizität mehr voran als Intensität, daher übertreffen kleine tägliche Sitzungen gelegentliche lange Workouts. Die FreeBrain-Bibliothek macht es einfach, die richtige Übung für Ihre verfügbare Zeit zu finden."
+      "a6": "Tägliche Praxis wird empfohlen. Konsistenz treibt Neuroplastizität mehr voran als Intensität, daher übertreffen kleine tägliche Sitzungen gelegentliche lange Workouts. Die FreeBrain-Bibliothek macht es einfach, die richtige Übung für Ihre verfügbare Zeit zu finden.",
+      "q7": "Welche Bewegungsübungen eignen sich am besten bei Multipler Sklerose?",
+      "a7": "Bei Multipler Sklerose konzentrieren sich geeignete Bewegungsübungen auf Gleichgewicht, Koordination und sanfte Mobilität. Die FreeBrain-Bibliothek umfasst Übungen im Sitzen und Stehen, die an Energie und Mobilität angepasst werden können. Beginnen Sie mit kurzen Einheiten und steigern Sie die Dauer schrittweise, soweit es sich gut anfühlt.",
+      "q8": "Können Bewegungsübungen bei der Erholung nach einem Schlaganfall helfen?",
+      "a8": "Ja. Bewegungsübungen sind ein wichtiger Bestandteil der Schlaganfall-Rehabilitation. Sie helfen, motorische Funktionen wieder aufzubauen, die Koordination zu verbessern und Selbstständigkeit zurückzugewinnen. Die geführten FreeBrain-Videos bieten strukturierte Übungen für zu Hause zwischen Therapieterminen, mit Varianten im Sitzen, mit Unterstützung und im selbstständigen Stehen.",
+      "q9": "Was sind Bewegungsübungen im Sitzen bei neurologischen Erkrankungen?",
+      "a9": "Das sind Bewegungsaktivitäten, die auf einem Stuhl sitzend ausgeführt werden und sich für Menschen mit eingeschränkter Mobilität oder Gleichgewichtsproblemen eignen. FreeBrain bietet Sitzübungen mit rhythmischem Aufwärmen, Tanz mit Doppelaufgaben und Dehnungen, die für das Üben im Sitzen angepasst sind.",
+      "q10": "Wie beginne ich mit einer Bewegungsroutine bei einer neurologischen Erkrankung?",
+      "a10": "Wählen Sie in der FreeBrain-Bewegungsbibliothek Ihre Erkrankung und Mobilitätsstufe aus. Beginnen Sie mit einer kurzen Einheit von 1 bis 5 Minuten, die zu Ihren derzeitigen Fähigkeiten passt. Folgen Sie dem Video und wiederholen Sie die Routine regelmäßig. Fragen Sie eine medizinische Fachkraft, bevor Sie mit einem neuen Trainingsprogramm beginnen."
     }
   },
   "movementPlanner": {
@@ -485,8 +493,22 @@
     }
   },
   "lisbonPilot": {
+    "seoTitle": "Kostenloses Tango-Bewegungsprogramm in Lissabon für Pflegeeinrichtungen | FreeBrain",
+    "seoDescription": "Kostenlose wöchentliche Tango-Workshops (45 Min.) für Lissabonner Pflegeeinrichtungen, mit Personalaufsicht. Anmeldung bis 30. November 2026.",
     "heroTitle": "Lissabon-Pilot",
     "heroSubtitle": "Neurogesundheit, Bewegung und Innovation in Lissabon",
+    "signUp": "Anmelden",
+    "faq": {
+      "title": "Häufige Fragen zum Lissabon-Pilot",
+      "eligibilityQuestion": "Für wen ist der Lissabon-Pilot gedacht?",
+      "eligibilityAnswer": "Der Pilot richtet sich an Lissabonner Pflegeeinrichtungen, die Menschen mit Parkinson und ältere Menschen mit kognitiven Einschränkungen betreuen.",
+      "sessionsQuestion": "Was passiert in einem Workshop?",
+      "sessionsAnswer": "Die Workshops sind wöchentliche, 45-minütige Tango-Bewegungseinheiten, die von FreeBrain geleitet und vom Personal der teilnehmenden Einrichtung beaufsichtigt werden. Die Aktivitäten werden an die Fähigkeiten der Teilnehmenden angepasst.",
+      "treatmentQuestion": "Sind die Workshops eine medizinische Behandlung?",
+      "treatmentAnswer": "Nein. Es sind Bewegungsangebote, keine medizinische Behandlung, und sie ersetzen keine Versorgung. Das Personal der Einrichtung bleibt für Sicherheit und medizinische Entscheidungen verantwortlich.",
+      "signupQuestion": "Wie kann eine Einrichtung ihr Interesse anmelden?",
+      "signupAnswer": "Füllen Sie das Formular auf dieser Seite aus. FreeBrain sendet eine Kopie der Anmeldung und die nächsten Schritte per E-Mail."
+    },
     "introTitle": "Kostenlose Tango-Bewegungsworkshops für Menschen mit Parkinson und ältere Menschen mit kognitivem Abbau",
     "introBody": "Ein kostenloser Pilot für Lissabonner Pflegeeinrichtungen, bis zum 30. November 2026. Sanft, vom Personal beaufsichtigt und an jede Fähigkeit angepasst.",
     "whyTitle": "Warum das, und warum ich",

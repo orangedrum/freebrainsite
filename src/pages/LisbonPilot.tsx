@@ -5,9 +5,20 @@ import { Footer } from "@/components/layout/Footer";
 import { SectionHeading } from "@/components/shared/SectionHeading";
 import { GridBackground } from "@/components/shared/GridBackground";
 import { VideoPlayer } from "@/components/shared/VideoPlayer";
+import { FaqAccordion } from "@/components/shared/FaqAccordion";
+import { FaqJsonLd } from "@/components/shared/FaqJsonLd";
 import { PilotSignupForm } from "@/features/pilotSignup/PilotSignupForm";
 import { isTangoSignup } from "@/features/pilotSignup/pilotSignupFormUtils";
+import { scrollToSection } from "@/lib/navigation";
+import { Button } from "@/components/ui/button";
 import { useLocation } from "react-router-dom";
+
+const LISBON_FAQ_ITEMS = [
+  { id: "eligibility", questionKey: "lisbonPilot.faq.eligibilityQuestion", answerKey: "lisbonPilot.faq.eligibilityAnswer" },
+  { id: "sessions", questionKey: "lisbonPilot.faq.sessionsQuestion", answerKey: "lisbonPilot.faq.sessionsAnswer" },
+  { id: "treatment", questionKey: "lisbonPilot.faq.treatmentQuestion", answerKey: "lisbonPilot.faq.treatmentAnswer" },
+  { id: "signup", questionKey: "lisbonPilot.faq.signupQuestion", answerKey: "lisbonPilot.faq.signupAnswer" },
+];
 
 /** Lisbon movement pilot page — FreeBrain styles, tango workshops for Parkinson's. */
 const LisbonPilot = () => {
@@ -18,17 +29,38 @@ const LisbonPilot = () => {
   return (
     <div className="flex min-h-screen flex-col bg-background font-sans">
       <Helmet>
-        <title>FreeBrain Lisbon Pilot — Join Our Movement Therapy Program | FreeBrain</title>
-        <meta name="description" content="Join the FreeBrain Lisbon Pilot program. Experience on-demand movement therapy for neurological conditions. Register your interest for workshops and community sessions." />
+        <title>{t("lisbonPilot.seoTitle")}</title>
+        <meta name="description" content={t("lisbonPilot.seoDescription")} />
         <link rel="canonical" href="https://www.freethebrains.com/lisbon-pilot" />
-        <meta property="og:title" content="FreeBrain Lisbon Pilot — Join Our Movement Therapy Program | FreeBrain" />
-        <meta property="og:description" content="Join the FreeBrain Lisbon Pilot program. Experience on-demand movement therapy for neurological conditions." />
+        <meta property="og:title" content={t("lisbonPilot.seoTitle")} />
+        <meta property="og:description" content={t("lisbonPilot.seoDescription")} />
         <meta property="og:url" content="https://www.freethebrains.com/lisbon-pilot" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://www.freethebrains.com/medworkshopimg.jpeg" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="FreeBrain Lisbon Pilot — Join Our Movement Therapy Program | FreeBrain" />
-        <meta name="twitter:description" content="Join the FreeBrain Lisbon Pilot program." />
+        <meta name="twitter:title" content={t("lisbonPilot.seoTitle")} />
+        <meta name="twitter:description" content={t("lisbonPilot.seoDescription")} />
+        <meta name="twitter:image" content="https://www.freethebrains.com/medworkshopimg.jpeg" />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            name: t("lisbonPilot.seoTitle"),
+            description: t("lisbonPilot.seoDescription"),
+            url: "https://www.freethebrains.com/lisbon-pilot",
+            primaryImageOfPage: {
+              "@type": "ImageObject",
+              url: "https://www.freethebrains.com/medworkshopimg.jpeg",
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "FreeBrain",
+              url: "https://www.freethebrains.com/",
+            },
+          })}
+        </script>
       </Helmet>
+      <FaqJsonLd items={LISBON_FAQ_ITEMS} />
       <Header />
       <main className="flex-1">
         <section className="relative overflow-hidden py-20 md:py-32 z-0">
@@ -44,7 +76,26 @@ const LisbonPilot = () => {
             <SectionHeading
               title={t("lisbonPilot.heroTitle")}
               subtitle={t("lisbonPilot.heroSubtitle")}
+              headingLevel={1}
+              className="!mb-8"
             />
+            <div className="-mt-2 text-center">
+              <Button
+                asChild
+                size="lg"
+                className="h-12 border-0 bg-primary px-8 text-primary-foreground shadow-md hover:bg-primary/90"
+              >
+                <a
+                  href="#next-step"
+                  onClick={(event) => {
+                    event.preventDefault();
+                    scrollToSection("next-step");
+                  }}
+                >
+                  {t("lisbonPilot.signUp")}
+                </a>
+              </Button>
+            </div>
           </div>
         </section>
 
@@ -53,9 +104,9 @@ const LisbonPilot = () => {
             <div className="grid gap-8 md:grid-cols-2 md:items-start">
               <div className="space-y-6 text-left">
                 <div className="space-y-2">
-                  <h1 className="text-lg font-bold tracking-tight text-foreground md:text-xl">
+                  <h2 className="text-lg font-bold tracking-tight text-foreground md:text-xl">
                     {t("lisbonPilot.introTitle")}
-                  </h1>
+                  </h2>
                   <p className="text-base md:text-lg text-muted-foreground leading-relaxed">
                     {t("lisbonPilot.introBody")}
                   </p>
@@ -168,6 +219,18 @@ const LisbonPilot = () => {
               <PilotSignupForm isTangoProgram />
             </div>
           </div>
+        </section>
+        <section className="container mx-auto max-w-4xl px-4 pb-16 md:px-6">
+          <h2 className="text-2xl font-bold tracking-tight text-foreground">
+            {t("lisbonPilot.faq.title")}
+          </h2>
+          <FaqAccordion
+            items={LISBON_FAQ_ITEMS.map(({ id, questionKey, answerKey }) => ({
+              id,
+              question: t(questionKey),
+              answer: t(answerKey),
+            }))}
+          />
         </section>
       </main>
       <Footer />
