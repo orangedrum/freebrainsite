@@ -33,7 +33,7 @@ export const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
           <Button
             asChild
             size="lg"
-            className="w-full sm:w-auto h-12 px-8 border-0 bg-background text-foreground shadow-md hover:bg-background/90"
+            className="w-full sm:w-auto h-12 px-8 border-0 bg-primary text-primary-foreground shadow-md hover:bg-primary/90"
           >
             <Link to="/bunny-challenge">{t("header.tryBunnyDemo")}</Link>
           </Button>

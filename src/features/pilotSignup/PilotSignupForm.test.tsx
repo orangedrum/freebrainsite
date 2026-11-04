@@ -100,6 +100,15 @@ describe("PilotSignupForm", () => {
     ].forEach((field) => expect(field).toBeRequired());
   });
 
+  it("accepts a valid international phone number with the browser pattern", () => {
+    renderForm();
+    const phoneInput = screen.getByLabelText("Phone number for WhatsApp or text");
+
+    expect(phoneInput).toHaveAttribute("pattern", "[+]?[0-9][0-9 ().-]*[0-9]");
+    fireEvent.change(phoneInput, { target: { value: "+351 912 345 678" } });
+    expect((phoneInput as HTMLInputElement).validity.patternMismatch).toBe(false);
+  });
+
   it("requires Terms acceptance and sends the localized consent fields", async () => {
     const fetchMock = vi.fn().mockResolvedValue(
       new Response(JSON.stringify({ status: "emails_queued" }), {
