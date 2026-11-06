@@ -24,17 +24,8 @@ const Index = () => {
     <div className="flex min-h-screen flex-col bg-background font-sans">
       <Helmet>
         <title>FreeBrain — Movement Therapy for Neurological Conditions</title>
-        <script type="application/ld+json">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "FreeBrain",
-            "url": "https://www.freethebrains.com",
-            "logo": "https://www.freethebrains.com/smoothlogo.png",
-            "description": "FreeBrain offers movement therapy, guided exercises, and personalized plans for Parkinson's, MS, stroke recovery, and other neurological conditions.",
-            "sameAs": []
-          })}
-        </script>
+        {/* Organization JSON-LD lives statically in index.html (non-JS fallback for
+            crawlers) — do not duplicate it here or crawlers see two Organizations. */}
         <script type="application/ld+json">
           {JSON.stringify({
             "@context": "https://schema.org",
@@ -50,9 +41,11 @@ const Index = () => {
         <meta property="og:description" content="FreeBrain offers movement therapy, guided exercises, and personalized plans for Parkinson's, MS, stroke recovery, and other neurological conditions." />
         <meta property="og:url" content="https://www.freethebrains.com/" />
         <meta property="og:type" content="website" />
+        <meta property="og:image" content="https://vibe.filesafe.space/1782179753705442134/assets/de6cc338-aff0-4728-a0d5-b16baa753da7.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="FreeBrain — Movement Therapy for Neurological Conditions" />
         <meta name="twitter:description" content="FreeBrain offers movement therapy, guided exercises, and personalized plans for Parkinson's, MS, stroke recovery, and other neurological conditions." />
+        <meta name="twitter:image" content="https://vibe.filesafe.space/1782179753705442134/assets/de6cc338-aff0-4728-a0d5-b16baa753da7.png" />
       </Helmet>
       <Header />
 
@@ -61,7 +54,7 @@ const Index = () => {
         <WebSummitSection />
         <ConditionsMarquee />
 
-        <section id="platform" className="relative overflow-hidden py-20 md:py-32 z-0">
+        <section id="platform" className="relative scroll-mt-24 overflow-hidden py-20 md:py-32 z-0">
           <GridBackground />
           <div className="container relative mx-auto px-4 md:px-6 z-10">
             <SectionHeading

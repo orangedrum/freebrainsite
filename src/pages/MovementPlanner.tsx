@@ -141,7 +141,7 @@ export const MovementPlanner = () => {
                   <div className="flex-1 space-y-1">
                     <p className="text-sm font-semibold uppercase tracking-wider text-foreground">{t("movementPlanner.mobilityLabel")}</p>
                     <Select value={mobility} onValueChange={(v) => setMobility(v as MovementMobility)}>
-                      <SelectTrigger className="w-full">
+                      <SelectTrigger className="w-full" aria-label={t("movementPlanner.mobilityLabel")}>
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -156,7 +156,7 @@ export const MovementPlanner = () => {
                   <div className="flex-1 space-y-1">
                     <p className="text-sm font-semibold uppercase tracking-wider text-foreground">{t("movementPlanner.focusLabel")}</p>
                     <Select value={focus || FOCUS_OPTIONS[0].value} onValueChange={setFocus}>
-                      <SelectTrigger className="w-full">
+                      <SelectTrigger className="w-full" aria-label={t("movementPlanner.focusLabel")}>
                         <SelectValue />
                       </SelectTrigger>
                       <SelectContent>
@@ -173,7 +173,7 @@ export const MovementPlanner = () => {
                   </Button>
                 </div>
                 <div className="rounded-xl bg-background/60 border border-foreground/10 p-4 md:p-6 space-y-3 min-h-[120px]">
-                  <h3 className="text-lg font-bold text-foreground">{t("movementPlanner.yourMovementPlan")}</h3>
+                  <h2 className="text-lg font-bold text-foreground">{t("movementPlanner.yourMovementPlan")}</h2>
                   {recipe ? (
                     <>
                       <MovementRecipeTable />
@@ -193,7 +193,7 @@ export const MovementPlanner = () => {
                 </div>
               </div>
               <MovementPlannerPromoCard
-                href="/movements"
+                href="/#platform"
                 description={
                   <>
                     {t("movementPlanner.pickMovementBodyPrefix")}

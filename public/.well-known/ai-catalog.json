@@ -1,0 +1,81 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "FreeBrain",
+    "identifier": "https://www.freethebrains.com",
+    "documentationUrl": "https://www.freethebrains.com/llms.txt",
+    "logoUrl": "https://www.freethebrains.com/smoothlogo.png"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:freethebrains.com:web:movement-planner",
+      "displayName": "FreeBrain Movement Planner",
+      "type": "text/html",
+      "url": "https://www.freethebrains.com/movement-planner",
+      "description": "Free personalized movement planner for neurological conditions. Choose a condition and mobility level to generate a guided 10-minute movement plan with safety tiers and research citations.",
+      "tags": ["movement-therapy", "parkinsons", "multiple-sclerosis", "stroke-recovery", "exercise"],
+      "representativeQueries": [
+        "build a movement plan for Parkinson's disease",
+        "free exercise planner for multiple sclerosis fatigue",
+        "10 minute guided movement routine after a stroke"
+      ],
+      "updatedAt": "2026-11-05T00:00:00Z",
+      "metadata": {
+        "language": "en",
+        "schemaOrgType": "WebApplication"
+      }
+    },
+    {
+      "identifier": "urn:air:freethebrains.com:web:movement-library",
+      "displayName": "FreeBrain Movement Library",
+      "type": "text/html",
+      "url": "https://www.freethebrains.com/movements",
+      "description": "Searchable library of guided movements with demonstration videos, filters for mobility level and session length, and safety tier labels.",
+      "tags": ["movement-library", "exercise-videos", "rehabilitation", "physiotherapy"],
+      "representativeQueries": [
+        "show seated exercises for limited mobility",
+        "find a 5 minute balance exercise video",
+        "what movements help with freezing of gait"
+      ],
+      "updatedAt": "2026-11-05T00:00:00Z",
+      "metadata": {
+        "language": "en",
+        "schemaOrgType": "CollectionPage"
+      }
+    },
+    {
+      "identifier": "urn:air:freethebrains.com:web:bunny-challenge",
+      "displayName": "FreeBrain Bunny Challenge",
+      "type": "text/html",
+      "url": "https://www.freethebrains.com/bunny-challenge",
+      "description": "Camera-based movement game that turns hand and arm exercises into a short daily challenge for people with neurological conditions. Includes shareable results.",
+      "tags": ["movement-game", "gamification", "hand-exercises", "daily-challenge"],
+      "representativeQueries": [
+        "play a movement game for hand exercises",
+        "gamified arm exercise challenge for Parkinson's"
+      ],
+      "updatedAt": "2026-11-05T00:00:00Z",
+      "metadata": {
+        "language": "en",
+        "schemaOrgType": "SoftwareApplication"
+      }
+    },
+    {
+      "identifier": "urn:air:freethebrains.com:web:lisbon-pilot",
+      "displayName": "FreeBrain Lisbon Research Pilot",
+      "type": "text/html",
+      "url": "https://www.freethebrains.com/lisbon-pilot",
+      "description": "Information of a movement therapy research pilot in Lisbon: who can take part, what sessions involve, and how to register interest.",
+      "tags": ["research-pilot", "clinical-study", "lisbon", "movement-therapy"],
+      "representativeQueries": [
+        "join a movement therapy study in Lisbon",
+        "clinical pilot for Parkinson's exercise in Portugal"
+      ],
+      "updatedAt": "2026-11-05T00:00:00Z",
+      "metadata": {
+        "language": "en",
+        "schemaOrgType": "Event"
+      }
+    }
+  ]
+}

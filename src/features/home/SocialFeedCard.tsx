@@ -34,9 +34,10 @@ export const SocialFeedCard = ({ feed, index }: SocialFeedCardProps) => {
           href={feed.link}
           target="_blank"
           rel="noopener noreferrer"
+          aria-label={t("socialFeeds.viewOn", { platform: platformName })}
           className="text-muted-foreground hover:text-foreground transition-colors"
         >
-          <ExternalLink className="h-4 w-4" />
+          <ExternalLink className="h-4 w-4" aria-hidden="true" />
         </a>
       </div>
 

@@ -35,7 +35,7 @@ export const Header = () => {
         className="w-full justify-start border border-foreground/20 bg-brand text-white shadow-md hover:bg-brand-hover"
         onClick={() => setMobileOpen(false)}
       >
-        <Link to="/bunny-challenge">{t("header.tryBunnyDemo")}</Link>
+        <Link to="/bunny-challenge#bunny-escape-challenge">{t("header.tryBunnyDemo")}</Link>
       </Button>
     </nav>
   );
@@ -47,6 +47,8 @@ export const Header = () => {
           <img
             src={LOGO_URL}
             alt="FreeBrain Logo"
+            width={128}
+            height={120}
             className="h-8 w-auto rounded object-cover"
           />
           <span className="text-xl font-bold text-foreground">FreeBrain</span>
@@ -72,7 +74,7 @@ export const Header = () => {
               asChild
               className="border border-foreground/20 bg-brand text-white shadow-md hover:bg-brand-hover"
             >
-              <Link to="/bunny-challenge">{t("header.tryBunnyDemo")}</Link>
+              <Link to="/bunny-challenge#bunny-escape-challenge">{t("header.tryBunnyDemo")}</Link>
             </Button>
           </nav>
 

@@ -74,9 +74,9 @@ export const TeamStatsSection = () => {
 
         <div className="flex items-center justify-center gap-3 mt-12">
           <Star className="h-2 w-2 text-foreground" fill="currentColor" aria-hidden="true" />
-          <h3 className="text-[9px] font-normal uppercase tracking-[0.35em] text-foreground">
+          <h2 className="text-[9px] font-normal uppercase tracking-[0.35em] text-foreground">
             {t("team.clients.title")}
-          </h3>
+          </h2>
           <Star className="h-2 w-2 text-foreground" fill="currentColor" aria-hidden="true" />
         </div>
         <div className="flex flex-wrap items-center justify-center gap-6 mt-6 md:gap-8">

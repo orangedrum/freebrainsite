@@ -17,10 +17,9 @@ import {
 import type { Condition, EvidenceItem, NeuralNode, SocialFeed } from "@/types";
 import { TikTokIcon } from "@/components/shared/TikTokIcon";
 
-export const LOGO_URL = "/smoothbluebkgrnd_nobkgrnd.png";
+export const LOGO_URL = "/logo-freethebrains.png";
 
-export const FIREFLY_LOGO_URL =
-  "https://vibe.filesafe.space/1782179753705442134/attachments/3bb178ac-ff68-42c2-a782-b105f1b839bb.gif";
+export const FIREFLY_LOGO_URL = "/firefly-innovations.png";
 
 export const NEURAL_BACKGROUND_URL =
   "https://vibe.filesafe.space/1782179753705442134/assets/8a3f72d6-636c-40a8-94d5-9470a16637b8.png";

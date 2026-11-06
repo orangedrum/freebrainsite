@@ -18,7 +18,7 @@ export const Footer = () => {
       <div className="container mx-auto px-4 md:px-6 py-12 grid gap-10 md:grid-cols-4">
         <div className="md:col-span-2 space-y-4">
           <Link to="/" className="flex items-center gap-2" aria-label="FreeBrain home">
-            <img src={LOGO_URL} alt="FreeBrain Logo" className="h-8 w-auto object-contain" />
+            <img src={LOGO_URL} alt="FreeBrain Logo" width={128} height={120} className="h-8 w-auto object-contain" />
             <span className="text-lg font-bold text-foreground">FreeBrain</span>
           </Link>
           <p className="text-sm text-muted-foreground max-w-sm">{t("footer.tagline")}</p>
@@ -29,6 +29,9 @@ export const Footer = () => {
             <img
               src={FIREFLY_LOGO_URL}
               alt="Firefly Innovations"
+              width={400}
+              height={125}
+              loading="lazy"
               className="h-8 w-auto object-contain rounded opacity-75"
             />
           </div>
@@ -46,6 +49,8 @@ export const Footer = () => {
               <img
                 src="/Web-Summit-Lisbon-9-12-2026-logo-coloured-768x137.png"
                 alt="Web Summit Lisbon 2026"
+                width={768}
+                height={137}
                 loading="lazy"
                 className="h-8 w-auto object-contain"
               />

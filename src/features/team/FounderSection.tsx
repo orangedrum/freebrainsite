@@ -25,9 +25,9 @@ export const FounderSection = () => {
 
       <div className="flex flex-col justify-center gap-6 bg-secondary p-8 md:p-16">
         <div className="space-y-2">
-          <h1 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
+          <h2 className="text-4xl font-bold tracking-tight text-foreground md:text-5xl">
             {t("team.founder.name")}
-          </h1>
+          </h2>
           <p className="text-base font-medium italic text-brand-pink md:text-lg">
             {t("team.founder.role")}
           </p>

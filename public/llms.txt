@@ -1,0 +1,21 @@
+# FreeBrain
+
+> FreeBrain is a non-profit movement therapy platform for people living with neurological conditions. All tools are free to use.
+
+FreeBrain offers free, research-backed movement therapy tools: a personalized movement planner, a library of guided movements, and playful movement challenges. Content is written for patients, caregivers and clinicians, and is grounded in published research on exercise and neuroplasticity.
+
+We do not provide medical diagnosis or treatment. Always consult a qualified clinician before starting a new exercise program.
+
+## Key pages
+
+- [Movement Planner](https://www.freethebrains.com/movement-planner): Build a personalized 10-minute movement plan for Parkinson's disease, MS, stroke recovery and other neurological conditions.
+- [Movement Library](https://www.freethebrains.com/movements): Browse guided movements with videos, safety tiers and filters for mobility level and time available.
+- [Lisbon Pilot](https://www.freethebrains.com/lisbon-pilot): A research pilot running in Lisbon — eligibility, what participants do, and how to sign up.
+- [Bunny Challenge](https://www.freethebrains.com/bunny-challenge): A camera-based movement game that turns hand and arm exercises into a short daily challenge.
+- [Team](https://www.freethebrains.com/team): Founders, advisors and partners behind FreeBrain.
+- [Terms & Services](https://www.freethebrains.com/terms): Terms of service, privacy and medical disclaimer.
+
+## Optional
+
+- [Sitemap](https://www.freethebrains.com/sitemap.xml): Full list of indexable pages.
+- [ARD catalog](https://www.freethebrains.com/.well-known/ard.json): Machine-readable catalog of FreeBrain resources for AI agents.

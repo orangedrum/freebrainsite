@@ -37,18 +37,18 @@ export const BunnyChallengeIntro = ({
           <Heart className="absolute bottom-4 right-4 h-6 w-6 fill-brand-accent/20 text-brand-accent" aria-hidden="true" />
         </>
       )}
-      <h3 className="text-3xl font-bold text-foreground md:text-4xl">
+      <h2 className="text-3xl font-bold text-foreground md:text-4xl">
         {t("bunnyChallenge.prepareTitle")}
-      </h3>
+      </h2>
 
       <div className="mt-7 space-y-5 text-left">
         <section className="rounded-xl bg-secondary/60 p-4 sm:p-5">
           <div className="flex items-center justify-center gap-3 sm:gap-5">
             <Hand className="h-8 w-8 shrink-0 -scale-x-100 text-primary sm:h-10 sm:w-10" aria-hidden="true" />
             <div className="max-w-md space-y-2 text-center">
-              <h4 className="text-lg font-bold text-foreground sm:text-xl">
+              <h3 className="text-lg font-bold text-foreground sm:text-xl">
                 {t("bunnyChallenge.handsStepTitle")}
-              </h4>
+              </h3>
               <p className="text-sm text-foreground/90 sm:text-base">
                 <span className="sm:hidden">{t("bunnyChallenge.mobileSetup")}</span>
                 <span className="hidden sm:inline">{t("bunnyChallenge.desktopSetup")}</span>
@@ -65,9 +65,9 @@ export const BunnyChallengeIntro = ({
               : "border-foreground/10 bg-background/60"
           }`}
         >
-          <h4 className="text-lg font-bold text-foreground sm:text-xl">
+          <h3 className="text-lg font-bold text-foreground sm:text-xl">
             {t("bunnyChallenge.recordStepTitle")}
-          </h4>
+          </h3>
           <p className="mt-2 text-sm text-foreground/90 sm:text-base">
             {t("bunnyChallenge.recordStepBody")}
           </p>
@@ -92,9 +92,9 @@ export const BunnyChallengeIntro = ({
         </section>
 
         <section className="rounded-xl bg-secondary/60 p-4 text-center sm:p-5">
-          <h4 className="text-lg font-bold text-foreground sm:text-xl">
+          <h3 className="text-lg font-bold text-foreground sm:text-xl">
             {t("bunnyChallenge.beginStepTitle")}
-          </h4>
+          </h3>
           <Button
             type="button"
             onClick={onGo}

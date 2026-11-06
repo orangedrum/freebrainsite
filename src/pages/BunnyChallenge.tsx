@@ -102,7 +102,7 @@ const BunnyChallenge = () => {
 
             <ResearchCitation />
 
-            <header className="space-y-2">
+            <header id="bunny-escape-challenge" className="scroll-mt-24 space-y-2">
               <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
                 {t("bunnyChallenge.title")}
               </h1>
@@ -140,7 +140,7 @@ const BunnyChallenge = () => {
             </section>
 
             <MovementPlannerPromoCard
-              href="/movements"
+              href="/#platform"
               description={t("bunnyChallenge.pickMovementBody")}
             />
 

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
+import fixWebmDuration from "fix-webm-duration";
 import {
   drawBunnyChallengeVideoFrame,
   type BunnyChallengeRecordingScene,
@@ -13,6 +14,7 @@ import {
   type RecordingError,
   type RecordingStatus,
 } from "./recordingHelpers";
+import { LOGO_URL } from "@/lib/constants";
 
 export const useBunnyChallengeRecording = (
   scene: BunnyChallengeRecordingScene,
@@ -39,6 +41,7 @@ export const useBunnyChallengeRecording = (
   const cameraStreamRef = useRef<MediaStream | null>(null);
   const canvasStreamRef = useRef<MediaStream | null>(null);
   const animationFrameRef = useRef<number | null>(null);
+  const recordingStartedAtRef = useRef<number | null>(null);
   const videoUrlRef = useRef<string | null>(null);
   const posterUrlRef = useRef<string | null>(null);
   const hasRecordingErrorRef = useRef(false);
@@ -71,6 +74,11 @@ export const useBunnyChallengeRecording = (
 
   const startRecording = useCallback(async (): Promise<boolean> => {
     if (isStartingRef.current) return false;
+    // A second start (double tap) would orphan the running recorder and
+    // interleave its chunks into the next recording.
+    if (recorderRef.current) {
+      return true;
+    }
     isStartingRef.current = true;
     setStatus("requesting");
     setError(null);
@@ -118,7 +126,7 @@ export const useBunnyChallengeRecording = (
       const [bunnyImage, gunImage, logoImage] = await Promise.all([
         loadRecordingImage("/handgesture_bunny.svg"),
         loadRecordingImage("/handgesture_gun.svg"),
-        loadRecordingImage("/smoothbluebkgrnd_nobkgrnd.png"),
+        loadRecordingImage(LOGO_URL),
       ]);
       if (!isMountedRef.current) {
         releaseStreams();
@@ -165,6 +173,11 @@ export const useBunnyChallengeRecording = (
       };
       recorder.onstop = (): void => {
         const chunks = chunksRef.current;
+        const recordedMimeType = recorder.mimeType;
+        const durationMs = recordingStartedAtRef.current
+          ? performance.now() - recordingStartedAtRef.current
+          : 0;
+        recordingStartedAtRef.current = null;
         chunksRef.current = [];
         recorderRef.current = null;
         releaseStreams();
@@ -176,18 +189,35 @@ export const useBunnyChallengeRecording = (
           return;
         }
 
-        const videoBlob = new Blob(chunks, { type: recorder.mimeType });
-        if (!videoBlob.size) {
-          setError("recordingInterrupted");
-          setStatus("error");
-          return;
-        }
-        const previewUrl = URL.createObjectURL(videoBlob);
-        videoUrlRef.current = previewUrl;
-        setVideoBlob(videoBlob);
-        setVideoUrl(previewUrl);
-        setMimeType(recorder.mimeType);
-        setStatus("ready");
+        void (async (): Promise<void> => {
+          let videoBlob = new Blob(chunks, { type: recordedMimeType });
+
+          // MediaRecorder writes WebM files without a Duration element, so
+          // phone players report/play only a few seconds of a longer take.
+          // Patch the duration in before the blob is handed out.
+          if (durationMs > 0 && recordedMimeType?.includes("webm")) {
+            try {
+              videoBlob = await fixWebmDuration(videoBlob, durationMs, {
+                logger: false,
+              });
+            } catch {
+              // Keep the unfixed blob rather than losing the recording.
+            }
+          }
+
+          if (!isMountedRef.current) return;
+          if (!videoBlob.size) {
+            setError("recordingInterrupted");
+            setStatus("error");
+            return;
+          }
+          const previewUrl = URL.createObjectURL(videoBlob);
+          videoUrlRef.current = previewUrl;
+          setVideoBlob(videoBlob);
+          setVideoUrl(previewUrl);
+          setMimeType(recordedMimeType);
+          setStatus("ready");
+        })();
       };
 
       cameraStream.getVideoTracks().forEach((track) => {
@@ -202,6 +232,7 @@ export const useBunnyChallengeRecording = (
       });
 
       chunksRef.current = [];
+      recordingStartedAtRef.current = performance.now();
       recorder.start(1000);
       setMimeType(recorder.mimeType);
       setStatus("recording");
@@ -247,6 +278,8 @@ export const useBunnyChallengeRecording = (
         animationFrameRef.current = null;
       }
       setStatus("processing");
+      // Flush anything buffered in the current timeslice before stopping.
+      if (recorder.state === "recording") recorder.requestData();
       recorder.stop();
       return;
     }

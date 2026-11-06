@@ -139,7 +139,7 @@ export const Movements = () => {
                   <div className="flex-1 space-y-1">
                     <p className="text-sm font-semibold uppercase tracking-wider text-foreground">{t("movementPlanner.mobilityLabel")}</p>
                     <Select value={mobility} onValueChange={(v) => setMobility(v as MovementMobility)}>
-                      <SelectTrigger className="w-full"><SelectValue /></SelectTrigger>
+                      <SelectTrigger className="w-full" aria-label={t("movementPlanner.mobilityLabel")}><SelectValue /></SelectTrigger>
                       <SelectContent>
                         {MOBILITY_OPTIONS.map((o) => (
                           <SelectItem key={o.value} value={o.value}>{t(o.key)}</SelectItem>
@@ -156,7 +156,7 @@ export const Movements = () => {
                   </button>
                 </div>
                 <div className="rounded-xl bg-background/60 border border-foreground/10 p-4 md:p-6 space-y-3 min-h-[120px]">
-                  <h3 className="text-lg font-bold text-foreground">{t("movements.yourMovementLibrary")}</h3>
+                  <h2 className="text-lg font-bold text-foreground">{t("movements.yourMovementLibrary")}</h2>
                   {showResults ? (
                     results.length > 0 ? (
                       <div className="flex flex-col gap-4">
@@ -215,7 +215,7 @@ export const Movements = () => {
             </div>
             <div className="mt-[50px]">
               <MovementPlannerPromoCard
-                href="/movement-planner"
+                href="/#platform"
                 description={
                   <>
                     {t("movementPlanner.pickMovementBodyPrefix")}

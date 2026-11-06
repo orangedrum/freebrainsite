@@ -22,9 +22,17 @@ export const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
         <div className="inline-flex items-center rounded-full border border-foreground bg-foreground/5 px-3 py-1 text-sm font-medium mb-8 text-foreground">
           {t("hero.presentedBy")}
         </div>
+        {/* Single, keyword-bearing H1. The second line is part of the H1 so search
+            engines and AI crawlers see "movement therapy" + condition keywords in
+            the page's primary heading, not just the brand phrase. */}
         <h1 className="mx-auto max-w-4xl text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl text-foreground">
-          {t("hero.headlinePre")}{" "}
-          <span className="text-brand-pink">{t("hero.headlineHighlight")}</span>
+          <span className="block">
+            {t("hero.headlinePre")}{" "}
+            <span className="text-brand-pink">{t("hero.headlineHighlight")}</span>
+          </span>
+          <span className="mt-4 block text-lg font-semibold text-muted-foreground sm:text-xl md:text-2xl">
+            {t("hero.headlineDescriptor")}
+          </span>
         </h1>
         <p className="mx-auto mt-6 max-w-2xl text-lg text-muted-foreground md:text-xl">
           {t("hero.subheadline")}
@@ -35,7 +43,7 @@ export const HeroSection = ({ onOpenModal }: HeroSectionProps) => {
             size="lg"
             className="w-full sm:w-auto h-12 px-8 border-0 bg-primary text-primary-foreground shadow-md hover:bg-primary/90"
           >
-            <Link to="/bunny-challenge">{t("header.tryBunnyDemo")}</Link>
+            <Link to="/bunny-challenge#bunny-escape-challenge">{t("header.tryBunnyDemo")}</Link>
           </Button>
           <Button
             size="lg"

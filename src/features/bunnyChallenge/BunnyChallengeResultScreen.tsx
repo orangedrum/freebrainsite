@@ -36,9 +36,9 @@ export const BunnyChallengeResultScreen = ({
         <p className="mt-1 text-4xl font-bold tabular-nums text-foreground">
           {formatChallengeElapsedTime(elapsedMs)}
         </p>
-        <h3 className="mt-5 text-2xl font-bold text-foreground md:text-3xl">
+        <h2 className="mt-5 text-2xl font-bold text-foreground md:text-3xl">
           {t("bunnyChallenge.resultTitle")}
-        </h3>
+        </h2>
         <p className="mt-3 text-foreground/90">{t("bunnyChallenge.resultSubtitle")}</p>
         <p className="mt-4 font-semibold text-foreground">
           {t("bunnyChallenge.resultSharePrompt")}

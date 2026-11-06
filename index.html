@@ -3,11 +3,27 @@
   <head>
     <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="8f79719b-4d68-4b77-8204-2743d6d6f674" data-blockingmode="auto" type="text/javascript"></script>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/smoothbluebkgrnd.png" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <!-- Preconnect to the consent provider: its script is render-blocking, so the
+         TLS handshake should not wait until the HTML has been parsed. -->
+    <link rel="preconnect" href="https://consent.cookiebot.com" crossorigin />
+    <link rel="preconnect" href="https://consentcdn.cookiebot.com" crossorigin />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="canonical" href="https://www.freethebrains.com/" />
+    <!-- Agentic Resource Discovery: lets AI agents/registries find our catalog.
+         "ard" is the current ARD link relation; "ai-catalog" is the predecessor
+         relation still used by some consumers (e.g. Lighthouse). -->
+    <link rel="ard" href="/.well-known/ard.json" />
+    <link rel="ai-catalog" href="/.well-known/ai-catalog.json" />
     <title>FreeBrain — Movement Therapy for Neurological Conditions</title>
-    <meta name="description" content="FreeBrain offers movement therapy, guided exercises, and personalized plans for Parkinson's, MS, stroke recovery, and other neurological conditions." />
+    <!--
+      NOTE: <link rel="canonical"> and <meta name="description"> are intentionally
+      NOT in this file. Every route renders exactly one of each through
+      react-helmet-async (src/pages/*.tsx). Static copies here caused
+      "2 instances of meta description" and conflicting canonicals
+      (https://www.freethebrains.com/ vs /movement-planner), which made Bing
+      treat every page as an alternate of the homepage.
+      og/twitter tags stay here as the non-JS fallback for link previews.
+    -->
     <meta property="og:title" content="FreeBrain — Movement Therapy for Neurological Conditions" />
     <meta property="og:description" content="FreeBrain offers movement therapy, guided exercises, and personalized plans for Parkinson's, MS, stroke recovery, and other neurological conditions." />
     <meta property="og:type" content="website" />
@@ -31,7 +47,21 @@
   </head>
 
   <body>
-    <div id="root"></div>
+    <!--
+      Static H1: present in the page source for crawlers and AI agents that do not
+      execute JavaScript (Bing's SEO analyzer, social/AI scrapers) and for first paint.
+      React 18's createRoot() clears #root's children on mount, so exactly one H1
+      exists in the live DOM — the localized one rendered by src/features/home/HeroSection.tsx.
+      Keep this text identical to that H1.
+    -->
+    <div id="root">
+      <h1 class="mx-auto max-w-4xl px-4 pb-12 pt-24 text-center text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-7xl">
+        <span class="block">Free The <span class="text-brand-pink">Brains</span></span>
+        <span class="mt-4 block text-lg font-semibold text-muted-foreground sm:text-xl md:text-2xl">
+          Movement Therapy for Neurological Conditions
+        </span>
+      </h1>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

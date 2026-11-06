@@ -112,9 +112,9 @@ const LisbonPilot = () => {
                   </p>
                 </div>
                 <div className="space-y-2">
-                  <h4 className="text-lg font-bold tracking-tight text-foreground md:text-xl">
+                  <h3 className="text-lg font-bold tracking-tight text-foreground md:text-xl">
                     {t("lisbonPilot.whyTitle")}
-                  </h4>
+                  </h3>
                   <p className="text-base text-muted-foreground leading-relaxed">
                     {t("lisbonPilot.whyBody")}
                   </p>
