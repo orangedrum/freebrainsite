@@ -10,6 +10,7 @@ import { ScrollToTop } from "@/components/shared/ScrollToTop";
 // Every route is code-split so crawlers and first-time visitors only download
 // what they need; App-level providers stay in the main bundle.
 const Index = lazy(() => import("./pages/Index"));
+const About = lazy(() => import("./pages/About"));
 const Team = lazy(() => import("./pages/Team"));
 const LisbonPilot = lazy(() => import("./pages/LisbonPilot"));
 const MovementPlanner = lazy(() => import("./pages/MovementPlanner"));
@@ -40,6 +41,7 @@ const App = () => (
         <Suspense fallback={<RouteFallback />}>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
             <Route path="/team" element={<Team />} />
             <Route path="/teams" element={<Navigate to="/team" replace />} />
             <Route path="/lisbon-pilot" element={<LisbonPilot />} />

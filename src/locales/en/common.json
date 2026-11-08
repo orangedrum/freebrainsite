@@ -2,6 +2,7 @@
   "header": {
     "joinCommunity": "Join Community",
     "getInvolved": "Get Involved",
+    "about": "About",
     "team": "Team",
     "movementPlanner": "Movement Planner",
     "sampleExercises": "Exercise Finder",
@@ -39,8 +40,8 @@
     "ready": "Get ready to copy both poses together.",
     "countdown": "Get ready: {{count}}",
     "resultTitle": "Impressive Brain Power!",
-    "resultSubtitle": "Many people live with neurological conditions. Explore movement therapy resources with FreeBrain.",
-    "resultSharePrompt": "Share this video to spread the word about FreeBrain and help more people find us!",
+    "resultSubtitle": "43% of the world's population live with a neurological condition that would benefit from regular movement therapy like this.",
+    "resultSharePrompt": "Share this video to spread the word about FreeBrain!",
     "shareCaptionLabel": "Challenge link and caption",
     "shareOpen": "Share & challenge friends",
     "shareModalTitle": "Share your challenge",
@@ -61,6 +62,7 @@
     "stop": "STOP",
     "showResult": "See my result",
     "playAgain": "Play again",
+    "whatIsFreeBrain": "What's FreeBrain?",
     "selfReportedReminder": "Your time is self-reported. The game does not watch or score your movements.",
     "factsTitle": "Movement facts with the cue",
     "howToTitle": "How the challenge works",
@@ -480,10 +482,126 @@
       }
     }
   },
+  "announcementBanner": {
+    "phrase": "One month in Lisbon and already working with",
+    "modalTitle": "Our first month in Lisbon",
+    "modalDescription": "Since landing in Lisbon last month, FreeBrain is already working with two local partners.",
+    "tabSantaCasa": "Santa Casa",
+    "tabCentro": "Centro de Fisioterapia",
+    "storyCta": "Stoked to be working with Santa Casa"
+  },
+  "about": {
+    "title": "About FreeBrain: From Focal Dystonia to Movement Therapy",
+    "description": "FreeBrain's story: a Disney drummer's Focal Dystonia diagnosis, tango as medicine, and how to keep a parent with Parkinson's active at home.",
+    "personJobTitle": "Founder & Innovation Designer",
+    "personDescription": "Founder of FreeBrain. Former professional percussionist at Disney's Animal Kingdom, diagnosed with Focal Dystonia that progressed to Generalized Dystonia, who found movement therapy through dance and now designs tools for movement therapy for neurological conditions.",
+    "tabs": {
+      "what": "What is FreeBrain",
+      "story": "Our Story"
+    },
+    "announcement": {
+      "centro": {
+        "pill": "Partnership announcement",
+        "title": "Centro de Fisioterapia de Lisboa becomes FreeBrain's first clinic in Lisbon",
+        "body1": "We're proud to announce our first clinical partnership. Centro de Fisioterapia de Lisboa, led by their Gerente Gabriela Fonseca, will be the first clinic in Lisbon to adopt FreeBrain into their practice.",
+        "body2": "Together we'll carry guided movement therapy from the clinic floor into everyday life — so patients keep moving between appointments, and clinicians can track their progress, consistency and cognitive improvement over time.",
+        "visitLabel": "Visit centrofisioterapialisboa.pt",
+        "cta": "Learn more about the Lisbon Pilot"
+      },
+      "santaCasa": {
+        "pill": "Community announcement",
+        "title": "Jean is personally volunteering with Santa Casa, giving tango therapy workshops in Lisbon",
+        "body1": "FreeBrain's founder Jean Kaluza is giving her time to Santa Casa, leading tango therapy workshops: short, musical, social sessions that put the same evidence behind FreeBrain into practice.",
+        "body2": "Movement therapy the way it should feel — joyful, rhythmic and repeatable, one workshop at a time.",
+        "sampleTitle": "Inside a Lisbon tango therapy workshop",
+        "sampleCaption": "A one-minute sample from one of Jean's workshops.",
+        "cta": "Learn more about the Lisbon Pilot"
+      }
+    },
+    "story": {
+      "heroLead": "It all started with a pair of drumsticks.",
+      "heroBody": "FreeBrain's founder, Jean, played drums anywhere from 6–16 hours a day, granting amazing opportunities and experiences, ultimately landing a professional percussion role at Disney's Animal Kingdom by age 19.",
+      "heroPara1": "Unfortunately what they don't tell you about hard work and dedication is that sometimes it can break your brain.",
+      "heroPara2": "Such repetitive movement of playing drums caused misfirings in what's known as the basal ganglia in the brain, an area that controls body movement, ultimately rendering her unable to play and diagnosed with Focal Dystonia.",
+      "heroPara3": "She promptly lost her dream job in short order and had to reinvent herself.",
+      "altSnare": "Jean marching in a drumline playing snare drum",
+      "altDystonia": "Black and white portrait of Jean after her Focal Dystonia diagnosis",
+      "chapterOneTitle": "How a Dystonia Diagnosis Led to Solving Problems Through Technology",
+      "disneyPara1": "Having always loved solving problems, she studied User Experience, Design Thinking, and human-centered design, ultimately landing a job again at Disney, this time as an Innovation & Experience Designer.",
+      "disneyPara2": "She picked up dancing Salsa & Argentine Tango to express her rhythm now through dance.",
+      "altDisney": "Jean smiling in front of the castle at Walt Disney World",
+      "progressPara1": "Though her time at Disney ended happily, her symptoms had progressed.",
+      "progressPara2": "Dystonia is a progressive, incurable disorder and had gone from Focal Dystonia to Generalized Dystonia.",
+      "progressPara3": "Her neurologists gave her 6 months left of voluntary movement before the right side of her body would be completely incapacitated.",
+      "rehabCaption": "Jean moving through a rehabilitation exercise after her diagnosis",
+      "chapterTwoTitle": "Accidentally Finding Medicine Through Movement Therapy",
+      "buenosPara": "With this news, Jean quit Disney, deciding to spend the last of her movement dancing in Buenos Aires. She danced 6–16 hours a day.",
+      "tangoCaption": "Jean dancing Argentine Tango in Buenos Aires",
+      "neurologistIntro": "9 months later, a dancing partner politely noted she had no symptoms. He brought her to a bar to meet his first tango dance partner, now a neurologist, who heard her story, slammed down her beer and said:",
+      "quote": "“Yea. That makes total sense. We use Tango to treat Parkinson's Disease every day. You found your medicine.”",
+      "quoteBy": "— the neurologist, Buenos Aires",
+      "hardlyPara": "Hardly anyone has the ability to stop their life and dance 6–16 hours a day.",
+      "missionPara": "The mission of FreeBrain is to offer the next best thing to everyone from anywhere. Jean is capitalizing on all her experiences and deep knowledge in human behavior to design a technology that motivates anyone to build habits around their own favorite movemens, and get as addicted to it as she has."
+    },
+    "what": {
+      "reachTitle": "Why Movement Therapy Matters for 43% of the World's Population",
+      "reachPara1": "Roughly 43% of the world's population struggles with a neurological disorder that could benefit from regular movement.",
+      "reachPara2": "FreeBrain will take human behavior and design technology around it to build habits they can stick to for the best movement benefits.",
+      "reachPara3": "Because you don't need a PhD to move! Pills manage symptoms — movement rewires the brain. FreeBrain makes people the best medicine.",
+      "appTitle": "FreeBrain: The app designed to help people with neurological conditions move more",
+      "forPublicTitle": "For The Public",
+      "forPublicBody1": "It's hard enough for the rest of us to exercise regularly, but for people with neurological conditions, it can be even more difficult. FreeBrain is designed to help people with Parkinson's, MS, stroke recovery, and other neurological conditions move more and improve their quality of life. Through human behavioral science, we trigger habit forming behaviors through existing lifestyles, patterns, and human support systems. We connect family and friends to be the initiators of movement, and we make it fun and social. Picture a parent with Parkinson's learning the new TikTok dance with their grandchild, or someone with cerebral palsy in Argentina challenging someone with Parkinson's in Lisbon to see who can",
+      "forPublicLink": "shoot the bunny the longest",
+      "forPublicBody2": ". FreeBrain is designed to make movement therapy accessible and enjoyably addictive for everyone.",
+      "forNursingTitle": "For Nursing Homes, Elderly Care, and Civic Centers",
+      "forNursingBody": "The FreeBrain App is actually designed for the faculty to build movement exercises and games directly into day-to-day care at clinics. Elderly care and civic centers follow video guided prompts to offer supplement movement therapy to their residents and patrons. We provide a library of exercises and routines that can be tailored to each patient's needs. We also gamify the experience for the faculty to encourage game play and movement be adopted without additional training. Finally, for the administration, we track their progress, consistency, and cognitive improvment over time. Clinicians can use FreeBrain to monitor their patients' adherence to their exercise plans and provide feedback and support as needed. By making movement therapy more accessible and engaging, FreeBrain aims to democratize movement therapy, providing the affordable access to neurohealth program to any elderly care or senior center facility.",
+      "forTrainersTitle": "For Trainers, Coaches, Chiropractors, Physical Therapists, and Neurologists",
+      "forTrainersBody": "Consistency is key when it comes to movement therapy for people with neurological conditions. FreeBrain provides the tools and resources needed for patients to stick to prescribed routines, offering a more comprehensive approach for clinicians through means of at-home practice. Freebrain not only offers a comprehensive platform for healthcare professionals to prescribe and monitor movement therapy for their patients, but also the ability to record and offer their own specified exercises and movements. FreeBrain allows clinicians the option of broadening their audiences while by offering their content to the broader FreeBrain audience, thus generating multiple revenue streams. Finally, FreeBrain generates insights from patient data to help healthcare professionals make informed decisions about their patients' care and improve treatment outcomes. By leveraging technology and human behavioral science, FreeBrain is revolutionizing the way movement therapy is delivered and experienced, making it more effective, engaging, and accessible for everyone.",
+      "altGrandmaTiktok": "Grandchild and grandmother filming a TikTok dance together",
+      "altNursingStaff": "Nursing home staff leading residents in a guided movement session",
+      "exerciseTitle": "Exercise as Medicine: Research on Movement and Neurological Conditions",
+      "exercisePara1": "The studies keep stacking up. A network meta-analysis published in The BMJ in 2024 found that regular exercise eased depression as much as antidepressant medication — and depression too often travels alongside a neurological diagnosis. It shifts the family conversation from whether movement helps to how to help a parent with Parkinson's exercise safely: short sessions, matched to their mobility, repeated at home.",
+      "exercisePara2": "For Parkinson's specifically, the Argentine tango research pooled in BMC Neurology in 2015 showed consistent gains in balance, walking and freezing of gait — the everyday skills that decide whether a parent can move around the house on their own. Tango is rhythmic, social and led by music, which is why dance works so well at home: short, joyful routines a parent will actually repeat, and exactly what FreeBrain is building.",
+      "caregiverTitle": "How to Keep a Parkinson's Patient Active at Home",
+      "caregiverPara1": "Not a dance fan? There are just as many benefits from boxing, martial arts, exercise, hand challenges, neuroplasticity games — the list is growing!",
+      "caregiverPara2": "And the best part? Technology will connect the family and friends around the patient to be the initiators of the movement.",
+      "caregiverPara3": "So you can box with your caretaker, learn the new TikTok dance with grandma, or someone with cerebral palsy in Argentina can challenge someone with Parkinson's in Lisbon to see who can shoot the bunny the longest.",
+      "captions": {
+        "early": "Movement starts early",
+        "grandma": "Learn the new TikTok dance with grandma",
+        "boxing": "Box with your caretaker",
+        "challenge": "Challenge anyone, anywhere"
+      },
+      "faqTitle": "Movement Therapy for Neurological Conditions: FAQs",
+      "faq": {
+        "q1": "Can movement therapy help neurological conditions?",
+        "q1a1": "Roughly 43% of the world's population lives with a neurological disorder that could benefit from regular movement. A network meta-analysis in",
+        "q1link": "The BMJ",
+        "q1a2": "found exercise as effective as antidepressants for depression, and a meta-analysis of Argentine tango found benefits for balance and gait in Parkinson's disease. Movement works alongside medication — it does not replace it.",
+        "q2": "Can tango or dance help a parent with Parkinson's at home?",
+        "q2a1": "Argentine tango has been studied as an intervention for balance, gait and freezing of gait in Parkinson's disease, and it can be practised at home in short sessions.",
+        "q2link": "FreeBrain's free Movement Planner",
+        "q2a2": "turns that evidence into a 10-minute home routine: rhythmic warm-up, dual-task dance demo, chest-opening stretch.",
+        "q3": "How can I help a parent with Parkinson's exercise safely?",
+        "q3a1": "Start with the pre-flight safety check in the",
+        "q3link1": "Movement Planner",
+        "q3a2": ", pick the mobility level that matches them —",
+        "q3link2": "seated, standing with support, or independent standing",
+        "q3a3": "— and clear any new routine with their provider. FreeBrain's tools are movement education, not medical advice.",
+        "q4": "How do I keep a Parkinson's patient active at home?",
+        "q4a1": "Make it short, social and repeatable: family and friends initiate the movement. Box with a caretaker, learn a new dance with grandma, or run the",
+        "q4link1": "Bunny Escape Challenge",
+        "q4a2": "as a daily hand-coordination game. FreeBrain's",
+        "q4link2": "movement library",
+        "q4a3": "is built to be done at home in minutes."
+      }
+    }
+  },
   "websummit": {
     "pill": "Web Summit · Lisbon",
     "title": "Seeking Institution Partnerships for Web Summit 2026",
     "dates": "November 9–12, 2026 · MEO Arena, Lisbon",
+    "booth": "FreeBrain Booth | Nov 11: ALPHA 8, Pavilion 4, Booth A8-34",
     "description": "We're offering free movement therapy sessions to partner with us for our Lisbon pilot to share positively addicting movement therapy the world's biggest tech stage. Learn more about being part of our pilot!",
     "cta": "See us at Web Summit",
     "lisbonCta": "Learn about Lisbon Pilot",
@@ -654,7 +772,8 @@
     "resourceCenter": "Resource Center",
     "soon": "Soon",
     "backToTop": "Back to top",
-    "webSummitLabel": "Invited as an alpha startup at Web Summit Lisbon"
+    "webSummitLabel": "Invited as an alpha startup at Web Summit Lisbon",
+    "productOf": "FreeBrain is a Product of"
   },
   "modal": {
     "cancel": "Cancel",

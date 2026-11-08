@@ -28,4 +28,26 @@ describe("localized SEO FAQ content", () => {
       });
     });
   });
+
+  it("keeps the whole About page — story, audiences and announcements — translated", () => {
+    const leaves = (value: unknown, prefix = ""): Array<[string, string]> => {
+      if (value && typeof value === "object") {
+        return Object.entries(value as Record<string, unknown>).flatMap(([key, child]) =>
+          leaves(child, prefix ? `${prefix}.${key}` : key),
+        );
+      }
+      return [[prefix, String(value)]];
+    };
+
+    const expected = leaves(en.about);
+    expect(expected.length).toBeGreaterThan(80);
+
+    Object.entries(locales).forEach(([lang, locale]) => {
+      const actual = leaves((locale as { about: unknown }).about);
+      expect(actual.map(([path]) => path), lang).toEqual(expected.map(([path]) => path));
+      actual.forEach(([path, copy]) => {
+        expect(copy.trim().length, `${lang}:${path}`).toBeGreaterThan(0);
+      });
+    });
+  });
 });

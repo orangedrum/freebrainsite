@@ -99,13 +99,12 @@ export const MovementPlanner = () => {
                     <AlertDescription className="text-sm text-foreground/90 pr-10">
                       <div className="flex flex-wrap items-baseline gap-x-2">
                         <p>{t("movementPlanner.disclaimer")}</p>
-                        <a
-                          href="#"
-                          onClick={(event) => event.preventDefault()}
+                        <Link
+                          to="/terms"
                           className="relative z-10 font-medium text-[0.7em] text-muted-foreground underline underline-offset-4 hover:text-foreground ml-auto"
                         >
                           {t("movementPlanner.disclaimerFull")}
-                        </a>
+                        </Link>
                       </div>
                     </AlertDescription>
                   </Alert>

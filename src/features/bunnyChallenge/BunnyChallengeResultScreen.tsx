@@ -1,4 +1,4 @@
-import { RotateCcw } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { BunnyChallengeRecordingControls } from "./BunnyChallengeRecordingControls";
@@ -33,9 +33,15 @@ export const BunnyChallengeResultScreen = ({
         <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
           {t("bunnyChallenge.elapsedLabel")}
         </p>
-        <p className="mt-1 text-4xl font-bold tabular-nums text-foreground">
-          {formatChallengeElapsedTime(elapsedMs)}
-        </p>
+        {/* Sized to the time so the emoji spans exactly as wide as the digits. */}
+        <div className="mx-auto w-fit">
+          <p className="text-4xl font-bold tabular-nums text-foreground">
+            {formatChallengeElapsedTime(elapsedMs)}
+          </p>
+          <p aria-hidden="true" className="text-center text-4xl leading-tight">
+            🧠
+          </p>
+        </div>
         <h2 className="mt-5 text-2xl font-bold text-foreground md:text-3xl">
           {t("bunnyChallenge.resultTitle")}
         </h2>
@@ -48,10 +54,20 @@ export const BunnyChallengeResultScreen = ({
           videoUrl={controller.status === "ready" ? controller.videoUrl : null}
           mimeType={controller.mimeType}
         />
-        <Button type="button" onClick={onTryAgain} className="mt-6 min-h-12">
-          <RotateCcw className="mr-2 h-4 w-4" aria-hidden="true" />
-          {t("bunnyChallenge.playAgain")}
+        <Button
+          asChild
+          type="button"
+          className="mt-6 min-h-12 w-full bg-brand text-white hover:bg-brand-hover"
+        >
+          <Link to="/#platform">{t("bunnyChallenge.whatIsFreeBrain")}</Link>
         </Button>
+        <button
+          type="button"
+          onClick={onTryAgain}
+          className="mt-4 text-sm font-medium text-muted-foreground underline underline-offset-4 transition-colors hover:text-foreground"
+        >
+          {t("bunnyChallenge.playAgain")}
+        </button>
       </section>
     </div>
   );

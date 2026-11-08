@@ -139,3 +139,51 @@ All colors MUST be HSL.
     @apply bg-background text-foreground;
   }
 }
+
+/* ── Global partnership announcement banner ───────────────────────────────
+   The Web Summit palette the way the image carries it: glows of magenta →
+   violet → indigo → deep blue sitting on near-black, no green in the run.
+   Dark enough that the white type and both partner marks stay legible on
+   every stop. */
+.announcement-wash {
+  background-color: #0a0a12;
+  background-image: linear-gradient(
+    135deg,
+    #7d1244 0%,
+    #4a1877 25%,
+    #2b2f9c 52%,
+    #123a72 100%
+  );
+}
+
+/* One glint crossing the strip on a loop — the "shining" beat. */
+.announcement-glint {
+  background-image: linear-gradient(
+    105deg,
+    rgba(255, 255, 255, 0) 38%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 62%
+  );
+  background-size: 260% 100%;
+  background-repeat: no-repeat;
+  animation: announcement-glint-sweep 6s ease-in-out infinite;
+}
+
+@keyframes announcement-glint-sweep {
+  0% {
+    background-position: -80% 0;
+  }
+  40% {
+    background-position: 180% 0;
+  }
+  100% {
+    background-position: 180% 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .announcement-glint {
+    animation: none;
+    opacity: 0;
+  }
+}

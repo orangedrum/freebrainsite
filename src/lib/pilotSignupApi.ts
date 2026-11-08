@@ -127,30 +127,59 @@ export const handlePilotSignup = async (request: Request): Promise<Response> => 
   const submission = validatePilotSignup(payload);
   if (!submission) return getJsonResponse(400, { error: "invalid_submission" });
 
+  const submittedAt = new Date().toISOString();
+
+  // Written before any outbound email so a crash, a function timeout, or a
+  // filtered notification can never silently drop a partner sign-up: the full
+  // payload stays recoverable from Vercel -> Logs either way.
+  console.log(
+    JSON.stringify({
+      event: "pilot_signup_received",
+      submittedAt,
+      ipAddress,
+      submission,
+    }),
+  );
+
+  const auditFailure = (outcome: string, detail?: string): void => {
+    console.error(
+      JSON.stringify({
+        event: "pilot_signup_failed",
+        outcome,
+        ...(detail ? { detail } : {}),
+        submittedAt,
+        ipAddress,
+      }),
+    );
+  };
+
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    console.error("Pilot signup email service unavailable: RESEND_API_KEY is not configured.");
+    auditFailure("email_service_unavailable", "RESEND_API_KEY is not configured");
     return getJsonResponse(503, { error: "email_service_unavailable" });
   }
 
-  const submittedAt = new Date().toISOString();
   try {
     const recordSent = await sendPilotEmail(
       apiKey,
       createPilotRecordEmail(submission, submittedAt, ipAddress),
     );
-    if (!recordSent) return getJsonResponse(502, { error: "record_email_failed" });
+    if (!recordSent) {
+      auditFailure("record_email_failed");
+      return getJsonResponse(502, { error: "record_email_failed" });
+    }
 
     const confirmationSent = await sendPilotEmail(
       apiKey,
       createPilotConfirmationEmail(submission),
     );
     if (!confirmationSent) {
+      auditFailure("confirmation_email_failed_record_sent");
       return getJsonResponse(502, { error: "confirmation_email_failed_record_sent" });
     }
   } catch (error) {
     const errorName = error instanceof Error ? error.name : "UnknownError";
-    console.error("Pilot signup email request failed:", errorName);
+    auditFailure("email_delivery_failed", errorName);
     return getJsonResponse(502, { error: "email_delivery_failed" });
   }
 

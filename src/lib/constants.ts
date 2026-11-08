@@ -43,6 +43,7 @@ export const EXTERNAL_LINKS = {
   calendly:
     "https://calendly.com/jean-kaluza/app-idea-day-1-facilitation-clone",
   pilotForm: "https://jq8ounso.forms.app/freethebrains-participation",
+  centroFisioterapia: "https://centrofisioterapialisboa.pt/",
   mailingList: "https://share.forms.app/theproductshift/freethebrains-participation",
   productShift: "https://www.theproductshift.com",
   webSummit:

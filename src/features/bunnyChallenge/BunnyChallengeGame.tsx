@@ -80,6 +80,16 @@ export const BunnyChallengeGame = () => {
     recording.stopRecording();
   };
 
+  // The hook auto-ends the run at the 90s limit; the recorder does not know
+  // about that limit, so stop it whenever the run ends on its own. The manual
+  // STOP button already stops both, so the status guard keeps this from
+  // firing twice.
+  useEffect(() => {
+    if (phase === "result" && recording.status === "recording") {
+      recording.stopRecording();
+    }
+  }, [phase, recording.status, recording]);
+
   const returnToIntro = (): void => {
     recording.discardRecording();
     resetChallenge();

@@ -1,4 +1,5 @@
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, Rocket } from "lucide-react";
 import { VideoPlayer } from "@/components/shared/VideoPlayer";
@@ -45,7 +46,7 @@ export const OnDemandTherapySection = ({ onOpenModal }: OnDemandTherapySectionPr
             </li>
           ))}
         </ul>
-        <div className="pt-2">
+        <div className="pt-2 flex flex-wrap items-center gap-3">
           <Button
             className="bg-primary text-brand hover:bg-primary/90 border-0"
             onClick={() =>
@@ -59,6 +60,13 @@ export const OnDemandTherapySection = ({ onOpenModal }: OnDemandTherapySectionPr
             }
           >
             {t("onDemand.joinPilot")}
+          </Button>
+          {/* Blue counterpart to the white Join Pilot pill */}
+          <Button
+            asChild
+            className="border border-foreground/20 bg-brand text-white shadow-md hover:bg-brand-hover"
+          >
+            <Link to="/about">{t("hero.learnMore")}</Link>
           </Button>
         </div>
       </div>

@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -8,7 +9,8 @@ import {
 export interface FaqAccordionItem {
   id: string;
   question: string;
-  answer: string;
+  /** Plain copy or JSX — answers may carry inline links. */
+  answer: ReactNode;
 }
 
 interface FaqAccordionProps {

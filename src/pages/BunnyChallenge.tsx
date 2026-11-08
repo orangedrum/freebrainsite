@@ -81,7 +81,7 @@ const BunnyChallenge = () => {
                     <div className="flex flex-wrap items-baseline gap-x-2">
                       <p>{t("movementPlanner.disclaimer")}</p>
                       <Link
-                        to="/movement-planner#"
+                        to="/terms"
                         className="relative z-10 ml-auto text-[0.7em] font-medium text-muted-foreground underline underline-offset-4 hover:text-foreground"
                       >
                         {t("movementPlanner.disclaimerFull")}

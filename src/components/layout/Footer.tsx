@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Instagram, Facebook, ArrowUp } from "lucide-react";
 import { LOGO_URL, FIREFLY_LOGO_URL, EXTERNAL_LINKS } from "@/lib/constants";
 import { TikTokIcon } from "@/components/shared/TikTokIcon";
@@ -8,9 +8,21 @@ import { scrollToSection } from "@/lib/navigation";
 /** Site footer — brand, explore + resources columns, socials, incubator badge. */
 export const Footer = () => {
   const { t } = useTranslation();
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
 
   const scrollToTop = (): void => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // On the home page the section is right there; anywhere else (e.g. /about)
+  // navigate first so the anchor exists to scroll to.
+  const handleGetInvolved = (): void => {
+    if (pathname === "/") {
+      scrollToSection("get-involved");
+      return;
+    }
+    navigate("/#get-involved");
   };
 
   return (
@@ -70,6 +82,14 @@ export const Footer = () => {
             </li>
             <li>
               <Link
+                to="/about"
+                className="text-muted-foreground hover:text-foreground transition-colors"
+              >
+                {t("header.about")}
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/team"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
@@ -95,7 +115,7 @@ export const Footer = () => {
             <li>
               <button
                 type="button"
-                onClick={() => scrollToSection("get-involved")}
+                onClick={handleGetInvolved}
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
                 {t("header.getInvolved")}
@@ -144,7 +164,7 @@ export const Footer = () => {
       <div className="border-t border-foreground/10">
         <div className="container mx-auto px-4 md:px-6 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
           <p>{t("footer.copyright", { year: new Date().getFullYear() })}</p>
-          <div className="flex items-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-4">
             <a
               href={EXTERNAL_LINKS.instagram}
               target="_blank"
@@ -180,6 +200,23 @@ export const Footer = () => {
               <ArrowUp className="h-4 w-4" />
               {t("footer.backToTop")}
             </button>
+            {/* Bottom-right credit — the studio behind FreeBrain */}
+            <a
+              href={EXTERNAL_LINKS.productShift}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 hover:text-foreground transition-colors"
+            >
+              <span className="text-xs">{t("footer.productOf")}</span>
+              <img
+                src="/productshiftLogo.png"
+                alt="ProductShift"
+                width={200}
+                height={200}
+                loading="lazy"
+                className="h-6 w-auto object-contain"
+              />
+            </a>
           </div>
         </div>
       </div>

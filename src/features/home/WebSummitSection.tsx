@@ -51,6 +51,7 @@ export const WebSummitSection = () => {
             {t("websummit.title")}
           </h2>
           <p className="text-lg font-semibold text-foreground">{t("websummit.dates")}</p>
+          <p className="text-lg font-semibold text-brand-pink">{t("websummit.booth")}</p>
           <p className="text-lg text-foreground/90">{t("websummit.description")}</p>
           <Link
             to="/lisbon-pilot"

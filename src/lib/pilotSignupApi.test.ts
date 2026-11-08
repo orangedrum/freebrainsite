@@ -1,5 +1,5 @@
 // @vitest-environment node
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { handlePilotSignup } from "./pilotSignupApi";
 
 const validSubmission = {
@@ -42,6 +42,13 @@ const mockResend = (statuses: number[] = [200, 200]) => {
 afterEach(() => {
   vi.unstubAllGlobals();
   vi.unstubAllEnvs();
+  vi.restoreAllMocks();
+});
+
+// The API logs every payload; keep suite output readable.
+beforeEach(() => {
+  vi.spyOn(console, "log").mockImplementation(() => {});
+  vi.spyOn(console, "error").mockImplementation(() => {});
 });
 
 describe("handlePilotSignup", () => {
@@ -221,5 +228,55 @@ describe("handlePilotSignup", () => {
     const response = await handlePilotSignup(createRequest(validSubmission, ipAddress));
 
     expect(response.status).toBe(429);
+  });
+
+  it("logs the full payload before sending so a lost email cannot drop a signup", async () => {
+    vi.stubEnv("RESEND_API_KEY", "test-resend-key");
+    mockResend([500]);
+    const logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+    const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+
+    const response = await handlePilotSignup(
+      createRequest(validSubmission, "203.0.113.25"),
+    );
+
+    expect(response.status).toBe(502);
+
+    const received = logSpy.mock.calls
+      .map((call) => String(call[0]))
+      .find((line) => line.includes("pilot_signup_received"));
+    expect(received).toBeDefined();
+    const parsedReceived = JSON.parse(received as string);
+    expect(parsedReceived.submission.email).toBe("ada@example.com");
+    expect(parsedReceived.submission.institution).toBe("Lisbon Clinic");
+    expect(parsedReceived.ipAddress).toBe("203.0.113.25");
+
+    const failed = errorSpy.mock.calls
+      .map((call) => String(call[0]))
+      .find((line) => line.includes("pilot_signup_failed"));
+    expect(failed).toBeDefined();
+    expect(JSON.parse(failed as string).outcome).toBe("record_email_failed");
+
+    logSpy.mockRestore();
+    errorSpy.mockRestore();
+  });
+
+  it("logs a failure when the record email is never attempted", async () => {
+    const errorSpy = vi.spyOn(console, "error").mockImplementation(() => {});
+    const logSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+
+    const response = await handlePilotSignup(
+      createRequest(validSubmission, "203.0.113.26"),
+    );
+
+    expect(response.status).toBe(503);
+    const failed = errorSpy.mock.calls
+      .map((call) => String(call[0]))
+      .find((line) => line.includes("pilot_signup_failed"));
+    expect(failed).toBeDefined();
+    expect(JSON.parse(failed as string).outcome).toBe("email_service_unavailable");
+
+    logSpy.mockRestore();
+    errorSpy.mockRestore();
   });
 });

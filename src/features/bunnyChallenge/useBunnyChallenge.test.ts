@@ -1,6 +1,10 @@
 import { act, renderHook } from "@testing-library/react";
 import { afterEach, describe, expect, it, vi } from "vitest";
-import { getBeatIntervalMs, useBunnyChallenge } from "./useBunnyChallenge";
+import {
+  CHALLENGE_LIMIT_MS,
+  getBeatIntervalMs,
+  useBunnyChallenge,
+} from "./useBunnyChallenge";
 
 const advanceCountdown = (): void => {
   for (let second = 0; second < 3; second += 1) {
@@ -70,6 +74,7 @@ describe("useBunnyChallenge", () => {
     expect(result.current.pattern).toBe("bunnyRight");
     act(() => vi.advanceTimersByTime(3750));
     expect(result.current.pattern).toBe("bunnyLeft");
+    // The original rhythm is preserved beat-for-beat up to the 30s mark.
     expect(getBeatIntervalMs(0)).toBe(5000);
     expect(getBeatIntervalMs(1)).toBe(4000);
     expect(getBeatIntervalMs(2)).toBe(3750);
@@ -77,14 +82,47 @@ describe("useBunnyChallenge", () => {
     expect(getBeatIntervalMs(4)).toBe(3300);
     expect(getBeatIntervalMs(5)).toBe(3000);
     expect(getBeatIntervalMs(6)).toBe(3000);
-    expect(getBeatIntervalMs(10)).toBe(3000);
-    expect(getBeatIntervalMs(11)).toBe(2800);
-    expect(getBeatIntervalMs(21)).toBe(1000);
-    expect(getBeatIntervalMs(30)).toBe(1000);
+    expect(getBeatIntervalMs(8)).toBe(3000);
+    // Past 30s it eases down monotonically toward a 0.5s flip at the 90s cap.
+    expect(getBeatIntervalMs(9)).toBe(2933);
+    expect(getBeatIntervalMs(10)).toBe(2807);
+    expect(getBeatIntervalMs(10)).toBeLessThan(getBeatIntervalMs(9));
+    expect(getBeatIntervalMs(30)).toBe(1163);
+    expect(getBeatIntervalMs(100)).toBe(500);
 
     act(() => result.current.stopChallenge());
     const stoppedPattern = result.current.pattern;
     act(() => vi.advanceTimersByTime(5000));
     expect(result.current.pattern).toBe(stoppedPattern);
+  });
+
+  it("eases the flip interval down after 30s and never exceeds 3000ms again", () => {
+    let previous = getBeatIntervalMs(8);
+    for (let beatIndex = 9; beatIndex < 60; beatIndex += 1) {
+      const interval = getBeatIntervalMs(beatIndex);
+      expect(interval).toBeLessThanOrEqual(previous);
+      expect(interval).toBeLessThanOrEqual(3000);
+      previous = interval;
+    }
+    expect(previous).toBe(500);
+  });
+
+  it("auto-stops at the 90s limit and freezes the time exactly on it", () => {
+    vi.useFakeTimers();
+    const { result } = renderHook(() => useBunnyChallenge());
+
+    act(() => result.current.startChallenge());
+    advanceCountdown();
+    expect(result.current.phase).toBe("playing");
+
+    act(() => vi.advanceTimersByTime(CHALLENGE_LIMIT_MS + 500));
+
+    expect(result.current.phase).toBe("result");
+    expect(result.current.elapsedMs).toBe(CHALLENGE_LIMIT_MS);
+
+    // Time stays frozen at the cap rather than ticking past it.
+    act(() => vi.advanceTimersByTime(5000));
+    expect(result.current.elapsedMs).toBe(CHALLENGE_LIMIT_MS);
+    expect(result.current.phase).toBe("result");
   });
 });

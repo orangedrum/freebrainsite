@@ -13,7 +13,17 @@ import {
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { ResearchCitation } from "@/components/shared/ResearchCitation";
 
-export const MovementPageMeta = () => {
+interface MovementPageMetaProps {
+  /** Current-page breadcrumb label; defaults to the movements title. */
+  breadcrumbTitle?: string;
+  /** Destination of the research byline's team link. */
+  researchHref?: string;
+}
+
+export const MovementPageMeta = ({
+  breadcrumbTitle,
+  researchHref = "#movement-research",
+}: MovementPageMetaProps) => {
   const { t } = useTranslation();
   const [isAlertDismissed, setIsAlertDismissed] = useState(false);
 
@@ -28,7 +38,9 @@ export const MovementPageMeta = () => {
           </BreadcrumbItem>
           <BreadcrumbSeparator />
           <BreadcrumbItem>
-            <BreadcrumbPage>{t("movements.title")}</BreadcrumbPage>
+            <BreadcrumbPage>
+              {breadcrumbTitle ?? t("movements.title")}
+            </BreadcrumbPage>
           </BreadcrumbItem>
         </BreadcrumbList>
       </Breadcrumb>
@@ -39,12 +51,12 @@ export const MovementPageMeta = () => {
             <AlertDescription className="pr-10 text-sm text-foreground/90">
               <div className="flex flex-wrap items-baseline gap-x-2">
                 <p>{t("movementPlanner.disclaimer")}</p>
-                <a
-                  href="/movement-planner#"
+                <Link
+                  to="/terms"
                   className="relative z-10 ml-auto text-[0.7em] font-medium text-muted-foreground underline underline-offset-4 hover:text-foreground"
                 >
                   {t("movementPlanner.disclaimerFull")}
-                </a>
+                </Link>
               </div>
             </AlertDescription>
           </Alert>
@@ -59,7 +71,7 @@ export const MovementPageMeta = () => {
         </div>
       )}
 
-      <ResearchCitation href="#movement-research" />
+      <ResearchCitation href={researchHref} />
     </div>
   );
 };
