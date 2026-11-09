@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useLayoutEffect, useRef, useState } from "react";
-import fixWebmDuration from "fix-webm-duration";
+import { applyRecordingDuration } from "./applyRecordingDuration";
 import {
   drawBunnyChallengeVideoFrame,
   type BunnyChallengeRecordingScene,
@@ -190,20 +190,13 @@ export const useBunnyChallengeRecording = (
         }
 
         void (async (): Promise<void> => {
-          let videoBlob = new Blob(chunks, { type: recordedMimeType });
-
-          // MediaRecorder writes WebM files without a Duration element, so
-          // phone players report/play only a few seconds of a longer take.
-          // Patch the duration in before the blob is handed out.
-          if (durationMs > 0 && recordedMimeType?.includes("webm")) {
-            try {
-              videoBlob = await fixWebmDuration(videoBlob, durationMs, {
-                logger: false,
-              });
-            } catch {
-              // Keep the unfixed blob rather than losing the recording.
-            }
-          }
+          // Neither container MediaRecorder emits carries a usable duration, so
+          // stamp the measured one in before the blob is handed out.
+          const videoBlob = await applyRecordingDuration(
+            new Blob(chunks, { type: recordedMimeType }),
+            recordedMimeType,
+            durationMs,
+          );
 
           if (!isMountedRef.current) return;
           if (!videoBlob.size) {
