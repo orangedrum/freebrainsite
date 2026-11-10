@@ -19,7 +19,6 @@ import { LOGO_URL } from "@/lib/constants";
 export const useBunnyChallengeRecording = (
   scene: BunnyChallengeRecordingScene,
 ) => {
-  const [isRecordingSelected, setIsRecordingSelected] = useState(false);
   const [status, setStatus] = useState<RecordingStatus>("idle");
   const [error, setError] = useState<RecordingError | null>(null);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
@@ -309,10 +308,8 @@ export const useBunnyChallengeRecording = (
     canvasRef,
     discardRecording,
     error,
-    isRecordingSelected,
     mimeType,
     posterUrl,
-    setIsRecordingSelected,
     startRecording,
     status,
     stopRecording,

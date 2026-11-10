@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Camera, CameraOff, Check, Play, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Switch } from "@/components/ui/switch";
 import {
   Dialog,
   DialogContent,
@@ -13,18 +12,16 @@ import {
 import type { useBunnyChallengeRecording } from "./useBunnyChallengeRecording";
 
 type RecordingController = ReturnType<typeof useBunnyChallengeRecording>;
-type RecordingControlsMode = "setup" | "live" | "result";
+type RecordingControlsMode = "live" | "result";
 
 interface BunnyChallengeRecordingControlsProps {
   controller: RecordingController;
   mode: RecordingControlsMode;
-  onContinueWithoutRecording?: () => void;
 }
 
 export const BunnyChallengeRecordingControls = ({
   controller,
   mode,
-  onContinueWithoutRecording,
 }: BunnyChallengeRecordingControlsProps) => {
   const { t } = useTranslation();
   const previewVideoRef = useRef<HTMLVideoElement>(null);
@@ -48,59 +45,6 @@ export const BunnyChallengeRecordingControls = ({
 
   return (
     <div className="space-y-3">
-      {mode === "setup" && (
-        <div className="space-y-3 rounded-xl border border-foreground/10 bg-background/70 p-4">
-          <div className="flex items-start gap-3">
-            <div className="flex-1">
-              <label
-                htmlFor="bunny-recording-consent"
-                className="cursor-pointer font-semibold text-foreground"
-              >
-                {t("bunnyChallenge.recordingOptIn")}
-              </label>
-              <p className="mt-1 text-sm text-muted-foreground">
-                {t("bunnyChallenge.recordingConsent")}
-              </p>
-            </div>
-            <Switch
-              id="bunny-recording-consent"
-              checked={controller.isRecordingSelected}
-              disabled={Boolean(controller.support.error)}
-              onCheckedChange={controller.setIsRecordingSelected}
-              aria-label={t("bunnyChallenge.recordingOptIn")}
-              className="mt-1 shrink-0"
-            />
-            <Video aria-hidden="true" className="h-6 w-6 shrink-0 text-primary" />
-          </div>
-          {controller.support.error && (
-            <p className="text-sm text-muted-foreground" role="status">
-              {t(`bunnyChallenge.${controller.support.error}`)}
-            </p>
-          )}
-          {controller.error && (
-            <div className="space-y-2" role="alert">
-              <p className="text-sm text-danger">
-                {t(`bunnyChallenge.${controller.error}`)}
-              </p>
-              {controller.isRecordingSelected && onContinueWithoutRecording && (
-                <Button
-                  type="button"
-                  variant="outline"
-                  onClick={onContinueWithoutRecording}
-                >
-                  {t("bunnyChallenge.recordingContinueWithout")}
-                </Button>
-              )}
-            </div>
-          )}
-          {controller.status === "requesting" && (
-            <p className="text-sm text-muted-foreground" role="status">
-              {t("bunnyChallenge.recordingStarting")}
-            </p>
-          )}
-        </div>
-      )}
-
       {mode === "result" && (
         <div className="space-y-3">
           {hasVideo ? (

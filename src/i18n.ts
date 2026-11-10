@@ -51,6 +51,24 @@ i18n
   });
 
 /**
+ * Keeps `<html lang>` in step with the active language. index.html ships
+ * `lang="en"`, and every later change — the switcher or the geo fallback —
+ * must update it so screen readers, browsers and search engines read the
+ * page in the language it is actually written in.
+ */
+const syncDocumentLanguage = (): void => {
+  if (typeof document === "undefined") return;
+  // `resolvedLanguage` maps detector values such as "en-US" onto the
+  // supported base language ("en") that the translations actually use.
+  const language = i18n.resolvedLanguage ?? i18n.language ?? "en";
+  document.documentElement.lang = language.split("-")[0];
+};
+i18n.on("languageChanged", syncDocumentLanguage);
+// Covers the case where init finished before these listeners were attached.
+i18n.on("initialized", syncDocumentLanguage);
+syncDocumentLanguage();
+
+/**
  * Language priority:
  * 1. Manual switcher choice (localStorage)
  * 2. Browser language, when supported (English included)

@@ -1,42 +1,17 @@
-import { ArrowRight, Hand, Heart } from "lucide-react";
+import { ArrowRight, Hand } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { BunnyChallengeRecordingControls } from "./BunnyChallengeRecordingControls";
-import type { useBunnyChallengeRecording } from "./useBunnyChallengeRecording";
-
-type RecordingController = ReturnType<typeof useBunnyChallengeRecording>;
 
 interface BunnyChallengeIntroProps {
-  controller: RecordingController;
+  /** Opens the record-or-skip prompt; the consent choice lives in that modal. */
   onGo: () => void;
-  onContinueWithoutRecording: () => void;
 }
 
-export const BunnyChallengeIntro = ({
-  controller,
-  onGo,
-  onContinueWithoutRecording,
-}: BunnyChallengeIntroProps) => {
+export const BunnyChallengeIntro = ({ onGo }: BunnyChallengeIntroProps) => {
   const { t } = useTranslation();
-  const isRecordingSelected = controller.isRecordingSelected;
 
   return (
-    <div
-      className={`relative mx-auto max-w-3xl rounded-2xl border p-6 text-center shadow-lg transition-colors md:p-10 ${
-        isRecordingSelected
-          ? "border-brand-accent/70 bg-brand-accent/5"
-          : "border-foreground/10 bg-background/70"
-      }`}
-    >
-      {isRecordingSelected && (
-        <>
-          <Heart className="absolute left-4 top-4 h-6 w-6 fill-brand-accent/20 text-brand-accent" aria-hidden="true" />
-          <Heart className="absolute right-4 top-4 h-6 w-6 fill-brand-accent/20 text-brand-accent" aria-hidden="true" />
-          <Heart className="absolute bottom-4 left-4 h-6 w-6 fill-brand-accent/20 text-brand-accent" aria-hidden="true" />
-          <Heart className="absolute bottom-4 right-4 h-6 w-6 fill-brand-accent/20 text-brand-accent" aria-hidden="true" />
-        </>
-      )}
+    <div className="mx-auto max-w-3xl rounded-2xl border border-foreground/10 bg-background/70 p-6 text-center shadow-lg md:p-10">
       <h2 className="text-3xl font-bold text-foreground md:text-4xl">
         {t("bunnyChallenge.prepareTitle")}
       </h2>
@@ -58,39 +33,6 @@ export const BunnyChallengeIntro = ({
           </div>
         </section>
 
-        <section
-          className={`rounded-xl border p-4 transition-colors sm:p-5 ${
-            isRecordingSelected
-              ? "border-brand-accent/50 bg-brand-accent/10"
-              : "border-foreground/10 bg-background/60"
-          }`}
-        >
-          <h3 className="text-lg font-bold text-foreground sm:text-xl">
-            {t("bunnyChallenge.recordStepTitle")}
-          </h3>
-          <p className="mt-2 text-sm text-foreground/90 sm:text-base">
-            {t("bunnyChallenge.recordStepBody")}
-          </p>
-          {isRecordingSelected && (
-            <p className="mt-2 text-lg font-bold text-brand-accent sm:text-xl" role="status">
-              {t("bunnyChallenge.recordingThanks")}
-            </p>
-          )}
-          <div className="mt-4">
-            <BunnyChallengeRecordingControls
-              controller={controller}
-              mode="setup"
-              onContinueWithoutRecording={onContinueWithoutRecording}
-            />
-          </div>
-          <Link
-            to="/terms"
-            className="mt-3 inline-block text-sm text-foreground/80 underline underline-offset-4 hover:text-foreground"
-          >
-            {t("bunnyChallenge.termsLink")}
-          </Link>
-        </section>
-
         <section className="rounded-xl bg-secondary/60 p-4 text-center sm:p-5">
           <h3 className="text-lg font-bold text-foreground sm:text-xl">
             {t("bunnyChallenge.beginStepTitle")}
@@ -98,7 +40,6 @@ export const BunnyChallengeIntro = ({
           <Button
             type="button"
             onClick={onGo}
-            disabled={controller.status === "requesting"}
             className="mt-5 min-h-14 min-w-48 text-lg"
           >
             {t("bunnyChallenge.go")}

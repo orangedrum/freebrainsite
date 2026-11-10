@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { BunnyChallengeIntro } from "./BunnyChallengeIntro";
+import { BunnyChallengeRecordPrompt } from "./BunnyChallengeRecordPrompt";
 import { BunnyChallengePlayScreen } from "./BunnyChallengePlayScreen";
 import { BunnyChallengeResultScreen } from "./BunnyChallengeResultScreen";
 import { useBunnyChallenge } from "./useBunnyChallenge";
@@ -17,6 +18,7 @@ const PLAY_MESSAGE_KEYS = [
 export const BunnyChallengeGame = () => {
   const { t } = useTranslation();
   const [factIndex, setFactIndex] = useState(0);
+  const [isRecordPromptOpen, setIsRecordPromptOpen] = useState(false);
   const challengeFrameRef = useRef<HTMLElement>(null);
   const {
     countdownValue,
@@ -62,15 +64,25 @@ export const BunnyChallengeGame = () => {
     return () => window.cancelAnimationFrame(scrollFrame);
   }, [phase]);
 
-  const startChallengeFromIntro = async (): Promise<void> => {
-    if (recording.isRecordingSelected && !(await recording.startRecording())) return;
+  // Every press of Go gets a fresh consent choice, so clear any earlier
+  // attempt before showing the prompt.
+  const openRecordPrompt = (): void => {
+    recording.discardRecording();
+    setIsRecordPromptOpen(true);
+  };
+
+  const startChallengeWithRecording = async (): Promise<void> => {
+    // A failed camera request keeps the prompt open so the error copy and
+    // "Don't Record Me" stay available.
+    if (!(await recording.startRecording())) return;
+    setIsRecordPromptOpen(false);
     setFactIndex(0);
     startChallenge();
   };
 
   const startWithoutRecording = (): void => {
     recording.discardRecording();
-    recording.setIsRecordingSelected(false);
+    setIsRecordPromptOpen(false);
     setFactIndex(0);
     startChallenge();
   };
@@ -92,6 +104,7 @@ export const BunnyChallengeGame = () => {
 
   const returnToIntro = (): void => {
     recording.discardRecording();
+    setIsRecordPromptOpen(false);
     resetChallenge();
   };
 
@@ -110,11 +123,16 @@ export const BunnyChallengeGame = () => {
       className="scroll-mt-24 rounded-2xl border border-foreground/10 bg-secondary p-2 sm:p-3"
     >
       {phase === "intro" && (
-        <BunnyChallengeIntro
-          controller={recording}
-          onGo={() => void startChallengeFromIntro()}
-          onContinueWithoutRecording={startWithoutRecording}
-        />
+        <>
+          <BunnyChallengeIntro onGo={openRecordPrompt} />
+          <BunnyChallengeRecordPrompt
+            open={isRecordPromptOpen}
+            controller={recording}
+            onOpenChange={setIsRecordPromptOpen}
+            onRecord={() => void startChallengeWithRecording()}
+            onSkip={startWithoutRecording}
+          />
+        </>
       )}
       {(phase === "countdown" || phase === "playing") && (
         <BunnyChallengePlayScreen
